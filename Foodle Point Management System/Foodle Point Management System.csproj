@@ -214,8 +214,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shared_Class_Library\Shared Class Library.csproj">
-      <Project>{41152c56-dfab-4369-9f43-802342ab6697}</Project>
+    <ProjectReference Include="..\Shared Class Library\Shared Class Library.csproj">
+      <Project>{07b15f4a-3c0a-48fb-9c5f-1a4f7b862586}</Project>
       <Name>Shared Class Library</Name>
     </ProjectReference>
   </ItemGroup>
