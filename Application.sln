@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared Class Library", "IOOP-Assignment-Shared-Resources\Shared Class Library\Shared Class Library.csproj", "{D23088B4-657D-4B1A-AFB9-BB6EE5530323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodle Point Management System", "Foodle Point Management System\Foodle Point Management System.csproj", "{DC85525F-9C21-4E0C-9BC5-85926DC3399E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D23088B4-657D-4B1A-AFB9-BB6EE5530323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23088B4-657D-4B1A-AFB9-BB6EE5530323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23088B4-657D-4B1A-AFB9-BB6EE5530323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23088B4-657D-4B1A-AFB9-BB6EE5530323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC85525F-9C21-4E0C-9BC5-85926DC3399E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC85525F-9C21-4E0C-9BC5-85926DC3399E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC85525F-9C21-4E0C-9BC5-85926DC3399E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC85525F-9C21-4E0C-9BC5-85926DC3399E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C23920E8-3C3B-4978-9795-7D7A3FF54FBE}
+	EndGlobalSection
+EndGlobal

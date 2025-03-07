@@ -1,0 +1,1 @@
+﻿drop table ItemOrder, Item, Customer, Employee
