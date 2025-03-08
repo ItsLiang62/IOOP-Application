@@ -196,11 +196,17 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="manage_menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="manage_menu.Designer.cs">
+      <DependentUpon>manage_menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager_main_page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager_main_page.Designer.cs">
+      <DependentUpon>manager_main_page.cs</DependentUpon>
     </Compile>
     <Compile Include="main_page.cs">
       <SubType>Form</SubType>
@@ -217,6 +223,12 @@
     <EmbeddedResource Include="employee_login.resx" />
     <EmbeddedResource Include="employee_sign_up.resx" />
     <EmbeddedResource Include="main_page.resx" />
+    <EmbeddedResource Include="manager_main_page.resx">
+      <DependentUpon>manager_main_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manage_menu.resx">
+      <DependentUpon>manage_menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
