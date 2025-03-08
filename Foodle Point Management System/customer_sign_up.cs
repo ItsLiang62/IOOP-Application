@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class customer_sign_up: Form
+    public partial class frmCustomerSignUp: Form
     {
-        public customer_sign_up()
+        public frmCustomerSignUp()
         {
             InitializeComponent();
+        }
+
+        private void btnReturnMain_Click(object sender, EventArgs e)
+        {
+            frmMain mainPage = new frmMain();
+            mainPage.Show();
+            this.Hide();
+        }
+
+        private void customer_sign_up_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
