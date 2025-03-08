@@ -45,5 +45,12 @@ namespace Foodle_Point_Management_System
             employeeSignUpPage.Show();
             this.Hide();
         }
+
+        private void llblSignUpCustomer_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmCustomerSignUp customerSignUpPage = new frmCustomerSignUp();
+            customerSignUpPage.Show();
+            this.Hide();
+        }
     }
 }

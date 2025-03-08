@@ -121,6 +121,7 @@
             this.llblSignUpCustomer.TabIndex = 7;
             this.llblSignUpCustomer.TabStop = true;
             this.llblSignUpCustomer.Text = "Sign Up as Customer";
+            this.llblSignUpCustomer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSignUpCustomer_LinkClicked_1);
             // 
             // frmMain
             // 
