@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class Form3: Form
+    public partial class frmManageMenu: Form
     {
-        public Form3()
+        public frmManageMenu()
         {
             InitializeComponent();
         }
