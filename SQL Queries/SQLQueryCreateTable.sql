@@ -81,7 +81,3 @@ IngredientNumber varchar(255) primary key,
 IngredientName varchar(255)
 
 );
-
-
--- adrian wrote this
--- badr wrote this
