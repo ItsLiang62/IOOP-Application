@@ -7,15 +7,30 @@ using Microsoft.Data.SqlClient;
 
 namespace Shared_Class_Library
 {
-    public class employee_table : table, ITable 
+    public class employeeTable : table 
     {
-        public employee_table(SqlConnection conn) : base(conn)
+        public employeeTable(SqlConnection conn) : base(conn)
         {
         }
 
         public void insertRow(string employeeID, string employeeName, string position, string gender, string email, string phoneNumber, string dob, string accountPassword)
         {
-            string query = "insert into Employee ("
+            string query = "INSERT INTO Employee (EmployeeID, EmployeeName, Position, Gender, Email, PhoneNumber, DOB, AccountPassword) " +
+                           "VALUES (@EmployeeID, @EmployeeName, @Position, @Gender, @Email, @PhoneNumber, @DOB, @AccountPassword)";
+
+            using (SqlCommand cmd = new SqlCommand(query, Conn))
+            {
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                cmd.Parameters.AddWithValue("@EmployeeName", employeeName);
+                cmd.Parameters.AddWithValue("@Position", position);
+                cmd.Parameters.AddWithValue("@Gender", gender);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                cmd.Parameters.AddWithValue("@DOB", dob);
+                cmd.Parameters.AddWithValue("@AccountPassword", accountPassword);
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
