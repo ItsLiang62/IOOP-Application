@@ -157,6 +157,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="table.cs" />
     <Compile Include="employee_table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
