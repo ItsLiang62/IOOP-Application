@@ -231,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="employee_login.resx" />
     <EmbeddedResource Include="employee_sign_up.resx" />
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main_page.resx" />
     <EmbeddedResource Include="manager_main_page.resx">
       <DependentUpon>manager_main_page.cs</DependentUpon>
