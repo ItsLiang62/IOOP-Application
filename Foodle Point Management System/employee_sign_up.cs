@@ -13,6 +13,12 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmEmployeeSignUp: Form
     {
+        private string EmployeeID
+        { get; set; }
+
+        private int EmployeeIDNum
+        { get; set; } = 0;
+
         private string FullName
         { get; set; }
 
@@ -53,10 +59,47 @@ namespace Foodle_Point_Management_System
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            string messageBoxErrorMessage;
+
+            employeeTable myEmployeeTable = new employeeTable("Data Source=10.101.43.35,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=***********;Encrypt=True;Trust Server Certificate=True");
+
+            if (AllInputValid(out messageBoxErrorMessage))
+            {
+                myEmployeeTable.insertRow("001", FullName, Position, Gender, Email, PhoneNum, DOB, Password);
+            }
         }
 
-        private bool AllInputValid()
+        private bool AllInputValid(out string messageBoxErrorMessage)
         {
+            InputChecker myChecker = new InputChecker();
+
+            string eName;
+            string eDOB;
+            string eEmail;
+            string ePhoneNum;
+
+            bool validName = myChecker.IsTextOnly(FullName, out eName);
+            bool validDate = myChecker.IsValidDate(DOB, out eDOB);
+            bool validEmail = myChecker.IsValidEmail(Email, out eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(PhoneNum, out ePhoneNum);
+
+            messageBoxErrorMessage = "";
+
+            if (!(validName && validDate && validEmail && validPhoneNum))
+            {
+
+                foreach (string error in new string[] {eName, eDOB, eEmail, ePhoneNum})
+                {
+                    if (error != "No error")
+                    {
+                        messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
+                    }
+                }
+
+                return false;
+            }
+
+            messageBoxErrorMessage = "No error";
             return true;
         }
     }

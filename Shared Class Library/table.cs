@@ -9,12 +9,12 @@ namespace Shared_Class_Library
 {
     public abstract class table
     {
-        protected SqlConnection Conn
+        protected string ConnectionString
         { get; set; }
 
-        public table(SqlConnection conn)
+        public table(string connectionString)
         {
-            Conn = conn;
+            ConnectionString = connectionString;
         }
     }
 }
