@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class Form1: Form
+    public partial class UpdateProfileForm : Form
     {
-        public Form1()
+        public UpdateProfileForm()
         {
             InitializeComponent();
         }
