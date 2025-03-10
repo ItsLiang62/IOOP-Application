@@ -12,6 +12,12 @@ namespace Shared_Class_Library
     {
         public bool IsTextOnly(string input, out string errorMessage)
         {
+            if (input == "")
+            {
+                errorMessage = "Input must not be empty";
+                return false;
+            }
+
             foreach (char c in input)
             {
                 if (!Char.IsLetter(c))
@@ -21,12 +27,18 @@ namespace Shared_Class_Library
                 }
             }
 
-            errorMessage = "No Error";
+            errorMessage = "No error";
             return true;
         }
 
         public bool IsValidPhoneNumber(string input, out string errorMessage)
         {
+            if (input == "")
+            {
+                errorMessage = "Phone number must be filled";
+                return false;
+            }
+
             foreach (char c in input)
             {
                 if (!Char.IsDigit(c))
@@ -62,7 +74,7 @@ namespace Shared_Class_Library
 
         public bool IsValidEmail(string input, out string errorMessage)
         {
-            string pattern = @"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]$";
+            string pattern = @"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$";
 
             if (!Regex.IsMatch(input, pattern))
             {

@@ -61,11 +61,23 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            employeeTable myEmployeeTable = new employeeTable("Data Source=10.101.43.35,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=***********;Encrypt=True;Trust Server Certificate=True");
+            employeeTable myEmployeeTable = new employeeTable("Data Source=10.101.35.229,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+
+            FullName = txtName.Text;
+            Position = cmbPosition.Text;
+            Gender = cmbGender.Text;
+            Email = txtEmail.Text;
+            PhoneNum = txtPhoneNum.Text;
+            DOB = txtDOB.Text;
+            Password = txtPassword.Text;
 
             if (AllInputValid(out messageBoxErrorMessage))
             {
                 myEmployeeTable.insertRow("001", FullName, Position, Gender, Email, PhoneNum, DOB, Password);
+            }
+            else
+            {
+                MessageBox.Show(messageBoxErrorMessage);
             }
         }
 
@@ -90,7 +102,7 @@ namespace Foodle_Point_Management_System
 
                 foreach (string error in new string[] {eName, eDOB, eEmail, ePhoneNum})
                 {
-                    if (error != "No error")
+                    if (!error.Equals("No error"))
                     {
                         messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
                     }
