@@ -184,6 +184,14 @@
     <Compile Include="customer_sign_up.Designer.cs">
       <DependentUpon>customer_sign_up.cs</DependentUpon>
     </Compile>
+    <Compile Include="Feedback.cs" />
+    <Compile Include="Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="food ordering.cs" />
+    <Compile Include="food ordering.Designer.cs">
+      <DependentUpon>food ordering.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,8 +234,16 @@
     <Compile Include="main_page.Designer.cs">
       <DependentUpon>main_page.cs</DependentUpon>
     </Compile>
+    <Compile Include="Profile .cs" />
+    <Compile Include="Profile .Designer.cs">
+      <DependentUpon>Profile .cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Viewing.cs" />
+    <Compile Include="Viewing.Designer.cs">
+      <DependentUpon>Viewing.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="chef_main_page.resx">
       <DependentUpon>chef_main_page.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,12 +253,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="employee_login.resx" />
     <EmbeddedResource Include="employee_sign_up.resx" />
+    <EmbeddedResource Include="Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="food ordering.resx">
+      <DependentUpon>food ordering.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main_page.resx" />
     <EmbeddedResource Include="manager_main_page.resx">
       <DependentUpon>manager_main_page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="manage_menu.resx">
       <DependentUpon>manage_menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile .resx">
+      <DependentUpon>Profile .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -253,6 +278,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Viewing.resx">
+      <DependentUpon>Viewing.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
