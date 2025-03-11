@@ -7,12 +7,12 @@ using Microsoft.Data.SqlClient;
 
 namespace Shared_Class_Library
 {
-    public abstract class table
+    public abstract class Table
     {
         protected string ConnectionString
         { get; set; }
 
-        public table(string connectionString)
+        public Table(string connectionString)
         {
             ConnectionString = connectionString;
         }

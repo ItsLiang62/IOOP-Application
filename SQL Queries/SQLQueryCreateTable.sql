@@ -14,7 +14,7 @@ EmployeeID varchar(255) primary key,
 EmployeeName varchar(255) not null,
 Position varchar(255) not null,
 Gender varchar(255) not null,
-Email varchar(255) not null,
+Email varchar(255) not null unique,
 PhoneNumber varchar(255) not null,
 DOB date,
 AccountPassword varchar(255) not null
