@@ -212,26 +212,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="Form2.cs">
+    <Compile Include="ManageReservationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="ManageReservationsForm.Designer.cs">
+      <DependentUpon>ManageReservationsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="ManageReservationsForm.resx">
+      <DependentUpon>ManageReservationsForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="manage_menu.cs">
       <SubType>Form</SubType>
@@ -268,6 +256,43 @@
     </Compile>
     <EmbeddedResource Include="main_page.resx">
       <DependentUpon>main_page.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <Compile Include="Resv_Main_Page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resv_Main_Page.Designer.cs">
+      <DependentUpon>Resv_Main_Page.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resv_Main_Page.resx">
+      <DependentUpon>Resv_Main_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UpdateProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProfileForm.Designer.cs">
+      <DependentUpon>UpdateProfileForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UpdateProfileForm.resx">
+      <DependentUpon>UpdateProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UpdateReservationStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateReservationStatusForm.Designer.cs">
+      <DependentUpon>UpdateReservationStatusForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UpdateReservationStatusForm.resx">
+      <DependentUpon>UpdateReservationStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="ViewCustomerRequestsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCustomerRequestsForm.Designer.cs">
+      <DependentUpon>ViewCustomerRequestsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ViewCustomerRequestsForm.resx">
+      <DependentUpon>ViewCustomerRequestsForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Viewing.cs">
       <SubType>Form</SubType>

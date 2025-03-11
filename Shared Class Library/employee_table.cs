@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -176,6 +177,7 @@ namespace Shared_Class_Library
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
+
                 string query = @"
                     SELECT TOP 1 EmployeeID
                     FROM Employee 
@@ -204,6 +206,56 @@ namespace Shared_Class_Library
                     }
                 }
 
+            }
+        }
+
+        public void UpdateValue(string employeeID, string column, object newValue)
+        {
+            List<string> allowedColumns = new List<string> { "EmployeeID", "EmployeeName", "Position", "Gender", "Email", "PhoneNumber", "DOB", "AccountPassword" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                MessageBox.Show("Invalid column name. Please enter a correct column.");
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE Employee SET {column} = @newValue WHERE EmployeeID = @employeeID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@newValue", newValue);
+                    cmd.Parameters.AddWithValue("@employeeID", employeeID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. Record not found.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteRow(string employeeID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE * FROM Employee WHERE EmployeeID = @employeeID";
+
+                
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("No Employee ID was found");
+                    }
+                }
             }
         }
     }
