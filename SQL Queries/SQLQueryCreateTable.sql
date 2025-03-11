@@ -59,7 +59,8 @@ ReservationID varchar(255) primary key,
 HallNumber varchar(255) not null,
 CustomerID varchar(255) not null,
 EventType varchar(255) not null,
-ReservationStatus varchar(255) not null
+ReservationStatus varchar(255) not null,
+Remarks varchar(255),
 foreign key (HallNumber) references Hall(HallNumber),
 foreign key (CustomerID) references Customer(CustomerID)
 
