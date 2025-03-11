@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Shared_Class_Library
 {
-    public class employeeTable : table 
+    public class EmployeeTable : Table 
     {
-        public employeeTable(string connectionString) : base(connectionString)
+        public EmployeeTable(string connectionString) : base(connectionString)
         {
         }
 
@@ -160,6 +161,45 @@ namespace Shared_Class_Library
                         else
                         {
                             throw new Exception("Cannot find Employee ID with the provided Email. Are you sure you entered the Email correctly?");
+                        }
+                    }
+                }
+
+            }
+        }
+
+        public string GetNewEmployeeID(string position)
+        {
+            string previousEmployeeID;
+            string newEmployeeID;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                string query = @"
+                    SELECT TOP 1 EmployeeID
+                    FROM Employee 
+                    WHERE Position = @position
+                    ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@position", position);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousEmployeeID = reader["EmployeeID"].ToString();
+                            int previousEmployeeIDNum = Convert.ToInt32(previousEmployeeID.Substring(1));
+                            int newEmployeeIDNum = previousEmployeeIDNum + 1;
+                            newEmployeeID = $"{previousEmployeeID[0]}{newEmployeeIDNum:D3}";
+
+                            return newEmployeeID;
+                        }
+                        else
+                        {
+                           return $"{position[0]}001".ToUpper();
                         }
                     }
                 }
