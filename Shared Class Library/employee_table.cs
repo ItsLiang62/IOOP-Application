@@ -176,6 +176,7 @@ namespace Shared_Class_Library
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
+
                 string query = @"
                     SELECT TOP 1 EmployeeID
                     FROM Employee 
@@ -200,6 +201,39 @@ namespace Shared_Class_Library
                         else
                         {
                            return $"{position[0]}001".ToUpper();
+                        }
+                    }
+                }
+
+            }
+        }
+
+        public void UpdateValue(string employeeID, string column, object newValue)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE Employee SET {column} = {newValue} WHERE EmployeeID = @";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@position", position);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousEmployeeID = reader["EmployeeID"].ToString();
+                            int previousEmployeeIDNum = Convert.ToInt32(previousEmployeeID.Substring(1));
+                            int newEmployeeIDNum = previousEmployeeIDNum + 1;
+                            newEmployeeID = $"{previousEmployeeID[0]}{newEmployeeIDNum:D3}";
+
+                            return newEmployeeID;
+                        }
+                        else
+                        {
+                            return $"{position[0]}001".ToUpper();
                         }
                     }
                 }
