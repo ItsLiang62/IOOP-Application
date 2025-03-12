@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCheckReservationStatus = new System.Windows.Forms.Button();
+            this.btnCheckreservationStatus = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lstOrders = new System.Windows.Forms.ListBox();
@@ -50,16 +50,16 @@
             this.label1.Text = "Check reservation status";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btnCheckReservationStatus
+            // btnCheckreservationStatus
             // 
-            this.btnCheckReservationStatus.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckReservationStatus.Location = new System.Drawing.Point(63, 121);
-            this.btnCheckReservationStatus.Name = "btnCheckReservationStatus";
-            this.btnCheckReservationStatus.Size = new System.Drawing.Size(125, 62);
-            this.btnCheckReservationStatus.TabIndex = 4;
-            this.btnCheckReservationStatus.Text = "view";
-            this.btnCheckReservationStatus.UseVisualStyleBackColor = true;
-            this.btnCheckReservationStatus.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnCheckreservationStatus.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckreservationStatus.Location = new System.Drawing.Point(63, 121);
+            this.btnCheckreservationStatus.Name = "btnCheckreservationStatus";
+            this.btnCheckreservationStatus.Size = new System.Drawing.Size(125, 62);
+            this.btnCheckreservationStatus.TabIndex = 4;
+            this.btnCheckreservationStatus.Text = "view";
+            this.btnCheckreservationStatus.UseVisualStyleBackColor = true;
+            this.btnCheckreservationStatus.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // label3
             // 
@@ -147,7 +147,7 @@
             this.Controls.Add(this.lstOrders);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCheckReservationStatus);
+            this.Controls.Add(this.btnCheckreservationStatus);
             this.Controls.Add(this.label1);
             this.Name = "Viewing";
             this.Text = "Viewing";
@@ -159,7 +159,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnCheckReservationStatus;
+        private System.Windows.Forms.Button btnCheckreservationStatus;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lstOrders;
