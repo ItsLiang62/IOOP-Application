@@ -13,6 +13,8 @@ namespace new_customer
 {
     public partial class Viewing : Form
     {
+        string connectionString = "Server=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Database=customer;Integrated Security=True;";
+
         public Viewing()
         {
             InitializeComponent();
@@ -20,12 +22,12 @@ namespace new_customer
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
-        
-            
+
+
         {
             string connectionString = "Server=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Database=customer;Integrated Security=True;";
             string customerId = "CUST001"; // Replace with actual logged-in customer ID
@@ -59,12 +61,12 @@ namespace new_customer
             }
         }
 
-        
+
 
         private void btnCheckOrderStatu_Click(object sender, EventArgs e)
         {
-        
-            
+
+
 
             string connectionString = "Server=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Database=customer;Integrated Security=True;";
             string customerId = "CUST001"; // Replace with actual logged-in customer ID
@@ -113,6 +115,56 @@ namespace new_customer
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        
+        
+         
+        {
+            string requestText = txtRequest.Text.Trim();
+            string customerID = "CUST002"; // Retrieve dynamically from login system
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = @"
+        UPDATE HallReservation 
+        SET Remarks = @remarks 
+        WHERE CustomerID = @customerID AND ReservationStatus = 'Pending'";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@remarks", requestText);
+                    cmd.Parameters.AddWithValue("@customerID", customerID);
+
+                    Console.WriteLine($"Executing Query for CustomerID: {customerID}"); // Debugging
+
+                    try
+                    {
+                        con.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Request sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"No pending reservation found for Customer ID: {customerID}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
     }
+
+
 }
+
+
+
 
