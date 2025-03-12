@@ -48,7 +48,7 @@ namespace Shared_Class_Library
                 }
             }
 
-            if (input.Length < 10 && input.Length > 12)
+            if (input.Length < 10 || input.Length > 12)
             {
                     errorMessage = $"Phone number must be between 10 to 12 numbers long";
                     return false;

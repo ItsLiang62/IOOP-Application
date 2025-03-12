@@ -16,6 +16,9 @@ namespace Foodle_Point_Management_System
         private string EmployeeID
         { get; set; }
 
+        private string Position
+        { get; set; }
+
         private string CorrectPassword
         { get; set; }
 
@@ -46,7 +49,7 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.33.31,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.63.254,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
 
             InputEmail = txtEmail.Text;
             InputPassword = txtPassword.Text;
@@ -54,6 +57,7 @@ namespace Foodle_Point_Management_System
             try
             {
                 EmployeeID = myEmployeeTable.GetEmployeeIDWithEmail(InputEmail);
+                Position = myEmployeeTable.GetValue(EmployeeID, "Position").ToString();
             }
             catch (Exception ex)
             {
@@ -66,6 +70,12 @@ namespace Foodle_Point_Management_System
 
             if (InputPassword == CorrectPassword)
             {
+                if (Position == "Manager")
+                {
+                    frmManagerMain managerMainPage = new frmManagerMain(new Manager(EmployeeID));
+                    managerMainPage.Show();
+                    this.Hide();
+                }
                 MessageBox.Show("Login Successful");
             }
             else
