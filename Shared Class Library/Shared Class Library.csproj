@@ -157,6 +157,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customer_table.cs" />
     <Compile Include="manager.cs" />
     <Compile Include="input_checker.cs" />
     <Compile Include="table.cs" />
