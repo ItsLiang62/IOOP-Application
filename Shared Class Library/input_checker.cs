@@ -12,9 +12,8 @@ namespace Shared_Class_Library
     {
         public bool IsTextOnly(string input, out string errorMessage)
         {
-            if (input == "")
+            if (this.IsEmptyInput(input, out errorMessage))
             {
-                errorMessage = "Input must not be empty";
                 return false;
             }
 
@@ -33,9 +32,8 @@ namespace Shared_Class_Library
 
         public bool IsValidPhoneNumber(string input, out string errorMessage)
         {
-            if (input == "")
+            if (this.IsEmptyInput(input, out errorMessage))
             {
-                errorMessage = "Phone number must be filled";
                 return false;
             }
 
@@ -84,6 +82,20 @@ namespace Shared_Class_Library
 
             errorMessage = "No error";
             return true;
+        }
+
+        public bool IsEmptyInput(string input, out string errorMessage)
+        {
+            if (input == "")
+            {
+                errorMessage = "Input cannot be empty";
+                return true;
+            }
+            else
+            {
+                errorMessage = "No error";
+                return false;
+            }
         }
     }
 }
