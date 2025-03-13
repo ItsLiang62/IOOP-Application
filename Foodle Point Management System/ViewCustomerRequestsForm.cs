@@ -10,9 +10,15 @@ using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
 {
+<<<<<<<< HEAD:Foodle Point Management System/ViewCustomerRequestsForm.cs
     public partial class ViewCustomerRequestsForm : Form
     {
         public ViewCustomerRequestsForm()
+========
+    public partial class UpdateProfileForm : Form
+    {
+        public UpdateProfileForm()
+>>>>>>>> main:Foodle Point Management System/UpdateProfileForm.cs
         {
             InitializeComponent();
         }

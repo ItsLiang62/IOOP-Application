@@ -1,58 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Microsoft.Identity.Client;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Shared_Class_Library
 {
-    public class EmployeeTable : Table 
+    public class CustomerTable: Table
     {
-        public EmployeeTable(string connectionString) : base(connectionString)
+        public CustomerTable(string connectionString) : base(connectionString)
         {
         }
 
-        public void InsertRow(string employeeID, string employeeName, string position, string gender, string email, string phoneNumber, string dob, string accountPassword)
+        public void InsertRow(string customerID, string customerName, string gender, string email, string phoneNumber)
         {
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO Employee (EmployeeID, EmployeeName, Position, Gender, Email, PhoneNumber, DOB, AccountPassword) " +
-                               "VALUES (@EmployeeID, @EmployeeName, @Position, @Gender, @Email, @PhoneNumber, @DOB, @AccountPassword)";
+                string query = "INSERT INTO Customer (CustomerID, CustomerName, Gender, Email, PhoneNumber) " +
+                               "VALUES (@CustomerID, @CustomerName, @Gender, @Email, @PhoneNumber)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                    cmd.Parameters.AddWithValue("@EmployeeName", employeeName);
-                    cmd.Parameters.AddWithValue("@Position", position);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@CustomerName", customerName);
                     cmd.Parameters.AddWithValue("@Gender", gender);
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                    cmd.Parameters.AddWithValue("@DOB", dob);
-                    cmd.Parameters.AddWithValue("@AccountPassword", accountPassword);
 
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    
                 }
             }
         }
 
-        public object GetValue(string employeeID, string column)
+        public object GetValue(string customerID, string column)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string query = $"SELECT {column} FROM Employee WHERE EmployeeID = @EmployeeID";
+                string query = $"SELECT {column} FROM Customer WHERE CustomerID = @CustomerID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -62,7 +64,7 @@ namespace Shared_Class_Library
                         }
                         else
                         {
-                            throw new Exception("Cannot find data. Are you sure you entered the EmployeeID and column name correctly?");
+                            throw new Exception("Cannot find data. Are you sure you entered the CustomerID and column name correctly?");
                         }
                     }
                 }
@@ -78,7 +80,7 @@ namespace Shared_Class_Library
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string query = $"SELECT {column} FROM Employee";
+                string query = $"SELECT {column} FROM Customer";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -103,7 +105,7 @@ namespace Shared_Class_Library
             }
         }
 
-        public List<object> GetRowValues(string employeeID)
+        public List<object> GetRowValues(string customerID)
         {
 
             List<object> rowValues = new List<object>();
@@ -111,30 +113,27 @@ namespace Shared_Class_Library
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string query = $"SELECT * FROM Employee WHERE EmployeeID = @EmployeeID";
+                string query = $"SELECT * FROM Customer WHERE CustomerID = @CustomerID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            rowValues.Add(reader["EmployeeID"]);
-                            rowValues.Add(reader["EmployeeName"]);
-                            rowValues.Add(reader["Position"]);
+                            rowValues.Add(reader["CustomerID"]);
+                            rowValues.Add(reader["CustomerName"]);
                             rowValues.Add(reader["Gender"]);
                             rowValues.Add(reader["Email"]);
                             rowValues.Add(reader["Phone"]);
-                            rowValues.Add(reader["DOB"]);
-                            rowValues.Add(reader["AccountPassword"]);
 
                             return rowValues;
                         }
                         else
                         {
-                            throw new Exception("Cannot find unique row. Are you sure you entered EmployeeID correctly?");
+                            throw new Exception("Cannot find unique row. Are you sure you entered CustomerID correctly?");
                         }
                     }
                 }
@@ -142,26 +141,26 @@ namespace Shared_Class_Library
             }
         }
 
-        public string GetEmployeeIDWithEmail(string email)
+        public string GetCustomerIDWithEmail(string email)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string query = $"SELECT EmployeeID FROM Employee WHERE Email = @email";
+                string query = $"SELECT CustomerID FROM Customer WHERE Email = @Email";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@Email", email);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            return reader["EmployeeID"].ToString();
+                            return reader["CustomerID"].ToString();
                         }
                         else
                         {
-                            throw new Exception("Cannot find EmployeeID with the provided Email. Are you sure you entered the Email correctly?");
+                            throw new Exception("Cannot find CustomerID with the provided Email. Are you sure you entered the Email correctly?");
                         }
                     }
                 }
@@ -169,39 +168,37 @@ namespace Shared_Class_Library
             }
         }
 
-        public string GetNewEmployeeID(string position)
+        public string GetNewCustomerID()
         {
-            string previousEmployeeID;
-            string newEmployeeID;
+            string previousCustomerID;
+            string newCustomerID;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
                 string query = @"
-                    SELECT TOP 1 EmployeeID
-                    FROM Employee 
-                    WHERE Position = @position
-                    ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID)-1) AS INT) DESC";
+                    SELECT TOP 1 CustomerID
+                    FROM Customer
+                    ORDER BY CAST(SUBSTRING(CustomerID, 3, LEN(CustomerID)-1) AS INT) DESC";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@position", position);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            previousEmployeeID = reader["EmployeeID"].ToString();
-                            int previousEmployeeIDNum = Convert.ToInt32(previousEmployeeID.Substring(1));
-                            int newEmployeeIDNum = previousEmployeeIDNum + 1;
-                            newEmployeeID = $"{previousEmployeeID[0]}{newEmployeeIDNum:D3}";
+                            previousCustomerID = reader["CustomerID"].ToString();
+                            int previousCustomerIDNum = Convert.ToInt32(previousCustomerID.Substring(2));
+                            int newCustomerIDNum = previousCustomerIDNum + 1;
+                            newCustomerID = $"CU{newCustomerIDNum:D3}";
 
-                            return newEmployeeID;
+                            return newCustomerID;
                         }
                         else
                         {
-                           return $"{position[0]}001".ToUpper();
+                            return $"CU001".ToUpper();
                         }
                     }
                 }
@@ -209,9 +206,9 @@ namespace Shared_Class_Library
             }
         }
 
-        public void UpdateValue(string employeeID, string column, object newValue)
+        public void UpdateValue(string customerID, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "EmployeeID", "EmployeeName", "Position", "Gender", "Email", "PhoneNumber", "DOB", "AccountPassword" };
+            List<string> allowedColumns = new List<string> { "CustomerID", "CustomerName", "Gender", "Email", "PhoneNumber" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -223,37 +220,37 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = $"UPDATE Employee SET {column} = @NewValue WHERE EmployeeID = @EmployeeID";
+                string query = $"UPDATE Customer SET {column} = @NewValue WHERE CustomerID = @CustomerID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
 
                     if (cmd.ExecuteNonQuery() == 0)
                     {
-                        throw new Exception("Update failed. The entered EmployeeID or column name was not found.");
+                        throw new Exception("Update failed. The entered CustomerID or column name was not found.");
                     }
                 }
             }
         }
 
-        public void DeleteRow(string employeeID)
+        public void DeleteRow(string customerID)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Employee WHERE EmployeeID = @EmployeeID";
+                string query = "DELETE * FROM Customer WHERE CustomerID = @CustomerID";
 
-                
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
 
                     if (cmd.ExecuteNonQuery() == 0)
                     {
-                        throw new Exception("Deletion failed. The entered EmployeeID was not found");
+                        throw new Exception("Deletion failed. The entered CustomerID was not found");
                     }
                 }
             }

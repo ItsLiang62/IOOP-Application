@@ -3,7 +3,7 @@
 CustomerID varchar(255) primary key,
 CustomerName varchar(255) not null,
 Gender varchar(255) not null,
-Email varchar(255) not null,
+Email varchar(255) not null unique,
 PhoneNumber varchar(255)
 
 );
