@@ -100,6 +100,7 @@
             // 
             // btnCheckOrderStatu
             // 
+            this.btnCheckOrderStatu.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCheckOrderStatu.Location = new System.Drawing.Point(36, 371);
             this.btnCheckOrderStatu.Name = "btnCheckOrderStatu";
             this.btnCheckOrderStatu.Size = new System.Drawing.Size(105, 36);
