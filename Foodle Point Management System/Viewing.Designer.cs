@@ -110,7 +110,7 @@
             // 
             // txtRequest
             // 
-            this.txtRequest.Location = new System.Drawing.Point(388, 554);
+            this.txtRequest.Location = new System.Drawing.Point(447, 548);
             this.txtRequest.Name = "txtRequest";
             this.txtRequest.Size = new System.Drawing.Size(100, 22);
             this.txtRequest.TabIndex = 12;
