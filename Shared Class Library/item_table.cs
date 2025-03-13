@@ -13,6 +13,28 @@ namespace Shared_Class_Library
         {
         }
 
+        public void InsertRow(string itemNumber, string itemName, double price, string category)
+        {
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "INSERT INTO Customer (ItemNumber, ItemName, Price, Category) " +
+                               "VALUES (@ItemNumber, @ItemName, @Price, @Category)";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+                    cmd.Parameters.AddWithValue("@ItemName", itemName);
+                    cmd.Parameters.AddWithValue("@Price", price);
+                    cmd.Parameters.AddWithValue("@Category", category);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+        }
 
         public object GetValue(string itemNumber, string column)
         {
