@@ -158,200 +158,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Include="customer_login.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="customer_login.Designer.cs">
-        <DependentUpon>customer_login.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="customer_login.resx">
-        <DependentUpon>customer_login.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="employee_login.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="employee_login.Designer.cs">
-        <DependentUpon>employee_login.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="employee_login.resx">
-        <DependentUpon>employee_login.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="employee_sign_up.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="employee_sign_up.Designer.cs">
-        <DependentUpon>employee_sign_up.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="employee_sign_up.resx">
-        <DependentUpon>employee_sign_up.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="customer_sign_up.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="customer_sign_up.Designer.cs">
-        <DependentUpon>customer_sign_up.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="customer_sign_up.resx">
-        <DependentUpon>customer_sign_up.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="Feedback.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="Feedback.Designer.cs">
-        <DependentUpon>Feedback.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="Feedback.resx">
-        <DependentUpon>Feedback.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="food ordering.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="food ordering.Designer.cs">
-        <DependentUpon>food_ordering.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="food ordering.resx">
-        <DependentUpon>food_ordering.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="main_page.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="main_page.Designer.cs">
-        <DependentUpon>main_page.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="main_page.resx">
-        <DependentUpon>main_page.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="ManageReservationsForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="ManageReservationsForm.Designer.cs">
-        <DependentUpon>ManageReservationsForm.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="ManageReservationsForm.resx">
-        <DependentUpon>ManageReservationsForm.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="manager_main_page.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="manager_main_page.Designer.cs">
-        <DependentUpon>manager_main_page.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="manager_main_page.resx">
-        <DependentUpon>manager_main_page.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="manage_menu.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="manage_menu.Designer.cs">
-        <DependentUpon>manage_menu.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="manage_menu.resx">
-        <DependentUpon>manage_menu.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="Profile .cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="Profile .Designer.cs">
-        <DependentUpon>Profile.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="Profile .resx">
-        <DependentUpon>Profile.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="Resv_Main_Page.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="Resv_Main_Page.Designer.cs">
-        <DependentUpon>Resv_Main_Page.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="Resv_Main_Page.resx">
-        <DependentUpon>Resv_Main_Page.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="UpdateProfileForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="UpdateProfileForm.Designer.cs">
-        <DependentUpon>UpdateProfileForm.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="UpdateProfileForm.resx">
-        <DependentUpon>UpdateProfileForm.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="UpdateReservationStatusForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="UpdateReservationStatusForm.Designer.cs">
-        <DependentUpon>UpdateReservationStatusForm.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="UpdateReservationStatusForm.resx">
-        <DependentUpon>UpdateReservationStatusForm.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="ViewCustomerRequestsForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="ViewCustomerRequestsForm.Designer.cs">
-        <DependentUpon>ViewCustomerRequestsForm.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="ViewCustomerRequestsForm.resx">
-        <DependentUpon>ViewCustomerRequestsForm.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="Viewing.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Include="Viewing.Designer.cs">
-        <DependentUpon>Viewing.cs</DependentUpon>
-      </Compile>
-      <EmbeddedResource Include="Viewing.resx">
-        <DependentUpon>Viewing.cs</DependentUpon>
-      </EmbeddedResource>
-
-      <Compile Include="Program.cs" />
-      <Compile Include="Properties\AssemblyInfo.cs" />
-
-      <EmbeddedResource Include="Properties\Resources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-        <SubType>Designer</SubType>
-      </EmbeddedResource>
-
-      <Compile Include="Properties\Resources.Designer.cs">
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.resx</DependentUpon>
-      </Compile>
-
-      <None Include="packages.config" />
-      <None Include="Properties\Settings.settings">
-        <Generator>SettingsSingleFileGenerator</Generator>
-        <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-      </None>
-
-      <Compile Include="Properties\Settings.Designer.cs">
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Settings.settings</DependentUpon>
-        <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      </Compile>
   </ItemGroup>
   <ItemGroup>
     <!-- Forms -->
-    <Compile Include="customer_login.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="customer_login.Designer.cs">
       <DependentUpon>customer_login.cs</DependentUpon>
     </Compile>
@@ -394,12 +203,6 @@
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="ManageReservationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -445,7 +248,6 @@
     <EmbeddedResource Include="main_page.resx">
       <DependentUpon>main_page.cs</DependentUpon>
     </EmbeddedResource>
-
     <Compile Include="Resv_Main_Page.cs">
       <SubType>Form</SubType>
     </Compile>
