@@ -13,7 +13,31 @@ namespace Shared_Class_Library
         {
         }
 
-        public object GetValue(string itemNumber, string column)
+        public void InsertRow(string orderID, string itemNumber, double customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
+        {
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
+                               "VALUES (@OrderID, @ItemNumber, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@OrderID", orderID);
+                    cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+                    cmd.Parameters.AddWithValue("CustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
+                    cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
+                    cmd.Parameters.AddWithValue("@OrderStatus", orderStatus);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+        }
+        public object GetValue(string orderID, string column)
         {
             List<string> allowedColumns = new List<string> { "OrderID", "ItemNumber", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
 
@@ -25,11 +49,11 @@ namespace Shared_Class_Library
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string query = $"SELECT {column} FROM Item WHERE ItemNumber = @ItemNumber";
+                string query = $"SELECT {column} FROM ItemOrder WHERE OrderID = @OrderID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+                    cmd.Parameters.AddWithValue("@OrderID", orderID);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -39,7 +63,7 @@ namespace Shared_Class_Library
                         }
                         else
                         {
-                            throw new Exception("Cannot find data. Are you sure you entered the ItemNumber and column name correctly?");
+                            throw new Exception("Cannot find data. Are you sure you entered the OrderID correctly?");
                         }
                     }
                 }
@@ -49,7 +73,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "ItemNumber", "ItemName", "Price", "Category" };
+            List<string> allowedColumns = new List<string> { "OrderID", "ItemNumber", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -61,7 +85,7 @@ namespace Shared_Class_Library
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string query = $"SELECT {column} FROM Item";
+                string query = $"SELECT {column} FROM ItemOrder";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -86,7 +110,7 @@ namespace Shared_Class_Library
             }
         }
 
-        public List<object> GetRowValues(string itemNumber)
+        public List<object> GetRowValues(string orderID)
         {
 
             List<object> rowValues = new List<object>();
@@ -94,26 +118,28 @@ namespace Shared_Class_Library
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string query = $"SELECT * FROM Item WHERE ItemNumber = @ItemNumber";
+                string query = $"SELECT * FROM Item WHERE OrderID = @OrderID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+                    cmd.Parameters.AddWithValue("@OrderID", orderID);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
+                            rowValues.Add(reader["OrderID"]);
                             rowValues.Add(reader["ItemNumber"]);
-                            rowValues.Add(reader["ItemName"]);
-                            rowValues.Add(reader["Price"]);
-                            rowValues.Add(reader["Category"]);
+                            rowValues.Add(reader["CustomerID"]);
+                            rowValues.Add(reader["ChefEmployeeID"]);
+                            rowValues.Add(reader["DateOfOrder"]);
+                            rowValues.Add(reader["OrderStatus"]);
 
                             return rowValues;
                         }
                         else
                         {
-                            throw new Exception("Cannot find unique row. Are you sure you entered ItemName correctly?");
+                            throw new Exception("Cannot find unique row. Are you sure you entered OrderID correctly?");
                         }
                     }
                 }

@@ -32,14 +32,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
 
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (SqlException ex)
-                    {
-                        throw ex;
-                    }
+                    cmd.ExecuteNonQuery();
                     
                 }
             }

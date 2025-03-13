@@ -20,7 +20,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "INSERT INTO Customer (ItemNumber, ItemName, Price, Category) " +
+                string query = "INSERT INTO Item (ItemNumber, ItemName, Price, Category) " +
                                "VALUES (@ItemNumber, @ItemName, @Price, @Category)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
