@@ -52,7 +52,7 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            CustomerTable myCustomerTable = new CustomerTable("Data Source=10.101.63.254,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+            CustomerTable myCustomerTable = new CustomerTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
 
             FullName = txtName.Text;
             Gender = cmbGender.Text;
