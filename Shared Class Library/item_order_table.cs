@@ -27,7 +27,7 @@ namespace Shared_Class_Library
                 {
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
                     cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
-                    cmd.Parameters.AddWithValue("CustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
                     cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
                     cmd.Parameters.AddWithValue("@OrderStatus", orderStatus);
