@@ -138,5 +138,54 @@ namespace Shared_Class_Library
 
             }
         }
+
+        public void UpdateValue(string ingredientNumber, string column, object newValue)
+        {
+            List<string> allowedColumns = new List<string> { "IngredientNumber, IngredientName" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE Ingredients SET {column} = @NewValue WHERE IngredientNumber = @IngredientNumber";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    cmd.Parameters.AddWithValue("@IngredientNumber", ingredientNumber);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered IngredientNumber or column name was not found.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteRow(string ingredientNumber)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE * FROM Ingredients WHERE IngredientNumber = @IngredientNumber";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IngredientNumber", ingredientNumber);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Deletion failed. The entered IngredientNumber was not found");
+                    }
+                }
+            }
+        }
     }
 }
