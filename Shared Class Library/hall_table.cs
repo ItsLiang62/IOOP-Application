@@ -146,5 +146,54 @@ namespace Shared_Class_Library
 
             }
         }
+
+        public void UpdateValue(string hallNumber, string column, object newValue)
+        {
+            List<string> allowedColumns = new List<string> { "HallNumber, HallName, Capacity, RecommendedEvent1, RecommendedEvent2, IsAvailable" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE Hall SET {column} = @NewValue WHERE HallNumber = @HallNumber";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered HallNumber or column name was not found.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteRow(string hallNumber)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE * FROM Hall WHERE HallNumber = @hallNumber";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Deletion failed. The entered HallNumber was not found");
+                    }
+                }
+            }
+        }
     }
 }

@@ -146,5 +146,54 @@ namespace Shared_Class_Library
 
             }
         }
+
+        public void UpdateValue(string orderID, string column, object newValue)
+        {
+            List<string> allowedColumns = new List<string> { "OrderID", "ItemNumber", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE ItemOrder SET {column} = @NewValue WHERE OrderID = @OrderID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    cmd.Parameters.AddWithValue("@OrderID", orderID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered OrderID or column name was not found.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteRow(string orderID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE * FROM ItemOrder WHERE OrderID = @orderID";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@OrderID", orderID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Deletion failed. The entered OrderID was not found");
+                    }
+                }
+            }
+        }
     }
 }

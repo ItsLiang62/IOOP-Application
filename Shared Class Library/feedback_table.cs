@@ -142,5 +142,54 @@ namespace Shared_Class_Library
 
             }
         }
+
+        public void UpdateValue(string feedbackID, string column, object newValue)
+        {
+            List<string> allowedColumns = new List<string> { "FeedbackID, CustomerID, FeedbackSentence, Rating" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE Feedback SET {column} = @NewValue WHERE FeedbackID = @FeedbackID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    cmd.Parameters.AddWithValue("@FeedbackID", feedbackID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered FeedbackID or column name was not found.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteRow(string feedbackID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE * FROM Feedback WHERE FeedbackID = @FeedbackID";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@FeedbackID", feedbackID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Deletion failed. The entered FeedbackID was not found");
+                    }
+                }
+            }
+        }
     }
 }

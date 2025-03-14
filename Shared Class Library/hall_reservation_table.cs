@@ -146,5 +146,54 @@ namespace Shared_Class_Library
 
             }
         }
+
+        public void UpdateValue(string reservationID, string column, object newValue)
+        {
+            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE HallReservation SET {column} = @NewValue WHERE ReservationID = @ReservationID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    cmd.Parameters.AddWithValue("@reservationID", reservationID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered ReservationID or column name was not found.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteRow(string reservationID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE * FROM HallReservation WHERE ReservationID = @ReservationID";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ReservationID", reservationID);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Deletion failed. The entered ReservationID was not found");
+                    }
+                }
+            }
+        }
     }
 }

@@ -143,5 +143,54 @@ namespace Shared_Class_Library
 
             }
         }
+
+        public void UpdateValue(string itemNumber, string column, object newValue)
+        {
+            List<string> allowedColumns = new List<string> { "ItemNumber", "ItemName", "Price", "Category" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = $"UPDATE Item SET {column} = @NewValue WHERE ItemNumber = @ItemNumber";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered ItemNumber or column name was not found.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteRow(string itemNumber)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE * FROM Hall WHERE ItemNumber = @itemNumber";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Deletion failed. The entered ItemNumber was not found");
+                    }
+                }
+            }
+        }
     }
 }
