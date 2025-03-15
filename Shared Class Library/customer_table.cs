@@ -32,14 +32,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
 
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (SqlException ex)
-                    {
-                        throw ex;
-                    }
+                    cmd.ExecuteNonQuery();
                     
                 }
             }
@@ -47,6 +40,13 @@ namespace Shared_Class_Library
 
         public object GetValue(string customerID, string column)
         {
+            List<string> allowedColumns = new List<string> { "CustomerID", "CustomerName", "Gender", "Email", "PhoneNumber" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
+
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -74,6 +74,12 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
+            List<string> allowedColumns = new List<string> { "CustomerID", "CustomerName", "Gender", "Email", "PhoneNumber" };
+
+            if (!allowedColumns.Contains(column))
+            {
+                throw new Exception("Invalid column name. Please enter a correct column.");
+            }
 
             List<object> columnValues = new List<object>();
 
@@ -212,8 +218,7 @@ namespace Shared_Class_Library
 
             if (!allowedColumns.Contains(column))
             {
-                MessageBox.Show("Invalid column name. Please enter a correct column.");
-                return;
+                throw new Exception("Invalid column name. Please enter a correct column.");
             }
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))

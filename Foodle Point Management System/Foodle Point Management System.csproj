@@ -206,12 +206,6 @@
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="ManageReservationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,7 +251,6 @@
     <EmbeddedResource Include="main_page.resx">
       <DependentUpon>main_page.cs</DependentUpon>
     </EmbeddedResource>
-
     <Compile Include="Resv_Main_Page.cs">
       <SubType>Form</SubType>
     </Compile>
