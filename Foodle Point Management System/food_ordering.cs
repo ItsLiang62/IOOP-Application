@@ -268,6 +268,10 @@ namespace new_customer
             }
         }
 
+        private void lstCart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

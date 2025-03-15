@@ -103,6 +103,7 @@
             this.lstCart.Name = "lstCart";
             this.lstCart.Size = new System.Drawing.Size(261, 100);
             this.lstCart.TabIndex = 13;
+            this.lstCart.SelectedIndexChanged += new System.EventHandler(this.lstCart_SelectedIndexChanged);
             // 
             // btnRemoveItem
             // 
