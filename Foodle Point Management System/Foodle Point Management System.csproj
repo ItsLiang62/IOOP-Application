@@ -161,12 +161,30 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Forms -->
+    <Compile Include="customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customer.Designer.cs">
+      <DependentUpon>customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerDashboard.Designer.cs">
+      <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="customer_login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="customer_login.Designer.cs">
       <DependentUpon>customer_login.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="customer.resx">
+      <DependentUpon>customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerDashboard.resx">
+      <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="customer_login.resx">
       <DependentUpon>customer_login.cs</DependentUpon>
     </EmbeddedResource>
