@@ -206,12 +206,6 @@
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="ManageReservationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,7 +251,6 @@
     <EmbeddedResource Include="main_page.resx">
       <DependentUpon>main_page.cs</DependentUpon>
     </EmbeddedResource>
-
     <Compile Include="Resv_Main_Page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,15 +287,6 @@
     <EmbeddedResource Include="ViewCustomerRequestsForm.resx">
       <DependentUpon>ViewCustomerRequestsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Viewing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Viewing.Designer.cs">
-      <DependentUpon>Viewing.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Viewing.resx">
-      <DependentUpon>Viewing.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="Profile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,15 +295,6 @@
     </Compile>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="food_ordering.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="food_ordering.Designer.cs">
-      <DependentUpon>food_ordering.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="food_ordering.resx">
-      <DependentUpon>food_ordering.cs</DependentUpon>
     </EmbeddedResource>
     <!-- Program and Assembly Info -->
     <Compile Include="Program.cs" />
