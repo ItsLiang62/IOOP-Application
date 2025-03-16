@@ -225,12 +225,36 @@
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="update_manager_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="update_manager_profile.Designer.cs">
+      <DependentUpon>update_manager_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view_hall_reservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view_hall_reservations.Designer.cs">
+      <DependentUpon>view_hall_reservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manage_hall_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manage_hall_details.Designer.cs">
+      <DependentUpon>manage_hall_details.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageReservationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageReservationsForm.Designer.cs">
       <DependentUpon>ManageReservationsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="update_manager_profile.resx">
+      <DependentUpon>update_manager_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manage_hall_details.resx">
+      <DependentUpon>manage_hall_details.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageReservationsForm.resx">
       <DependentUpon>ManageReservationsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +363,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view_hall_reservations.resx">
+      <DependentUpon>view_hall_reservations.cs</DependentUpon>
+    </EmbeddedResource>
     <!-- Settings -->
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
