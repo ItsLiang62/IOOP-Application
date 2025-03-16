@@ -91,64 +91,68 @@
             // dgvMenuItems
             // 
             this.dgvMenuItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenuItems.Location = new System.Drawing.Point(42, 197);
+            this.dgvMenuItems.Location = new System.Drawing.Point(4, 197);
             this.dgvMenuItems.Name = "dgvMenuItems";
             this.dgvMenuItems.RowHeadersWidth = 51;
             this.dgvMenuItems.RowTemplate.Height = 24;
-            this.dgvMenuItems.Size = new System.Drawing.Size(240, 150);
+            this.dgvMenuItems.Size = new System.Drawing.Size(547, 184);
             this.dgvMenuItems.TabIndex = 5;
             // 
             // dgvCart
             // 
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(313, 197);
+            this.dgvCart.Location = new System.Drawing.Point(809, 170);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersWidth = 51;
             this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(240, 150);
+            this.dgvCart.Size = new System.Drawing.Size(541, 211);
             this.dgvCart.TabIndex = 6;
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.Location = new System.Drawing.Point(121, 372);
+            this.btnAddToCart.Location = new System.Drawing.Point(153, 400);
             this.btnAddToCart.Name = "btnAddToCart";
             this.btnAddToCart.Size = new System.Drawing.Size(75, 23);
             this.btnAddToCart.TabIndex = 7;
             this.btnAddToCart.Text = "Add";
             this.btnAddToCart.UseVisualStyleBackColor = true;
+            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
             // btnEditCart
             // 
-            this.btnEditCart.Location = new System.Drawing.Point(338, 385);
+            this.btnEditCart.Location = new System.Drawing.Point(1026, 426);
             this.btnEditCart.Name = "btnEditCart";
             this.btnEditCart.Size = new System.Drawing.Size(75, 23);
             this.btnEditCart.TabIndex = 8;
             this.btnEditCart.Text = "Edit";
             this.btnEditCart.UseVisualStyleBackColor = true;
+            this.btnEditCart.Click += new System.EventHandler(this.btnEditCart_Click);
             // 
             // btnRemoveCart
             // 
-            this.btnRemoveCart.Location = new System.Drawing.Point(455, 385);
+            this.btnRemoveCart.Location = new System.Drawing.Point(1227, 426);
             this.btnRemoveCart.Name = "btnRemoveCart";
             this.btnRemoveCart.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveCart.TabIndex = 9;
             this.btnRemoveCart.Text = "remove";
             this.btnRemoveCart.UseVisualStyleBackColor = true;
+            this.btnRemoveCart.Click += new System.EventHandler(this.btnRemoveCart_Click);
             // 
             // btnProceedToPayment
             // 
-            this.btnProceedToPayment.Location = new System.Drawing.Point(251, 415);
+            this.btnProceedToPayment.Location = new System.Drawing.Point(649, 563);
             this.btnProceedToPayment.Name = "btnProceedToPayment";
             this.btnProceedToPayment.Size = new System.Drawing.Size(75, 23);
             this.btnProceedToPayment.TabIndex = 10;
             this.btnProceedToPayment.Text = "Pay";
             this.btnProceedToPayment.UseVisualStyleBackColor = true;
+            this.btnProceedToPayment.Click += new System.EventHandler(this.btnProceedToPayment_Click);
             // 
             // OrderFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1477, 649);
             this.Controls.Add(this.btnProceedToPayment);
             this.Controls.Add(this.btnRemoveCart);
             this.Controls.Add(this.btnEditCart);
@@ -162,6 +166,7 @@
             this.Controls.Add(this.label1);
             this.Name = "OrderFoodForm";
             this.Text = "OrderFoodForm";
+            this.Load += new System.EventHandler(this.OrderFoodForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
