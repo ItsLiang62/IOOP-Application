@@ -139,7 +139,7 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["Position"]);
                             rowValues.Add(reader["Gender"]);
                             rowValues.Add(reader["Email"]);
-                            rowValues.Add(reader["Phone"]);
+                            rowValues.Add(reader["PhoneNumber"]);
                             rowValues.Add(reader["DOB"]);
                             rowValues.Add(reader["AccountPassword"]);
 
