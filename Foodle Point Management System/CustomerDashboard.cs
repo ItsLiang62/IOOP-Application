@@ -37,8 +37,8 @@ namespace Foodle_Point_Management_System
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            Profile profileForm = new Profile();
-            profileForm.Show();
+            //Profile profileForm = new Profile();
+            //profileForm.Show();
         }
     }
 }

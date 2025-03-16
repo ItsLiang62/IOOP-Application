@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Forms -->
+    <Compile Include="CartItem.cs" />
     <Compile Include="customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +303,8 @@
     <EmbeddedResource Include="main_page.resx">
       <DependentUpon>main_page.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="OrderFoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
