@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using new_customer;
 
 namespace Foodle_Point_Management_System
 {
@@ -17,7 +16,7 @@ namespace Foodle_Point_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Viewing());
+            Application.Run(new frmMain());
         }
     }
 }

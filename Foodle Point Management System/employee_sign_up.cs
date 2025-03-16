@@ -58,7 +58,7 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.112.79.80,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.47.36,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
 
             FullName = txtName.Text;
             Position = cmbPosition.Text;
@@ -67,10 +67,10 @@ namespace Foodle_Point_Management_System
             PhoneNum = txtPhoneNum.Text;
             DOB = txtDOB.Text;
             Password = txtPassword.Text;
-            EmployeeID = myEmployeeTable.GetNewEmployeeID(Position);
 
             if (AllInputValid(out messageBoxErrorMessage))
             {
+                EmployeeID = myEmployeeTable.GetNewEmployeeID(Position);
                 myEmployeeTable.InsertRow(EmployeeID, FullName, Position, Gender, Email, PhoneNum, DOB, Password);
             }
             else

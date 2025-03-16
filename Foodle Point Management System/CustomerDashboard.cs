@@ -19,19 +19,19 @@ namespace Foodle_Point_Management_System
 
         private void btnOrderFood_Click(object sender, EventArgs e)
         {
-            OrderFood orderFoodForm = new OrderFood();
+            OrderFoodForm orderFoodForm = new OrderFoodForm();
             orderFoodForm.Show();
         }
 
         private void btnViewOrders_Click(object sender, EventArgs e)
         {
-            ViewOrders viewOrdersForm = new ViewOrders();
-            viewOrdersForm.Show();
+            //ViewOrders viewOrdersForm = new ViewOrders();
+            //viewOrdersForm.Show();
         }
 
         private void btnFeedback_Click(object sender, EventArgs e)
         {
-            FeedbackForm feedbackForm = new FeedbackForm();
+            Feedback feedbackForm = new Feedback();
             feedbackForm.Show();
         }
 
