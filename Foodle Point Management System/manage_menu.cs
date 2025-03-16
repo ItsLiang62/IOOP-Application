@@ -16,5 +16,17 @@ namespace Foodle_Point_Management_System
         {
             InitializeComponent();
         }
+
+        private void btnWestern_Click(object sender, EventArgs e)
+        {
+            frmManageWestern manageWesternPage = new frmManageWestern();
+            manageWesternPage.Show();
+            this.Hide();
+        }
+
+        private void frmManageMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
