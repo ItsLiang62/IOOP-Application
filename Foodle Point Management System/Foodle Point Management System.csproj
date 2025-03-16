@@ -269,12 +269,21 @@
     <EmbeddedResource Include="main_page.resx">
       <DependentUpon>main_page.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="OrderFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderFoodForm.Designer.cs">
+      <DependentUpon>OrderFoodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resv_Main_Page.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Resv_Main_Page.Designer.cs">
       <DependentUpon>Resv_Main_Page.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="OrderFoodForm.resx">
+      <DependentUpon>OrderFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resv_Main_Page.resx">
       <DependentUpon>Resv_Main_Page.cs</DependentUpon>
     </EmbeddedResource>
