@@ -41,5 +41,33 @@ namespace Foodle_Point_Management_System
         {
             lblWelcomeManager.Left = (this.ClientSize.Width - lblWelcomeManager.Width) / 2;
         }
+
+        private void btnManageMenu_Click(object sender, EventArgs e)
+        {
+            frmManageMenu manageMenuPage = new frmManageMenu();
+            manageMenuPage.Show();
+            this.Hide();
+        }
+
+        private void btnManageHall_Click(object sender, EventArgs e)
+        {
+            frmManageHallDetails manageHallDetailsPage = new frmManageHallDetails();
+            manageHallDetailsPage.Show();
+            this.Hide();
+        }
+
+        private void btnViewReservation_Click(object sender, EventArgs e)
+        {
+            frmViewHallReservations viewHallReservationsPage = new frmViewHallReservations();
+            viewHallReservationsPage.Show();
+            this.Hide();
+        }
+
+        private void btnUpdateProfile_Click(object sender, EventArgs e)
+        {
+            frmUpdateManagerProfile updateManagerProfilePage = new frmUpdateManagerProfile();
+            updateManagerProfilePage.Show();
+            this.Hide();
+        }
     }
 }
