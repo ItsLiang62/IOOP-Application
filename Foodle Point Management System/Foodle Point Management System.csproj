@@ -174,6 +174,12 @@
     <Compile Include="CustomerDashboard.Designer.cs">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="customereedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customereedbackForm.Designer.cs">
+      <DependentUpon>customereedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="customer_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerDashboard.resx">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customereedbackForm.resx">
+      <DependentUpon>customereedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="customer_login.resx">
       <DependentUpon>customer_login.cs</DependentUpon>
@@ -236,6 +245,12 @@
     </Compile>
     <Compile Include="update_manager_profile.Designer.cs">
       <DependentUpon>update_manager_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOrdersForm.Designer.cs">
+      <DependentUpon>ViewOrdersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="view_hall_reservations.cs">
       <SubType>Form</SubType>
@@ -372,6 +387,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewOrdersForm.resx">
+      <DependentUpon>ViewOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view_hall_reservations.resx">
       <DependentUpon>view_hall_reservations.cs</DependentUpon>
     </EmbeddedResource>

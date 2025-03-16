@@ -14,20 +14,45 @@ namespace Foodle_Point_Management_System
         public string OrderID { get; private set; }
         public string CustomerID { get; private set; }
         public List<CartItem> Items { get; private set; }
-        public string ChefEmployeeID { get; private set; } = "E001"; // Hardcoded for now
+        public string ChefEmployeeID { get; private set; }
         public string OrderStatus { get; private set; } = "Confirmed";
         public DateTime DateOfOrder { get; private set; }
 
         public Order(string connectionString, string customerID, List<CartItem> items)
         {
             _connectionString = connectionString;
-            OrderID = Guid.NewGuid().ToString().Substring(0, 8);
+            OrderID = Guid.NewGuid().ToString("N");
             CustomerID = customerID;
             Items = items;
             DateOfOrder = DateTime.Now;
+            ChefEmployeeID = GetAvailableChef(); // Dynamically assign a chef
         }
 
-        // Method to save order to database
+        // ✅ Get an available chef from the Employee table
+        private string GetAvailableChef()
+        {
+            string chefID = null;
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = "SELECT TOP 1 EmployeeID FROM Employee WHERE Position = 'Chef'";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        chefID = result.ToString(); // Assign the first available chef
+                    }
+                }
+            }
+
+            // If no chef exists, return null to avoid FK constraint errors
+            return chefID ?? "E001"; // Default to E001 if no chef is found
+        }
+
+        // ✅ Save Order to Database
         public bool SaveOrder()
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -39,12 +64,14 @@ namespace Foodle_Point_Management_System
                 {
                     foreach (CartItem item in Items)
                     {
+                        string uniqueOrderID = Guid.NewGuid().ToString("N"); // ✅ Generate a UNIQUE OrderID for each item
+
                         string query = "INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
                                        "VALUES (@OrderID, @ItemNumber, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
 
                         using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
                         {
-                            cmd.Parameters.AddWithValue("@OrderID", OrderID);
+                            cmd.Parameters.AddWithValue("@OrderID", uniqueOrderID);
                             cmd.Parameters.AddWithValue("@ItemNumber", item.ItemNumber);
                             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
                             cmd.Parameters.AddWithValue("@ChefEmployeeID", ChefEmployeeID);
@@ -66,6 +93,7 @@ namespace Foodle_Point_Management_System
                 }
             }
         }
+
 
     }
 }
