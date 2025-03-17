@@ -25,13 +25,13 @@ namespace Foodle_Point_Management_System
 
         private void btnViewOrders_Click(object sender, EventArgs e)
         {
-            //ViewOrders viewOrdersForm = new ViewOrders();
-            //viewOrdersForm.Show();
+            ViewOrdersForm viewOrders = new ViewOrdersForm();
+            viewOrders.Show();
         }
 
         private void btnFeedback_Click(object sender, EventArgs e)
         {
-            Feedback feedbackForm = new Feedback();
+            customereedbackForm feedbackForm = new customereedbackForm();
             feedbackForm.Show();
         }
 
