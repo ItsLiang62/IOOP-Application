@@ -13,6 +13,12 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerLogin: Form
     {
+        private string CustomerID
+        { get; set; }
+
+        private string InputEmail
+        { get; set; }
+
         public frmCustomerLogin()
         {
             InitializeComponent();
@@ -32,7 +38,28 @@ namespace Foodle_Point_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string messageBoxErrorMessage;
 
+            CustomerTable myCustomerTable = new CustomerTable("Data Source=10.112.69.119;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+
+            InputEmail = txtEmail.Text;
+
+            try
+            {
+                CustomerID = myCustomerTable.GetCustomerIDWithEmail(InputEmail);
+            }
+            catch (Exception ex)
+            {
+                messageBoxErrorMessage = ex.Message;
+                MessageBox.Show(messageBoxErrorMessage);
+                return;
+            }
+
+            customer customerMainPage = new customer(); // ← need Customer object as argument
+            customerMainPage.Show();
+            this.Hide();
+
+            MessageBox.Show("Login successful"); 
         }
     }
 }
