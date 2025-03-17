@@ -7,7 +7,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Shared_Class_Library
 {
-    class ItemTable : Table
+    public class ItemTable : Table
     {
         public ItemTable(string connectionString) : base(connectionString)
         {
@@ -178,7 +178,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Hall WHERE ItemNumber = @itemNumber";
+                string query = "DELETE * FROM Item WHERE ItemNumber = @itemNumber";
 
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -188,6 +188,40 @@ namespace Shared_Class_Library
                     if (cmd.ExecuteNonQuery() == 0)
                     {
                         throw new Exception("Deletion failed. The entered ItemNumber was not found");
+                    }
+                }
+            }
+        }
+
+        public List<string> GetItemNumbersOfCategory(string category)
+        {
+            List<string> itemNumbers = new List<string>();
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "SELECT ItemNumber FROM Item WHERE Category = @Category";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Category", category);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            itemNumbers.Add(reader["ItemNumber"].ToString());
+                        }
+                        if (itemNumbers.Count > 0)
+                        {
+                            return itemNumbers;
+                        }
+                        else
+                        {
+                            throw new Exception("No ItemNumber(s) with the provided Category were found. Are you sure you entered the correct category?");
+                        }
                     }
                 }
             }
