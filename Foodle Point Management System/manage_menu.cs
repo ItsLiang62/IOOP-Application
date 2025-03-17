@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class frmManageMenu: Form
     {
-        public frmManageMenu()
+        private Manager ManagerUser
+        { get; set; }
+
+        public frmManageMenu(Manager manager)
         {
+            ManagerUser = manager;
             InitializeComponent();
         }
 
