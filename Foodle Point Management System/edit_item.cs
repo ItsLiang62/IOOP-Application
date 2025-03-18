@@ -69,8 +69,8 @@ namespace Foodle_Point_Management_System
 
         private void btnManageMenuPage_Click(object sender, EventArgs e)
         {
-            frmManagerMain managerMainPage = new frmManagerMain(ManagerUser);
-            managerMainPage.Show();
+            frmManageMenu manageMenuPage = new frmManageMenu(ManagerUser);
+            manageMenuPage.Show();
             this.Hide();
         }
 
