@@ -220,7 +220,7 @@ namespace Shared_Class_Library
                         }
                         else
                         {
-                            throw new Exception("No ItemNumber(s) with the provided Category were found. Are you sure you entered the correct category?");
+                            throw new Exception("No ItemNumber(s) with the provided Category were found.");
                         }
                     }
                 }

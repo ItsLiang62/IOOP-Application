@@ -1,6 +1,6 @@
 ﻿namespace Foodle_Point_Management_System
 {
-    partial class frmManageWestern
+    partial class frmManageMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,6 +120,7 @@
             // 
             // cmbItem
             // 
+            this.cmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItem.FormattingEnabled = true;
             this.cmbItem.Location = new System.Drawing.Point(88, 257);
@@ -129,6 +130,7 @@
             // 
             // cmbCategory
             // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] {
@@ -137,9 +139,9 @@
             "Arab",
             "Japanese",
             "Food & Beverages"});
-            this.cmbCategory.Location = new System.Drawing.Point(299, 158);
+            this.cmbCategory.Location = new System.Drawing.Point(270, 159);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(176, 37);
+            this.cmbCategory.Size = new System.Drawing.Size(247, 37);
             this.cmbCategory.TabIndex = 9;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -153,7 +155,7 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Please select a menu category";
             // 
-            // frmManageWestern
+            // frmManageMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -169,7 +171,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmManageWestern";
+            this.Name = "frmManageMenu";
             this.Text = "Manage Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmManageWestern_FormClosing);
             this.menuStrip1.ResumeLayout(false);

@@ -12,12 +12,12 @@ using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class frmManageWestern: Form
+    public partial class frmManageMenu: Form
     {
         Manager ManagerUser
         { get; set; }
 
-        public frmManageWestern(Manager managerUser)
+        public frmManageMenu(Manager managerUser)
         {
             InitializeComponent();
             ManagerUser = managerUser;
@@ -43,7 +43,7 @@ namespace Foodle_Point_Management_System
                 foreach (string itemNumber in itemNumbers)
                 {
                     string itemName = myItemTable.GetValue(itemNumber, "ItemName").ToString();
-                    cmbItem.Items.Add(itemNumber + itemName);
+                    cmbItem.Items.Add(itemNumber + " " + itemName);
                 }
             }
             catch (Exception ex)
