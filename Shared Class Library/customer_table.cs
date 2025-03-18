@@ -246,7 +246,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Customer WHERE CustomerID = @CustomerID";
+                string query = "DELETE FROM Customer WHERE CustomerID = @CustomerID";
 
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))

@@ -177,7 +177,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Feedback WHERE FeedbackID = @FeedbackID";
+                string query = "DELETE FROM Feedback WHERE FeedbackID = @FeedbackID";
 
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
