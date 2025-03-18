@@ -14,9 +14,13 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmManageWestern: Form
     {
-        public frmManageWestern()
+        Manager ManagerUser
+        { get; set; }
+
+        public frmManageWestern(Manager managerUser)
         {
             InitializeComponent();
+            ManagerUser = managerUser;
         }
 
         private void frmManageWestern_FormClosing(object sender, FormClosingEventArgs e)
@@ -24,17 +28,22 @@ namespace Foodle_Point_Management_System
             Application.Exit();
         }
 
-        private void ComboBoxShowWesternItems()
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ItemTable myItemTable = new ItemTable("Data Source = 10.101.47.36, 1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
-            List<string> westernItemNumbers;
+            cmbItem.Items.Clear();
+
+            ItemTable myItemTable = new ItemTable("Data Source = 10.101.57.209,1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
+            List<string> itemNumbers;
+            string chosenMenuCategory = cmbCategory.SelectedItem.ToString();
 
             try
             {
-                westernItemNumbers = myItemTable.GetItemNumbersOfCategory("Western");
-                foreach (string itemNumber in westernItemNumbers)
+                itemNumbers = myItemTable.GetItemNumbersOfCategory(chosenMenuCategory);
+
+                foreach (string itemNumber in itemNumbers)
                 {
-                    cmbWesternItems.Items.Add(itemNumber);
+                    string itemName = myItemTable.GetValue(itemNumber, "ItemName").ToString();
+                    cmbItem.Items.Add(itemNumber + itemName);
                 }
             }
             catch (Exception ex)

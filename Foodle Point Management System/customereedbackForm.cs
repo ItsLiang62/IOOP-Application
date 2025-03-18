@@ -22,12 +22,13 @@ namespace Foodle_Point_Management_System
 
         private void customereedbackForm_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("Debug: CustomerID in Feedback Form = " + _customerID);
+            //Console.WriteLine("Debug: CustomerID in Feedback Form = " + _customerID);
 
-            if (string.IsNullOrWhiteSpace(_customerID))
+            /*if (string.IsNullOrWhiteSpace(_customerID))
             {
                 MessageBox.Show("Error: Customer ID is missing in FeedbackForm!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
         }
 
         private void btnSubmitFeedback_Click(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace Foodle_Point_Management_System
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@FeedbackID", Guid.NewGuid().ToString().Substring(0, 8)); // Generate unique FeedbackID
-                    cmd.Parameters.AddWithValue("@CustomerID", _customerID);
+                    //cmd.Parameters.AddWithValue("@CustomerID", _customerID);
                     cmd.Parameters.AddWithValue("@FeedbackSentence", feedbackText);
                     cmd.Parameters.AddWithValue("@Rating", rating);
 

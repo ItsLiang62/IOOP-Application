@@ -58,7 +58,7 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.47.36,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.57.209,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
 
             FullName = txtName.Text;
             Position = cmbPosition.Text;

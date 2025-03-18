@@ -36,7 +36,9 @@
             this.btnEditItem = new System.Windows.Forms.Button();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
-            this.cmbWesternItems = new System.Windows.Forms.ComboBox();
+            this.cmbItem = new System.Windows.Forms.ComboBox();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,17 +62,17 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(223, 57);
+            this.lblTitle.Location = new System.Drawing.Point(282, 43);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(374, 38);
+            this.lblTitle.Size = new System.Drawing.Size(235, 38);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Manage Western Menu";
+            this.lblTitle.Text = "Manage Menu";
             // 
             // lblEditDeleteItem
             // 
             this.lblEditDeleteItem.AutoSize = true;
             this.lblEditDeleteItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditDeleteItem.Location = new System.Drawing.Point(140, 133);
+            this.lblEditDeleteItem.Location = new System.Drawing.Point(166, 212);
             this.lblEditDeleteItem.Name = "lblEditDeleteItem";
             this.lblEditDeleteItem.Size = new System.Drawing.Size(492, 29);
             this.lblEditDeleteItem.TabIndex = 3;
@@ -80,7 +82,7 @@
             // 
             this.lblAddItem.AutoSize = true;
             this.lblAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddItem.Location = new System.Drawing.Point(225, 281);
+            this.lblAddItem.Location = new System.Drawing.Point(225, 331);
             this.lblAddItem.Name = "lblAddItem";
             this.lblAddItem.Size = new System.Drawing.Size(318, 29);
             this.lblAddItem.TabIndex = 4;
@@ -89,7 +91,7 @@
             // btnEditItem
             // 
             this.btnEditItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditItem.Location = new System.Drawing.Point(479, 187);
+            this.btnEditItem.Location = new System.Drawing.Point(428, 257);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(118, 45);
             this.btnEditItem.TabIndex = 5;
@@ -99,7 +101,7 @@
             // btnDeleteItem
             // 
             this.btnDeleteItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteItem.Location = new System.Drawing.Point(613, 187);
+            this.btnDeleteItem.Location = new System.Drawing.Point(562, 257);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(118, 45);
             this.btnDeleteItem.TabIndex = 6;
@@ -109,28 +111,56 @@
             // btnAddItem
             // 
             this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(328, 338);
+            this.btnAddItem.Location = new System.Drawing.Point(324, 374);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(118, 45);
             this.btnAddItem.TabIndex = 7;
             this.btnAddItem.Text = "Add";
             this.btnAddItem.UseVisualStyleBackColor = true;
             // 
-            // cmbWesternItems
+            // cmbItem
             // 
-            this.cmbWesternItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbWesternItems.FormattingEnabled = true;
-            this.cmbWesternItems.Location = new System.Drawing.Point(145, 187);
-            this.cmbWesternItems.Name = "cmbWesternItems";
-            this.cmbWesternItems.Size = new System.Drawing.Size(301, 37);
-            this.cmbWesternItems.TabIndex = 8;
+            this.cmbItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItem.FormattingEnabled = true;
+            this.cmbItem.Location = new System.Drawing.Point(88, 257);
+            this.cmbItem.Name = "cmbItem";
+            this.cmbItem.Size = new System.Drawing.Size(301, 37);
+            this.cmbItem.TabIndex = 8;
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Items.AddRange(new object[] {
+            "Western",
+            "Chinese",
+            "Arab",
+            "Japanese",
+            "Food & Beverages"});
+            this.cmbCategory.Location = new System.Drawing.Point(299, 158);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(176, 37);
+            this.cmbCategory.TabIndex = 9;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(225, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(341, 29);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Please select a menu category";
             // 
             // frmManageWestern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cmbWesternItems);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.cmbItem);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnEditItem);
@@ -140,7 +170,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmManageWestern";
-            this.Text = "Manage Western Menu";
+            this.Text = "Manage Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmManageWestern_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -159,6 +189,8 @@
         private System.Windows.Forms.Button btnEditItem;
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnAddItem;
-        private System.Windows.Forms.ComboBox cmbWesternItems;
+        private System.Windows.Forms.ComboBox cmbItem;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.Label label1;
     }
 }

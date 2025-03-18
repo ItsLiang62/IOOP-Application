@@ -282,15 +282,6 @@
     <EmbeddedResource Include="ManageReservationsForm.resx">
       <DependentUpon>ManageReservationsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="manage_menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="manage_menu.Designer.cs">
-      <DependentUpon>manage_menu.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="manage_menu.resx">
-      <DependentUpon>manage_menu.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="manager_main_page.cs">
       <SubType>Form</SubType>
     </Compile>
