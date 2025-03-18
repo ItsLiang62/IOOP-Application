@@ -7,7 +7,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Shared_Class_Library
 {
-    class FeedbackTable : Table
+    public class FeedbackTable : Table
     {
         public FeedbackTable(string connectionString) : base(connectionString)
         {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
@@ -14,6 +15,18 @@ namespace Foodle_Point_Management_System
     public partial class frmEmployeeSignUp: Form
     {
         private string EmployeeID
+        { get; set; }
+
+        private string InputFullName
+        { get; set; }
+
+        private string InputDOB
+        { get; set; }
+
+        private string InputPhoneNum
+        { get; set; }
+
+        private string InputEmail
         { get; set; }
 
         private string FullName
@@ -58,20 +71,42 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.47.36,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.57.209,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
 
-            FullName = txtName.Text;
+            InputFullName = txtName.Text;
             Position = cmbPosition.Text;
             Gender = cmbGender.Text;
-            Email = txtEmail.Text;
-            PhoneNum = txtPhoneNum.Text;
-            DOB = txtDOB.Text;
+            InputEmail = txtEmail.Text;
+            InputPhoneNum = txtPhoneNum.Text;
+            InputDOB = txtDOB.Text;
             Password = txtPassword.Text;
 
             if (AllInputValid(out messageBoxErrorMessage))
             {
+                FullName = InputFullName;
+                Email = InputEmail;
+                PhoneNum = InputPhoneNum;
+                DOB = InputDOB;
                 EmployeeID = myEmployeeTable.GetNewEmployeeID(Position);
-                myEmployeeTable.InsertRow(EmployeeID, FullName, Position, Gender, Email, PhoneNum, DOB, Password);
+
+                try
+                {
+                    myEmployeeTable.InsertRow(EmployeeID, FullName, Position, Gender, Email, PhoneNum, DOB, Password);
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 2601 || ex.Number == 2627)
+                    {
+                        MessageBox.Show("Email has been registered. Please enter another email");
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Unexpected error: {ex.Message}");
+                    }
+
+                }
+                
             }
             else
             {
@@ -88,12 +123,12 @@ namespace Foodle_Point_Management_System
             string eEmail;
             string ePhoneNum;
 
-            bool validName = myChecker.IsTextOnly(FullName, out eName);
-            bool validDate = myChecker.IsValidDate(DOB, out eDOB);
-            bool validEmail = myChecker.IsValidEmail(Email, out eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(PhoneNum, out ePhoneNum);
+            bool validName = myChecker.IsTextOnly(InputFullName, out eName);
+            bool validDate = myChecker.IsValidDate(InputDOB, out eDOB);
+            bool validEmail = myChecker.IsValidEmail(InputEmail, out eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(InputPhoneNum, out ePhoneNum);
 
-            messageBoxErrorMessage = "";
+            messageBoxErrorMessage = String.Empty;
 
             if (!(validName && validDate && validEmail && validPhoneNum))
             {
