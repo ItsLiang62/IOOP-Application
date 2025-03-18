@@ -181,7 +181,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Hall WHERE HallNumber = @hallNumber";
+                string query = "DELETE FROM Hall WHERE HallNumber = @hallNumber";
 
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))

@@ -173,7 +173,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Ingredients WHERE IngredientNumber = @IngredientNumber";
+                string query = "DELETE FROM Ingredients WHERE IngredientNumber = @IngredientNumber";
 
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))

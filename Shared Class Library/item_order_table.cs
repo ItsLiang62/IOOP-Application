@@ -181,7 +181,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM ItemOrder WHERE OrderID = @orderID";
+                string query = "DELETE FROM ItemOrder WHERE OrderID = @orderID";
 
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -15,10 +16,13 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmManageMenu: Form
     {
+        ItemTable myItemTable = new ItemTable("Data Source = 172.18.48.1,1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
+        InputChecker myChecker = new InputChecker();
+
         Manager ManagerUser
         { get; set; }
 
-        string InputItemID
+        string InputItemIDItemName
         { get; set; }
 
         string InputCategory
@@ -39,7 +43,6 @@ namespace Foodle_Point_Management_System
         {
             cmbItem.Items.Clear();
 
-            ItemTable myItemTable = new ItemTable("Data Source = 10.101.57.209,1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
             List<string> itemIDs;
             InputCategory = cmbCategory.SelectedItem.ToString();
 
@@ -68,9 +71,69 @@ namespace Foodle_Point_Management_System
 
         private void btnEditItem_Click(object sender, EventArgs e)
         {
-            frmEditItem editItemPage = new frmEditItem(ManagerUser, InputItemID);
+            string messageBoxErrorMessage = String.Empty;
+            InputCategory = cmbCategory.Text;
+            InputItemIDItemName = cmbItem.Text;
+
+            if (myChecker.IsEmptyInput(InputCategory, out string eCategory))
+            {
+                messageBoxErrorMessage += "Please select a menu category" + "\n";
+            }
+            
+            if (myChecker.IsEmptyInput(InputItemIDItemName, out string eItemIDItemName))
+            {
+                messageBoxErrorMessage += "Please select an item" + "\n";
+            }
+
+            if (messageBoxErrorMessage != String.Empty)
+            {
+                MessageBox.Show(messageBoxErrorMessage);
+                return;
+            }
+            
+            
+            frmEditItem editItemPage = new frmEditItem(ManagerUser, InputItemIDItemName.Substring(0, 4));
             editItemPage.Show();
             this.Hide();
+        }
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            string messageBoxErrorMessage = String.Empty;
+            InputCategory = cmbCategory.Text;
+            InputItemIDItemName = cmbItem.Text;
+
+            if (myChecker.IsEmptyInput(InputCategory, out string eCategory))
+            {
+                messageBoxErrorMessage += "Please select a menu category" + "\n";
+            }
+
+            if (myChecker.IsEmptyInput(InputItemIDItemName, out string eItemIDItemName))
+            {
+                messageBoxErrorMessage += "Please select an item" + "\n";
+            }
+
+            if (messageBoxErrorMessage != String.Empty)
+            {
+                MessageBox.Show(messageBoxErrorMessage);
+                return;
+            }
+            else
+            {
+                string itemIDToDelete = InputItemIDItemName.Substring(0, 4);
+
+                try
+                {
+                    myItemTable.DeleteRow(itemIDToDelete);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+
+                MessageBox.Show("Successfully deleted item");
+            }
         }
     }
 }

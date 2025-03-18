@@ -62,7 +62,7 @@ namespace Shared_Class_Library
                         }
                         else
                         {
-                            throw new Exception("Cannot find data. Are you sure you entered the ItemNumber and column name correctly?");
+                            throw new Exception("Cannot find data. Are you sure you entered the ItemID and column name correctly?");
                         }
                     }
                 }
@@ -164,10 +164,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@ItemID", itemID);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered ItemID or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -178,7 +175,7 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Item WHERE ItemID = @itemID";
+                string query = "DELETE FROM Item WHERE ItemID = @ItemID";
 
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -187,7 +184,7 @@ namespace Shared_Class_Library
 
                     if (cmd.ExecuteNonQuery() == 0)
                     {
-                        throw new Exception("Deletion failed. The entered ItemID was not found");
+                        throw new Exception("Deletion failed. The entered ItemID was not found.");
                     }
                 }
             }
