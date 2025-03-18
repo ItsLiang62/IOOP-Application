@@ -157,6 +157,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerClass1.cs" />
     <Compile Include="ingredients_table.cs" />
     <Compile Include="feedback_table.cs" />
     <Compile Include="hall_reservation_table.cs" />
