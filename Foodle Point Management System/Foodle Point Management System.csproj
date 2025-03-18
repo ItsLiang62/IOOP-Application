@@ -216,6 +216,15 @@
     <EmbeddedResource Include="customer_login.resx">
       <DependentUpon>customer_login.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="dashboard customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dashboard customer.Designer.cs">
+      <DependentUpon>dashboard customer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="dashboard customer.resx">
+      <DependentUpon>dashboard customer.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="EditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +269,15 @@
     </Compile>
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="FeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedbackForm.Designer.cs">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FeedbackForm.resx">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="UpdateProfile.cs">
       <SubType>Form</SubType>
@@ -383,6 +401,21 @@
     <EmbeddedResource Include="Resv_Main_Page.resx">
       <DependentUpon>Resv_Main_Page.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="OrderFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderFood.Designer.cs">
+      <DependentUpon>OrderFood.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="OrderFood.resx">
+      <DependentUpon>OrderFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="order food .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="order food .Designer.cs">
+      <DependentUpon>order food .cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
