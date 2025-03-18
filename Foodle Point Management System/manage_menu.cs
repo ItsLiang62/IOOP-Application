@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
@@ -33,23 +34,30 @@ namespace Foodle_Point_Management_System
             cmbItem.Items.Clear();
 
             ItemTable myItemTable = new ItemTable("Data Source = 10.101.57.209,1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
-            List<string> itemNumbers;
+            List<string> itemIDs;
             string chosenMenuCategory = cmbCategory.SelectedItem.ToString();
 
             try
             {
-                itemNumbers = myItemTable.GetItemNumbersOfCategory(chosenMenuCategory);
+                itemIDs = myItemTable.GetItemIDsOfCategory(chosenMenuCategory);
 
-                foreach (string itemNumber in itemNumbers)
+                foreach (string itemID in itemIDs)
                 {
-                    string itemName = myItemTable.GetValue(itemNumber, "ItemName").ToString();
-                    cmbItem.Items.Add(itemNumber + " " + itemName);
+                    string itemName = myItemTable.GetValue(itemID, "ItemName").ToString();
+                    cmbItem.Items.Add(itemID + " " + itemName);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            frmAddItem addItemPage = new frmAddItem(ManagerUser);
+            addItemPage.Show();
+            this.Hide();
         }
     }
 }

@@ -23,7 +23,7 @@ AccountPassword varchar(255) not null
 
 create table Item (
 
-ItemNumber varchar(255) primary key,
+ItemID varchar(255) primary key,
 ItemName varchar(255),
 Price decimal(10, 2) check (Price >= 0),
 Category varchar(255)

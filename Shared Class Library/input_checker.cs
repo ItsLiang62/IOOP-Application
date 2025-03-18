@@ -17,13 +17,44 @@ namespace Shared_Class_Library
                 return false;
             }
 
-            foreach (char c in input)
+            if (!Regex.IsMatch(input, @"^[A-Za-z\s]+$"))
             {
-                if (!Char.IsLetter(c))
-                {
-                    errorMessage = "Input must contain only alphabets";
-                    return false;
-                }
+                errorMessage = "Input must contain only alphabets";
+                return false;
+            }
+            
+            errorMessage = "No error";
+                return true;
+        }
+
+        public bool IsDigitOnly(string input, out string errorMessage)
+        {
+            if (this.IsEmptyInput(input, out errorMessage))
+            {
+                return false;
+            }
+
+            if (!Regex.IsMatch(input, @"^[0-9\s]+$"))
+            {
+                errorMessage = "Input must contain only digits";
+                return false;
+            }
+
+            errorMessage = "No error";
+            return true;
+        }
+
+        public bool IsValidPrice(string input, out string errorMessage)
+        {
+            if (this.IsEmptyInput(input, out errorMessage))
+            {
+                return false;
+            }
+
+            if (!Regex.IsMatch(input, @"^[0-9\.]+$"))
+            {
+                errorMessage = "Invalid Price";
+                return false;
             }
 
             errorMessage = "No error";

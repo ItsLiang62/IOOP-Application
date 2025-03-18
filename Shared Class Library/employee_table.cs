@@ -194,12 +194,12 @@ namespace Shared_Class_Library
                 string query = @"
                     SELECT TOP 1 EmployeeID
                     FROM Employee 
-                    WHERE Position = @position
+                    WHERE Position = @Position
                     ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID)-1) AS INT) DESC";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@position", position);
+                    cmd.Parameters.AddWithValue("@Position", position);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
