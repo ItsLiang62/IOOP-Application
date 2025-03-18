@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,25 +14,42 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmManageMenu: Form
     {
-        private Manager ManagerUser
+        Manager ManagerUser
         { get; set; }
 
-        public frmManageMenu(Manager manager)
+        public frmManageMenu(Manager managerUser)
         {
-            ManagerUser = manager;
             InitializeComponent();
+            ManagerUser = managerUser;
         }
 
-        private void btnWestern_Click(object sender, EventArgs e)
-        {
-            frmManageWestern manageWesternPage = new frmManageWestern();
-            manageWesternPage.Show();
-            this.Hide();
-        }
-
-        private void frmManageMenu_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmManageWestern_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbItem.Items.Clear();
+
+            ItemTable myItemTable = new ItemTable("Data Source = 10.101.57.209,1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
+            List<string> itemNumbers;
+            string chosenMenuCategory = cmbCategory.SelectedItem.ToString();
+
+            try
+            {
+                itemNumbers = myItemTable.GetItemNumbersOfCategory(chosenMenuCategory);
+
+                foreach (string itemNumber in itemNumbers)
+                {
+                    string itemName = myItemTable.GetValue(itemNumber, "ItemName").ToString();
+                    cmbItem.Items.Add(itemNumber + " " + itemName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

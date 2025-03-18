@@ -7,7 +7,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Shared_Class_Library
 {
-    class IngredientsTable : Table
+    public class IngredientsTable : Table
     {
         public IngredientsTable(string connectionString) : base(connectionString)
         {

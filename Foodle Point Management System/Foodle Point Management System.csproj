@@ -234,11 +234,11 @@
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="manage_western.cs">
+    <Compile Include="manage_menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manage_western.Designer.cs">
-      <DependentUpon>manage_western.cs</DependentUpon>
+    <Compile Include="manage_menu.Designer.cs">
+      <DependentUpon>manage_menu.cs</DependentUpon>
     </Compile>
     <Compile Include="update_manager_profile.cs">
       <SubType>Form</SubType>
@@ -270,8 +270,8 @@
     <Compile Include="ManageReservationsForm.Designer.cs">
       <DependentUpon>ManageReservationsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="manage_western.resx">
-      <DependentUpon>manage_western.cs</DependentUpon>
+    <EmbeddedResource Include="manage_menu.resx">
+      <DependentUpon>manage_menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="update_manager_profile.resx">
       <DependentUpon>update_manager_profile.cs</DependentUpon>
@@ -281,15 +281,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageReservationsForm.resx">
       <DependentUpon>ManageReservationsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="manage_menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="manage_menu.Designer.cs">
-      <DependentUpon>manage_menu.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="manage_menu.resx">
-      <DependentUpon>manage_menu.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="manager_main_page.cs">
       <SubType>Form</SubType>
