@@ -13,20 +13,20 @@ namespace Shared_Class_Library
         {
         }
 
-        public void InsertRow(string orderID, string itemNumber, double customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
+        public void InsertRow(string orderID, string itemID, double customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
         {
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
-                               "VALUES (@OrderID, @ItemNumber, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
+                string query = "INSERT INTO ItemOrder (OrderID, ItemID, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
+                               "VALUES (@OrderID, @ItemID, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
-                    cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+                    cmd.Parameters.AddWithValue("@ItemID", itemID);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
                     cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
@@ -39,7 +39,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string orderID, string column)
         {
-            List<string> allowedColumns = new List<string> { "OrderID", "ItemNumber", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
+            List<string> allowedColumns = new List<string> { "OrderID", "ItemID", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -73,7 +73,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "OrderID", "ItemNumber", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
+            List<string> allowedColumns = new List<string> { "OrderID", "ItemID", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -129,7 +129,7 @@ namespace Shared_Class_Library
                         if (reader.Read())
                         {
                             rowValues.Add(reader["OrderID"]);
-                            rowValues.Add(reader["ItemNumber"]);
+                            rowValues.Add(reader["ItemID"]);
                             rowValues.Add(reader["CustomerID"]);
                             rowValues.Add(reader["ChefEmployeeID"]);
                             rowValues.Add(reader["DateOfOrder"]);
@@ -149,7 +149,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string orderID, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "OrderID", "ItemNumber", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
+            List<string> allowedColumns = new List<string> { "OrderID", "ItemID", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
 
             if (!allowedColumns.Contains(column))
             {

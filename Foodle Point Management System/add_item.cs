@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Shared_Class_Library;
+
+namespace Foodle_Point_Management_System
+{
+    public partial class frmAddItem: Form
+    {
+        Manager ManagerUser
+        { get; set; }
+
+        private string InputItemName
+        { get; set; }
+
+        private string InputPrice
+        { get; set; }
+
+        private string ItemID
+        { get; set; }
+
+        private string ItemName
+        { get; set; }
+
+        private double Price
+        { get; set; }
+
+        private string Category
+        { get; set; }
+
+        public frmAddItem(Manager managerUser)
+        {
+            InitializeComponent();
+            ManagerUser = managerUser;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            InputItemName = txtItemName.Text;
+            InputPrice = txtPrice.Text;
+            Category = cmbCategory.Text;
+
+            string messageBoxErrorMessage;
+
+            if (AllInputValid(out messageBoxErrorMessage))
+            {
+                ItemTable myItemTable = new ItemTable("Data Source=10.101.57.209,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+                ItemID = myItemTable.GetNewItemID(Category);
+                ItemName = InputItemName;
+                Price = Math.Round(Convert.ToDouble(InputPrice), 2);
+
+                myItemTable.InsertRow(ItemID, ItemName, Price, Category);
+
+                MessageBox.Show("Successfully added item");
+            }
+            else
+            {
+                MessageBox.Show(messageBoxErrorMessage);
+            }
+
+
+        }
+
+        private bool AllInputValid(out string messageBoxErrorMessage)
+        {
+            InputChecker myChecker = new InputChecker();
+
+            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName);
+            bool validPrice = myChecker.IsValidPrice(InputPrice, out string ePrice);
+
+            messageBoxErrorMessage = String.Empty;
+
+            if (!validItemName)
+            {
+                messageBoxErrorMessage += eItemName + "\n";
+            }
+            if (!validPrice)
+            {
+                messageBoxErrorMessage += ePrice + "\n";
+            }
+
+            if (messageBoxErrorMessage != String.Empty)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+        private void frmAddItem_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnManageMenuPage_Click(object sender, EventArgs e)
+        {
+            frmManagerMain managerMainPage = new frmManagerMain(ManagerUser);
+            managerMainPage.Show();
+            this.Hide();
+        }
+    }
+}
