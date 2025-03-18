@@ -18,6 +18,12 @@ namespace Foodle_Point_Management_System
         Manager ManagerUser
         { get; set; }
 
+        string InputItemID
+        { get; set; }
+
+        string InputCategory
+        { get; set; }
+
         public frmManageMenu(Manager managerUser)
         {
             InitializeComponent();
@@ -35,11 +41,11 @@ namespace Foodle_Point_Management_System
 
             ItemTable myItemTable = new ItemTable("Data Source = 10.101.57.209,1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
             List<string> itemIDs;
-            string chosenMenuCategory = cmbCategory.SelectedItem.ToString();
+            InputCategory = cmbCategory.SelectedItem.ToString();
 
             try
             {
-                itemIDs = myItemTable.GetItemIDsOfCategory(chosenMenuCategory);
+                itemIDs = myItemTable.GetItemIDsOfCategory(InputCategory);
 
                 foreach (string itemID in itemIDs)
                 {
@@ -62,7 +68,9 @@ namespace Foodle_Point_Management_System
 
         private void btnEditItem_Click(object sender, EventArgs e)
         {
-
+            frmEditItem editItemPage = new frmEditItem(ManagerUser, InputItemID);
+            editItemPage.Show();
+            this.Hide();
         }
     }
 }
