@@ -59,5 +59,10 @@ namespace Foodle_Point_Management_System
             addItemPage.Show();
             this.Hide();
         }
+
+        private void btnEditItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
