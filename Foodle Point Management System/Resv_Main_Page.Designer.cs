@@ -45,7 +45,7 @@
             this.btnManageReservations.TabIndex = 0;
             this.btnManageReservations.Text = "Manage Reservations";
             this.btnManageReservations.UseVisualStyleBackColor = true;
-            this.btnManageReservations.Click += new System.EventHandler(this.btnManageReservations_Click_1);
+            this.btnManageReservations.Click += new System.EventHandler(this.btnManageReservations_Click);
             // 
             // label1
             // 
@@ -76,6 +76,7 @@
             this.btnUpdateReservationStatus.TabIndex = 3;
             this.btnUpdateReservationStatus.Text = "Update Reservation Status";
             this.btnUpdateReservationStatus.UseVisualStyleBackColor = true;
+            this.btnUpdateReservationStatus.Click += new System.EventHandler(this.btnUpdateReservationStatus_Click);
             // 
             // btnViewCustomerRequests
             // 
@@ -86,6 +87,7 @@
             this.btnViewCustomerRequests.TabIndex = 4;
             this.btnViewCustomerRequests.Text = "View Customer Requests";
             this.btnViewCustomerRequests.UseVisualStyleBackColor = true;
+            this.btnViewCustomerRequests.Click += new System.EventHandler(this.btnViewCustomerRequests_Click);
             // 
             // btnUpdateProfile
             // 
@@ -96,6 +98,7 @@
             this.btnUpdateProfile.TabIndex = 5;
             this.btnUpdateProfile.Text = "Update Profile";
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
+            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
             // 
             // Resv_Main_Page
             // 
@@ -110,6 +113,7 @@
             this.Controls.Add(this.btnManageReservations);
             this.Name = "Resv_Main_Page";
             this.Text = "Resv_Main_Page";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Resv_Main_Page_FormClosing);
             this.Load += new System.EventHandler(this.Resv_Main_Page_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

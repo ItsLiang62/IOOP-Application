@@ -17,7 +17,7 @@ namespace Foodle_Point_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmMain());
+            Application.Run(new Resv_Main_Page());
         }
     }
 }

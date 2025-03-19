@@ -20,25 +20,29 @@ namespace Foodle_Point_Management_System
         private void btnManageReservations_Click(object sender, EventArgs e)
         {
             ManageReservationsForm manageForm = new ManageReservationsForm();
-            manageForm.Show(); 
+            manageForm.Show();
+            this.Hide();
         }
 
         private void btnUpdateReservationStatus_Click(object sender, EventArgs e)
         {
             UpdateReservationStatusForm updateForm = new UpdateReservationStatusForm();
             updateForm.Show();
+            this.Hide();
         }
 
         private void btnViewCustomerRequests_Click(object sender, EventArgs e)
         {
             ViewCustomerRequestsForm requestForm = new ViewCustomerRequestsForm();
             requestForm.Show();
+            this.Hide();
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
             UpdateProfileForm profileForm = new UpdateProfileForm();
             profileForm.Show();
+            this.Hide();
         }
 
         private void Resv_Main_Page_Load(object sender, EventArgs e)
@@ -46,9 +50,9 @@ namespace Foodle_Point_Management_System
 
         }
 
-        private void btnManageReservations_Click_1(object sender, EventArgs e)
+        private void Resv_Main_Page_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }
