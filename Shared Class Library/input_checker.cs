@@ -10,7 +10,7 @@ namespace Shared_Class_Library
 {
     public class InputChecker
     {
-        public bool IsTextOnly(string input, out string errorMessage)
+        public bool IsTextOnly(string input, out string errorMessage, string inputTitle = "Input" )
         {
             if (this.IsEmptyInput(input, out errorMessage))
             {
@@ -19,7 +19,7 @@ namespace Shared_Class_Library
 
             if (!Regex.IsMatch(input, @"^[A-Za-z\s]+$"))
             {
-                errorMessage = "Input must contain only alphabets";
+                errorMessage = $"{inputTitle} must contain only alphabets";
                 return false;
             }
             
@@ -27,7 +27,7 @@ namespace Shared_Class_Library
                 return true;
         }
 
-        public bool IsDigitOnly(string input, out string errorMessage)
+        public bool IsDigitOnly(string input, out string errorMessage, string inputTitle = "Input")
         {
             if (this.IsEmptyInput(input, out errorMessage))
             {
@@ -36,7 +36,7 @@ namespace Shared_Class_Library
 
             if (!Regex.IsMatch(input, @"^[0-9\s]+$"))
             {
-                errorMessage = "Input must contain only digits";
+                errorMessage = $"{inputTitle} must contain only digits";
                 return false;
             }
 
@@ -115,11 +115,11 @@ namespace Shared_Class_Library
             return true;
         }
 
-        public bool IsEmptyInput(string input, out string errorMessage)
+        public bool IsEmptyInput(string input, out string errorMessage, string inputTitle = "Input")
         {
             if (input == "")
             {
-                errorMessage = "Input cannot be empty";
+                errorMessage = $"{inputTitle} cannot be empty";
                 return true;
             }
             else
