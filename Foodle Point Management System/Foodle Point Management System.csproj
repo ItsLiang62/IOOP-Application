@@ -174,7 +174,6 @@
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="CartItem.cs" />
-    
     <Compile Include="CustomerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,7 +201,6 @@
     <EmbeddedResource Include="AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="CustomerDashboard.resx">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
     </EmbeddedResource>

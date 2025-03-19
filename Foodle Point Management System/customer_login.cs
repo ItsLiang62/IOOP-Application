@@ -55,8 +55,8 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show(messageBoxErrorMessage);
                 return;
             }
-
-            CustomerDashboard customerMainPage = new CustomerDashboard(new CustomerClass1(CustomerID)); // ← need Customer object as argument
+            
+            CustomerDashboard customerMainPage = new CustomerDashboard(new CustomerClass1(CustomerID));
             customerMainPage.Show();
             this.Hide();
 
