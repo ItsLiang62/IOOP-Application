@@ -312,6 +312,11 @@
     <Compile Include="add_hall.Designer.cs">
       <DependentUpon>add_hall.cs</DependentUpon>
     </Compile>
+    <Compile Include="ioop_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ioop_dbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UpdateProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -516,6 +521,17 @@
     <EmbeddedResource Include="view_hall_reservations.resx">
       <DependentUpon>view_hall_reservations.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ioop_dbDataSet.xsc">
+      <DependentUpon>ioop_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ioop_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ioop_dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ioop_dbDataSet.xss">
+      <DependentUpon>ioop_dbDataSet.xsd</DependentUpon>
+    </None>
     <!-- Settings -->
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
