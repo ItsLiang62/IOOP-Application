@@ -60,7 +60,7 @@ namespace Foodle_Point_Management_System
         {
             txtItemName.Text = myItemTable.GetValue(ItemIDToEdit, "ItemName").ToString();
             txtPrice.Text = myItemTable.GetValue(ItemIDToEdit, "Price").ToString();
-            cmbCategory.SelectedItem = myItemTable.GetValue(ItemIDToEdit, "Category").ToString();
+            cmbCategory.Text = myItemTable.GetValue(ItemIDToEdit, "Category").ToString();
         }
 
         private void frmEditItem_FormClosing(object sender, FormClosingEventArgs e)
@@ -112,18 +112,17 @@ namespace Foodle_Point_Management_System
         {
             InputChecker myChecker = new InputChecker();
 
-            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName);
+            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName, "Item Name");
             bool validPrice = myChecker.IsValidPrice(InputPrice, out string ePrice);
 
             messageBoxErrorMessage = String.Empty;
 
-            if (!validItemName)
+            foreach (string error in new string[] { eItemName, ePrice })
             {
-                messageBoxErrorMessage += eItemName + "\n";
-            }
-            if (!validPrice)
-            {
-                messageBoxErrorMessage += ePrice + "\n";
+                if (error != "No error")
+                {
+                    messageBoxErrorMessage += error + "\n";
+                }
             }
 
             if (messageBoxErrorMessage != String.Empty)

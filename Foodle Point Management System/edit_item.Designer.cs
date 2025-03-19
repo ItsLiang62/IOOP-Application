@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnManageMenuPage = new System.Windows.Forms.Button();
+            this.btnManageMenu = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -45,21 +45,21 @@
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(311, 94);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(160, 39);
+            this.lblTitle.Size = new System.Drawing.Size(153, 38);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Edit Item";
             this.lblTitle.Resize += new System.EventHandler(this.lblTitle_Resize);
             // 
-            // btnManageMenuPage
+            // btnManageMenu
             // 
-            this.btnManageMenuPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageMenuPage.Location = new System.Drawing.Point(24, 30);
-            this.btnManageMenuPage.Name = "btnManageMenuPage";
-            this.btnManageMenuPage.Size = new System.Drawing.Size(290, 37);
-            this.btnManageMenuPage.TabIndex = 14;
-            this.btnManageMenuPage.Text = "Return to Manage Menu Page";
-            this.btnManageMenuPage.UseVisualStyleBackColor = true;
-            this.btnManageMenuPage.Click += new System.EventHandler(this.btnManageMenuPage_Click);
+            this.btnManageMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageMenu.Location = new System.Drawing.Point(24, 30);
+            this.btnManageMenu.Name = "btnManageMenu";
+            this.btnManageMenu.Size = new System.Drawing.Size(290, 37);
+            this.btnManageMenu.TabIndex = 14;
+            this.btnManageMenu.Text = "Return to Manage Menu Page";
+            this.btnManageMenu.UseVisualStyleBackColor = true;
+            this.btnManageMenu.Click += new System.EventHandler(this.btnManageMenuPage_Click);
             // 
             // btnEdit
             // 
@@ -146,7 +146,7 @@
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblItemName);
-            this.Controls.Add(this.btnManageMenuPage);
+            this.Controls.Add(this.btnManageMenu);
             this.Controls.Add(this.lblTitle);
             this.Name = "frmEditItem";
             this.Text = "Edit Item in Menu";
@@ -159,7 +159,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnManageMenuPage;
+        private System.Windows.Forms.Button btnManageMenu;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.TextBox txtPrice;

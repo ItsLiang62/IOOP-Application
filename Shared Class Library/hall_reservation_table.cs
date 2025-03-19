@@ -13,15 +13,15 @@ namespace Shared_Class_Library
         {
         }
 
-        public void InsertRow(string reservationID, string hallNumber, string customerID, string eventType, string reservationStatus, string remarks)
+        public void InsertRow(string reservationID, string hallNumber, string customerID, string eventType, string eventDate, string reservationStatus, string remarks)
         {
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO HallReservation (ReservationID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks) " +
-                               "VALUES (@ReservationID, @HallNumber, @CustomerID, @EventType, @ReservatioinStatus, @Remarks)";
+                string query = "INSERT INTO HallReservation (ReservationID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks) " +
+                               "VALUES (@ReservationID, @HallNumber, @CustomerID, @EventType, @EventDate, @ReservatioinStatus, @Remarks)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -29,6 +29,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@EventType", eventType);
+                    cmd.Parameters.AddWithValue("@EventDate", eventDate);
                     cmd.Parameters.AddWithValue("@ReservationStatus", reservationStatus);
                     cmd.Parameters.AddWithValue("@Remarks", remarks);
 
@@ -39,7 +40,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string reservationID, string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -73,7 +74,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -132,6 +133,7 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["HallNumber"]);
                             rowValues.Add(reader["CustomerID"]);
                             rowValues.Add(reader["EventType"]);
+                            rowValues.Add(reader["EventDate"]);
                             rowValues.Add(reader["ReservationStatus"]);
                             rowValues.Add(reader["Remarks"]);
 
@@ -149,7 +151,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string reservationID, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
