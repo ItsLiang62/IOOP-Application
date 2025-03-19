@@ -132,22 +132,22 @@ namespace Foodle_Point_Management_System
 
             messageBoxErrorMessage = String.Empty;
 
-            if (!(validName && validDate && validEmail && validPhoneNum))
+            foreach (string error in new string[] {eName, eGender, ePosition, eDOB, eEmail, ePhoneNum})
             {
-
-                foreach (string error in new string[] {eName, eDOB, eEmail, ePhoneNum})
+                if (!error.Equals("No error"))
                 {
-                    if (!error.Equals("No error"))
-                    {
-                        messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
-                    }
+                    messageBoxErrorMessage +=  error + "\n";
                 }
-
-                return false;
             }
 
-            messageBoxErrorMessage = "No error";
-            return true;
+            if (messageBoxErrorMessage != String.Empty)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
                   
     }

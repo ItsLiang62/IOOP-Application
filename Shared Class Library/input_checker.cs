@@ -46,7 +46,7 @@ namespace Shared_Class_Library
 
         public bool IsValidPrice(string input, out string errorMessage)
         {
-            if (this.IsEmptyInput(input, out errorMessage))
+            if (this.IsEmptyInput(input, out errorMessage, "Price"))
             {
                 return false;
             }
@@ -63,7 +63,7 @@ namespace Shared_Class_Library
 
         public bool IsValidPhoneNumber(string input, out string errorMessage)
         {
-            if (this.IsEmptyInput(input, out errorMessage))
+            if (this.IsEmptyInput(input, out errorMessage, "Phone Number"))
             {
                 return false;
             }
