@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class OrderFoodForm: Form
+
     {
+        private CustomerClass1 _currentCustomer;
+
         private List<MenuItem> allMenuItems = new List<MenuItem>(); 
         private void LoadMenuItems()
         {
@@ -22,9 +27,10 @@ namespace Foodle_Point_Management_System
             LoadCategories(); // Load categories into ComboBoxdView
         }
 
-        public OrderFoodForm()
+        public OrderFoodForm(CustomerClass1 customerID)
         {
             InitializeComponent();
+            _currentCustomer = customerID;
             dgvCart.AutoGenerateColumns = false;
         }
 
@@ -76,40 +82,60 @@ namespace Foodle_Point_Management_System
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
-            if (dgvCart.Rows.Count == 0 || dgvCart.Rows.Cast<DataGridViewRow>().All(row => row.IsNewRow))
+            // Ensure the cart is not empty
+            if (dgvCart.Rows.Count == 0)
             {
-                MessageBox.Show("Your cart is empty. Please add items before proceeding to payment.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Your cart is empty. Please add items before proceeding to payment.");
                 return;
             }
 
-            string customerID = "C001"; // Replace with actual logged-in customer ID
-            List<CartItem> cartItems = new List<CartItem>();
+            // Get the CustomerID of the logged-in customer
+            string customerID = _currentCustomer.CustomerID;
 
-            // ✅ Step 2: Loop through cart items and collect data
-            foreach (DataGridViewRow row in dgvCart.Rows)
+            // Create a unique OrderID
+            string orderID = Guid.NewGuid().ToString().Substring(0, 8);
+
+            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                if (row.Cells["ItemNumber"].Value == null) continue; // Skip empty rows
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
 
-                cartItems.Add(new CartItem(
-                    row.Cells["ItemNumber"].Value.ToString(),
-                    row.Cells["ItemName"].Value.ToString(),
-                    Convert.ToDecimal(row.Cells["Price"].Value)
-                ));
-            }
+                try
+                {
+                    // Loop through each item in the cart and insert it into the database
+                    foreach (DataGridViewRow row in dgvCart.Rows)
+                    {
+                        string itemNumber = row.Cells["ItemNumber"].Value.ToString();
+                        decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
 
-            // ✅ Step 3: Ensure items were actually added
-            if (cartItems.Count == 0)
-            {
-                MessageBox.Show("Your cart is empty. Please add items before proceeding to payment.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                        string query = "INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, DateOfOrder, OrderStatus) " +
+                                       "VALUES (@OrderID, @ItemNumber, @CustomerID, @DateOfOrder, @OrderStatus)";
 
-            // ✅ Step 4: Process the payment
-            Order order = new Order("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True", customerID, cartItems);
-            if (order.SaveOrder())
-            {
-                dgvCart.Rows.Clear(); // Clear the cart after payment
-                MessageBox.Show("Payment successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@OrderID", orderID);
+                            cmd.Parameters.AddWithValue("@ItemNumber", itemNumber);
+                            cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                            cmd.Parameters.AddWithValue("@DateOfOrder", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@OrderStatus", "Confirmed");
+
+                            cmd.ExecuteNonQuery(); // Execute the query for each item
+                        }
+                    }
+
+                    // Commit the transaction after all orders are inserted
+                    transaction.Commit();
+                    MessageBox.Show("Payment successful. Your order has been placed!");
+                    dgvCart.Rows.Clear(); // Clear the cart after payment
+                }
+                catch (Exception ex)
+                {
+                    // Rollback the transaction if any error occurs
+                    transaction.Rollback();
+                    MessageBox.Show("Error placing order: " + ex.Message);
+                }
             }
         }
 

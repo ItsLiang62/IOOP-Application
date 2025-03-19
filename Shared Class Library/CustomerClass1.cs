@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Shared_Class_Library
 {
-    class CustomerClass1
+    public class CustomerClass1
     {
-        private string CustomerID { get; set; }
+        public string CustomerID { get; set; }
         private string CustomerName { get; set; }
         private string Gender { get; set; }
         private string Email { get; set; }
