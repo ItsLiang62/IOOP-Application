@@ -24,8 +24,8 @@ namespace Foodle_Point_Management_System
 
         private void btnOrderFood_Click(object sender, EventArgs e)
         {
-            OrderFoodForm orderFoodForm = new OrderFoodForm();
-            orderFoodForm.Show();
+            //OrderFoodForm orderFoodForm = new OrderFoodForm();
+            //orderFoodForm.Show();
         }
 
         private void btnViewOrders_Click(object sender, EventArgs e)
