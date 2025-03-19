@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shared_Class_Library
 {
-    class CustomerClass1
+    public class CustomerClass1
     {
         private string CustomerID { get; set; }
         private string CustomerName { get; set; }

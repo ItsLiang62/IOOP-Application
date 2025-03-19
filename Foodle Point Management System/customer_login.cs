@@ -55,7 +55,7 @@ namespace Foodle_Point_Management_System
                 return;
             }
 
-            customer customerMainPage = new customer(); // ← need Customer object as argument
+            CustomerDashboard customerMainPage = new CustomerDashboard(new CustomerClass1(CustomerID); // ← need Customer object as argument
             customerMainPage.Show();
             this.Hide();
 
