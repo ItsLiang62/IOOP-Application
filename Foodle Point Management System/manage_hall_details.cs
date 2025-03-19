@@ -32,6 +32,8 @@ namespace Foodle_Point_Management_System
 
         private void FillComboBox()
         {
+            cmbHall.Items.Clear();
+
             List<object> allHallNumbers = myHallTable.GetColumnValues("HallNumber");
 
             foreach (object hallNumberObj in allHallNumbers)
@@ -60,7 +62,7 @@ namespace Foodle_Point_Management_System
             Application.Exit();
         }
 
-        private void btnEditItem_Click(object sender, EventArgs e)
+        private void btnEditHall_Click(object sender, EventArgs e)
         {
             if (IsHallSelected())
             {
@@ -74,6 +76,40 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Please select a hall");
             }
             
+        }
+
+        private void btnAddHall_Click(object sender, EventArgs e)
+        {
+            frmAddHall addHallPage = new frmAddHall(ManagerUser);
+            addHallPage.Show();
+            this.Hide();
+        }
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (IsHallSelected())
+            {
+                InputHallNumberHallName = cmbHall.Text;
+                string hallNumberToDelete = InputHallNumberHallName.Substring(0, 2);
+
+                try
+                {
+                    myHallTable.DeleteRow(hallNumberToDelete);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+
+                MessageBox.Show("Successfully deleted item.");
+
+                this.FillComboBox();
+            }
+            else
+            {
+                MessageBox.Show("Please select a hall");
+            }
         }
     }
 }

@@ -60,7 +60,15 @@ namespace Foodle_Point_Management_System
                 ItemName = InputItemName;
                 Price = Math.Round(Convert.ToDouble(InputPrice), 2);
 
-                myItemTable.InsertRow(ItemID, ItemName, Price, Category);
+                try
+                {
+                    myItemTable.InsertRow(ItemID, ItemName, Price, Category);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
                 MessageBox.Show("Successfully added item");
             }

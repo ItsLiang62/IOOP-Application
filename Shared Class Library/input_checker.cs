@@ -12,7 +12,7 @@ namespace Shared_Class_Library
     {
         public bool IsTextOnly(string input, out string errorMessage, string inputTitle = "Input" )
         {
-            if (this.IsEmptyInput(input, out errorMessage))
+            if (this.IsEmptyInput(input, out errorMessage, inputTitle))
             {
                 return false;
             }
@@ -29,7 +29,7 @@ namespace Shared_Class_Library
 
         public bool IsDigitOnly(string input, out string errorMessage, string inputTitle = "Input")
         {
-            if (this.IsEmptyInput(input, out errorMessage))
+            if (this.IsEmptyInput(input, out errorMessage, inputTitle))
             {
                 return false;
             }

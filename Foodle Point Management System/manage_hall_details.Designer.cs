@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cmbHall = new System.Windows.Forms.ComboBox();
-            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnAddHall = new System.Windows.Forms.Button();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnEditItem = new System.Windows.Forms.Button();
             this.lblAddHall = new System.Windows.Forms.Label();
@@ -47,15 +47,16 @@
             this.cmbHall.Size = new System.Drawing.Size(301, 37);
             this.cmbHall.TabIndex = 17;
             // 
-            // btnAddItem
+            // btnAddHall
             // 
-            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(329, 314);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(118, 45);
-            this.btnAddItem.TabIndex = 16;
-            this.btnAddItem.Text = "Add";
-            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddHall.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHall.Location = new System.Drawing.Point(329, 314);
+            this.btnAddHall.Name = "btnAddHall";
+            this.btnAddHall.Size = new System.Drawing.Size(118, 45);
+            this.btnAddHall.TabIndex = 16;
+            this.btnAddHall.Text = "Add";
+            this.btnAddHall.UseVisualStyleBackColor = true;
+            this.btnAddHall.Click += new System.EventHandler(this.btnAddHall_Click);
             // 
             // btnDeleteItem
             // 
@@ -66,6 +67,7 @@
             this.btnDeleteItem.TabIndex = 15;
             this.btnDeleteItem.Text = "Delete";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // btnEditItem
             // 
@@ -76,7 +78,7 @@
             this.btnEditItem.TabIndex = 14;
             this.btnEditItem.Text = "Edit";
             this.btnEditItem.UseVisualStyleBackColor = true;
-            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
+            this.btnEditItem.Click += new System.EventHandler(this.btnEditHall_Click);
             // 
             // lblAddHall
             // 
@@ -114,7 +116,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cmbHall);
-            this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.btnAddHall);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnEditItem);
             this.Controls.Add(this.lblAddHall);
@@ -130,7 +132,7 @@
 
         #endregion
         private System.Windows.Forms.ComboBox cmbHall;
-        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button btnAddHall;
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnEditItem;
         private System.Windows.Forms.Label lblAddHall;

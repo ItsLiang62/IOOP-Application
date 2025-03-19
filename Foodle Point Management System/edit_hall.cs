@@ -30,7 +30,7 @@ namespace Foodle_Point_Management_System
         private string NewHallName
         { get; set; }
 
-        private double NewCapacity
+        private int NewCapacity
         { get; set; }
 
         private string NewRecommendedEvent1

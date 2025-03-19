@@ -39,18 +39,17 @@ namespace Foodle_Point_Management_System
             Application.Exit();
         }
 
-        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        private void FillItemComboBox()
         {
             cmbItem.Items.Clear();
 
-            List<string> itemIDs;
             InputCategory = cmbCategory.SelectedItem.ToString();
 
             try
             {
-                itemIDs = myItemTable.GetItemIDsOfCategory(InputCategory);
+                List<string> allItemIDs = myItemTable.GetItemIDsOfCategory(InputCategory);
 
-                foreach (string itemID in itemIDs)
+                foreach (string itemID in allItemIDs)
                 {
                     string itemName = myItemTable.GetValue(itemID, "ItemName").ToString();
                     cmbItem.Items.Add(itemID + " " + itemName);
@@ -60,6 +59,11 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.FillItemComboBox();
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -133,6 +137,8 @@ namespace Foodle_Point_Management_System
                 }
 
                 MessageBox.Show("Successfully deleted item");
+
+                this.FillItemComboBox();
             }
         }
 
