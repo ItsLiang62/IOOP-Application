@@ -14,10 +14,17 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmEmployeeSignUp: Form
     {
+        private EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=172.18.48.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
         private string EmployeeID
         { get; set; }
 
         private string InputFullName
+        { get; set; }
+
+        private string InputPosition
+        { get; set; }
+
+        private string InputGender
         { get; set; }
 
         private string InputDOB
@@ -71,11 +78,9 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=10.101.57.209,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
-
             InputFullName = txtName.Text;
-            Position = cmbPosition.Text;
-            Gender = cmbGender.Text;
+            InputPosition = cmbPosition.Text;
+            InputGender = cmbGender.Text;
             InputEmail = txtEmail.Text;
             InputPhoneNum = txtPhoneNum.Text;
             InputDOB = txtDOB.Text;
@@ -118,34 +123,31 @@ namespace Foodle_Point_Management_System
         {
             InputChecker myChecker = new InputChecker();
 
-            string eName;
-            string eDOB;
-            string eEmail;
-            string ePhoneNum;
-
-            bool validName = myChecker.IsTextOnly(InputFullName, out eName);
-            bool validDate = myChecker.IsValidDate(InputDOB, out eDOB);
-            bool validEmail = myChecker.IsValidEmail(InputEmail, out eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(InputPhoneNum, out ePhoneNum);
+            bool validName = myChecker.IsTextOnly(InputFullName, out string eName, "Full Name");
+            bool validDate = myChecker.IsValidDate(InputDOB, out string eDOB);
+            bool validEmail = myChecker.IsValidEmail(InputEmail, out string eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(InputPhoneNum, out string ePhoneNum);
+            bool validGender = !myChecker.IsEmptyInput(InputGender, out string eGender, "Gender");
+            bool validPosition = !myChecker.IsEmptyInput(InputPosition, out string ePosition, "Position");
 
             messageBoxErrorMessage = String.Empty;
 
-            if (!(validName && validDate && validEmail && validPhoneNum))
+            foreach (string error in new string[] {eName, eGender, ePosition, eDOB, eEmail, ePhoneNum})
             {
-
-                foreach (string error in new string[] {eName, eDOB, eEmail, ePhoneNum})
+                if (!error.Equals("No error"))
                 {
-                    if (!error.Equals("No error"))
-                    {
-                        messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
-                    }
+                    messageBoxErrorMessage +=  error + "\n";
                 }
-
-                return false;
             }
 
-            messageBoxErrorMessage = "No error";
-            return true;
+            if (messageBoxErrorMessage != String.Empty)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
                   
     }

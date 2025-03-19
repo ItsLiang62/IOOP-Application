@@ -192,5 +192,42 @@ namespace Shared_Class_Library
                 }
             }
         }
+
+        public string GetNewHallNumber()
+        {
+            string previousHallNumber;
+            string newHallNumber;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                    SELECT TOP 1 HallNumber
+                    FROM Hall 
+                    ORDER BY CAST(SUBSTRING(HallNumber, 2, LEN(HallNumber)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousHallNumber = reader["HallNumber"].ToString();
+                            int previousHallNumberNum = Convert.ToInt32(previousHallNumber.Substring(1));
+                            int newHallNumberNum = previousHallNumberNum + 1;
+                            newHallNumber = $"H{newHallNumberNum}";
+
+                            return newHallNumber;
+                        }
+                        else
+                        {
+                            return $"H1".ToUpper();
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }
