@@ -8,7 +8,7 @@ namespace Shared_Class_Library
 {
     public class CustomerClass1
     {
-        private string CustomerID { get; set; }
+        public string CustomerID { get; set; }
         private string CustomerName { get; set; }
         private string Gender { get; set; }
         private string Email { get; set; }
