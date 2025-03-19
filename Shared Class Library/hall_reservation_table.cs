@@ -29,7 +29,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@EventType", eventType);
-                    cmd.Parameters.AddWithValue("@EventDate", eventDate)
+                    cmd.Parameters.AddWithValue("@EventDate", eventDate);
                     cmd.Parameters.AddWithValue("@ReservationStatus", reservationStatus);
                     cmd.Parameters.AddWithValue("@Remarks", remarks);
 
