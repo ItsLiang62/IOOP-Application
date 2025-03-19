@@ -39,7 +39,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string hallNumber, string column)
         {
-            List<string> allowedColumns = new List<string> { "HallNumber, HallName, Capacity, RecommendedEvent1, RecommendedEvent2, IsAvailable" };
+            List<string> allowedColumns = new List<string> { "HallNumber", "HallName", "Capacity", "RecommendedEvent1", "RecommendedEvent2", "IsAvailable" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -73,7 +73,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "HallNumber, HallName, Capacity, RecommendedEvent1, RecommendedEvent2, IsAvailable" };
+            List<string> allowedColumns = new List<string> { "HallNumber", "HallName", "Capacity", "RecommendedEvent1", "RecommendedEvent2", "IsAvailable" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -149,7 +149,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string hallNumber, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "HallNumber, HallName, Capacity, RecommendedEvent1, RecommendedEvent2, IsAvailable" };
+            List<string> allowedColumns = new List<string> { "HallNumber", "HallName", "Capacity", "RecommendedEvent1", "RecommendedEvent2", "IsAvailable" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -167,10 +167,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered HallNumber or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

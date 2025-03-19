@@ -240,6 +240,9 @@
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="edit_hall.resx">
+      <DependentUpon>edit_hall.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="edit_item.resx">
       <DependentUpon>edit_item.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +296,12 @@
     </Compile>
     <Compile Include="edit_item.Designer.cs">
       <DependentUpon>edit_item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="edit_hall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edit_hall.Designer.cs">
+      <DependentUpon>edit_hall.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateProfile.cs">
       <SubType>Form</SubType>

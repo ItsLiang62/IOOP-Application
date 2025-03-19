@@ -36,6 +36,7 @@ namespace Foodle_Point_Management_System
 
         private string NewCategory
         { get; set; }
+
         public frmEditItem(Manager manager, string itemIDToEdit)
         {
             InitializeComponent();

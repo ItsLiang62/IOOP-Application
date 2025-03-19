@@ -135,5 +135,12 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Successfully deleted item");
             }
         }
+
+        private void btnManagerMain_Click(object sender, EventArgs e)
+        {
+            frmManagerMain managerMainPage = new frmManagerMain(ManagerUser);
+            managerMainPage.Show();
+            this.Hide();
+        }
     }
 }

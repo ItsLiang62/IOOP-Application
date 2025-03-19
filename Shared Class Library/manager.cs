@@ -8,6 +8,8 @@ namespace Shared_Class_Library
 {
     public class Manager
     {
+        private EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        
         private string EmployeeID
         { get; set; }
 
@@ -34,7 +36,6 @@ namespace Shared_Class_Library
 
         public Manager(string employeeID)
         {
-            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
             EmployeeID = employeeID;
             FullName = myEmployeeTable.GetValue(employeeID, "EmployeeName").ToString();
