@@ -13,30 +13,32 @@ namespace Shared_Class_Library
         {
         }
 
-        public void InsertRow(string orderID, string itemID, double customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
-        {
+       
 
+
+           public void InsertRow(string orderID, string itemID, string customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
+        {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO ItemOrder (OrderID, ItemID, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
-                               "VALUES (@OrderID, @ItemID, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
+                string query = "INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
+                               "VALUES (@OrderID, @ItemNumber, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
-                    cmd.Parameters.AddWithValue("@ItemID", itemID);
-                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@ItemNumber", itemID);  // Make sure this matches the ItemID in the database
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);  // Ensure this is a string
                     cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
-                    cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
+                    cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);  // Ensure the correct date format
                     cmd.Parameters.AddWithValue("@OrderStatus", orderStatus);
 
-                    cmd.ExecuteNonQuery();
-
+                    cmd.ExecuteNonQuery();  // Execute the query to insert the item
                 }
             }
         }
+
         public object GetValue(string orderID, string column)
         {
             List<string> allowedColumns = new List<string> { "OrderID", "ItemID", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
