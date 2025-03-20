@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class FeedbackTable : Table
     {
-        public FeedbackTable(string connectionString) : base(connectionString)
+        public FeedbackTable() : base()
         {
         }
 

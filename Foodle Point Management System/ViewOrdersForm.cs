@@ -23,8 +23,8 @@ namespace Foodle_Point_Management_System
         {
             InitializeComponent();
             _currentCustomer = customer;
-            _itemOrderTable = new ItemOrderTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
-            _hallReservationTable = new HallReservationTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+            _itemOrderTable = new ItemOrderTable();
+            _hallReservationTable = new HallReservationTable();
         }
 
         private void ViewOrdersForm_Load(object sender, EventArgs e)
@@ -109,4 +109,4 @@ namespace Foodle_Point_Management_System
             }
         }
     }
-        }
+}

@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class ItemOrderTable : Table
     {
-        public ItemOrderTable(string connectionString) : base(connectionString)
+        public ItemOrderTable() : base()
         {
         }
 

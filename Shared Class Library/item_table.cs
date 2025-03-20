@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class ItemTable : Table
     {
-        public ItemTable(string connectionString) : base(connectionString)
+        public ItemTable() : base()
         {
         }
 

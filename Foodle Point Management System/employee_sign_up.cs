@@ -14,7 +14,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmEmployeeSignUp: Form
     {
-        private EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=192.168.16.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+        private EmployeeTable myEmployeeTable = new EmployeeTable();
         private string EmployeeID
         { get; set; }
 
@@ -89,6 +89,8 @@ namespace Foodle_Point_Management_System
             if (AllInputValid(out messageBoxErrorMessage))
             {
                 FullName = InputFullName;
+                Gender = InputGender;
+                Position = InputPosition;
                 Email = InputEmail;
                 PhoneNum = InputPhoneNum;
                 DOB = InputDOB;
@@ -108,10 +110,12 @@ namespace Foodle_Point_Management_System
                     else
                     {
                         MessageBox.Show($"Unexpected error: {ex.Message}");
+                        return;
                     }
 
                 }
-                
+                MessageBox.Show($"Successfully signed up as {Position}");
+
             }
             else
             {

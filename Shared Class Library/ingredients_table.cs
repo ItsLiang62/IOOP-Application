@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class IngredientsTable : Table
     {
-        public IngredientsTable(string connectionString) : base(connectionString)
+        public IngredientsTable() : base()
         {
         }
 

@@ -14,7 +14,7 @@ namespace Foodle_Point_Management_System
     public partial class frmManageHallDetails: Form
     {
         private InputChecker myChecker = new InputChecker();
-        private HallTable myHallTable = new HallTable("Data Source=192.168.16.1;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        private HallTable myHallTable = new HallTable();
 
         private Manager ManagerUser
         { get; set; }

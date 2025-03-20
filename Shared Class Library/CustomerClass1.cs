@@ -16,7 +16,7 @@ namespace Shared_Class_Library
 
         public CustomerClass1(string customerID)
         {
-            CustomerTable myCustomerTable = new CustomerTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+            CustomerTable myCustomerTable = new CustomerTable();
 
             {
 
