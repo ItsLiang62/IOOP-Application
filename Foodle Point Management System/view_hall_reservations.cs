@@ -15,10 +15,14 @@ namespace Foodle_Point_Management_System
     {
         private HallReservationTable myHallReservationTable = new HallReservationTable("Data Source=192.168.16.1,1433;User ID=anderson_login;Password=123;Connect Timeout=10;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
         
-        public frmViewHallReservations()
+        private Manager ManagerUser
+        { get; set; }
+
+        public frmViewHallReservations(Manager managerUser)
         {
             InitializeComponent();
             this.FillListView();
+            ManagerUser = managerUser;
         }
 
         private void FillListView()
@@ -50,6 +54,13 @@ namespace Foodle_Point_Management_System
         private void frmViewHallReservations_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnManagerMain_Click(object sender, EventArgs e)
+        {
+            frmManagerMain managerMainPage = new frmManagerMain(ManagerUser);
+            managerMainPage.Show();
+            this.Hide();
         }
     }
 }
