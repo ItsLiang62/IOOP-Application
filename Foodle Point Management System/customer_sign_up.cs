@@ -52,11 +52,15 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             CustomerTable myCustomerTable = new CustomerTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
 =======
             CustomerTable myCustomerTable = new CustomerTable("Data Source=192.168.16.1;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
 >>>>>>> main
+=======
+            CustomerTable myCustomerTable = new CustomerTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+>>>>>>> Stashed changes
 
             FullName = txtName.Text;
             Gender = cmbGender.Text;
@@ -124,6 +128,11 @@ namespace Foodle_Point_Management_System
                 messageBoxErrorMessage = "No error";
                 return true;
             }
+        }
+
+        private void frmCustomerSignUp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
