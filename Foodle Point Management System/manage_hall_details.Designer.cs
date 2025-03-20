@@ -35,6 +35,7 @@
             this.lblAddHall = new System.Windows.Forms.Label();
             this.lblEditDeleteHall = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnManagerMain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbHall
@@ -110,11 +111,23 @@
             this.lblTitle.TabIndex = 11;
             this.lblTitle.Text = "Manage Hall";
             // 
+            // btnManagerMain
+            // 
+            this.btnManagerMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagerMain.Location = new System.Drawing.Point(36, 29);
+            this.btnManagerMain.Name = "btnManagerMain";
+            this.btnManagerMain.Size = new System.Drawing.Size(118, 45);
+            this.btnManagerMain.TabIndex = 18;
+            this.btnManagerMain.Text = "Back";
+            this.btnManagerMain.UseVisualStyleBackColor = true;
+            this.btnManagerMain.Click += new System.EventHandler(this.btnManagerMain_Click);
+            // 
             // frmManageHallDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnManagerMain);
             this.Controls.Add(this.cmbHall);
             this.Controls.Add(this.btnAddHall);
             this.Controls.Add(this.btnDeleteItem);
@@ -138,5 +151,6 @@
         private System.Windows.Forms.Label lblAddHall;
         private System.Windows.Forms.Label lblEditDeleteHall;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnManagerMain;
     }
 }

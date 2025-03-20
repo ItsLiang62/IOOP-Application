@@ -14,7 +14,7 @@ namespace Foodle_Point_Management_System
     public partial class frmManageHallDetails: Form
     {
         private InputChecker myChecker = new InputChecker();
-        private HallTable myHallTable = new HallTable("Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        private HallTable myHallTable = new HallTable("Data Source=192.168.16.1;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
         private Manager ManagerUser
         { get; set; }
@@ -110,6 +110,13 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show("Please select a hall");
             }
+        }
+
+        private void btnManagerMain_Click(object sender, EventArgs e)
+        {
+            frmManagerMain managerMainPage = new frmManagerMain(ManagerUser);
+            managerMainPage.Show();
+            this.Hide();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmEmployeeSignUp: Form
     {
-        private EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=172.18.48.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
+        private EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=192.168.16.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
         private string EmployeeID
         { get; set; }
 

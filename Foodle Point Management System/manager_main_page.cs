@@ -58,7 +58,7 @@ namespace Foodle_Point_Management_System
 
         private void btnViewReservation_Click(object sender, EventArgs e)
         {
-            frmViewHallReservations viewHallReservationsPage = new frmViewHallReservations();
+            frmViewHallReservations viewHallReservationsPage = new frmViewHallReservations(ManagerUser);
             viewHallReservationsPage.Show();
             this.Hide();
         }
@@ -67,6 +67,13 @@ namespace Foodle_Point_Management_System
         {
             frmUpdateManagerProfile updateManagerProfilePage = new frmUpdateManagerProfile();
             updateManagerProfilePage.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmMain mainPage = new frmMain();
+            mainPage.Show();
             this.Hide();
         }
     }
