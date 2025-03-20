@@ -24,13 +24,12 @@ namespace Foodle_Point_Management_System
 
         private void btnOrderFood_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             OrderFoodForm orderFoodForm = new OrderFoodForm(_currentCustomer);
             orderFoodForm.Show();
-=======
-            //OrderFoodForm orderFoodForm = new OrderFoodForm();
-            //orderFoodForm.Show();
->>>>>>> main
+
+       
+
         }
 
         private void btnViewOrders_Click(object sender, EventArgs e)
