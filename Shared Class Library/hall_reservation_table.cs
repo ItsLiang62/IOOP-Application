@@ -40,7 +40,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string reservationID, string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ReservationStatus", "Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -58,13 +58,27 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (column == "Event Date")
                         {
-                            return reader[column];
+                            if (reader.Read())
+                            {
+                                return ((DateTime)reader[column]).ToString("dd/MM/yyyy");
+                            }
+                            else
+                            {
+                                throw new Exception("Cannot find data. Are you sure you entered the ReservationID correctly?");
+                            }
                         }
                         else
                         {
-                            throw new Exception("Cannot find data. Are you sure you entered the ReservationID correctly?");
+                            if (reader.Read())
+                            {
+                                return reader[column];
+                            }
+                            else
+                            {
+                                throw new Exception("Cannot find data. Are you sure you entered the ReservationID correctly?");
+                            }
                         }
                     }
                 }
@@ -74,7 +88,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ReservationStatus", "Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -93,18 +107,23 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (column == "EventDate")
                         {
-                            columnValues.Add(reader[column]);
-                        }
-                        if (columnValues.Count > 0)
-                        {
-                            return columnValues;
+                            while (reader.Read())
+                            {
+                                columnValues.Add(((DateTime)reader[column]).ToString("dd/MM/yyyy"));
+                            }
                         }
                         else
                         {
-                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
+                            while (reader.Read())
+                            {
+                                columnValues.Add(reader[column]);
+                            }
                         }
+                            
+                        
+                        return columnValues;
                     }
                 }
 
@@ -133,7 +152,7 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["HallNumber"]);
                             rowValues.Add(reader["CustomerID"]);
                             rowValues.Add(reader["EventType"]);
-                            rowValues.Add(reader["EventDate"]);
+                            rowValues.Add(((DateTime)reader["EventDate"]).ToString("dd/MM/yyyy"));
                             rowValues.Add(reader["ReservationStatus"]);
                             rowValues.Add(reader["Remarks"]);
 
@@ -151,7 +170,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string reservationID, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ReservationStatus", "Remarks" };
 
             if (!allowedColumns.Contains(column))
             {

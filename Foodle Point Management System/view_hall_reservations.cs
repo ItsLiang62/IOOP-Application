@@ -7,14 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class frmViewHallReservations: Form
     {
+        private HallReservationTable myHallReservationTable = new HallReservationTable("Data Source=192.168.16.1,1433;User ID=anderson_login;Password=123;Connect Timeout=10;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        
         public frmViewHallReservations()
         {
             InitializeComponent();
+            this.FillListView();
+        }
+
+        private void FillListView()
+        {
+            lvwHallReservation.Items.Clear();
+
+            List<object> allReservationIDs = myHallReservationTable.GetColumnValues("ReservationID");
+            List<object> reservationRecord;
+            ListViewItem newLVItem;
+
+            foreach (object reservationID in allReservationIDs)
+            {
+                newLVItem = new ListViewItem(reservationID.ToString());
+                reservationRecord = myHallReservationTable.GetRowValues(reservationID.ToString());
+                reservationRecord.RemoveAt(reservationRecord.Count - 1);
+                reservationRecord.RemoveAt(0);
+
+                foreach (object value in reservationRecord)
+                {
+                    newLVItem.SubItems.Add(value.ToString());
+                }
+
+                lvwHallReservation.Items.Add(newLVItem);
+            }
+
+            lvwHallReservation.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void frmViewHallReservations_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
