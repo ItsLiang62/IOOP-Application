@@ -8,7 +8,7 @@ namespace Shared_Class_Library
 {
     public class Manager
     {
-        private EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=192.168.16.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        private EmployeeTable myEmployeeTable = new EmployeeTable();
         
         private string EmployeeID
         { get; set; }
@@ -47,14 +47,44 @@ namespace Shared_Class_Library
             Password = myEmployeeTable.GetValue(employeeID, "AccountPassword").ToString();
         }
 
+        public string GetEmployeeID()
+        {
+            return EmployeeID;
+        }
+
         public string GetFullName()
         {
             return FullName;
         }
 
+        public string GetPosition()
+        {
+            return Position;
+        }
+
+        public string GetDOB()
+        {
+            return DOB;
+        }
+
         public string GetGender()
         {
             return Gender;
+        }
+
+        public string GetPhoneNum()
+        {
+            return PhoneNum;
+        }
+
+        public string GetEmail()
+        {
+            return Email;
+        }
+        
+        public string GetPassword()
+        {
+            return Password;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Shared_Class_Library
 {
     public class CustomerTable: Table
     {
-        public CustomerTable(string connectionString) : base(connectionString)
+        public CustomerTable() : base()
         {
         }
 

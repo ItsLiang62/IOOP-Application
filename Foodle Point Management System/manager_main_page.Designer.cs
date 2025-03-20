@@ -33,7 +33,7 @@
             this.btnManageHall = new System.Windows.Forms.Button();
             this.btnViewReservation = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblWelcomeManager
@@ -92,23 +92,23 @@
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
             this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
             // 
-            // button1
+            // btnMain
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 52);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Return to Main Page";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMain.Location = new System.Drawing.Point(12, 12);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(218, 52);
+            this.btnMain.TabIndex = 5;
+            this.btnMain.Text = "Return to Main Page";
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // frmManagerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnMain);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewReservation);
             this.Controls.Add(this.btnManageHall);
@@ -129,6 +129,6 @@
         private System.Windows.Forms.Button btnManageHall;
         private System.Windows.Forms.Button btnViewReservation;
         private System.Windows.Forms.Button btnUpdateProfile;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMain;
     }
 }

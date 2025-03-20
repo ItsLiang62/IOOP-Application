@@ -65,12 +65,12 @@ namespace Foodle_Point_Management_System
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-            frmUpdateManagerProfile updateManagerProfilePage = new frmUpdateManagerProfile();
+            frmUpdateManagerProfile updateManagerProfilePage = new frmUpdateManagerProfile(ManagerUser);
             updateManagerProfilePage.Show();
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMain_Click(object sender, EventArgs e)
         {
             frmMain mainPage = new frmMain();
             mainPage.Show();

@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class HallTable : Table
     {
-        public HallTable(string connectionString) : base(connectionString)
+        public HallTable() : base()
         {
         }
 

@@ -16,6 +16,18 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerSignUp: Form
     {
+        private string InputFullName
+        { get; set; }
+
+        private string InputGender
+        { get; set; }
+
+        private string InputPhoneNum
+        { get; set; }
+
+        private string InputEmail
+        { get; set; }
+
         private string CustomerID
         { get; set; }
 
@@ -50,20 +62,21 @@ namespace Foodle_Point_Management_System
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            string messageBoxErrorMessage;
-
-
-            CustomerTable myCustomerTable = new CustomerTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+            CustomerTable myCustomerTable = new CustomerTable();
        
-
-            FullName = txtName.Text;
-            Gender = cmbGender.Text;
-            Email = txtEmail.Text;
-            PhoneNum = txtPhoneNum.Text;
+            InputFullName = txtName.Text;
+            InputGender = cmbGender.Text;
+            InputEmail = txtEmail.Text;
+            InputPhoneNum = txtPhoneNum.Text;
             CustomerID = myCustomerTable.GetNewCustomerID();
 
-            if (AllInputValid(out messageBoxErrorMessage))
+            if (AllInputValid(out string messageBoxErrorMessage))
             {
+                FullName = InputFullName;
+                Gender = InputGender;
+                Email = InputEmail;
+                PhoneNum = InputPhoneNum;
+
                 try
                 {
                     myCustomerTable.InsertRow(CustomerID, FullName, Gender, Email, PhoneNum);
@@ -78,9 +91,11 @@ namespace Foodle_Point_Management_System
                     else
                     {
                         MessageBox.Show($"Unexpected error: {ex.Message}");
+                        return;
                     }
                     
                 }
+                MessageBox.Show("Successfully signed up as customer");
             }
             else
             {

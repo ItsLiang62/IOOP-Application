@@ -13,7 +13,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmViewHallReservations: Form
     {
-        private HallReservationTable myHallReservationTable = new HallReservationTable("Data Source=192.168.16.1,1433;User ID=anderson_login;Password=123;Connect Timeout=10;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        private HallReservationTable myHallReservationTable = new HallReservationTable();
         
         private Manager ManagerUser
         { get; set; }

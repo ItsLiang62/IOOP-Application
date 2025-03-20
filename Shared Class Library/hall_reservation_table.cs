@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class HallReservationTable : Table
     {
-        public HallReservationTable(string connectionString) : base(connectionString)
+        public HallReservationTable() : base()
         {
         }
 

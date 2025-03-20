@@ -12,9 +12,10 @@ namespace Shared_Class_Library
         protected string ConnectionString
         { get; set; }
 
-        public Table(string connectionString)
+        public Table()
         {
-            ConnectionString = connectionString;
+            //Enter connection string here before running the application
+            ConnectionString = "Data Source=192.168.16.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
         }
     }
 }
