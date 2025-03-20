@@ -41,7 +41,7 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            CustomerTable myCustomerTable = new CustomerTable("Data Source=192.168.16.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Connect Timeout=10;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            CustomerTable myCustomerTable = new CustomerTable("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
 
             InputEmail = txtEmail.Text;
 
