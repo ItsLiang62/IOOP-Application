@@ -107,29 +107,23 @@ namespace Foodle_Point_Management_System
         {
             InputChecker myChecker = new InputChecker();
 
-            string eName;
-            string eEmail;
-            string ePhoneNum;
-            string eGender;
+            bool validName = myChecker.IsTextOnly(InputFullName, out string eName, "Full Name");
+            bool validEmail = myChecker.IsValidEmail(InputEmail, out string eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(InputPhoneNum, out string ePhoneNum);
+            bool validGender = !myChecker.IsEmptyInput(InputGender, out string eGender, "Gender");
 
-            bool validName = myChecker.IsTextOnly(FullName, out eName);
-            bool validEmail = myChecker.IsValidEmail(Email, out eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(PhoneNum, out ePhoneNum);
-            bool validGender = !myChecker.IsEmptyInput(Gender, out eGender);
+            messageBoxErrorMessage = String.Empty;
 
-            messageBoxErrorMessage = "";
-
-            if (!(validName && validEmail && validPhoneNum && validGender))
+            foreach (string error in new string[] { eName, eEmail, ePhoneNum, eGender })
             {
-
-                foreach (string error in new string[] { eName, eEmail, ePhoneNum, eGender })
+                if (!error.Equals("No error"))
                 {
-                    if (!error.Equals("No error"))
-                    {
-                        messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
-                    }
+                    messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
                 }
+            }
 
+            if (messageBoxErrorMessage != String.Empty)
+            { 
                 return false;
             }
             else

@@ -96,7 +96,7 @@ namespace Foodle_Point_Management_System
 
                 try
                 {
-                    myEmployeeTable.UpdateValue(employeeID, "FullName", NewFullName);
+                    myEmployeeTable.UpdateValue(employeeID, "EmployeeName", NewFullName);
                     myEmployeeTable.UpdateValue(employeeID, "Gender", NewGender);
                     myEmployeeTable.UpdateValue(employeeID, "DOB", NewDOB);
                     myEmployeeTable.UpdateValue(employeeID, "Email", NewEmail);

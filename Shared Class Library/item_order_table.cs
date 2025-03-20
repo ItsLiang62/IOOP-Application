@@ -13,10 +13,7 @@ namespace Shared_Class_Library
         {
         }
 
-       
-
-
-           public void InsertRow(string orderID, string itemID, string customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
+        public void InsertRow(string orderID, string itemID, string customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -28,13 +25,13 @@ namespace Shared_Class_Library
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
-                    cmd.Parameters.AddWithValue("@ItemNumber", itemID);  // Make sure this matches the ItemID in the database
-                    cmd.Parameters.AddWithValue("@CustomerID", customerID);  // Ensure this is a string
+                    cmd.Parameters.AddWithValue("@ItemNumber", itemID);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
-                    cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);  // Ensure the correct date format
+                    cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
                     cmd.Parameters.AddWithValue("@OrderStatus", orderStatus);
 
-                    cmd.ExecuteNonQuery();  // Execute the query to insert the item
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -94,18 +91,23 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (column == "DateOfOrder")
                         {
-                            columnValues.Add(reader[column]);
-                        }
-                        if (columnValues.Count > 0)
-                        {
-                            return columnValues;
+                            while (reader.Read())
+                            {
+                                columnValues.Add(((DateTime)reader["EventDate"]).ToString("dd/MM/yyyy"));
+                            }
                         }
                         else
                         {
-                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
+                            while (reader.Read())
+                            {
+                                columnValues.Add(reader[column]);
+                            }
                         }
+                        
+
+                        return columnValues;
                     }
                 }
 
@@ -134,7 +136,7 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["ItemID"]);
                             rowValues.Add(reader["CustomerID"]);
                             rowValues.Add(reader["ChefEmployeeID"]);
-                            rowValues.Add(reader["DateOfOrder"]);
+                            rowValues.Add(((DateTime)reader["EventDate"]).ToString("dd/MM/yyyy"));
                             rowValues.Add(reader["OrderStatus"]);
 
                             return rowValues;
@@ -169,10 +171,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered OrderID or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

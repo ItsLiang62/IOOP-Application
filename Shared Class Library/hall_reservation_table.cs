@@ -188,10 +188,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@reservationID", reservationID);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered ReservationID or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

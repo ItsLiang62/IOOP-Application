@@ -117,7 +117,7 @@ namespace Shared_Class_Library
 
         public bool IsEmptyInput(string input, out string errorMessage, string inputTitle = "Input")
         {
-            if (input == "")
+            if (String.IsNullOrEmpty(input))
             {
                 errorMessage = $"{inputTitle} cannot be empty";
                 return true;

@@ -94,14 +94,8 @@ namespace Shared_Class_Library
                         {
                             columnValues.Add(reader[column]);
                         }
-                        if (columnValues.Count > 0)
-                        {
-                            return columnValues;
-                        }
-                        else
-                        {
-                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
-                        }
+                        
+                        return columnValues;
                     }
                 }
 
@@ -163,10 +157,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@FeedbackID", feedbackID);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered FeedbackID or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
