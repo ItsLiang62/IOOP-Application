@@ -35,6 +35,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnManagerMain = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lvwHallReservation
@@ -88,16 +90,40 @@
             this.columnHeader6.Text = "Status";
             this.columnHeader6.Width = 50;
             // 
+            // btnManagerMain
+            // 
+            this.btnManagerMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagerMain.Location = new System.Drawing.Point(31, 27);
+            this.btnManagerMain.Name = "btnManagerMain";
+            this.btnManagerMain.Size = new System.Drawing.Size(118, 45);
+            this.btnManagerMain.TabIndex = 12;
+            this.btnManagerMain.Text = "Back";
+            this.btnManagerMain.UseVisualStyleBackColor = true;
+            this.btnManagerMain.Click += new System.EventHandler(this.btnManagerMain_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(218, 48);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(376, 38);
+            this.lblTitle.TabIndex = 13;
+            this.lblTitle.Text = "View Hall Reservations";
+            // 
             // frmViewHallReservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.btnManagerMain);
             this.Controls.Add(this.lvwHallReservation);
             this.Name = "frmViewHallReservations";
             this.Text = "View Hall Reservations";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmViewHallReservations_FormClosing);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,5 +136,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button btnManagerMain;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
