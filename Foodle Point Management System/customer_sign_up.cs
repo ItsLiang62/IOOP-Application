@@ -16,7 +16,19 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerSignUp: Form
     {
-        private CustomerTable myCustomerTable = new CustomerTable();
+        //
+        private string InputFullName
+        { get; set; }
+
+        private string InputGender
+        { get; set; }
+
+        private string InputPhoneNum
+        { get; set; }
+
+        private string InputEmail
+        { get; set; }
+        
         private string CustomerID
         { get; set; }
 
