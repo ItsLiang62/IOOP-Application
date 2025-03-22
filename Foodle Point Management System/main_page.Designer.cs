@@ -139,6 +139,7 @@
             this.Name = "frmMain";
             this.Text = "Welcome to FoodlePoint";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
