@@ -14,6 +14,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmMain : Form
     {
+        //
         public frmMain()
         {
             InitializeComponent();
@@ -51,11 +52,6 @@ namespace Foodle_Point_Management_System
             frmCustomerSignUp customerSignUpPage = new frmCustomerSignUp();
             customerSignUpPage.Show();
             this.Hide();
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

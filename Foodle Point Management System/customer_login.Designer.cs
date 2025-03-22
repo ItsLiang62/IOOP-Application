@@ -1,5 +1,6 @@
 ﻿namespace Foodle_Point_Management_System
 {
+    //
     partial class frmCustomerLogin
     {
         /// <summary>
@@ -98,7 +99,6 @@
             this.Name = "frmCustomerLogin";
             this.Text = "Login as Customer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomerLogin_FormClosing);
-            this.Load += new System.EventHandler(this.frmCustomerLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
