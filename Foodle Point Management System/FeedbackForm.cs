@@ -24,12 +24,11 @@ namespace Foodle_Point_Management_System
 
         private void btnSubmitFeedback_Click(object sender, EventArgs e)
         {
-            string customerID = _currentCustomer.CustomerID;  // Assuming the customer is logged in
-            string feedbackSentence = txtfeedback.Text;  // Get feedback from the textbox
-            int rating = Convert.ToInt32(comrateing.SelectedItem);  // Get rating from the dropdown (make sure it's between 1-5)
+            string feedbackText = txtfeedback.Text.Trim();
+            int rating = Convert.ToInt32(comrateing.SelectedItem);  // Make sure to convert the rating properly
 
             // Validate the feedback and rating
-            if (string.IsNullOrWhiteSpace(feedbackSentence))
+            if (string.IsNullOrWhiteSpace(feedbackText))
             {
                 MessageBox.Show("Please provide feedback before submitting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -41,41 +40,50 @@ namespace Foodle_Point_Management_System
                 return;
             }
 
+            // Get the CustomerID
+            string customerID = _currentCustomer.CustomerID;
+
+            // Connection string for the database
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            string feedbackID = Guid.NewGuid().ToString("N"); // Generate unique feedback ID
+
+            // Generate unique FeedbackID
+            string feedbackID = Guid.NewGuid().ToString("N").Substring(0, 8);
 
             // SQL Query to insert feedback into the Feedback table
-            string query = @"INSERT INTO Feedback (FeedbackID, CustomerID, FeedbackSentence, Rating)
-              VALUES (@FeedbackID, @CustomerID, @FeedbackSentence, @Rating)";
+            string query = @"INSERT INTO Feedback (FeedbackID, CustomerID, FeedbackSentence, Rating) 
+                     VALUES (@FeedbackID, @CustomerID, @FeedbackSentence, @Rating)";
 
+            // Use a SQL connection and command to insert feedback
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    // Add parameters to prevent SQL injection
-                    cmd.Parameters.AddWithValue("@FeedbackID", feedbackID);
-                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
-                    cmd.Parameters.AddWithValue("@FeedbackSentence", feedbackSentence);
-                    cmd.Parameters.AddWithValue("@Rating", rating);
+                    // Add parameters to the SQL query to prevent SQL injection
+                    cmd.Parameters.AddWithValue("@FeedbackID", feedbackID);  // Unique FeedbackID
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);   // CustomerID from the logged-in user
+                    cmd.Parameters.AddWithValue("@FeedbackSentence", feedbackText);  // Feedback text
+                    cmd.Parameters.AddWithValue("@Rating", rating);  // Rating value (1-5)
 
                     try
                     {
-                        // Execute the insert command to save the feedback
+                        // Execute the query to save the feedback into the database
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Your feedback has been submitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Clear the feedback textbox and reset the rating dropdown
+                        // Clear the text boxes after submission
                         txtfeedback.Clear();
-                        comrateing.SelectedIndex = -1;  // Reset the rating dropdown
+                        comrateing.SelectedIndex = -1;  // Reset the rating selection
                     }
                     catch (Exception ex)
                     {
-                        // If there is any error, show an error message
+                        // If there's any error, show it in a message box
                         MessageBox.Show("Error submitting feedback: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+
+
         }
 
         private void FeedbackForm_Load(object sender, EventArgs e)
