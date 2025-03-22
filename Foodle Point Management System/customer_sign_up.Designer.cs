@@ -169,7 +169,6 @@
             this.Name = "frmCustomerSignUp";
             this.Text = "Sign Up as Customer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.customer_sign_up_FormClosing);
-            this.Load += new System.EventHandler(this.frmCustomerSignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

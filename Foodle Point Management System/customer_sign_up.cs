@@ -124,10 +124,5 @@ namespace Foodle_Point_Management_System
                 return true;
             }
         }
-
-        private void frmCustomerSignUp_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
