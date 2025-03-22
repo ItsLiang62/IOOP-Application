@@ -6,19 +6,22 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class customereedbackForm : Form
     {
-
-        public customereedbackForm()
+        private CustomerClass1 _currentCustomer;
+        public customereedbackForm(CustomerClass1 customer)
         {
             InitializeComponent();
+            _currentCustomer = customer;
         }
-           
+
 
         private void customereedbackForm_Load(object sender, EventArgs e)
         {
@@ -32,44 +35,67 @@ namespace Foodle_Point_Management_System
         }
 
         private void btnSubmitFeedback_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtFeedback.Text))
+        { // Get the CustomerID from the currently logged-in customer
+            string customerID = _currentCustomer.CustomerID;
+
+            // Get the feedback from the textbox
+            string feedbackSentence = txtFeedback.Text;
+
+            // Get the rating from the combo box
+            int rating = Convert.ToInt32(numRating.Value);
+
+            // Validate feedback and rating
+            if (string.IsNullOrWhiteSpace(feedbackSentence))
             {
-                MessageBox.Show("Please enter your feedback before submitting.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please provide feedback before submitting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (numRating.Value < 1 || numRating.Value > 5)
+            if (rating < 1 || rating > 5)
             {
-                MessageBox.Show("Please select a rating between 1 and 5.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a rating between 1 and 5.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string feedbackText = txtFeedback.Text.Trim();
-            int rating = (int)numRating.Value;
+            // Connection string to your database (you can store this in a configuration file later)
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
 
-            // ✅ Step 2: Save Feedback to Database
+            // Generate unique FeedbackID using Guid
+            string feedbackID = Guid.NewGuid().ToString("N");
+
+            // SQL query to insert feedback into the Feedback table
+            string query = @"INSERT INTO Feedback (FeedbackID, CustomerID, FeedbackSentence, Rating)
+                         VALUES (@FeedbackID, @CustomerID, @FeedbackSentence, @Rating)";
+
+            // Using SQL connection to execute the query
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO Feedback (FeedbackID, CustomerID, FeedbackSentence, Rating) VALUES (@FeedbackID, @CustomerID, @FeedbackSentence, @Rating)";
-
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@FeedbackID", Guid.NewGuid().ToString().Substring(0, 8)); // Generate unique FeedbackID
-                    //cmd.Parameters.AddWithValue("@CustomerID", _customerID);
-                    cmd.Parameters.AddWithValue("@FeedbackSentence", feedbackText);
+                    // Add parameters to prevent SQL injection
+                    cmd.Parameters.AddWithValue("@FeedbackID", feedbackID);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);  // Ensure this is the correct CustomerID
+                    cmd.Parameters.AddWithValue("@FeedbackSentence", feedbackSentence);
                     cmd.Parameters.AddWithValue("@Rating", rating);
 
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        // Execute the insert command to save the feedback in the database
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Your feedback has been submitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Clear the feedback textbox and reset the rating dropdown
+                        txtFeedback.Clear();
+                        numRating.Value = 1; //Reset the numeric rating to the default value(e.g., 0)
+                    }
+                    catch (Exception ex)
+                    {
+                        // If an error occurs, show an error message
+                        MessageBox.Show("Error submitting feedback: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-
-            // ✅ Step 3: Show Success Message and Clear Fields
-            MessageBox.Show("Feedback submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txtFeedback.Clear();
-            numRating.Value = 5; // Reset to default rating
         }
-    } 
+    }
 }
