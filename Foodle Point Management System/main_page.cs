@@ -53,10 +53,5 @@ namespace Foodle_Point_Management_System
             customerSignUpPage.Show();
             this.Hide();
         }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

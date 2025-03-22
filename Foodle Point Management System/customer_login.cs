@@ -62,10 +62,5 @@ namespace Foodle_Point_Management_System
 
             MessageBox.Show("Login successful"); 
         }
-
-        private void frmCustomerLogin_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
