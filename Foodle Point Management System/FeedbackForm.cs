@@ -16,5 +16,10 @@ namespace Foodle_Point_Management_System
         {
             InitializeComponent();
         }
+
+        private void btnSubmitFeedback_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

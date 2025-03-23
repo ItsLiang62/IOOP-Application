@@ -40,7 +40,7 @@ namespace Foodle_Point_Management_System
 
         private void btnFeedback_Click(object sender, EventArgs e)
         {
-            customereedbackForm feedbackForm = new customereedbackForm();
+            customereedbackForm feedbackForm = new customereedbackForm(_currentCustomer);
             feedbackForm.Show();
         }
 

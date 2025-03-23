@@ -16,6 +16,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerSignUp: Form
     {
+        private CustomerTable myCustomerTable = new CustomerTable();
         private string InputFullName
         { get; set; }
 
@@ -131,11 +132,6 @@ namespace Foodle_Point_Management_System
                 messageBoxErrorMessage = "No error";
                 return true;
             }
-        }
-
-        private void frmCustomerSignUp_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

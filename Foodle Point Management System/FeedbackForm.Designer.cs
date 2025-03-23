@@ -79,6 +79,7 @@
             this.btnSubmitFeedback.TabIndex = 4;
             this.btnSubmitFeedback.Text = "Submit feedback";
             this.btnSubmitFeedback.UseVisualStyleBackColor = true;
+            this.btnSubmitFeedback.Click += new System.EventHandler(this.btnSubmitFeedback_Click);
             // 
             // FeedbackForm
             // 
