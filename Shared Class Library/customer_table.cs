@@ -12,6 +12,7 @@ namespace Shared_Class_Library
     {
         public CustomerTable() : base()
         {
+
         }
 
         public void InsertRow(string customerID, string customerName, string gender, string email, string phoneNumber)

@@ -16,6 +16,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerSignUp: Form
     {
+        //
         private string InputFullName
         { get; set; }
 
@@ -27,7 +28,7 @@ namespace Foodle_Point_Management_System
 
         private string InputEmail
         { get; set; }
-
+        
         private string CustomerID
         { get; set; }
 
@@ -62,21 +63,20 @@ namespace Foodle_Point_Management_System
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            string messageBoxErrorMessage;
+
+
             CustomerTable myCustomerTable = new CustomerTable();
-       
-            InputFullName = txtName.Text;
-            InputGender = cmbGender.Text;
-            InputEmail = txtEmail.Text;
-            InputPhoneNum = txtPhoneNum.Text;
+
+
+            FullName = txtName.Text;
+            Gender = cmbGender.Text;
+            Email = txtEmail.Text;
+            PhoneNum = txtPhoneNum.Text;
             CustomerID = myCustomerTable.GetNewCustomerID();
 
-            if (AllInputValid(out string messageBoxErrorMessage))
+            if (AllInputValid(out messageBoxErrorMessage))
             {
-                FullName = InputFullName;
-                Gender = InputGender;
-                Email = InputEmail;
-                PhoneNum = InputPhoneNum;
-
                 try
                 {
                     myCustomerTable.InsertRow(CustomerID, FullName, Gender, Email, PhoneNum);
@@ -91,11 +91,9 @@ namespace Foodle_Point_Management_System
                     else
                     {
                         MessageBox.Show($"Unexpected error: {ex.Message}");
-                        return;
                     }
                     
                 }
-                MessageBox.Show("Successfully signed up as customer");
             }
             else
             {
@@ -107,23 +105,29 @@ namespace Foodle_Point_Management_System
         {
             InputChecker myChecker = new InputChecker();
 
-            bool validName = myChecker.IsTextOnly(InputFullName, out string eName, "Full Name");
-            bool validEmail = myChecker.IsValidEmail(InputEmail, out string eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(InputPhoneNum, out string ePhoneNum);
-            bool validGender = !myChecker.IsEmptyInput(InputGender, out string eGender, "Gender");
+            string eName;
+            string eEmail;
+            string ePhoneNum;
+            string eGender;
 
-            messageBoxErrorMessage = String.Empty;
+            bool validName = myChecker.IsTextOnly(FullName, out eName);
+            bool validEmail = myChecker.IsValidEmail(Email, out eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(PhoneNum, out ePhoneNum);
+            bool validGender = !myChecker.IsEmptyInput(Gender, out eGender);
 
-            foreach (string error in new string[] { eName, eEmail, ePhoneNum, eGender })
+            messageBoxErrorMessage = "";
+
+            if (!(validName && validEmail && validPhoneNum && validGender))
             {
-                if (!error.Equals("No error"))
-                {
-                    messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
-                }
-            }
 
-            if (messageBoxErrorMessage != String.Empty)
-            { 
+                foreach (string error in new string[] { eName, eEmail, ePhoneNum, eGender })
+                {
+                    if (!error.Equals("No error"))
+                    {
+                        messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
+                    }
+                }
+
                 return false;
             }
             else
@@ -131,11 +135,6 @@ namespace Foodle_Point_Management_System
                 messageBoxErrorMessage = "No error";
                 return true;
             }
-        }
-
-        private void frmCustomerSignUp_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
