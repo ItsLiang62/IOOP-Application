@@ -91,7 +91,7 @@
             // 
             this.btnSubmitFeedback.Location = new System.Drawing.Point(243, 161);
             this.btnSubmitFeedback.Name = "btnSubmitFeedback";
-            this.btnSubmitFeedback.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmitFeedback.Size = new System.Drawing.Size(121, 30);
             this.btnSubmitFeedback.TabIndex = 4;
             this.btnSubmitFeedback.Text = "Submit";
             this.btnSubmitFeedback.UseVisualStyleBackColor = true;
