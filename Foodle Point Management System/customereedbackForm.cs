@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
+
     public partial class customereedbackForm : Form
     {
         private CustomerClass1 _currentCustomer;
@@ -25,13 +27,7 @@ namespace Foodle_Point_Management_System
 
         private void customereedbackForm_Load(object sender, EventArgs e)
         {
-            //Console.WriteLine("Debug: CustomerID in Feedback Form = " + _customerID);
 
-            /*if (string.IsNullOrWhiteSpace(_customerID))
-            {
-                MessageBox.Show("Error: Customer ID is missing in FeedbackForm!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            */
         }
 
         private void btnSubmitFeedback_Click(object sender, EventArgs e)
@@ -96,6 +92,10 @@ namespace Foodle_Point_Management_System
                     }
                 }
             }
+        }
+
+        private void btnrequest_Click(object sender, EventArgs e)
+        {
         }
     }
 }

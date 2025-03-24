@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +16,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerSignUp: Form
     {
-        //
+        private CustomerTable myCustomerTable = new CustomerTable();
         private string InputFullName
         { get; set; }
 
