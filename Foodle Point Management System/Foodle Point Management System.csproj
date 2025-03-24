@@ -255,24 +255,6 @@
     <EmbeddedResource Include="customer_sign_up.resx">
       <DependentUpon>customer_sign_up.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Feedback.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Feedback.Designer.cs">
-      <DependentUpon>Feedback.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Feedback.resx">
-      <DependentUpon>Feedback.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="FeedbackForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FeedbackForm.Designer.cs">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="FeedbackForm.resx">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="add_item.cs">
       <SubType>Form</SubType>
     </Compile>

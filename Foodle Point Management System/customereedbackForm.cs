@@ -95,7 +95,96 @@ namespace Foodle_Point_Management_System
         }
 
         private void btnrequest_Click(object sender, EventArgs e)
+        
+            
         {
+            // Step 1: Capture the values from the logged-in customer and request UI
+            string customerID = _currentCustomer.CustomerID;  // Get customer ID from the logged-in user
+            string remarks = txtrequest.Text.Trim();  // Get the request from the text box
+
+            // Step 2: Validate input
+            if (string.IsNullOrWhiteSpace(remarks))
+            {
+                MessageBox.Show("Please enter your request before submitting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Step 3: Retrieve the existing reservation details (HallNumber, EventType, EventDate) from the database
+            string hallNumber = "";
+            string eventType = "";
+            DateTime eventDate = DateTime.Now;
+
+            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            string query = @"SELECT HallNumber, EventType, EventDate 
+                     FROM HallReservation 
+                     WHERE CustomerID = @CustomerID AND ReservationStatus = 'Pending'";
+
+            // Fetching the Hall Number, Event Type, and Event Date from the existing reservation
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            hallNumber = reader["HallNumber"].ToString();
+                            eventType = reader["EventType"].ToString();
+                            eventDate = Convert.ToDateTime(reader["EventDate"]);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No pending reservation found for this customer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                }
+            }
+
+            // Step 4: Update the Remarks for the current reservation
+            string reservationID = "";  // This should be set to the existing reservation ID of the customer
+
+            // Query to update the remarks
+            query = @"UPDATE HallReservation 
+              SET Remarks = @Remarks 
+              WHERE CustomerID = @CustomerID AND HallNumber = @HallNumber AND ReservationStatus = 'Pending'";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Add parameters to prevent SQL injection
+                        cmd.Parameters.AddWithValue("@Remarks", remarks);
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                        cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+
+                        // Show success message
+                        MessageBox.Show("Your request has been sent to the reservation coordinator!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Clear the text box for remarks
+                        txtrequest.Clear();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors
+                MessageBox.Show("Error submitting request: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-    }
+
+
+
+
+    
+}
 }
