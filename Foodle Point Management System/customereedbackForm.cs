@@ -13,7 +13,7 @@ using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
-    
+
     public partial class customereedbackForm : Form
     {
         private CustomerClass1 _currentCustomer;
@@ -27,7 +27,7 @@ namespace Foodle_Point_Management_System
 
         private void customereedbackForm_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnSubmitFeedback_Click(object sender, EventArgs e)
@@ -92,6 +92,10 @@ namespace Foodle_Point_Management_System
                     }
                 }
             }
+        }
+
+        private void btnrequest_Click(object sender, EventArgs e)
+        {
         }
     }
 }
