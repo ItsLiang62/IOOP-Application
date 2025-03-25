@@ -234,6 +234,9 @@
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Reservation.resx">
+      <DependentUpon>Edit_Reservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="employee_login.resx">
       <DependentUpon>employee_login.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +281,24 @@
     </Compile>
     <Compile Include="add_hall.Designer.cs">
       <DependentUpon>add_hall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Reservation.Designer.cs">
+      <DependentUpon>Add_Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Reservation.Designer.cs">
+      <DependentUpon>Edit_Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Send_Reply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Send_Reply.Designer.cs">
+      <DependentUpon>Send_Reply.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateProfile.cs">
       <SubType>Form</SubType>
@@ -335,6 +356,12 @@
     </Compile>
     <EmbeddedResource Include="add_item.resx">
       <DependentUpon>add_item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Reservation.resx">
+      <DependentUpon>Add_Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Send_Reply.resx">
+      <DependentUpon>Send_Reply.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateProfile.resx">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
