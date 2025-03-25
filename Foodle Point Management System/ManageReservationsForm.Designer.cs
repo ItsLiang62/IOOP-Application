@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(45, 24);
+            this.label1.Location = new System.Drawing.Point(45, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 30);
             this.label1.TabIndex = 0;
@@ -50,29 +50,30 @@
             // dgvReservations
             // 
             this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservations.Location = new System.Drawing.Point(50, 69);
+            this.dgvReservations.Location = new System.Drawing.Point(50, 74);
             this.dgvReservations.Name = "dgvReservations";
             this.dgvReservations.RowHeadersWidth = 51;
             this.dgvReservations.RowTemplate.Height = 27;
-            this.dgvReservations.Size = new System.Drawing.Size(709, 245);
+            this.dgvReservations.Size = new System.Drawing.Size(709, 261);
             this.dgvReservations.TabIndex = 1;
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(141, 357);
+            this.btnAdd.Location = new System.Drawing.Point(141, 381);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(122, 44);
+            this.btnAdd.Size = new System.Drawing.Size(122, 47);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEdit.Location = new System.Drawing.Point(297, 357);
+            this.btnEdit.Location = new System.Drawing.Point(297, 381);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(122, 44);
+            this.btnEdit.Size = new System.Drawing.Size(122, 47);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -80,18 +81,18 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(450, 357);
+            this.btnDelete.Location = new System.Drawing.Point(450, 381);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(122, 44);
+            this.btnDelete.Size = new System.Drawing.Size(122, 47);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // ManageReservationsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 480);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
