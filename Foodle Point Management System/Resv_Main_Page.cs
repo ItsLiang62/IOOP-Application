@@ -54,5 +54,12 @@ namespace Foodle_Point_Management_System
         {
             Application.Exit();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmMain mainPage = new frmMain();
+            mainPage.Show();
+            this.Hide();
+        }
     }
 }

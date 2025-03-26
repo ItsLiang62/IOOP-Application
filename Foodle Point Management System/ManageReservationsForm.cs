@@ -7,35 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class ManageReservationsForm: Form
     {
-        private DatabaseHelper db = new DatabaseHelper();
+        private HallReservationTable reservationTable = new HallReservationTable();
         public ManageReservationsForm()
         {
             InitializeComponent();
             LoadReservations();
+            ConfigureDataGridView();
         }
         private void LoadReservations()
         {
-            dgvReservations.DataSource = db.GetReservations();
-            dgvReservations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            try
+            {
+                var reservations = reservationTable.GetColumnValues("ReservationID");
+                dgvReservations.DataSource = reservations;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading reservations: {ex.Message}");
+            }
         }
 
         private void ConfigureDataGridView()
         {
             dgvReservations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvReservations.AllowUserToAddRows = false;
             dgvReservations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            dgvReservations.Columns["ReservationID"].HeaderText = "Reservation ID";
-            dgvReservations.Columns["CustomerID"].HeaderText = "Customer ID";
-            dgvReservations.Columns["HallNumber"].HeaderText = "Hall Number";
-            dgvReservations.Columns["EventType"].HeaderText = "Event Type";
-            dgvReservations.Columns["Capacity"].HeaderText = "Capacity";
-            dgvReservations.Columns["Status"].HeaderText = "Status";
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -66,8 +67,8 @@ namespace Foodle_Point_Management_System
         {
             if (dgvReservations.SelectedRows.Count > 0)
             {
-                DataRowView row = (DataRowView)dgvReservations.SelectedRows[0].DataBoundItem;
-                var editForm = new Edit_Reservation(row);
+                string reservationId = dgvReservations.SelectedRows[0].Cells[0].Value.ToString();
+                var editForm = new Edit_Reservation(reservationId);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
                     LoadReservations();
@@ -84,14 +85,17 @@ namespace Foodle_Point_Management_System
         {
             if (dgvReservations.SelectedRows.Count > 0)
             {
-                string id = dgvReservations.SelectedRows[0].Cells["ReservationID"].Value.ToString();
+                string reservationId = dgvReservations.SelectedRows[0].Cells[0].Value.ToString();
                 if (MessageBox.Show("Delete this reservation?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    int result = db.DeleteReservation(id);
-                    if (result > 0)
+                    try
                     {
-                        MessageBox.Show("Reservation deleted!");
+                        reservationTable.DeleteRow(reservationId);
                         LoadReservations();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error deleting reservation: {ex.Message}");
                     }
                 }
             }

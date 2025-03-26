@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.chkPending = new System.Windows.Forms.CheckBox();
-            this.chkConfirmed = new System.Windows.Forms.CheckBox();
-            this.chkCompleted = new System.Windows.Forms.CheckBox();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.chkRejected = new System.Windows.Forms.CheckBox();
             this.dgvReservations = new System.Windows.Forms.DataGridView();
-            this.ReservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HallNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpectedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReservationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequestResponse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbReservationStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,40 +55,6 @@
             this.label1.Size = new System.Drawing.Size(269, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Reservation List";
-            // 
-            // chkPending
-            // 
-            this.chkPending.AutoSize = true;
-            this.chkPending.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chkPending.Location = new System.Drawing.Point(133, 354);
-            this.chkPending.Name = "chkPending";
-            this.chkPending.Size = new System.Drawing.Size(123, 27);
-            this.chkPending.TabIndex = 3;
-            this.chkPending.Text = "Pending";
-            this.chkPending.UseVisualStyleBackColor = true;
-            this.chkPending.CheckedChanged += new System.EventHandler(this.chkPending_CheckedChanged);
-            // 
-            // chkConfirmed
-            // 
-            this.chkConfirmed.AutoSize = true;
-            this.chkConfirmed.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chkConfirmed.Location = new System.Drawing.Point(262, 354);
-            this.chkConfirmed.Name = "chkConfirmed";
-            this.chkConfirmed.Size = new System.Drawing.Size(149, 27);
-            this.chkConfirmed.TabIndex = 4;
-            this.chkConfirmed.Text = "Confirmed";
-            this.chkConfirmed.UseVisualStyleBackColor = true;
-            // 
-            // chkCompleted
-            // 
-            this.chkCompleted.AutoSize = true;
-            this.chkCompleted.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chkCompleted.Location = new System.Drawing.Point(417, 354);
-            this.chkCompleted.Name = "chkCompleted";
-            this.chkCompleted.Size = new System.Drawing.Size(149, 27);
-            this.chkCompleted.TabIndex = 5;
-            this.chkCompleted.Text = "Completed";
-            this.chkCompleted.UseVisualStyleBackColor = true;
             // 
             // btnUpdateStatus
             // 
@@ -105,7 +71,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(2, 349);
+            this.label2.Location = new System.Drawing.Point(115, 355);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 30);
             this.label2.TabIndex = 7;
@@ -121,90 +87,114 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // chkRejected
-            // 
-            this.chkRejected.AutoSize = true;
-            this.chkRejected.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chkRejected.Location = new System.Drawing.Point(262, 398);
-            this.chkRejected.Name = "chkRejected";
-            this.chkRejected.Size = new System.Drawing.Size(136, 27);
-            this.chkRejected.TabIndex = 9;
-            this.chkRejected.Text = "Rejected";
-            this.chkRejected.UseVisualStyleBackColor = true;
-            this.chkRejected.CheckedChanged += new System.EventHandler(this.chkRejected_CheckedChanged);
-            // 
             // dgvReservations
             // 
             this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ReservationID,
-            this.CustomerID,
-            this.HallNumber,
-            this.Event,
-            this.Capacity,
-            this.Status});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.EventType,
+            this.EventDate,
+            this.ExpectedCount,
+            this.ReservationStatus,
+            this.RequestResponse,
+            this.Remarks});
             this.dgvReservations.Location = new System.Drawing.Point(43, 79);
             this.dgvReservations.Name = "dgvReservations";
             this.dgvReservations.RowHeadersWidth = 51;
             this.dgvReservations.RowTemplate.Height = 27;
             this.dgvReservations.Size = new System.Drawing.Size(709, 245);
-            this.dgvReservations.TabIndex = 10;
+            this.dgvReservations.TabIndex = 11;
             // 
-            // ReservationID
+            // dataGridViewTextBoxColumn1
             // 
-            this.ReservationID.HeaderText = "ReservationID";
-            this.ReservationID.MinimumWidth = 6;
-            this.ReservationID.Name = "ReservationID";
-            this.ReservationID.Width = 125;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ReservationID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
-            // CustomerID
+            // dataGridViewTextBoxColumn2
             // 
-            this.CustomerID.HeaderText = "CustomerID";
-            this.CustomerID.MinimumWidth = 6;
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.Width = 125;
+            this.dataGridViewTextBoxColumn2.HeaderText = "HallNumber";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
-            // HallNumber
+            // dataGridViewTextBoxColumn3
             // 
-            this.HallNumber.HeaderText = "HallNumber";
-            this.HallNumber.MinimumWidth = 6;
-            this.HallNumber.Name = "HallNumber";
-            this.HallNumber.Width = 125;
+            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerID";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // Event
+            // EventType
             // 
-            this.Event.HeaderText = "Event";
-            this.Event.MinimumWidth = 6;
-            this.Event.Name = "Event";
-            this.Event.Width = 125;
+            this.EventType.HeaderText = "EventType";
+            this.EventType.MinimumWidth = 6;
+            this.EventType.Name = "EventType";
+            this.EventType.Width = 125;
             // 
-            // Capacity
+            // EventDate
             // 
-            this.Capacity.HeaderText = "Capacity";
-            this.Capacity.MinimumWidth = 6;
-            this.Capacity.Name = "Capacity";
-            this.Capacity.Width = 125;
+            this.EventDate.HeaderText = "EventDate";
+            this.EventDate.MinimumWidth = 6;
+            this.EventDate.Name = "EventDate";
+            this.EventDate.Width = 125;
             // 
-            // Status
+            // ExpectedCount
             // 
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.Width = 125;
+            this.ExpectedCount.HeaderText = "ExpectedCount";
+            this.ExpectedCount.MinimumWidth = 6;
+            this.ExpectedCount.Name = "ExpectedCount";
+            this.ExpectedCount.Width = 125;
+            // 
+            // ReservationStatus
+            // 
+            this.ReservationStatus.HeaderText = "ReservationStatus";
+            this.ReservationStatus.MinimumWidth = 6;
+            this.ReservationStatus.Name = "ReservationStatus";
+            this.ReservationStatus.Width = 125;
+            // 
+            // RequestResponse
+            // 
+            this.RequestResponse.HeaderText = "RequestResponse";
+            this.RequestResponse.MinimumWidth = 6;
+            this.RequestResponse.Name = "RequestResponse";
+            this.RequestResponse.Width = 125;
+            // 
+            // Remarks
+            // 
+            this.Remarks.HeaderText = "Remarks";
+            this.Remarks.MinimumWidth = 6;
+            this.Remarks.Name = "Remarks";
+            this.Remarks.Width = 125;
+            // 
+            // cmbReservationStatus
+            // 
+            this.cmbReservationStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReservationStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbReservationStatus.FormattingEnabled = true;
+            this.cmbReservationStatus.Items.AddRange(new object[] {
+            "Pending",
+            "Confirmed",
+            "Completed",
+            "Rejected"});
+            this.cmbReservationStatus.Location = new System.Drawing.Point(262, 352);
+            this.cmbReservationStatus.Name = "cmbReservationStatus";
+            this.cmbReservationStatus.Size = new System.Drawing.Size(149, 33);
+            this.cmbReservationStatus.TabIndex = 64;
             // 
             // UpdateReservationStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbReservationStatus);
             this.Controls.Add(this.dgvReservations);
-            this.Controls.Add(this.chkRejected);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnUpdateStatus);
-            this.Controls.Add(this.chkCompleted);
-            this.Controls.Add(this.chkConfirmed);
-            this.Controls.Add(this.chkPending);
             this.Controls.Add(this.label1);
             this.Name = "UpdateReservationStatusForm";
             this.Text = "UpdateReservationStatusForm";
@@ -217,19 +207,19 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkPending;
-        private System.Windows.Forms.CheckBox chkConfirmed;
-        private System.Windows.Forms.CheckBox chkCompleted;
         private System.Windows.Forms.Button btnUpdateStatus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.CheckBox chkRejected;
         private System.Windows.Forms.DataGridView dgvReservations;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HallNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Event;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Capacity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EventType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EventDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpectedCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequestResponse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
+        private System.Windows.Forms.ComboBox cmbReservationStatus;
     }
 }

@@ -7,34 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class Add_Reservation : Form
     {
-        private DatabaseHelper db = new DatabaseHelper();
+        private HallReservationTable reservationTable = new HallReservationTable();
         public Add_Reservation()
         {
             InitializeComponent();
+            SetupForm();
         }
-
-        private bool ValidateInputs()
+        private void SetupForm()
         {
-            if (string.IsNullOrWhiteSpace(txtReservationID.Text))
-            {
-                MessageBox.Show("Please enter Reservation ID");
-                return false;
-            }
-
-            if (!int.TryParse(txtCapacity.Text, out int capacity) || capacity <= 0)
-            {
-                MessageBox.Show("Please enter a valid capacity (positive number)");
-                return false;
-            }
-
-            return true;
+            // Initialize combo box items
+            cmbReservationStatus.Items.AddRange(new object[] { "Pending", "Confirmed", "Completed", "Rejected" });
+            cmbReservationStatus.SelectedIndex = 0; // Default to "Pending"
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -53,6 +43,7 @@ namespace Foodle_Point_Management_System
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void txtReservationID_TextChanged(object sender, EventArgs e)
@@ -69,42 +60,73 @@ namespace Foodle_Point_Management_System
         {
             try
             {
+                // Validate required fields
                 if (string.IsNullOrWhiteSpace(txtReservationID.Text) ||
-                    string.IsNullOrWhiteSpace(txtCustomerID.Text) ||
                     string.IsNullOrWhiteSpace(txtHallNumber.Text) ||
-                    string.IsNullOrWhiteSpace(txtEvents.Text) ||
-                    string.IsNullOrWhiteSpace(txtCapacity.Text) ||
-                    string.IsNullOrWhiteSpace(txtStatus.Text))
+                    string.IsNullOrWhiteSpace(txtCustomerID.Text) ||
+                    string.IsNullOrWhiteSpace(txtEventType.Text) ||
+                    string.IsNullOrWhiteSpace(txtEventDate.Text))
                 {
-                    MessageBox.Show("Please fill in all fields");
+                    MessageBox.Show("Please fill in all required fields");
                     return;
                 }
 
-                int capacity;
-                if (!int.TryParse(txtCapacity.Text, out capacity))
+                // Validate date format
+                if (!DateTime.TryParse(txtEventDate.Text, out DateTime eventDate))
                 {
-                    MessageBox.Show("Capacity must be a number");
+                    MessageBox.Show("Please enter a valid date (e.g., MM/DD/YYYY)");
                     return;
                 }
 
-                int result = db.AddReservation(
+                // Convert expected count to integer (nullable)
+                int? expectedCount = null;
+                if (!string.IsNullOrWhiteSpace(txtExpectedCount.Text))
+                {
+                    if (!int.TryParse(txtExpectedCount.Text, out int tempCount))
+                    {
+                        MessageBox.Show("Expected Count must be a number");
+                        return;
+                    }
+                    expectedCount = tempCount;
+                }
+
+                // Insert the new reservation
+                // Correct way to call InsertRow with all required parameters
+                reservationTable.InsertRow(
                     txtReservationID.Text,
+                    txtHallNumber.Text,  // Fixed typo from "Hail" to "Hall"
                     txtCustomerID.Text,
-                    txtHallNumber.Text,
-                    txtEvents.Text,
-                    capacity,
-                    txtStatus.Text);
+                    txtEventType.Text,
+                    txtEventDate.Text,  // Use .Text instead of .ToString()
+                    expectedCount: 0,  // Provide default or get from your form
+                    cmbReservationStatus.SelectedItem.ToString(),
+                    requestResponse: string.Empty,  // Provide default or get from your form
+                    txtRemarks.Text);
 
-                if (result > 0)
+                // Set request response if provided
+                if (!string.IsNullOrWhiteSpace(txtRequestResponse.Text))
                 {
-                    MessageBox.Show("Reservation added successfully!");
-                    this.DialogResult = DialogResult.OK;
+                    reservationTable.UpdateValue(txtReservationID.Text, "RequestResponse", txtRequestResponse.Text);
                 }
+
+                // Set expected count if provided
+                if (expectedCount.HasValue)
+                {
+                    reservationTable.UpdateValue(txtReservationID.Text, "ExpectedCount", expectedCount.Value);
+                }
+
+                MessageBox.Show("Reservation added successfully!");
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show($"Error adding reservation: {ex.Message}");
             }
+        }
+
+        private void txtEventDate_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

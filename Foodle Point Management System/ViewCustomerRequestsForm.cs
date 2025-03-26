@@ -7,23 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Shared_Class_Library;
 namespace Foodle_Point_Management_System
 {
     public partial class ViewCustomerRequestsForm : Form
     {
-        private DatabaseHelper db = new DatabaseHelper();
+        private HallReservationTable reservationTable = new HallReservationTable();
         public ViewCustomerRequestsForm()
         {
             InitializeComponent();
             LoadRequests();
+            ConfigureDataGridView();
         }
         private void LoadRequests()
         {
-            dgvRequests.DataSource = db.GetCustomerRequests();
-            dgvRequests.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            try
+            {
+                var requests = reservationTable.GetColumnValues("ReservationID");
+                dgvReservations.DataSource = requests;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading requests: {ex.Message}");
+            }
         }
-
+        private void ConfigureDataGridView()
+        {
+            dgvReservations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReservations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -32,9 +44,9 @@ namespace Foodle_Point_Management_System
 
         private void btnSendReply_Click(object sender, EventArgs e)
         {
-            if (dgvRequests.SelectedRows.Count > 0)
+            if (dgvReservations.SelectedRows.Count > 0)
             {
-                string requestId = dgvRequests.SelectedRows[0].Cells["RequestID"].Value.ToString();
+                string requestId = dgvReservations.SelectedRows[0].Cells[0].Value.ToString();
                 new Send_Reply(requestId).ShowDialog();
                 LoadRequests();
             }

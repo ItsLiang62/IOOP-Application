@@ -31,18 +31,17 @@
             this.txtReply = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.dgvRequests = new System.Windows.Forms.DataGridView();
-            this.ReservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HallNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HallName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequests)).BeginInit();
+            this.dgvReservations = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpectedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReservationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequestResponse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             this.SuspendLayout();
             // 
             // txtReply
@@ -73,109 +72,101 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // dgvRequests
+            // dgvReservations
             // 
-            this.dgvRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRequests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ReservationID,
-            this.CustomerID,
-            this.HallNumber,
-            this.EventType,
-            this.EventDate,
-            this.Capacity,
-            this.Status,
-            this.Remarks,
-            this.CustomerName,
-            this.HallName});
-            this.dgvRequests.Location = new System.Drawing.Point(25, 113);
-            this.dgvRequests.Name = "dgvRequests";
-            this.dgvRequests.RowHeadersWidth = 51;
-            this.dgvRequests.RowTemplate.Height = 27;
-            this.dgvRequests.Size = new System.Drawing.Size(757, 170);
-            this.dgvRequests.TabIndex = 31;
+            this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.ExpectedCount,
+            this.ReservationStatus,
+            this.RequestResponse,
+            this.dataGridViewTextBoxColumn6});
+            this.dgvReservations.Location = new System.Drawing.Point(13, 94);
+            this.dgvReservations.Name = "dgvReservations";
+            this.dgvReservations.RowHeadersWidth = 51;
+            this.dgvReservations.RowTemplate.Height = 27;
+            this.dgvReservations.Size = new System.Drawing.Size(775, 199);
+            this.dgvReservations.TabIndex = 32;
             // 
-            // ReservationID
+            // dataGridViewTextBoxColumn1
             // 
-            this.ReservationID.HeaderText = "ReservationID";
-            this.ReservationID.MinimumWidth = 6;
-            this.ReservationID.Name = "ReservationID";
-            this.ReservationID.Width = 125;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ReservationID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
-            // CustomerID
+            // dataGridViewTextBoxColumn2
             // 
-            this.CustomerID.HeaderText = "CustomerID";
-            this.CustomerID.MinimumWidth = 6;
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.Width = 125;
+            this.dataGridViewTextBoxColumn2.HeaderText = "HallNumber";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
-            // HallNumber
+            // dataGridViewTextBoxColumn3
             // 
-            this.HallNumber.HeaderText = "HallNumber";
-            this.HallNumber.MinimumWidth = 6;
-            this.HallNumber.Name = "HallNumber";
-            this.HallNumber.Width = 125;
+            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerID";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // EventType
+            // dataGridViewTextBoxColumn4
             // 
-            this.EventType.HeaderText = "EventType";
-            this.EventType.MinimumWidth = 6;
-            this.EventType.Name = "EventType";
-            this.EventType.Width = 125;
+            this.dataGridViewTextBoxColumn4.HeaderText = "EventType";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
-            // EventDate
+            // dataGridViewTextBoxColumn5
             // 
-            this.EventDate.HeaderText = "EventDate";
-            this.EventDate.MinimumWidth = 6;
-            this.EventDate.Name = "EventDate";
-            this.EventDate.Width = 125;
+            this.dataGridViewTextBoxColumn5.HeaderText = "EventDate";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
-            // Capacity
+            // ExpectedCount
             // 
-            this.Capacity.HeaderText = "Capacity";
-            this.Capacity.MinimumWidth = 6;
-            this.Capacity.Name = "Capacity";
-            this.Capacity.Width = 125;
+            this.ExpectedCount.HeaderText = "ExpectedCount";
+            this.ExpectedCount.MinimumWidth = 6;
+            this.ExpectedCount.Name = "ExpectedCount";
+            this.ExpectedCount.Width = 125;
             // 
-            // Status
+            // ReservationStatus
             // 
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.Width = 125;
+            this.ReservationStatus.HeaderText = "ReservationStatus";
+            this.ReservationStatus.MinimumWidth = 6;
+            this.ReservationStatus.Name = "ReservationStatus";
+            this.ReservationStatus.Width = 125;
             // 
-            // Remarks
+            // RequestResponse
             // 
-            this.Remarks.HeaderText = "Remarks";
-            this.Remarks.MinimumWidth = 6;
-            this.Remarks.Name = "Remarks";
-            this.Remarks.Width = 125;
+            this.RequestResponse.HeaderText = "RequestResponse";
+            this.RequestResponse.MinimumWidth = 6;
+            this.RequestResponse.Name = "RequestResponse";
+            this.RequestResponse.Width = 125;
             // 
-            // CustomerName
+            // dataGridViewTextBoxColumn6
             // 
-            this.CustomerName.HeaderText = "CustomerName";
-            this.CustomerName.MinimumWidth = 6;
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Width = 125;
-            // 
-            // HallName
-            // 
-            this.HallName.HeaderText = "HallName";
-            this.HallName.MinimumWidth = 6;
-            this.HallName.Name = "HallName";
-            this.HallName.Width = 125;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Remarks";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
             // Send_Reply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvRequests);
+            this.Controls.Add(this.dgvReservations);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtReply);
             this.Name = "Send_Reply";
             this.Text = "Send_Reply";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequests)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,16 +176,15 @@
         private System.Windows.Forms.TextBox txtReply;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.DataGridView dgvRequests;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HallNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EventType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EventDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Capacity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HallName;
+        private System.Windows.Forms.DataGridView dgvReservations;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpectedCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequestResponse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

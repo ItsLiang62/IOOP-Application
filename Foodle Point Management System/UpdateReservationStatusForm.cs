@@ -7,22 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class UpdateReservationStatusForm : Form
     {
-        private DatabaseHelper db = new DatabaseHelper();
+        private HallReservationTable reservationTable = new HallReservationTable();
 
         public UpdateReservationStatusForm()
         {
             InitializeComponent();
             LoadReservations();
+            ConfigureDataGridView();
         }
         private void LoadReservations()
         {
-            dgvReservations.DataSource = db.GetReservations();
+            try
+            {
+                var reservations = reservationTable.GetColumnValues("ReservationID");
+                dgvReservations.DataSource = reservations;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading reservations: {ex.Message}");
+            }
+        }
+        private void ConfigureDataGridView()
+        {
             dgvReservations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReservations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         private void chkPending_CheckedChanged(object sender, EventArgs e)
         {
@@ -48,40 +62,26 @@ namespace Foodle_Point_Management_System
                 return;
             }
 
-            string newStatus = "";
-            if (chkPending.Checked) newStatus = "Pending";
-            if (chkConfirmed.Checked) newStatus = "Confirmed";
-            if (chkCompleted.Checked) newStatus = "Completed";
-            if (chkRejected.Checked) newStatus = "Rejected";
-
+            string newStatus = cmbReservationStatus.Text;
             if (string.IsNullOrEmpty(newStatus))
             {
                 MessageBox.Show("Please select a status");
                 return;
             }
 
-            string reservationId = dgvReservations.SelectedRows[0].Cells["ReservationID"].Value.ToString();
+            string reservationId = dgvReservations.SelectedRows[0].Cells[0].Value.ToString();
 
-            int result = db.UpdateReservation(
-                reservationId,
-                dgvReservations.SelectedRows[0].Cells["CustomerID"].Value.ToString(),
-                dgvReservations.SelectedRows[0].Cells["HallNumber"].Value.ToString(),
-                dgvReservations.SelectedRows[0].Cells["EventType"].Value.ToString(),
-                Convert.ToInt32(dgvReservations.SelectedRows[0].Cells["Capacity"].Value),
-                newStatus);
-
-            if (result > 0)
+            try
             {
+                reservationTable.UpdateValue(reservationId, "ReservationStatus", newStatus);
                 MessageBox.Show("Status updated successfully!");
                 LoadReservations();
-
-                // Clear checkboxes
-                chkPending.Checked = false;
-                chkConfirmed.Checked = false;
-                chkCompleted.Checked = false;
-                chkRejected.Checked = false;
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating status: {ex.Message}");
+            }
         }
+
     }
 }

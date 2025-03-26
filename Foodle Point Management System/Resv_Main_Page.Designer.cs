@@ -110,6 +110,7 @@
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back to Main Page";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // Resv_Main_Page
             // 

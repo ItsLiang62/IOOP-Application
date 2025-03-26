@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class Send_Reply : Form
     {
-        private string requestId;
-        private DatabaseHelper db = new DatabaseHelper();
-        public Send_Reply(string requestId)
+        private HallReservationTable reservationTable = new HallReservationTable();
+        private string reservationId;
+        public Send_Reply(string reservationId)
         {
             InitializeComponent();
-            this.requestId = requestId;
-            lblRequestId.Text = $"Replying to Request: {requestId}";
+            this.reservationId = reservationId;
+            txtReply.Text = $"Replying to Reservation: {reservationId}";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -34,9 +35,16 @@ namespace Foodle_Point_Management_System
                 return;
             }
 
-            // In a real application, you would save the reply to database
-            MessageBox.Show($"Reply sent for request {requestId}:\n\n{txtReply.Text}");
-            this.DialogResult = DialogResult.OK;
+            try
+            {
+                reservationTable.UpdateValue(reservationId, "RequestResponse", txtReply.Text);
+                MessageBox.Show("Reply sent successfully!");
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending reply: {ex.Message}");
+            }
         }
 
         private void txtReply_TextChanged(object sender, EventArgs e)
