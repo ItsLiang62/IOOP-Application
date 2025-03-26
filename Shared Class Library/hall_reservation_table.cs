@@ -13,15 +13,15 @@ namespace Shared_Class_Library
         {
         }
 
-        public void InsertRow(string reservationID, string hallNumber, string customerID, string eventType, string eventDate, string reservationStatus, string remarks)
+        public void InsertRow(string reservationID, string hallNumber, string customerID, string eventType, string eventDate, int expectedCount, string reservationStatus, string requestResponse, string remarks)
         {
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO HallReservation (ReservationID, HallNumber, CustomerID, EventType, EventDate, ReservationStatus, Remarks) " +
-                               "VALUES (@ReservationID, @HallNumber, @CustomerID, @EventType, @EventDate, @ReservatioinStatus, @Remarks)";
+                string query = "INSERT INTO HallReservation (ReservationID, HallNumber, CustomerID, EventType, EventDate, ExpectedCount, ReservationStatus, RequestResponse, Remarks) " +
+                               "VALUES (@ReservationID, @HallNumber, @CustomerID, @EventType, @EventDate, @ExpectedCount, @ReservationStatus, @RequestResponse, @Remarks)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -30,7 +30,9 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@EventType", eventType);
                     cmd.Parameters.AddWithValue("@EventDate", eventDate);
+                    cmd.Parameters.AddWithValue("@ExpectedCount", expectedCount);
                     cmd.Parameters.AddWithValue("@ReservationStatus", reservationStatus);
+                    cmd.Parameters.AddWithValue("@RequestResponse", requestResponse);
                     cmd.Parameters.AddWithValue("@Remarks", remarks);
 
                     cmd.ExecuteNonQuery();
@@ -40,7 +42,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string reservationID, string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ReservationStatus", "Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ExpectedCount", "ReservationStatus", "RequestResponse", "Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -88,7 +90,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ReservationStatus", "Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ExpectedCount", "ReservationStatus", "RequestResponse", "Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -153,7 +155,9 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["CustomerID"]);
                             rowValues.Add(reader["EventType"]);
                             rowValues.Add(((DateTime)reader["EventDate"]).ToString("dd/MM/yyyy"));
+                            rowValues.Add(reader["ExpectedCount"]);
                             rowValues.Add(reader["ReservationStatus"]);
+                            rowValues.Add(reader["RequestResponse"]);
                             rowValues.Add(reader["Remarks"]);
 
                             return rowValues;
@@ -170,7 +174,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string reservationID, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ReservationStatus", "Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ExpectedCount", "ReservationStatus", "RequestResponse", "Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
