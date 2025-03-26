@@ -55,6 +55,10 @@ namespace Foodle_Point_Management_System
 
         }
 
-
-
-}}
+        private void btnReservation_Click(object sender, EventArgs e)
+        {
+            reserve_halls reserve_halls = new reserve_halls(_currentCustomer);
+            reserve_halls.Show();
+        }
+    }
+}
