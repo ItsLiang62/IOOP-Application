@@ -121,7 +121,7 @@ namespace Foodle_Point_Management_System
             }
             else
             {
-                MessageBox.Show("An error occurred while processing your payment.");
+                MessageBox.Show("an error occurred while processing your payment.");
             }
         }
 
