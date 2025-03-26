@@ -217,5 +217,43 @@ namespace Shared_Class_Library
                 }
             }
         }
+
+        public string GetNewReservationID()
+        {
+            string previousCustomerID;
+            string newCustomerID;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                    SELECT TOP 1 ReservationID
+                    FROM HallReservation
+                    ORDER BY CAST(SUBSTRING(ReservationID, 3, LEN(ReservationID)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousCustomerID = reader["ReservationID"].ToString();
+                            int previousCustomerIDNum = Convert.ToInt32(previousCustomerID.Substring(2));
+                            int newCustomerIDNum = previousCustomerIDNum + 1;
+                            newCustomerID = $"RE{newCustomerIDNum:D3}";
+
+                            return newCustomerID;
+                        }
+                        else
+                        {
+                            return $"RE001".ToUpper();
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }
