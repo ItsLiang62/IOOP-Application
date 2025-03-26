@@ -20,7 +20,7 @@ namespace Foodle_Point_Management_System
         private List<MenuItem> allMenuItems = new List<MenuItem>(); 
         private void LoadMenuItems()
         {
-            string connectionString = "Data Source=192.168.180.131,1433;User ID=Adrian;Password=1212asas3434;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
             allMenuItems = MenuItem.GetAllMenuItems(connectionString); // Load items into the list
 
             dgvMenuItems.DataSource = new BindingList<MenuItem>(allMenuItems); // Bind to DataGridView
@@ -108,7 +108,7 @@ namespace Foodle_Point_Management_System
             }
 
             // Create the Order object
-            string connectionString = "Data Source=192.168.180.131,1433;User ID=Adrian;Password=1212asas3434;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
             Order order = new Order(connectionString, customerID, cartItems);
 
             // Save the order to the database
