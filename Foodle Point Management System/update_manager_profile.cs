@@ -108,6 +108,7 @@ namespace Foodle_Point_Management_System
                     return;
                 }
                 MessageBox.Show("Successfully updated profile.");
+                ManagerUser.Refresh();
             }
             else
             {

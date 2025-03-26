@@ -36,7 +36,6 @@ namespace Shared_Class_Library
 
         public Manager(string employeeID)
         {
-
             EmployeeID = employeeID;
             FullName = myEmployeeTable.GetValue(employeeID, "EmployeeName").ToString();
             Position = myEmployeeTable.GetValue(employeeID, "Position").ToString();
@@ -45,6 +44,17 @@ namespace Shared_Class_Library
             PhoneNum = myEmployeeTable.GetValue(employeeID, "PhoneNumber").ToString();
             DOB = myEmployeeTable.GetValue(employeeID, "DOB").ToString();
             Password = myEmployeeTable.GetValue(employeeID, "AccountPassword").ToString();
+        }
+
+        public void Refresh()
+        {
+            FullName = myEmployeeTable.GetValue(EmployeeID, "EmployeeName").ToString();
+            Position = myEmployeeTable.GetValue(EmployeeID, "Position").ToString();
+            Gender = myEmployeeTable.GetValue(EmployeeID, "Gender").ToString();
+            Email = myEmployeeTable.GetValue(EmployeeID, "Email").ToString();
+            PhoneNum = myEmployeeTable.GetValue(EmployeeID, "PhoneNumber").ToString();
+            DOB = myEmployeeTable.GetValue(EmployeeID, "DOB").ToString();
+            Password = myEmployeeTable.GetValue(EmployeeID, "AccountPassword").ToString();
         }
 
         public string GetEmployeeID()
