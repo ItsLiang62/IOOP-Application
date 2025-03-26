@@ -34,7 +34,6 @@
             this.txtEvents = new System.Windows.Forms.TextBox();
             this.txtHallNumber = new System.Windows.Forms.TextBox();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
-            this.txtReservationID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCoordinatorID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.txtReservationID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSaveChanges
@@ -93,14 +94,6 @@
             this.txtCustomerID.Size = new System.Drawing.Size(285, 25);
             this.txtCustomerID.TabIndex = 23;
             this.txtCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
-            // 
-            // txtReservationID
-            // 
-            this.txtReservationID.Location = new System.Drawing.Point(315, 82);
-            this.txtReservationID.Name = "txtReservationID";
-            this.txtReservationID.Size = new System.Drawing.Size(285, 25);
-            this.txtReservationID.TabIndex = 22;
-            this.txtReservationID.TextChanged += new System.EventHandler(this.txtReservationID_TextChanged);
             // 
             // label6
             // 
@@ -179,11 +172,30 @@
             this.label1.Text = "Edit Reservation Information";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(150, 59);
+            this.btnBack.TabIndex = 29;
+            this.btnBack.Text = "Back to Reservation list";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // txtReservationID
+            // 
+            this.txtReservationID.Location = new System.Drawing.Point(315, 82);
+            this.txtReservationID.Name = "txtReservationID";
+            this.txtReservationID.Size = new System.Drawing.Size(285, 25);
+            this.txtReservationID.TabIndex = 22;
+            this.txtReservationID.TextChanged += new System.EventHandler(this.txtReservationID_TextChanged);
+            // 
             // Edit_Reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.txtCapacity);
@@ -213,7 +225,6 @@
         private System.Windows.Forms.TextBox txtEvents;
         private System.Windows.Forms.TextBox txtHallNumber;
         private System.Windows.Forms.TextBox txtCustomerID;
-        private System.Windows.Forms.TextBox txtReservationID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -221,5 +232,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txtCoordinatorID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox txtReservationID;
     }
 }

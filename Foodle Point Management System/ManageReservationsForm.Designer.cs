@@ -33,6 +33,13 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.ReservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HallNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(45, 26);
+            this.label1.Location = new System.Drawing.Point(243, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 30);
             this.label1.TabIndex = 0;
@@ -50,19 +57,26 @@
             // dgvReservations
             // 
             this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservations.Location = new System.Drawing.Point(50, 74);
+            this.dgvReservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ReservationID,
+            this.CustomerID,
+            this.HallNumber,
+            this.Event,
+            this.Capacity,
+            this.Status});
+            this.dgvReservations.Location = new System.Drawing.Point(50, 69);
             this.dgvReservations.Name = "dgvReservations";
             this.dgvReservations.RowHeadersWidth = 51;
             this.dgvReservations.RowTemplate.Height = 27;
-            this.dgvReservations.Size = new System.Drawing.Size(709, 261);
+            this.dgvReservations.Size = new System.Drawing.Size(709, 245);
             this.dgvReservations.TabIndex = 1;
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(141, 381);
+            this.btnAdd.Location = new System.Drawing.Point(141, 357);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(122, 47);
+            this.btnAdd.Size = new System.Drawing.Size(122, 44);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -71,35 +85,91 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEdit.Location = new System.Drawing.Point(297, 381);
+            this.btnEdit.Location = new System.Drawing.Point(297, 357);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(122, 47);
+            this.btnEdit.Size = new System.Drawing.Size(122, 44);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(450, 381);
+            this.btnDelete.Location = new System.Drawing.Point(450, 357);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(122, 47);
+            this.btnDelete.Size = new System.Drawing.Size(122, 44);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(50, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(157, 51);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back to Main Page";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // ReservationID
+            // 
+            this.ReservationID.HeaderText = "ReservationID";
+            this.ReservationID.MinimumWidth = 6;
+            this.ReservationID.Name = "ReservationID";
+            this.ReservationID.Width = 125;
+            // 
+            // CustomerID
+            // 
+            this.CustomerID.HeaderText = "CustomerID";
+            this.CustomerID.MinimumWidth = 6;
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.Width = 125;
+            // 
+            // HallNumber
+            // 
+            this.HallNumber.HeaderText = "HallNumber";
+            this.HallNumber.MinimumWidth = 6;
+            this.HallNumber.Name = "HallNumber";
+            this.HallNumber.Width = 125;
+            // 
+            // Event
+            // 
+            this.Event.HeaderText = "Event";
+            this.Event.MinimumWidth = 6;
+            this.Event.Name = "Event";
+            this.Event.Width = 125;
+            // 
+            // Capacity
+            // 
+            this.Capacity.HeaderText = "Capacity";
+            this.Capacity.MinimumWidth = 6;
+            this.Capacity.Name = "Capacity";
+            this.Capacity.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.Width = 125;
             // 
             // ManageReservationsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 480);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvReservations);
             this.Controls.Add(this.label1);
             this.Name = "ManageReservationsForm";
-            this.Text = "Form2";
+            this.Text = "ManageReservationsForm";
+            this.Load += new System.EventHandler(this.ManageReservationsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +183,12 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HallNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Event;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Capacity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

@@ -42,6 +42,7 @@
             this.txtCapacity = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.btnConfirmAdd = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -122,6 +123,7 @@
             this.txtReservationID.Name = "txtReservationID";
             this.txtReservationID.Size = new System.Drawing.Size(285, 25);
             this.txtReservationID.TabIndex = 8;
+            this.txtReservationID.TextChanged += new System.EventHandler(this.txtReservationID_TextChanged);
             // 
             // txtCustomerID
             // 
@@ -129,6 +131,7 @@
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(285, 25);
             this.txtCustomerID.TabIndex = 9;
+            this.txtCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
             // 
             // txtHallNumber
             // 
@@ -166,12 +169,24 @@
             this.btnConfirmAdd.TabIndex = 14;
             this.btnConfirmAdd.Text = "Confirm & Add";
             this.btnConfirmAdd.UseVisualStyleBackColor = true;
+            this.btnConfirmAdd.Click += new System.EventHandler(this.btnConfirmAdd_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 17);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(150, 59);
+            this.btnBack.TabIndex = 30;
+            this.btnBack.Text = "Back to Reservation list";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // Add_Reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnConfirmAdd);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.txtCapacity);
@@ -210,5 +225,6 @@
         private System.Windows.Forms.TextBox txtCapacity;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Button btnConfirmAdd;
+        private System.Windows.Forms.Button btnBack;
     }
 }
