@@ -8,30 +8,30 @@ namespace Shared_Class_Library
 {
     public class Employee
     {
-        private EmployeeTable myEmployeeTable = new EmployeeTable();
+        protected EmployeeTable myEmployeeTable = new EmployeeTable();
 
-        private string EmployeeID
+        protected string EmployeeID
         { get; set; }
 
-        private string FullName
+        protected string FullName
         { get; set; }
 
-        private string Position
+        protected string Position
         { get; set; }
 
-        private string Gender
+        protected string Gender
         { get; set; }
 
-        private string DOB
+        protected string DOB
         { get; set; }
 
-        private string PhoneNum
+        protected string PhoneNum
         { get; set; }
 
-        private string Email
+        protected string Email
         { get; set; }
 
-        private string Password
+        protected string Password
         { get; set; }
 
         public Employee(string employeeID)
