@@ -128,6 +128,7 @@
             this.btnManageHallDetails.TabIndex = 23;
             this.btnManageHallDetails.Text = "Return to Manage Hall Page";
             this.btnManageHallDetails.UseVisualStyleBackColor = true;
+            this.btnManageHallDetails.Click += new System.EventHandler(this.btnManageHallDetails_Click);
             // 
             // lblTitle
             // 

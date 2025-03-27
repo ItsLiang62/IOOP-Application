@@ -140,5 +140,12 @@ namespace Foodle_Point_Management_System
         {
             Application.Exit();
         }
+
+        private void btnManageHallDetails_Click(object sender, EventArgs e)
+        {
+            frmManageHallDetails manageHallDetailsPage = new frmManageHallDetails(ManagerUser);
+            manageHallDetailsPage.Show();
+            this.Hide();
+        }
     }
 }
