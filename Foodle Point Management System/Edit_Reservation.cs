@@ -13,33 +13,33 @@ namespace Foodle_Point_Management_System
 {
     public partial class Edit_Reservation : Form
     {
+        private ResvCoordinator ResvCoordinatorUser;
         private HallReservationTable reservationTable = new HallReservationTable();
-        private string reservationId;
+        private string reservationID;
 
-        public Edit_Reservation(string reservationId)
+        public Edit_Reservation(ResvCoordinator ResvCoordinatorUser, string reservationID)
         {
             InitializeComponent();
-            this.reservationId = reservationId;
-            LoadReservationData();
+            this.ResvCoordinatorUser = ResvCoordinatorUser;
+            this.reservationID = reservationID;
+            LoadReservationDetails();
         }
-        private void LoadReservationData()
+        private void LoadReservationDetails()
         {
-            try
-            {
-                List<object> rowValues = reservationTable.GetRowValues(reservationId);
-                txtReservationID.Text = rowValues[0].ToString();
-                txtHallNumber.Text = rowValues[1].ToString();
-                txtCustomerID.Text = rowValues[2].ToString();
-                txtEventType.Text = rowValues[3].ToString();
-                txtEventDate.Text = rowValues[4].ToString();
-                cmbReservationStatus.Text = rowValues[5].ToString();
-                txtRemarks.Text = rowValues[6].ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading reservation: {ex.Message}");
-                this.Close();
-            }
+            var rowValues = reservationTable.GetRowValues(reservationID);
+
+            txtReservationID.Text = rowValues[0].ToString();
+            txtHallNumber.Text = rowValues[1].ToString();
+            txtCustomerID.Text = rowValues[2].ToString();
+            txtEventType.Text = rowValues[3].ToString();
+            txtEventDate.Text = rowValues[4].ToString();
+            txtExpectedCount.Text = rowValues[5].ToString();
+
+            // Set combobox to current status
+            cmbReservationStatus.SelectedItem = rowValues[6].ToString();
+
+            txtRequestResponse.Text = rowValues[7]?.ToString() ?? "";
+            txtRemarks.Text = rowValues[8]?.ToString() ?? "";
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -110,15 +110,19 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                reservationTable.UpdateValue(reservationId, "HallNumber", txtHallNumber.Text);
-                reservationTable.UpdateValue(reservationId, "CustomerID", txtCustomerID.Text);
-                reservationTable.UpdateValue(reservationId, "EventType", txtEventType.Text);
-                reservationTable.UpdateValue(reservationId, "EventDate", txtEventDate.Text);
-                reservationTable.UpdateValue(reservationId, "ReservationStatus", cmbReservationStatus.Text);
-                reservationTable.UpdateValue(reservationId, "Remarks", txtRemarks.Text);
+                // Update each field that can be edited
+                reservationTable.UpdateValue(reservationID, "ReservationID", txtReservationID.Text);
+                reservationTable.UpdateValue(reservationID, "HallNumber", txtHallNumber.Text);
+                reservationTable.UpdateValue(reservationID, "CustomerID", txtCustomerID.Text);
+                reservationTable.UpdateValue(reservationID, "EventType", txtEventType.Text);
+                reservationTable.UpdateValue(reservationID, "EventDate", txtEventDate.Text);
+                reservationTable.UpdateValue(reservationID, "ExpectedCount", int.Parse(txtExpectedCount.Text));
+                reservationTable.UpdateValue(reservationID, "ReservationStatus", cmbReservationStatus.SelectedItem.ToString());
+                reservationTable.UpdateValue(reservationID, "RequestResponse", txtRequestResponse.Text);
+                reservationTable.UpdateValue(reservationID, "Remarks", txtRemarks.Text);
 
                 MessageBox.Show("Reservation updated successfully!");
-                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {

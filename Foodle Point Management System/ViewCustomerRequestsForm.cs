@@ -15,29 +15,65 @@ namespace Foodle_Point_Management_System
         private ResvCoordinator ResvCoordinatorUser
         { get; set; }
         private HallReservationTable reservationTable = new HallReservationTable();
-        public ViewCustomerRequestsForm(ResvCoordinator myResvCoordinatorUser)
+        public ViewCustomerRequestsForm(ResvCoordinator ResvCoordinatorUser)
         {
-            ResvCoordinatorUser = myResvCoordinatorUser;
+            this.ResvCoordinatorUser = ResvCoordinatorUser;
             InitializeComponent();
-            LoadRequests();
-            ConfigureDataGridView();
+            InitializeReservationListView();
+            LoadPendingRequests();
         }
-        private void LoadRequests()
+        private void InitializeReservationListView()
         {
-            try
+            // Clear existing columns and items
+            lvReservations.Columns.Clear();
+            lvReservations.Items.Clear();
+
+            // Add columns to ListView
+            lvReservations.Columns.Add("Reservation ID", 100);
+            lvReservations.Columns.Add("Hall Number", 80);
+            lvReservations.Columns.Add("Customer ID", 100);
+            lvReservations.Columns.Add("Event Type", 120);
+            lvReservations.Columns.Add("Event Date", 100);
+            lvReservations.Columns.Add("Expected Count", 90);
+            lvReservations.Columns.Add("Status", 80);
+            lvReservations.Columns.Add("Current Response", 200);
+            lvReservations.Columns.Add("Remarks", 200);
+
+            // Set view to show details
+            lvReservations.View = View.Details;
+            lvReservations.FullRowSelect = true;
+        }
+        private void LoadPendingRequests()
+        {
+            lvReservations.Items.Clear();
+
+            // Get all reservation IDs with pending status
+            var reservationIDs = reservationTable.GetColumnValues("ReservationID");
+
+            foreach (string id in reservationIDs)
             {
-                var requests = reservationTable.GetColumnValues("ReservationID");
-                dgvReservations.DataSource = requests;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading requests: {ex.Message}");
+                var status = reservationTable.GetValue(id.ToString(), "ReservationStatus").ToString();
+                if (status == "Pending")
+                {
+                    var rowValues = reservationTable.GetRowValues(id.ToString());
+
+                    ListViewItem item = new ListViewItem(rowValues[0].ToString()); // ReservationID
+                    item.SubItems.Add(rowValues[1].ToString()); // HallNumber
+                    item.SubItems.Add(rowValues[2].ToString()); // CustomerID
+                    item.SubItems.Add(rowValues[3].ToString()); // EventType
+                    item.SubItems.Add(rowValues[4].ToString()); // EventDate
+                    item.SubItems.Add(rowValues[5].ToString()); // ExpectedCount
+                    item.SubItems.Add(rowValues[6].ToString()); // Status
+                    item.SubItems.Add(rowValues[7]?.ToString() ?? ""); // RequestResponse
+                    item.SubItems.Add(rowValues[8]?.ToString() ?? ""); // Remarks
+
+                    lvReservations.Items.Add(item);
+                }
             }
         }
-        private void ConfigureDataGridView()
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            dgvReservations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvReservations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            LoadPendingRequests();
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -47,15 +83,18 @@ namespace Foodle_Point_Management_System
 
         private void btnSendReply_Click(object sender, EventArgs e)
         {
-            if (dgvReservations.SelectedRows.Count > 0)
+            if (lvReservations.SelectedItems.Count > 0)
             {
-                string requestId = dgvReservations.SelectedRows[0].Cells[0].Value.ToString();
-                new Send_Reply(requestId).ShowDialog();
-                LoadRequests();
+                string reservationID = lvReservations.SelectedItems[0].Text;
+                string currentResponse = lvReservations.SelectedItems[0].SubItems[7].Text;
+
+                Send_Reply replyForm = new Send_Reply(ResvCoordinatorUser, reservationID, currentResponse);
+                replyForm.ShowDialog();
+                LoadPendingRequests();
             }
             else
             {
-                MessageBox.Show("Please select a request");
+                MessageBox.Show("Please select a request to reply to.");
             }
         }
     }

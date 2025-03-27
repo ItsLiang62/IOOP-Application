@@ -17,28 +17,64 @@ namespace Foodle_Point_Management_System
         private HallReservationTable reservationTable = new HallReservationTable();
         private ResvCoordinator ResvCoordinatorUser
         { get; set; }
-        public UpdateReservationStatusForm(ResvCoordinator myResvCoordinatorUser)
+        public UpdateReservationStatusForm(ResvCoordinator ResvCoordinatorUser)
         {
             InitializeComponent();
+            this.ResvCoordinatorUser = ResvCoordinatorUser;
+            InitializeReservationListView();
             LoadReservations();
-            ConfigureDataGridView();
+            cmbReservationStatus.Items.AddRange(new string[] { "Pending", "Confirmed", "Completed", "Rejected" });
+        }
+        private void InitializeReservationListView()
+        {
+            lvReservations.Columns.Clear();
+            lvReservations.Items.Clear();
+
+            // Add all columns including ExpectedCount and Remarks
+            lvReservations.Columns.Add("Reservation ID", 100);
+            lvReservations.Columns.Add("Hall Number", 80);
+            lvReservations.Columns.Add("Customer ID", 100);
+            lvReservations.Columns.Add("Event Type", 120);
+            lvReservations.Columns.Add("Event Date", 100);
+            lvReservations.Columns.Add("Expected Count", 90);
+            lvReservations.Columns.Add("Status", 80);
+            lvReservations.Columns.Add("RequestResponse", 200);
+            lvReservations.Columns.Add("Remarks", 200);
+
+            lvReservations.View = View.Details;
+            lvReservations.FullRowSelect = true;
         }
         private void LoadReservations()
         {
-            try
+            lvReservations.Items.Clear();
+
+            // Get all reservation IDs
+            var reservationIDs = reservationTable.GetColumnValues("ReservationID");
+
+            foreach (string id in reservationIDs)
             {
-                var reservations = reservationTable.GetColumnValues("ReservationID");
-                dgvReservations.DataSource = reservations;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading reservations: {ex.Message}");
+                var rowValues = reservationTable.GetRowValues(id.ToString());
+
+                ListViewItem item = new ListViewItem(rowValues[0].ToString()); // ReservationID
+                item.SubItems.Add(rowValues[1].ToString()); // HallNumber
+                item.SubItems.Add(rowValues[2].ToString()); // CustomerID
+                item.SubItems.Add(rowValues[3].ToString()); // EventType
+                item.SubItems.Add(rowValues[4].ToString()); // EventDate
+                item.SubItems.Add(rowValues[5].ToString()); // ExpectedCount
+                item.SubItems.Add(rowValues[6].ToString());
+                item.SubItems.Add(rowValues[7]?.ToString() ?? "");// Status
+                item.SubItems.Add(rowValues[8]?.ToString() ?? ""); // Remarks
+
+                lvReservations.Items.Add(item);
             }
         }
-        private void ConfigureDataGridView()
+        private void lvReservations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvReservations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvReservations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            if (lvReservations.SelectedItems.Count > 0)
+            {
+                string currentStatus = lvReservations.SelectedItems[0].SubItems[5].Text;
+                cmbReservationStatus.SelectedItem = currentStatus;
+            }
         }
         private void chkPending_CheckedChanged(object sender, EventArgs e)
         {
@@ -58,24 +94,24 @@ namespace Foodle_Point_Management_System
 
         private void btnUpdateStatus_Click(object sender, EventArgs e)
         {
-            if (dgvReservations.SelectedRows.Count == 0)
+            if (lvReservations.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Please select a reservation");
+                MessageBox.Show("Please select a reservation to update.");
                 return;
             }
 
-            string newStatus = cmbReservationStatus.Text;
-            if (string.IsNullOrEmpty(newStatus))
+            if (cmbReservationStatus.SelectedItem == null)
             {
-                MessageBox.Show("Please select a status");
+                MessageBox.Show("Please select a status.");
                 return;
             }
 
-            string reservationId = dgvReservations.SelectedRows[0].Cells[0].Value.ToString();
+            string reservationID = lvReservations.SelectedItems[0].Text;
+            string newStatus = cmbReservationStatus.SelectedItem.ToString();
 
             try
             {
-                reservationTable.UpdateValue(reservationId, "ReservationStatus", newStatus);
+                reservationTable.UpdateValue(reservationID, "ReservationStatus", newStatus);
                 MessageBox.Show("Status updated successfully!");
                 LoadReservations();
             }

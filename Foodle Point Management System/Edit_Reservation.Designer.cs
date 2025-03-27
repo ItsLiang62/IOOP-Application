@@ -38,7 +38,7 @@
             this.lblRequestResponse = new System.Windows.Forms.Label();
             this.lblReservationStatus = new System.Windows.Forms.Label();
             this.lblEventType = new System.Windows.Forms.Label();
-            this.txtlblRequestResponse = new System.Windows.Forms.TextBox();
+            this.txtRequestResponse = new System.Windows.Forms.TextBox();
             this.txtExpectedCount = new System.Windows.Forms.TextBox();
             this.txtHallNumber = new System.Windows.Forms.TextBox();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
@@ -148,12 +148,12 @@
             this.lblEventType.TabIndex = 57;
             this.lblEventType.Text = "EventType:";
             // 
-            // txtlblRequestResponse
+            // txtRequestResponse
             // 
-            this.txtlblRequestResponse.Location = new System.Drawing.Point(600, 266);
-            this.txtlblRequestResponse.Name = "txtlblRequestResponse";
-            this.txtlblRequestResponse.Size = new System.Drawing.Size(149, 25);
-            this.txtlblRequestResponse.TabIndex = 56;
+            this.txtRequestResponse.Location = new System.Drawing.Point(600, 266);
+            this.txtRequestResponse.Name = "txtRequestResponse";
+            this.txtRequestResponse.Size = new System.Drawing.Size(149, 25);
+            this.txtRequestResponse.TabIndex = 56;
             // 
             // txtExpectedCount
             // 
@@ -255,7 +255,7 @@
             this.Controls.Add(this.lblRequestResponse);
             this.Controls.Add(this.lblReservationStatus);
             this.Controls.Add(this.lblEventType);
-            this.Controls.Add(this.txtlblRequestResponse);
+            this.Controls.Add(this.txtRequestResponse);
             this.Controls.Add(this.txtExpectedCount);
             this.Controls.Add(this.txtHallNumber);
             this.Controls.Add(this.txtCustomerID);
@@ -288,7 +288,7 @@
         private System.Windows.Forms.Label lblRequestResponse;
         private System.Windows.Forms.Label lblReservationStatus;
         private System.Windows.Forms.Label lblEventType;
-        private System.Windows.Forms.TextBox txtlblRequestResponse;
+        private System.Windows.Forms.TextBox txtRequestResponse;
         private System.Windows.Forms.TextBox txtExpectedCount;
         private System.Windows.Forms.TextBox txtHallNumber;
         private System.Windows.Forms.TextBox txtCustomerID;

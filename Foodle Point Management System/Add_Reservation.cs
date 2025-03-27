@@ -13,12 +13,21 @@ namespace Foodle_Point_Management_System
 {
     public partial class Add_Reservation : Form
     {
+        private ResvCoordinator ResvCoordinatorUser;
         private HallReservationTable reservationTable = new HallReservationTable();
-        public Add_Reservation()
+        public Add_Reservation(ResvCoordinator ResvCoordinatorUser)
         {
             InitializeComponent();
-            SetupForm();
+            this.ResvCoordinatorUser = ResvCoordinatorUser;
+
+            // Set default status to Pending
+            cmbReservationStatus.SelectedIndex = 0;
+
+            // Auto-generate new reservation ID
+            txtReservationID.Text = reservationTable.GetNewReservationID();
+            txtReservationID.Enabled = false;
         }
+
         private void SetupForm()
         {
             cmbReservationStatus.Items.AddRange(new object[] { "Pending", "Confirmed", "Completed", "Rejected" });
@@ -59,56 +68,35 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtReservationID.Text) ||
-                    string.IsNullOrWhiteSpace(txtHallNumber.Text) ||
+                // Validate inputs
+                if (string.IsNullOrWhiteSpace(txtHallNumber.Text) ||
                     string.IsNullOrWhiteSpace(txtCustomerID.Text) ||
                     string.IsNullOrWhiteSpace(txtEventType.Text) ||
                     string.IsNullOrWhiteSpace(txtEventDate.Text))
                 {
-                    MessageBox.Show("Please fill in all required fields");
+                    MessageBox.Show("Please fill in all required fields.");
                     return;
                 }
 
-                if (!DateTime.TryParse(txtEventDate.Text, out DateTime eventDate))
-                {
-                    MessageBox.Show("Please enter a valid date (e.g., MM/DD/YYYY)");
-                    return;
-                }
+                // Get values from form controls
+                string reservationID = txtReservationID.Text;
+                string hallNumber = txtHallNumber.Text;
+                string customerID = txtCustomerID.Text;
+                string eventType = txtEventType.Text;
+                string eventDate = txtEventDate.Text;
+                int expectedCount = int.Parse(txtExpectedCount.Text);
+                string status = cmbReservationStatus.SelectedItem?.ToString() ?? "Pending";
+                string requestResponse = txtRequestResponse.Text;
+                string remarks = txtRemarks.Text;
 
-                int? expectedCount = null;
-                if (!string.IsNullOrWhiteSpace(txtExpectedCount.Text))
-                {
-                    if (!int.TryParse(txtExpectedCount.Text, out int tempCount))
-                    {
-                        MessageBox.Show("Expected Count must be a number");
-                        return;
-                    }
-                    expectedCount = tempCount;
-                }
-
+                // Insert new reservation
                 reservationTable.InsertRow(
-                    txtReservationID.Text,
-                    txtHallNumber.Text,  
-                    txtCustomerID.Text,
-                    txtEventType.Text,
-                    txtEventDate.Text,  
-                    expectedCount: 0,  
-                    cmbReservationStatus.SelectedItem.ToString(),
-                    requestResponse: string.Empty,  
-                    txtRemarks.Text);
-
-                if (!string.IsNullOrWhiteSpace(txtRequestResponse.Text))
-                {
-                    reservationTable.UpdateValue(txtReservationID.Text, "RequestResponse", txtRequestResponse.Text);
-                }
-
-                if (expectedCount.HasValue)
-                {
-                    reservationTable.UpdateValue(txtReservationID.Text, "ExpectedCount", expectedCount.Value);
-                }
+                    reservationID, hallNumber, customerID, eventType,
+                    eventDate, expectedCount, status, requestResponse, remarks
+                );
 
                 MessageBox.Show("Reservation added successfully!");
-                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
