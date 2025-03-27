@@ -94,12 +94,13 @@ namespace Foodle_Point_Management_System
             }
         }
 
+        
         private void btnrequest_Click(object sender, EventArgs e)
 
 
         {     // Step 1: Capture the values from the logged-in customer and request UI
-             string customerID = _currentCustomer.CustomerID;  // Get customer ID from the logged-in user
-            string remarks = txtrequest.Text.Trim();  // Get the request from the text box
+            string customerID = _currentCustomer.CustomerID;  // Get customer ID from the logged-in user
+            string remarks = String.Empty;//txtrequest.Text.Trim();  // Get the request from the text box
 
             // Step 2: Validate input
             if (string.IsNullOrWhiteSpace(remarks))
@@ -142,6 +143,7 @@ namespace Foodle_Point_Management_System
                     }
                 }
             }
+        
 
             // Step 4: Update the Remarks for the current reservation
             string reservationID = "";  // This should be set to the existing reservation ID of the customer
@@ -170,7 +172,7 @@ namespace Foodle_Point_Management_System
                         MessageBox.Show("Your request has been sent to the reservation coordinator!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Clear the text box for remarks
-                        txtrequest.Clear();
+                        //txtrequest.Clear();
                     }
                 }
             }
