@@ -45,7 +45,7 @@ namespace Foodle_Point_Management_System
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-            UpdateProfileForm profileForm = new UpdateProfileForm();
+            UpdateProfileForm profileForm = new UpdateProfileForm(ResvCoordinatorUser);
             profileForm.Show();
             this.Hide();
         }

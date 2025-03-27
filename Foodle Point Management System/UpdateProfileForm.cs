@@ -16,6 +16,9 @@ namespace Foodle_Point_Management_System
         private EmployeeTable employeeTable = new EmployeeTable();
         private InputChecker inputChecker = new InputChecker();
 
+        private ResvCoordinator ResvCoordinatorUser
+        { get; set; }
+
         private string InputFullName { get; set; }
         private string InputDOB { get; set; }
         private string InputEmail { get; set; }
@@ -23,7 +26,7 @@ namespace Foodle_Point_Management_System
         private string InputPassword { get; set; }
         private string SelectedGender { get; set; }
 
-        public UpdateProfileForm()
+        public UpdateProfileForm(ResvCoordinator myResvCoordinatorUser)
         {
             InitializeComponent();
             LoadProfile();
@@ -50,7 +53,7 @@ namespace Foodle_Point_Management_System
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Resv_Main_Page().Show();
+            new Resv_Main_Page(ResvCoordinatorUser).Show();
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
