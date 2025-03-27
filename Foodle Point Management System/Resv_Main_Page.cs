@@ -24,21 +24,21 @@ namespace Foodle_Point_Management_System
 
         private void btnManageReservations_Click(object sender, EventArgs e)
         {
-            ManageReservationsForm manageForm = new ManageReservationsForm();
+            ManageReservationsForm manageForm = new ManageReservationsForm(ResvCoordinatorUser);
             manageForm.Show();
             this.Hide();
         }
 
         private void btnUpdateReservationStatus_Click(object sender, EventArgs e)
         {
-            UpdateReservationStatusForm updateForm = new UpdateReservationStatusForm();
+            UpdateReservationStatusForm updateForm = new UpdateReservationStatusForm(ResvCoordinatorUser);
             updateForm.Show();
             this.Hide();
         }
 
         private void btnViewCustomerRequests_Click(object sender, EventArgs e)
         {
-            ViewCustomerRequestsForm requestForm = new ViewCustomerRequestsForm();
+            ViewCustomerRequestsForm requestForm = new ViewCustomerRequestsForm(ResvCoordinatorUser);
             requestForm.Show();
             this.Hide();
         }

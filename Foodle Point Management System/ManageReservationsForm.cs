@@ -13,8 +13,10 @@ namespace Foodle_Point_Management_System
 {
     public partial class ManageReservationsForm: Form
     {
+        private ResvCoordinator ResvCoordinatorUser
+        { get; set; }
         private HallReservationTable reservationTable = new HallReservationTable();
-        public ManageReservationsForm()
+        public ManageReservationsForm(ResvCoordinator myResvCoordinatorUser)
         {
             InitializeComponent();
             LoadReservations();
@@ -60,7 +62,7 @@ namespace Foodle_Point_Management_System
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Resv_Main_Page().Show();
+            new Resv_Main_Page(ResvCoordinatorUser).Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

@@ -12,9 +12,12 @@ namespace Foodle_Point_Management_System
 {
     public partial class ViewCustomerRequestsForm : Form
     {
+        private ResvCoordinator ResvCoordinatorUser
+        { get; set; }
         private HallReservationTable reservationTable = new HallReservationTable();
-        public ViewCustomerRequestsForm()
+        public ViewCustomerRequestsForm(ResvCoordinator myResvCoordinatorUser)
         {
+            ResvCoordinatorUser = myResvCoordinatorUser;
             InitializeComponent();
             LoadRequests();
             ConfigureDataGridView();
@@ -39,7 +42,7 @@ namespace Foodle_Point_Management_System
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Resv_Main_Page().Show();
+            new Resv_Main_Page(ResvCoordinatorUser).Show();
         }
 
         private void btnSendReply_Click(object sender, EventArgs e)

@@ -12,10 +12,12 @@ using Shared_Class_Library;
 namespace Foodle_Point_Management_System
 {
     public partial class UpdateReservationStatusForm : Form
+
     {
         private HallReservationTable reservationTable = new HallReservationTable();
-
-        public UpdateReservationStatusForm()
+        private ResvCoordinator ResvCoordinatorUser
+        { get; set; }
+        public UpdateReservationStatusForm(ResvCoordinator myResvCoordinatorUser)
         {
             InitializeComponent();
             LoadReservations();
@@ -51,7 +53,7 @@ namespace Foodle_Point_Management_System
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Resv_Main_Page().Show();
+            new Resv_Main_Page(ResvCoordinatorUser).Show();
         }
 
         private void btnUpdateStatus_Click(object sender, EventArgs e)
