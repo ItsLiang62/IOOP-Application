@@ -21,9 +21,8 @@ namespace Foodle_Point_Management_System
         }
         private void SetupForm()
         {
-            // Initialize combo box items
             cmbReservationStatus.Items.AddRange(new object[] { "Pending", "Confirmed", "Completed", "Rejected" });
-            cmbReservationStatus.SelectedIndex = 0; // Default to "Pending"
+            cmbReservationStatus.SelectedIndex = 0; 
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -60,7 +59,6 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                // Validate required fields
                 if (string.IsNullOrWhiteSpace(txtReservationID.Text) ||
                     string.IsNullOrWhiteSpace(txtHallNumber.Text) ||
                     string.IsNullOrWhiteSpace(txtCustomerID.Text) ||
@@ -71,14 +69,12 @@ namespace Foodle_Point_Management_System
                     return;
                 }
 
-                // Validate date format
                 if (!DateTime.TryParse(txtEventDate.Text, out DateTime eventDate))
                 {
                     MessageBox.Show("Please enter a valid date (e.g., MM/DD/YYYY)");
                     return;
                 }
 
-                // Convert expected count to integer (nullable)
                 int? expectedCount = null;
                 if (!string.IsNullOrWhiteSpace(txtExpectedCount.Text))
                 {
@@ -90,26 +86,22 @@ namespace Foodle_Point_Management_System
                     expectedCount = tempCount;
                 }
 
-                // Insert the new reservation
-                // Correct way to call InsertRow with all required parameters
                 reservationTable.InsertRow(
                     txtReservationID.Text,
-                    txtHallNumber.Text,  // Fixed typo from "Hail" to "Hall"
+                    txtHallNumber.Text,  
                     txtCustomerID.Text,
                     txtEventType.Text,
-                    txtEventDate.Text,  // Use .Text instead of .ToString()
-                    expectedCount: 0,  // Provide default or get from your form
+                    txtEventDate.Text,  
+                    expectedCount: 0,  
                     cmbReservationStatus.SelectedItem.ToString(),
-                    requestResponse: string.Empty,  // Provide default or get from your form
+                    requestResponse: string.Empty,  
                     txtRemarks.Text);
 
-                // Set request response if provided
                 if (!string.IsNullOrWhiteSpace(txtRequestResponse.Text))
                 {
                     reservationTable.UpdateValue(txtReservationID.Text, "RequestResponse", txtRequestResponse.Text);
                 }
 
-                // Set expected count if provided
                 if (expectedCount.HasValue)
                 {
                     reservationTable.UpdateValue(txtReservationID.Text, "ExpectedCount", expectedCount.Value);

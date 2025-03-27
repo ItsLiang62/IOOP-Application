@@ -16,7 +16,6 @@ namespace Foodle_Point_Management_System
         private EmployeeTable employeeTable = new EmployeeTable();
         private InputChecker inputChecker = new InputChecker();
 
-        // Properties for input values
         private string InputFullName { get; set; }
         private string InputDOB { get; set; }
         private string InputEmail { get; set; }
@@ -33,8 +32,8 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                // Example: Load current coordinator data (replace with your actual data loading logic)
-                txtReservationCoordinatorID.Text = "RC001"; // Would normally come from logged-in user
+
+                txtReservationCoordinatorID.Text = "RC001"; 
                 txtFullName.Text = "John Coordinator";
                 cmbGender.Text = "Male";
                 txtDateOfBirth.Text = "1985-05-15";
@@ -58,7 +57,7 @@ namespace Foodle_Point_Management_System
         {
             string coordinatorID = txtReservationCoordinatorID.Text;
 
-            // Get input values
+
             InputFullName = txtFullName.Text;
             InputDOB = txtDateOfBirth.Text;
             InputEmail = txtEmail.Text;
@@ -70,13 +69,13 @@ namespace Foodle_Point_Management_System
             {
                 try
                 {
-                    // Update each field in the database
-                    employeeTable.UpdateValue(coordinatorID, "FullName", InputFullName);
+
+                    employeeTable.UpdateValue(coordinatorID, "EmployeeName", InputFullName);
                     employeeTable.UpdateValue(coordinatorID, "Gender", SelectedGender);
-                    employeeTable.UpdateValue(coordinatorID, "DateOfBirth", InputDOB);
+                    employeeTable.UpdateValue(coordinatorID, "DOB", InputDOB);
                     employeeTable.UpdateValue(coordinatorID, "Email", InputEmail);
                     employeeTable.UpdateValue(coordinatorID, "PhoneNumber", InputPhoneNum);
-                    employeeTable.UpdateValue(coordinatorID, "Password", InputPassword);
+                    employeeTable.UpdateValue(coordinatorID, "AccountPassword", InputPassword);
 
                     MessageBox.Show("Profile updated successfully!");
                 }
@@ -94,14 +93,13 @@ namespace Foodle_Point_Management_System
         {
             errorMessage = string.Empty;
 
-            // Validate each field using InputChecker
             bool validName = inputChecker.IsTextOnly(InputFullName, out string nameError, "Full Name");
             bool validDOB = inputChecker.IsValidDate(InputDOB, out string dobError);
             bool validEmail = inputChecker.IsValidEmail(InputEmail, out string emailError);
             bool validPhone = inputChecker.IsValidPhoneNumber(InputPhoneNum, out string phoneError);
             bool validPassword = !string.IsNullOrWhiteSpace(InputPassword);
 
-            // Compose error message
+
             if (!validName) errorMessage += nameError + "\n";
             if (!validDOB) errorMessage += dobError + "\n";
             if (!validEmail) errorMessage += emailError + "\n";
