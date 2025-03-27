@@ -294,6 +294,12 @@
     <Compile Include="Edit_Reservation.Designer.cs">
       <DependentUpon>Edit_Reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="reserve halls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reserve halls.Designer.cs">
+      <DependentUpon>reserve halls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Send_Reply.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Reservation.resx">
       <DependentUpon>Add_Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reserve halls.resx">
+      <DependentUpon>reserve halls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Send_Reply.resx">
       <DependentUpon>Send_Reply.cs</DependentUpon>

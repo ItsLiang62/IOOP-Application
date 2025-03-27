@@ -14,7 +14,6 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmMain : Form
     {
-        //
         public frmMain()
         {
             InitializeComponent();
@@ -35,12 +34,7 @@ namespace Foodle_Point_Management_System
             this.Hide();
         }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void llblSignUpCustomer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void llblSignUpEmployee_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmEmployeeSignUp employeeSignUpPage = new frmEmployeeSignUp();
             employeeSignUpPage.Show();
@@ -53,6 +47,10 @@ namespace Foodle_Point_Management_System
             customerSignUpPage.Show();
             this.Hide();
         }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
-//
