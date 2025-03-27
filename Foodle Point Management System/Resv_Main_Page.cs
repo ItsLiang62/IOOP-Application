@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class Resv_Main_Page : Form
     {
-        public Resv_Main_Page()
+        private ResvCoordinator ResvCoordinatorUser
+        { get; set; }
+
+        public Resv_Main_Page(ResvCoordinator myResvCoordinatorUser)
         {
+            ResvCoordinatorUser = myResvCoordinatorUser;
             InitializeComponent();
         }
 
