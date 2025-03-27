@@ -44,6 +44,8 @@ namespace Foodle_Point_Management_System
                 dgvCart.Columns.Add("ItemNumber", "Item Number");
                 dgvCart.Columns.Add("ItemName", "Item Name");
                 dgvCart.Columns.Add("Price", "Price");
+                
+                
             }
         }
 
@@ -84,10 +86,10 @@ namespace Foodle_Point_Management_System
         {
 
             // Ensure the cart is not empty
-            if (dgvCart.Rows.Count == 0)
+            if (dgvCart.Rows.Count == 0 || dgvCart.Rows[0].IsNewRow)
             {
-                MessageBox.Show("Your cart is empty. Please add items before proceeding to payment.");
-                return;
+                MessageBox.Show("You can not  pay without ordering.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Exit the method if the cart is empty
             }
 
             // Get the CustomerID of the logged-in customer
@@ -99,6 +101,8 @@ namespace Foodle_Point_Management_System
             // Loop through each row in the cart to create CartItem objects
             foreach (DataGridViewRow row in dgvCart.Rows)
             {
+                if (row.IsNewRow) continue;  // Skip the empty row (new row placeholder)
+
                 string itemNumber = row.Cells["ItemNumber"].Value?.ToString() ?? string.Empty;
                 string itemName = row.Cells["ItemName"].Value?.ToString() ?? string.Empty;
                 decimal price = row.Cells["Price"].Value != null ? Convert.ToDecimal(row.Cells["Price"].Value) : 0m;
@@ -121,7 +125,7 @@ namespace Foodle_Point_Management_System
             }
             else
             {
-                MessageBox.Show("an error occurred while processing your payment.");
+                MessageBox.Show("An error occurred while processing your payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -133,13 +137,27 @@ namespace Foodle_Point_Management_System
                 return;
             }
 
-            // Step 2: Remove the selected row from the cart
-            dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
+            // Confirm removal action from the user
+            DialogResult result = MessageBox.Show("Are you sure you want to remove this item from the cart?",
+                                                  "Confirm Removal",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
 
-            // Step 3: Show success message
-            MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        
-    }
+            // If user clicks 'Yes', remove the item
+            if (result == DialogResult.Yes)
+            {
+                // Step 2: Remove the selected row from the cart
+                dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
+
+                // Step 3: Show success message
+                MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // If 'No' is selected, do nothing (optional)
+                MessageBox.Show("Item removal canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         private void btnsearch_Click(object sender, EventArgs e)
         {
