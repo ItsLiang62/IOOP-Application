@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Shared_Class_Library
 {
-    public class Manager
+    public class Employee
     {
         private EmployeeTable myEmployeeTable = new EmployeeTable();
-        
+
         private string EmployeeID
         { get; set; }
 
@@ -34,7 +34,7 @@ namespace Shared_Class_Library
         private string Password
         { get; set; }
 
-        public Manager(string employeeID)
+        public Employee(string employeeID)
         {
             EmployeeID = employeeID;
             FullName = myEmployeeTable.GetValue(employeeID, "EmployeeName").ToString();
@@ -91,10 +91,37 @@ namespace Shared_Class_Library
         {
             return Email;
         }
-        
+
         public string GetPassword()
         {
             return Password;
+        }
+    }
+
+    public class Manager : Employee
+    {
+        public Manager(string employeeID) : base(employeeID)
+        {
+        }
+    }
+
+    public class SystemAdministrator : Employee
+    {
+        public SystemAdministrator(string employeeID) : base(employeeID)
+        {
+        }
+    }
+    public class Chef : Employee
+    {
+        public Chef(string employeeID) : base(employeeID)
+        {
+        }
+    }
+
+    public class ResvCoordinator : Employee
+    {
+        public ResvCoordinator(string employeeID) : base(employeeID)
+        {
         }
     }
 }
