@@ -79,7 +79,7 @@ namespace Foodle_Point_Management_System
 
                 else if (Position == "Reservation Coordinator")
                 {
-                    Resv_Main_Page resvCoordinatorMainPage = new Resv_Main_Page();
+                    Resv_Main_Page resvCoordinatorMainPage = new Resv_Main_Page(new ResvCoordinator(EmployeeID));
                     resvCoordinatorMainPage.Show();
                     this.Hide();
                 }
