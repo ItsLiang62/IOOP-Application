@@ -76,6 +76,14 @@ namespace Foodle_Point_Management_System
                     managerMainPage.Show();
                     this.Hide();
                 }
+
+                else if (Position == "Reservation Coordinator")
+                {
+                    Resv_Main_Page resvCoordinatorMainPage = new Resv_Main_Page();
+                    resvCoordinatorMainPage.Show();
+                    this.Hide();
+                }
+
                 MessageBox.Show("Login Successful");
             }
             else
