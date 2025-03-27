@@ -237,6 +237,9 @@
     <EmbeddedResource Include="edit_hall.resx">
       <DependentUpon>edit_hall.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="edit_item.resx">
+      <DependentUpon>edit_item.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit_Reservation.resx">
       <DependentUpon>Edit_Reservation.cs</DependentUpon>
     </EmbeddedResource>
