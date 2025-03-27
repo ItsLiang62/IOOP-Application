@@ -182,5 +182,42 @@ namespace Shared_Class_Library
                 }
             }
         }
+
+        public string GetNewFeedbackID()
+        {
+            string previousFeedbackID;
+            string newFeedbackID;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                    SELECT TOP 1 FeedbackID
+                    FROM Feedback 
+                    ORDER BY CAST(SUBSTRING(FeedbackID, 3, LEN(FeedbackID)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousFeedbackID = reader["FeedbackID"].ToString();
+                            int previousFeedbackIDNum = Convert.ToInt32(previousFeedbackID.Substring(2));
+                            int newFeedbackIDNum = previousFeedbackIDNum + 1;
+                            newFeedbackID = $"FE{newFeedbackIDNum:D3}";
+
+                            return newFeedbackID;
+                        }
+                        else
+                        {
+                            return $"FE001".ToUpper();
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }

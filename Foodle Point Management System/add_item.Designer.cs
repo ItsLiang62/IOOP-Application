@@ -105,7 +105,7 @@
             "Chinese",
             "Arab",
             "Japanese",
-            "Food & Beverages"});
+            "Desserts & Beverages"});
             this.cmbCategory.Location = new System.Drawing.Point(361, 284);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(247, 37);

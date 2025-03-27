@@ -82,6 +82,7 @@ foreign key (CustomerID) references Customer(CustomerID)
 create table Ingredients (
 
 IngredientNumber varchar(255) primary key,
-IngredientName varchar(255)
+IngredientName varchar(255),
+Quantity smallint
 
 );

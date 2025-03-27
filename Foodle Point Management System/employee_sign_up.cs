@@ -15,6 +15,9 @@ namespace Foodle_Point_Management_System
     public partial class frmEmployeeSignUp: Form
     {
         private EmployeeTable myEmployeeTable = new EmployeeTable();
+
+        private InputChecker myChecker = new InputChecker();
+
         private string EmployeeID
         { get; set; }
 
@@ -125,8 +128,6 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            InputChecker myChecker = new InputChecker();
-
             bool validName = myChecker.IsTextOnly(InputFullName, out string eName, "Full Name");
             bool validDate = myChecker.IsValidDate(InputDOB, out string eDOB);
             bool validEmail = myChecker.IsValidEmail(InputEmail, out string eEmail);
