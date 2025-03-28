@@ -15,7 +15,7 @@ namespace Foodle_Point_Management_System
     public partial class OrderFoodForm: Form
 
     {
-        private CustomerClass1 _currentCustomer;
+        private Customer _currentCustomer;
 
         private List<MenuItem> allMenuItems = new List<MenuItem>(); 
         private void LoadMenuItems()
@@ -27,7 +27,7 @@ namespace Foodle_Point_Management_System
             LoadCategories(); // Load categories into ComboBoxdView
         }
 
-        public OrderFoodForm(CustomerClass1 customerID)
+        public OrderFoodForm(Customer customerID)
         {
             InitializeComponent();
             _currentCustomer = customerID;
@@ -91,7 +91,7 @@ namespace Foodle_Point_Management_System
             }
 
             // Get the CustomerID of the logged-in customer
-            string customerID = _currentCustomer.CustomerID;  // Get the CustomerID from the logged-in customer
+            string customerID = _currentCustomer.GetCustomerID();  // Get the CustomerID from the logged-in customer
 
             // Create a list to hold the CartItems
             List<CartItem> cartItems = new List<CartItem>();
