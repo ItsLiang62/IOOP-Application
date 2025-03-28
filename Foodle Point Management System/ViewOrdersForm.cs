@@ -15,11 +15,11 @@ namespace Foodle_Point_Management_System
 {
     public partial class ViewOrdersForm : Form
     {
-        private CustomerClass1 _currentCustomer;
+        private Customer _currentCustomer;
         private ItemOrderTable _itemOrderTable;
         private HallReservationTable _hallReservationTable;
 
-        public ViewOrdersForm(CustomerClass1 customer)
+        public ViewOrdersForm(Customer customer)
         {
             InitializeComponent();
             _currentCustomer = customer;
@@ -53,7 +53,7 @@ namespace Foodle_Point_Management_System
 
         private void LoadCustomerOrders()
         {
-            string customerID = _currentCustomer.CustomerID;
+            string customerID = _currentCustomer.GetCustomerID();
 
             // Modify the query to join Item and ItemOrder tables
             string query = @"SELECT o.OrderID, o.ItemNumber, i.ItemName, o.DateOfOrder, o.OrderStatus 
@@ -83,7 +83,7 @@ namespace Foodle_Point_Management_System
 
         private void LoadCustomerReservations()
         {
-            string customerID = _currentCustomer.CustomerID;
+            string customerID = _currentCustomer.GetCustomerID();
 
             // SQL query to get reservations along with the HallName
             string query = @"SELECT r.ReservationID, h.HallName, r.EventType, r.EventDate, r.ReservationStatus 

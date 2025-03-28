@@ -196,5 +196,42 @@ namespace Shared_Class_Library
                 }
             }
         }
+
+        public string GetNewOrderID()
+        {
+            string previousOrderID;
+            string newOrderID;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                    SELECT TOP 1 OrderID
+                    FROM ItemOrder 
+                    ORDER BY CAST(SUBSTRING(OrderID, 2, LEN(OrderID)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousOrderID = reader["OrderID"].ToString();
+                            int previousOrderIDNum = Convert.ToInt32(previousOrderID.Substring(1));
+                            int newOrderIDNum = previousOrderIDNum + 1;
+                            newOrderID = $"X{newOrderIDNum:D3}";
+
+                            return newOrderID;
+                        }
+                        else
+                        {
+                            return $"X001".ToUpper();
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }

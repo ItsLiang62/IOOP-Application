@@ -13,20 +13,21 @@ namespace Shared_Class_Library
         {
         }
 
-        public void InsertRow(string ingredientNumber, string ingredientName)
+        public void InsertRow(string ingredientNumber, string ingredientName, string quantity)
         {
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO Ingredients (IngredientNumber, IngredientName)" +
-                               "VALUES (@IngredientNumber, @IngredientName)";
+                string query = "INSERT INTO Ingredients (IngredientNumber, IngredientName, Quantity)" +
+                               "VALUES (@IngredientNumber, @IngredientName, @Quantity)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@IngredientNumber", ingredientNumber);
                     cmd.Parameters.AddWithValue("@IngredientName", ingredientName);
+                    cmd.Parameters.AddWithValue("@Quantity", quantity);
 
                     cmd.ExecuteNonQuery();
 
@@ -35,7 +36,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string ingredientNumber, string column)
         {
-            List<string> allowedColumns = new List<string> { "IngredientNumber, IngredientName" };
+            List<string> allowedColumns = new List<string> { "IngredientNumber, IngredientName", "Quantity" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -69,7 +70,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "IngredientNumber, IngredientName" };
+            List<string> allowedColumns = new List<string> { "IngredientNumber, IngredientName", "Quantity"};
 
             if (!allowedColumns.Contains(column))
             {
@@ -135,7 +136,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string ingredientNumber, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "IngredientNumber, IngredientName" };
+            List<string> allowedColumns = new List<string> { "IngredientNumber, IngredientName", "Quantity"};
 
             if (!allowedColumns.Contains(column))
             {
@@ -176,6 +177,43 @@ namespace Shared_Class_Library
                         throw new Exception("Deletion failed. The entered IngredientNumber was not found");
                     }
                 }
+            }
+        }
+
+        public string GetNewIngredientNumber()
+        {
+            string previousIngredientNumber;
+            string newIngredientNumber;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                    SELECT TOP 1 IngredientNumber
+                    FROM Ingredients
+                    ORDER BY CAST(SUBSTRING(IngredientNumber, 3, LEN(IngredientNumber)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousIngredientNumber = reader["IngredientNumber"].ToString();
+                            int previousIngredientNumberNum = Convert.ToInt32(previousIngredientNumber.Substring(2));
+                            int newIngredientNumberNum = previousIngredientNumberNum + 1;
+                            newIngredientNumber = $"IN{newIngredientNumberNum:D3}";
+
+                            return newIngredientNumber;
+                        }
+                        else
+                        {
+                            return $"IN001".ToUpper();
+                        }
+                    }
+                }
+
             }
         }
     }

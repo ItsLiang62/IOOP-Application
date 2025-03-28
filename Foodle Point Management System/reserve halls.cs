@@ -14,8 +14,8 @@ namespace Foodle_Point_Management_System
 {
     public partial class reserve_halls : Form
     {
-        private CustomerClass1 _currentCustomer;
-        public reserve_halls(CustomerClass1 customer)
+        private Customer _currentCustomer;
+        public reserve_halls(Customer customer)
         {
             InitializeComponent();
             _currentCustomer = customer;
@@ -23,7 +23,7 @@ namespace Foodle_Point_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string customerID = _currentCustomer.CustomerID;
+            string customerID = _currentCustomer.GetCustomerID();
 
             // Get the input values from the form
             string eventType = txtEventType.Text.Trim();
