@@ -17,8 +17,8 @@ namespace Foodle_Point_Management_System
 
     public partial class customereedbackForm : Form
     {
-        private CustomerClass1 _currentCustomer;
-        public customereedbackForm(CustomerClass1 customer)
+        private Customer _currentCustomer;
+        public customereedbackForm(Customer customer)
         {
             InitializeComponent();
             _currentCustomer = customer;
@@ -32,7 +32,7 @@ namespace Foodle_Point_Management_System
 
         private void btnSubmitFeedback_Click(object sender, EventArgs e)
         { // Get the CustomerID from the currently logged-in customer
-            string customerID = _currentCustomer.CustomerID;
+            string customerID = _currentCustomer.GetCustomerID();
 
             // Get the feedback from the textbox
             string feedbackSentence = txtFeedback.Text;
@@ -99,8 +99,8 @@ namespace Foodle_Point_Management_System
 
 
         {     // Step 1: Capture the values from the logged-in customer and request UI
-            string customerID = _currentCustomer.CustomerID;  // Get customer ID from the logged-in user
-            string remarks = String.Empty;//txtrequest.Text.Trim();  // Get the request from the text box
+             string customerID = _currentCustomer.GetCustomerID();  // Get customer ID from the logged-in user
+            string remarks = txtRequest.Text.Trim();  // Get the request from the text box
 
             // Step 2: Validate input
             if (string.IsNullOrWhiteSpace(remarks))
@@ -172,7 +172,7 @@ namespace Foodle_Point_Management_System
                         MessageBox.Show("Your request has been sent to the reservation coordinator!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Clear the text box for remarks
-                        //txtrequest.Clear();
+                        txtRequest.Clear();
                     }
                 }
             }

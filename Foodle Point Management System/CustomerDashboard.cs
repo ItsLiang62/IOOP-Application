@@ -14,9 +14,9 @@ namespace Foodle_Point_Management_System
 {
     public partial class CustomerDashboard: Form
     {
-        private CustomerClass1 _currentCustomer;
+        private Customer _currentCustomer;
         
-        public CustomerDashboard(CustomerClass1 customer)
+        public CustomerDashboard(Customer customer)
         {
             InitializeComponent();
             _currentCustomer = customer;
