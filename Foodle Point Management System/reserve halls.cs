@@ -105,6 +105,10 @@ namespace Foodle_Point_Management_System
             txtAdditionalThings.Clear();
         }
 
+        private void reserve_halls_Load(object sender, EventArgs e)
+        {
+
+        }
     }
  }
 

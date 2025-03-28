@@ -95,8 +95,6 @@ namespace Foodle_Point_Management_System
         }
 
         private void btnrequest_Click(object sender, EventArgs e)
-
-
         {     // Step 1: Capture the values from the logged-in customer and request UI
              string customerID = _currentCustomer.GetCustomerID();  // Get customer ID from the logged-in user
             string remarks = txtRequest.Text.Trim();  // Get the request from the text box

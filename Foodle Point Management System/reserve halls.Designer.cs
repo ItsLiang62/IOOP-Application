@@ -136,6 +136,7 @@
             this.Controls.Add(this.label1);
             this.Name = "reserve_halls";
             this.Text = "reserve_halls";
+            this.Load += new System.EventHandler(this.reserve_halls_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
