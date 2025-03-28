@@ -17,6 +17,8 @@ namespace Foodle_Point_Management_System
     public partial class frmCustomerSignUp: Form
     {
         private CustomerTable myCustomerTable = new CustomerTable();
+        private InputChecker myChecker = new InputChecker();
+
         private string InputFullName
         { get; set; }
 
@@ -65,10 +67,6 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-
-            CustomerTable myCustomerTable = new CustomerTable();
-
-
             FullName = txtName.Text;
             Gender = cmbGender.Text;
             Email = txtEmail.Text;
@@ -91,9 +89,11 @@ namespace Foodle_Point_Management_System
                     else
                     {
                         MessageBox.Show($"Unexpected error: {ex.Message}");
+                        return;
                     }
                     
                 }
+                MessageBox.Show($"Successfully signed up as customer.");
             }
             else
             {
@@ -103,36 +103,32 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            InputChecker myChecker = new InputChecker();
-
             string eName;
             string eEmail;
             string ePhoneNum;
             string eGender;
 
-            bool validName = myChecker.IsTextOnly(FullName, out eName);
+            bool validName = myChecker.IsTextOnly(FullName, out eName, "Full Name");
             bool validEmail = myChecker.IsValidEmail(Email, out eEmail);
             bool validPhoneNum = myChecker.IsValidPhoneNumber(PhoneNum, out ePhoneNum);
-            bool validGender = !myChecker.IsEmptyInput(Gender, out eGender);
+            bool validGender = !myChecker.IsEmptyInput(Gender, out eGender, "Gender");
 
-            messageBoxErrorMessage = "";
+            messageBoxErrorMessage = String.Empty;
 
-            if (!(validName && validEmail && validPhoneNum && validGender))
+            foreach (string error in new string[] { eName, eEmail, ePhoneNum, eGender })
             {
-
-                foreach (string error in new string[] { eName, eEmail, ePhoneNum, eGender })
+                if (!error.Equals("No error"))
                 {
-                    if (!error.Equals("No error"))
-                    {
-                        messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
-                    }
+                    messageBoxErrorMessage = messageBoxErrorMessage + error + "\n";
                 }
+            }
 
+            if (messageBoxErrorMessage != String.Empty)
+            { 
                 return false;
             }
             else
             {
-                messageBoxErrorMessage = "No error";
                 return true;
             }
         }
