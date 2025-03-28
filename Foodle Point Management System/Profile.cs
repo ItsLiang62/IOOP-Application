@@ -14,8 +14,8 @@ namespace Foodle_Point_Management_System
 {
     public partial class Profile : Form
     {
-        private CustomerClass1 _currentCustomer;
-        public Profile(CustomerClass1 customer)
+        private Customer _currentCustomer;
+        public Profile(Customer customer)
         {
             InitializeComponent();
             _currentCustomer = customer;
@@ -60,7 +60,7 @@ namespace Foodle_Point_Management_System
                     cmd.Parameters.AddWithValue("@Gender", gender);
                     cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                     cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@CustomerID", _currentCustomer.CustomerID);  // The logged-in customer's ID
+                    cmd.Parameters.AddWithValue("@CustomerID", _currentCustomer.GetCustomerID());  // The logged-in customer's ID
 
                     try
                     {
