@@ -57,7 +57,7 @@ namespace Foodle_Point_Management_System
                 return;
             }
             
-            CustomerDashboard customerMainPage = new CustomerDashboard(new CustomerClass1(CustomerID));
+            CustomerDashboard customerMainPage = new CustomerDashboard(new Customer(CustomerID));
             customerMainPage.Show();
             this.Hide();
 
