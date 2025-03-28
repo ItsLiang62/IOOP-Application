@@ -168,6 +168,7 @@
     <Compile Include="ManageInventory.cs" />
     <Compile Include="employee.cs" />
     <Compile Include="input_checker.cs" />
+    <Compile Include="Reservation handler.cs" />
     <Compile Include="table.cs" />
     <Compile Include="employee_table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
