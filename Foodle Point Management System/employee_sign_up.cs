@@ -63,17 +63,16 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            FullName = txtName.Text;
-            Position = cmbPosition.Text;
-            Gender = cmbGender.Text;
-            Email = txtEmail.Text;
-            PhoneNum = txtPhoneNum.Text;
-            DOB = txtDOB.Text;
-            Password = txtPassword.Text;
-
             if (AllInputValid(out messageBoxErrorMessage))
             {
                 EmployeeID = myEmployeeTable.GetNewEmployeeID(Position);
+                FullName = txtName.Text;
+                Position = cmbPosition.Text;
+                Gender = cmbGender.Text;
+                Email = txtEmail.Text;
+                PhoneNum = txtPhoneNum.Text;
+                DOB = txtDOB.Text;
+                Password = txtPassword.Text;
 
                 try
                 {
@@ -104,12 +103,12 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            bool validName = myChecker.IsTextOnly(FullName, out string eName, "Full Name");
-            bool validDate = myChecker.IsValidDate(DOB, out string eDOB);
-            bool validEmail = myChecker.IsValidEmail(Email, out string eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(PhoneNum, out string ePhoneNum);
-            bool validGender = !myChecker.IsEmptyInput(Gender, out string eGender, "Gender");
-            bool validPosition = !myChecker.IsEmptyInput(Position, out string ePosition, "Position");
+            bool validName = myChecker.IsTextOnly(txtName.Text, out string eName, "Full Name");
+            bool validDate = myChecker.IsValidDate(txtDOB.Text, out string eDOB);
+            bool validEmail = myChecker.IsValidEmail(txtEmail.Text, out string eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(txtPhoneNum.Text, out string ePhoneNum);
+            bool validGender = !myChecker.IsEmptyInput(cmbGender.Text, out string eGender, "Gender");
+            bool validPosition = !myChecker.IsEmptyInput(cmbPosition.Text, out string ePosition, "Position");
 
             messageBoxErrorMessage = String.Empty;
 

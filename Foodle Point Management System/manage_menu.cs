@@ -16,16 +16,17 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmManageMenu: Form
     {
-        ItemTable myItemTable = new ItemTable();
-        InputChecker myChecker = new InputChecker();
+        private ItemTable myItemTable = new ItemTable();
 
-        Manager ManagerUser
+        private InputChecker myChecker = new InputChecker();
+
+        private Manager ManagerUser
         { get; set; }
 
-        string InputItemIDItemName
+        private string SelectedItemIDItemName
         { get; set; }
 
-        string InputCategory
+        private string SelectedCategory
         { get; set; }
 
         public frmManageMenu(Manager managerUser)
@@ -43,11 +44,11 @@ namespace Foodle_Point_Management_System
         {
             cmbItem.Items.Clear();
 
-            InputCategory = cmbCategory.SelectedItem.ToString();
+            SelectedCategory = cmbCategory.SelectedItem.ToString();
 
             try
             {
-                List<string> allItemIDs = myItemTable.GetItemIDsOfCategory(InputCategory);
+                List<string> allItemIDs = myItemTable.GetItemIDsOfCategory(SelectedCategory);
 
                 foreach (string itemID in allItemIDs)
                 {
@@ -76,15 +77,15 @@ namespace Foodle_Point_Management_System
         private void btnEditItem_Click(object sender, EventArgs e)
         {
             string messageBoxErrorMessage = String.Empty;
-            InputCategory = cmbCategory.Text;
-            InputItemIDItemName = cmbItem.Text;
+            SelectedCategory = cmbCategory.Text;
+            SelectedItemIDItemName = cmbItem.Text;
 
-            if (myChecker.IsEmptyInput(InputCategory, out string eCategory))
+            if (myChecker.IsEmptyInput(SelectedCategory, out string eCategory))
             {
                 messageBoxErrorMessage += "Please select a menu category" + "\n";
             }
             
-            if (myChecker.IsEmptyInput(InputItemIDItemName, out string eItemIDItemName))
+            if (myChecker.IsEmptyInput(SelectedItemIDItemName, out string eItemIDItemName))
             {
                 messageBoxErrorMessage += "Please select an item" + "\n";
             }
@@ -96,7 +97,7 @@ namespace Foodle_Point_Management_System
             }
             
             
-            frmEditItem editItemPage = new frmEditItem(ManagerUser, InputItemIDItemName.Substring(0, 4));
+            frmEditItem editItemPage = new frmEditItem(ManagerUser, SelectedItemIDItemName.Substring(0, 4));
             editItemPage.Show();
             this.Hide();
         }
@@ -104,15 +105,15 @@ namespace Foodle_Point_Management_System
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             string messageBoxErrorMessage = String.Empty;
-            InputCategory = cmbCategory.Text;
-            InputItemIDItemName = cmbItem.Text;
+            SelectedCategory = cmbCategory.Text;
+            SelectedItemIDItemName = cmbItem.Text;
 
-            if (myChecker.IsEmptyInput(InputCategory, out string eCategory))
+            if (myChecker.IsEmptyInput(SelectedCategory, out string eCategory))
             {
                 messageBoxErrorMessage += "Please select a menu category" + "\n";
             }
 
-            if (myChecker.IsEmptyInput(InputItemIDItemName, out string eItemIDItemName))
+            if (myChecker.IsEmptyInput(SelectedItemIDItemName, out string eItemIDItemName))
             {
                 messageBoxErrorMessage += "Please select an item" + "\n";
             }
@@ -124,7 +125,7 @@ namespace Foodle_Point_Management_System
             }
             else
             {
-                string itemIDToDelete = InputItemIDItemName.Substring(0, 4);
+                string itemIDToDelete = SelectedItemIDItemName.Substring(0, 4);
 
                 try
                 {

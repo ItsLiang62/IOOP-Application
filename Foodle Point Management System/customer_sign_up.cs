@@ -17,19 +17,8 @@ namespace Foodle_Point_Management_System
     public partial class frmCustomerSignUp: Form
     {
         private CustomerTable myCustomerTable = new CustomerTable();
+
         private InputChecker myChecker = new InputChecker();
-
-        private string InputFullName
-        { get; set; }
-
-        private string InputGender
-        { get; set; }
-
-        private string InputPhoneNum
-        { get; set; }
-
-        private string InputEmail
-        { get; set; }
         
         private string CustomerID
         { get; set; }
@@ -45,6 +34,7 @@ namespace Foodle_Point_Management_System
 
         private string Email
         { get; set; }
+
 
         public frmCustomerSignUp()
         {
@@ -67,14 +57,14 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            FullName = txtName.Text;
-            Gender = cmbGender.Text;
-            Email = txtEmail.Text;
-            PhoneNum = txtPhoneNum.Text;
-            CustomerID = myCustomerTable.GetNewCustomerID();
-
             if (AllInputValid(out messageBoxErrorMessage))
             {
+                CustomerID = myCustomerTable.GetNewCustomerID();
+                FullName = txtName.Text;
+                Gender = cmbGender.Text;
+                Email = txtEmail.Text;
+                PhoneNum = txtPhoneNum.Text;
+
                 try
                 {
                     myCustomerTable.InsertRow(CustomerID, FullName, Gender, Email, PhoneNum);
@@ -108,10 +98,10 @@ namespace Foodle_Point_Management_System
             string ePhoneNum;
             string eGender;
 
-            bool validName = myChecker.IsTextOnly(FullName, out eName, "Full Name");
-            bool validEmail = myChecker.IsValidEmail(Email, out eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(PhoneNum, out ePhoneNum);
-            bool validGender = !myChecker.IsEmptyInput(Gender, out eGender, "Gender");
+            bool validName = myChecker.IsTextOnly(txtName.Text, out eName, "Full Name");
+            bool validEmail = myChecker.IsValidEmail(txtEmail.Text, out eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(txtPhoneNum.Text, out ePhoneNum);
+            bool validGender = !myChecker.IsEmptyInput(cmbGender.Text, out eGender, "Gender");
 
             messageBoxErrorMessage = String.Empty;
 

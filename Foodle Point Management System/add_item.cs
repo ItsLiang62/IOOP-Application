@@ -15,16 +15,9 @@ namespace Foodle_Point_Management_System
     {
         private ItemTable myItemTable = new ItemTable();
 
-        Manager ManagerUser
-        { get; set; }
+        private InputChecker myChecker = new InputChecker();
 
-        private string InputItemName
-        { get; set; }
-
-        private string InputPrice
-        { get; set; }
-
-        private string InputCategory
+        private Manager ManagerUser
         { get; set; }
 
         private string ItemID
@@ -47,18 +40,14 @@ namespace Foodle_Point_Management_System
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            InputItemName = txtItemName.Text;
-            InputPrice = txtPrice.Text;
-            Category = cmbCategory.Text;
-
             string messageBoxErrorMessage;
 
             if (AllInputValid(out messageBoxErrorMessage))
             {
-                
                 ItemID = myItemTable.GetNewItemID(Category);
-                ItemName = InputItemName;
-                Price = Math.Round(Convert.ToDouble(InputPrice), 2);
+                ItemName = txtItemName.Text;
+                Category = cmbCategory.Text;
+                Price = Math.Round(Convert.ToDouble(txtPrice.Text), 2);
 
                 try
                 {
@@ -82,11 +71,10 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            InputChecker myChecker = new InputChecker();
 
-            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName, "Item Name");
-            bool validPrice = myChecker.IsValidPrice(InputPrice, out string ePrice);
-            bool validCategory = !myChecker.IsEmptyInput(InputCategory, out string eCategory, "Category");
+            bool validItemName = myChecker.IsTextOnly(txtItemName.Text, out string eItemName, "Item Name");
+            bool validPrice = myChecker.IsValidPrice(txtPrice.Text, out string ePrice);
+            bool validCategory = !myChecker.IsEmptyInput(cmbCategory.Text, out string eCategory, "Category");
 
             messageBoxErrorMessage = String.Empty;
 

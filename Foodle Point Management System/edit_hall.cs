@@ -15,28 +15,24 @@ namespace Foodle_Point_Management_System
     {
         private HallTable myItemTable = new HallTable();
 
+        private InputChecker myChecker = new InputChecker();
+
         private Manager ManagerUser
         { get; set; }
 
         private string HallNumberToEdit
         { get; set; }
 
-        private string InputHallName
+        private string HallName
         { get; set; }
 
-        private string InputCapacity
+        private int Capacity
         { get; set; }
 
-        private string NewHallName
+        private string RecommendedEvent1
         { get; set; }
 
-        private int NewCapacity
-        { get; set; }
-
-        private string NewRecommendedEvent1
-        { get; set; }
-
-        private string NewRecommendedEvent2
+        private string RecommendedEvent2
         { get; set; }
 
         public frmEditHall(Manager managerUser, string hallNumberToEdit)
@@ -47,8 +43,6 @@ namespace Foodle_Point_Management_System
             HallNumberToEdit = hallNumberToEdit;
             this.ConstructTitle();
             FillInputBox();
-
-
         }
 
         private void ConstructTitle()
@@ -66,10 +60,8 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            InputChecker myChecker = new InputChecker();
-
-            bool validHallName = myChecker.IsTextOnly(InputHallName, out string eHallName, "Hall Name");
-            bool validCapacity = myChecker.IsDigitOnly(InputCapacity, out string eCapacity, "Capacity");
+            bool validHallName = myChecker.IsTextOnly(txtHallName.Text, out string eHallName, "Hall Name");
+            bool validCapacity = myChecker.IsDigitOnly(txtCapacity.Text, out string eCapacity, "Capacity");
 
             messageBoxErrorMessage = String.Empty;
 
@@ -99,28 +91,25 @@ namespace Foodle_Point_Management_System
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            InputHallName = txtHallName.Text;
-            InputCapacity = txtCapacity.Text;
-            NewRecommendedEvent1 = cmbRecommendedEvent1.Text;
-            NewRecommendedEvent2 = cmbRecommendedEvent2.Text;
-
-            if (NewRecommendedEvent1 == NewRecommendedEvent2)
-            {
-                MessageBox.Show("Please fill in different recommended events.");
-                return;
-            }
-
             if (AllInputValid(out string messageBoxErrorMessage))
             {
-                NewHallName = InputHallName;
-                NewCapacity = Convert.ToInt32(InputCapacity);
+                HallName = txtHallName.Text;
+                Capacity = Convert.ToInt32(txtCapacity.Text);
+                RecommendedEvent1 = cmbRecommendedEvent1.Text;
+                RecommendedEvent2 = cmbRecommendedEvent2.Text;
+
+                if (RecommendedEvent1 == RecommendedEvent2)
+                {
+                    MessageBox.Show("Please fill in different recommended events.");
+                    return;
+                }
 
                 try
                 {
-                    myItemTable.UpdateValue(HallNumberToEdit, "HallName", NewHallName);
-                    myItemTable.UpdateValue(HallNumberToEdit, "Capacity", NewCapacity);
-                    myItemTable.UpdateValue(HallNumberToEdit, "RecommendedEvent1", NewRecommendedEvent1);
-                    myItemTable.UpdateValue(HallNumberToEdit, "RecommendedEvent2", NewRecommendedEvent2);
+                    myItemTable.UpdateValue(HallNumberToEdit, "HallName", HallName);
+                    myItemTable.UpdateValue(HallNumberToEdit, "Capacity", Capacity);
+                    myItemTable.UpdateValue(HallNumberToEdit, "RecommendedEvent1", RecommendedEvent1);
+                    myItemTable.UpdateValue(HallNumberToEdit, "RecommendedEvent2", RecommendedEvent2);
                 }
                 catch (Exception ex)
                 {
