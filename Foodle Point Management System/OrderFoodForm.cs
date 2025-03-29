@@ -16,7 +16,7 @@ namespace Foodle_Point_Management_System
 
     {
         private Customer _currentCustomer;
-
+        private decimal totalPrice = 0m;
         private List<MenuItem> allMenuItems = new List<MenuItem>(); 
         private void LoadMenuItems()
         {
@@ -32,6 +32,7 @@ namespace Foodle_Point_Management_System
             InitializeComponent();
             _currentCustomer = customerID;
             dgvCart.AutoGenerateColumns = false;
+            lblTotalPrice.Text = "Total: $0.00";
         }
 
 
@@ -63,6 +64,8 @@ namespace Foodle_Point_Management_System
 
             CartItem cartItem = new CartItem(itemNumber, itemName, price);
             CartItem.AddToCart(dgvCart, cartItem);
+            totalPrice += price;
+            lblTotalPrice.Text = $"Total: {totalPrice:C}";
         }
 
         private void btnEditCart_Click(object sender, EventArgs e)

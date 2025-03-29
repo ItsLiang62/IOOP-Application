@@ -29,16 +29,17 @@ namespace Foodle_Point_Management_System
 
         private void ViewOrdersForm_Load(object sender, EventArgs e)
         {
-            dgvOrders.Columns.Clear(); // Clear any existing columns
+            dgvOrders.Columns.Clear();
 
-            // Adding new columns
+            // Add necessary columns
             dgvOrders.Columns.Add("OrderID", "Order ID");
             dgvOrders.Columns.Add("ItemNumber", "Item Number");
-            dgvOrders.Columns.Add("ItemName", "Item Name"); // Add ItemName column
+            dgvOrders.Columns.Add("ItemName", "Item Name");
+            dgvOrders.Columns.Add("Quantity", "Quantity"); // Add Quantity column
             dgvOrders.Columns.Add("DateOfOrder", "Date of Order");
             dgvOrders.Columns.Add("OrderStatus", "Order Status");
-
             LoadCustomerOrders();
+            
             dgvReservations.Columns.Clear(); // Clear any existing columns
 
             // Adding new columns
@@ -55,11 +56,28 @@ namespace Foodle_Point_Management_System
         {
             string customerID = _currentCustomer.GetCustomerID();
 
-            // Modify the query to join Item and ItemOrder tables
-            string query = @"SELECT o.OrderID, o.ItemNumber, i.ItemName, o.DateOfOrder, o.OrderStatus 
-                     FROM ItemOrder o
-                     JOIN Item i ON o.ItemNumber = i.ItemNumber
-                     WHERE o.CustomerID = @CustomerID";
+            // SQL query to get orders and the quantity of each item
+            string query = @"SELECT 
+                        o.OrderID, 
+                        o.ItemNumber, 
+                        i.ItemName, 
+                        SUM(o.Quantity) AS Quantity, 
+                        o.DateOfOrder, 
+                        o.OrderStatus
+                    FROM 
+                        ItemOrder o
+                    JOIN 
+                        Item i ON o.ItemNumber = i.ItemNumber
+                    WHERE 
+                        o.CustomerID = @CustomerID
+                    GROUP BY 
+                        o.OrderID, 
+                        o.ItemNumber, 
+                        i.ItemName, 
+                        o.DateOfOrder, 
+                        o.OrderStatus
+                    ORDER BY 
+                        o.DateOfOrder DESC";
 
             using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
@@ -71,8 +89,15 @@ namespace Foodle_Point_Management_System
                     {
                         while (reader.Read())
                         {
-                            // Assuming dgvOrders is your DataGridView to show orders
-                            dgvOrders.Rows.Add(reader["OrderID"], reader["ItemNumber"], reader["ItemName"], reader["DateOfOrder"], reader["OrderStatus"]);
+                            // Assuming dgvOrders is your DataGridView for displaying orders
+                            dgvOrders.Rows.Add(
+                                reader["OrderID"],
+                                reader["ItemNumber"],
+                                reader["ItemName"],
+                                reader["Quantity"],  // This now displays the quantity of each item
+                                reader["DateOfOrder"],
+                                reader["OrderStatus"]
+                            );
                         }
                     }
                 }
