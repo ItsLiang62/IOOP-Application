@@ -41,6 +41,7 @@
             this.btnProceedToPayment = new System.Windows.Forms.Button();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnreturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
@@ -173,11 +174,23 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "total:";
             // 
+            // btnreturn
+            // 
+            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreturn.Location = new System.Drawing.Point(12, 563);
+            this.btnreturn.Name = "btnreturn";
+            this.btnreturn.Size = new System.Drawing.Size(281, 78);
+            this.btnreturn.TabIndex = 13;
+            this.btnreturn.Text = "Return To  The Main Page";
+            this.btnreturn.UseVisualStyleBackColor = true;
+            this.btnreturn.Click += new System.EventHandler(this.btnlogout_Click);
+            // 
             // OrderFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1477, 649);
+            this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblTotalPrice);
             this.Controls.Add(this.btnProceedToPayment);
@@ -216,5 +229,6 @@
         private System.Windows.Forms.Button btnProceedToPayment;
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnreturn;
     }
 }

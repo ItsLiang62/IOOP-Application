@@ -40,6 +40,7 @@
             this.txtgender = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnreturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -135,11 +136,23 @@
             this.label6.TabIndex = 12;
             this.label6.Text = resources.GetString("label6.Text");
             // 
+            // btnreturn
+            // 
+            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreturn.Location = new System.Drawing.Point(12, 589);
+            this.btnreturn.Name = "btnreturn";
+            this.btnreturn.Size = new System.Drawing.Size(281, 78);
+            this.btnreturn.TabIndex = 15;
+            this.btnreturn.Text = "Return To  The Main Page";
+            this.btnreturn.UseVisualStyleBackColor = true;
+            this.btnreturn.Click += new System.EventHandler(this.btnreturn_Click);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1528, 740);
+            this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtgender);
@@ -171,5 +184,6 @@
         private System.Windows.Forms.TextBox txtgender;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnreturn;
     }
 }

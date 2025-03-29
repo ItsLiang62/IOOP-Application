@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numRating = new System.Windows.Forms.NumericUpDown();
             this.btnSubmitFeedback = new System.Windows.Forms.Button();
-            this.txtRequest = new System.Windows.Forms.TextBox();
+            this.btnlogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numRating)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,20 +98,23 @@
             this.btnSubmitFeedback.UseVisualStyleBackColor = true;
             this.btnSubmitFeedback.Click += new System.EventHandler(this.btnSubmitFeedback_Click);
             // 
-            // txtRequest
+            // btnlogout
             // 
-            this.txtRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRequest.Location = new System.Drawing.Point(257, 238);
-            this.txtRequest.Name = "txtRequest";
-            this.txtRequest.Size = new System.Drawing.Size(182, 34);
-            this.txtRequest.TabIndex = 5;
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.Location = new System.Drawing.Point(12, 340);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(281, 78);
+            this.btnlogout.TabIndex = 7;
+            this.btnlogout.Text = "Return To  The Main Page";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
             // customereedbackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtRequest);
+            this.Controls.Add(this.btnlogout);
             this.Controls.Add(this.btnSubmitFeedback);
             this.Controls.Add(this.numRating);
             this.Controls.Add(this.label2);
@@ -133,6 +136,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numRating;
         private System.Windows.Forms.Button btnSubmitFeedback;
-        private System.Windows.Forms.TextBox txtRequest;
+        private System.Windows.Forms.Button btnlogout;
     }
 }

@@ -204,5 +204,12 @@ namespace Foodle_Point_Management_System
             cmbCategory.DataSource = categories;
             cmbCategory.SelectedIndex = 0; // Default selection: "All"
         }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            CustomerDashboard mainpage = new CustomerDashboard(_currentCustomer);
+            mainpage.Show();
+            this.Hide();
+        }
     }
 }
