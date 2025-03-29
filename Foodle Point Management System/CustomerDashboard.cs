@@ -60,5 +60,17 @@ namespace Foodle_Point_Management_System
             reserve_halls reserve_halls = new reserve_halls(_currentCustomer);
             reserve_halls.Show();
         }
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            frmMain mainPage = new frmMain();
+            mainPage.Show();
+            this.Hide();
+        }
     }
 }

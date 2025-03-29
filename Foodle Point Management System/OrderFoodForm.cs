@@ -124,7 +124,8 @@ namespace Foodle_Point_Management_System
             if (orderSaved)
             {
                 MessageBox.Show("Payment successful. Your order has been placed!");
-                dgvCart.Rows.Clear();  // Clear the cart after successful payment
+                dgvCart.Rows.Clear();
+                lblTotalPrice.Text = "Total: $0.00";// Clear the cart after successful payment
             }
             else
             {
@@ -139,6 +140,8 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Please select an item from the cart to remove.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string itemName = dgvCart.SelectedRows[0].Cells["ItemName"].Value.ToString();
+            decimal itemPrice = Convert.ToDecimal(dgvCart.SelectedRows[0].Cells["Price"].Value);
 
             // Confirm removal action from the user
             DialogResult result = MessageBox.Show("Are you sure you want to remove this item from the cart?",
@@ -151,7 +154,9 @@ namespace Foodle_Point_Management_System
             {
                 // Step 2: Remove the selected row from the cart
                 dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
-
+                // Recalculate the total price
+                totalPrice -= itemPrice;
+                lblTotalPrice.Text = $"Total: {totalPrice:C}";  // Update the total price label
                 // Step 3: Show success message
                 MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

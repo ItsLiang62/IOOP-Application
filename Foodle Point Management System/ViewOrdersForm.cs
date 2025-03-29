@@ -47,7 +47,8 @@ namespace Foodle_Point_Management_System
             dgvReservations.Columns.Add("EventType", "Event Type");
             dgvReservations.Columns.Add("EventDate", "Event Date");
             dgvReservations.Columns.Add("ReservationStatus", "Reservation Status");
-
+            dgvReservations.Columns.Add("ExpectedCount", "Expected Count");  // Add ExpectedCount column
+            dgvReservations.Columns.Add("RequestResponse", "Request Response");
             LoadCustomerReservations();
         }
 
@@ -89,10 +90,11 @@ namespace Foodle_Point_Management_System
             string customerID = _currentCustomer.GetCustomerID();
 
             // SQL query to get reservations along with the HallName
-            string query = @"SELECT r.ReservationID, h.HallName, r.EventType, r.EventDate, r.ReservationStatus 
-                     FROM HallReservation r
-                     JOIN Hall h ON r.HallNumber = h.HallNumber
-                     WHERE r.CustomerID = @CustomerID";
+            string query = @"SELECT r.ReservationID, h.HallName, r.EventType, r.EventDate, r.ReservationStatus,
+                        r.ExpectedCount, r.RequestResponse
+                 FROM HallReservation r
+                 JOIN Hall h ON r.HallNumber = h.HallNumber
+                 WHERE r.CustomerID = @CustomerID";
 
             using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
@@ -104,12 +106,24 @@ namespace Foodle_Point_Management_System
                     {
                         while (reader.Read())
                         {
-                            // Assuming dgvReservations is your DataGridView for reservations
-                            dgvReservations.Rows.Add(reader["ReservationID"], reader["HallName"], reader["EventType"], reader["EventDate"], reader["ReservationStatus"]);
+                            dgvReservations.Rows.Add(
+                                reader["ReservationID"],
+                                reader["HallName"],
+                                reader["EventType"],
+                                reader["EventDate"],
+                                reader["ReservationStatus"],
+                                reader["ExpectedCount"],
+                                reader["RequestResponse"]
+                            );
                         }
                     }
                 }
             }
+            }
+
+        private void dgvReservations_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

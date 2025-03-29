@@ -78,7 +78,7 @@
             // btnReturnMain
             // 
             this.btnReturnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnMain.Location = new System.Drawing.Point(53, 38);
+            this.btnReturnMain.Location = new System.Drawing.Point(28, 33);
             this.btnReturnMain.Name = "btnReturnMain";
             this.btnReturnMain.Size = new System.Drawing.Size(293, 45);
             this.btnReturnMain.TabIndex = 11;
