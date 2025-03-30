@@ -13,6 +13,8 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmEmployeeLogin: Form
     {
+        private EmployeeTable myEmployeeTable = new EmployeeTable();
+        
         private string EmployeeID
         { get; set; }
 
@@ -49,8 +51,6 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            EmployeeTable myEmployeeTable = new EmployeeTable("Data Source=172.18.48.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Encrypt=True;Trust Server Certificate=True");
-
             InputEmail = txtEmail.Text;
             InputPassword = txtPassword.Text;
 
@@ -76,6 +76,14 @@ namespace Foodle_Point_Management_System
                     managerMainPage.Show();
                     this.Hide();
                 }
+
+                else if (Position == "Reservation Coordinator")
+                {
+                    Resv_Main_Page resvCoordinatorMainPage = new Resv_Main_Page(new ResvCoordinator(EmployeeID));
+                    resvCoordinatorMainPage.Show();
+                    this.Hide();
+                }
+
                 MessageBox.Show("Login Successful");
             }
             else

@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class FeedbackTable : Table
     {
-        public FeedbackTable(string connectionString) : base(connectionString)
+        public FeedbackTable() : base()
         {
         }
 
@@ -94,14 +94,8 @@ namespace Shared_Class_Library
                         {
                             columnValues.Add(reader[column]);
                         }
-                        if (columnValues.Count > 0)
-                        {
-                            return columnValues;
-                        }
-                        else
-                        {
-                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
-                        }
+                        
+                        return columnValues;
                     }
                 }
 
@@ -163,10 +157,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@FeedbackID", feedbackID);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered FeedbackID or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -189,6 +180,43 @@ namespace Shared_Class_Library
                         throw new Exception("Deletion failed. The entered FeedbackID was not found");
                     }
                 }
+            }
+        }
+
+        public string GetNewFeedbackID()
+        {
+            string previousFeedbackID;
+            string newFeedbackID;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                    SELECT TOP 1 FeedbackID
+                    FROM Feedback 
+                    ORDER BY CAST(SUBSTRING(FeedbackID, 3, LEN(FeedbackID)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousFeedbackID = reader["FeedbackID"].ToString();
+                            int previousFeedbackIDNum = Convert.ToInt32(previousFeedbackID.Substring(2));
+                            int newFeedbackIDNum = previousFeedbackIDNum + 1;
+                            newFeedbackID = $"FE{newFeedbackIDNum:D3}";
+
+                            return newFeedbackID;
+                        }
+                        else
+                        {
+                            return $"FE001".ToUpper();
+                        }
+                    }
+                }
+
             }
         }
     }

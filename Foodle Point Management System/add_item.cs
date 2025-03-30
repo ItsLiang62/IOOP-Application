@@ -13,6 +13,8 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmAddItem: Form
     {
+        private ItemTable myItemTable = new ItemTable();
+
         Manager ManagerUser
         { get; set; }
 
@@ -20,6 +22,9 @@ namespace Foodle_Point_Management_System
         { get; set; }
 
         private string InputPrice
+        { get; set; }
+
+        private string InputCategory
         { get; set; }
 
         private string ItemID
@@ -50,12 +55,20 @@ namespace Foodle_Point_Management_System
 
             if (AllInputValid(out messageBoxErrorMessage))
             {
-                ItemTable myItemTable = new ItemTable("Data Source=10.101.57.209,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+                
                 ItemID = myItemTable.GetNewItemID(Category);
                 ItemName = InputItemName;
                 Price = Math.Round(Convert.ToDouble(InputPrice), 2);
 
-                myItemTable.InsertRow(ItemID, ItemName, Price, Category);
+                try
+                {
+                    myItemTable.InsertRow(ItemID, ItemName, Price, Category);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
                 MessageBox.Show("Successfully added item");
             }
@@ -71,18 +84,18 @@ namespace Foodle_Point_Management_System
         {
             InputChecker myChecker = new InputChecker();
 
-            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName);
+            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName, "Item Name");
             bool validPrice = myChecker.IsValidPrice(InputPrice, out string ePrice);
+            bool validCategory = !myChecker.IsEmptyInput(InputCategory, out string eCategory, "Category");
 
             messageBoxErrorMessage = String.Empty;
 
-            if (!validItemName)
+            foreach (string error in new string[] {eItemName, ePrice, eCategory})
             {
-                messageBoxErrorMessage += eItemName + "\n";
-            }
-            if (!validPrice)
-            {
-                messageBoxErrorMessage += ePrice + "\n";
+                if (error != "No error")
+                {
+                    messageBoxErrorMessage += error + "\n";
+                }
             }
 
             if (messageBoxErrorMessage != String.Empty)
@@ -103,8 +116,8 @@ namespace Foodle_Point_Management_System
 
         private void btnManageMenuPage_Click(object sender, EventArgs e)
         {
-            frmManagerMain managerMainPage = new frmManagerMain(ManagerUser);
-            managerMainPage.Show();
+            frmManageMenu manageMenuPage = new frmManageMenu(ManagerUser);
+            manageMenuPage.Show();
             this.Hide();
         }
     }

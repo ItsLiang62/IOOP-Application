@@ -21,5 +21,10 @@ namespace Foodle_Point_Management_System
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
