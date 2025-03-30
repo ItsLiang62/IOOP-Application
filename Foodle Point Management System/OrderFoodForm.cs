@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class OrderFoodForm: Form
+    public partial class OrderFoodForm : Form
     {
-        private List<MenuItem> allMenuItems = new List<MenuItem>(); 
+        private List<MenuItem> allMenuItems = new List<MenuItem>();
         private void LoadMenuItems()
         {
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
@@ -31,7 +28,7 @@ namespace Foodle_Point_Management_System
 
         private void OrderFoodForm_Load(object sender, EventArgs e)
         {
-            
+
             LoadMenuItems();
             if (dgvCart.Columns.Count == 0)
             {
@@ -59,8 +56,8 @@ namespace Foodle_Point_Management_System
 
         private void btnEditCart_Click(object sender, EventArgs e)
         {
-           if(dgvCart.SelectedRows.Count == 0 || dgvMenuItems.SelectedRows.Count == 0)
-    {
+            if (dgvCart.SelectedRows.Count == 0 || dgvMenuItems.SelectedRows.Count == 0)
+            {
                 MessageBox.Show("Please select an item from both the cart and menu.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -126,8 +123,8 @@ namespace Foodle_Point_Management_System
 
             // Step 3: Show success message
             MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        
-    }
+
+        }
 
         private void btnsearch_Click(object sender, EventArgs e)
         {

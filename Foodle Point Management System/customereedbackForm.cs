@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
@@ -18,7 +11,7 @@ namespace Foodle_Point_Management_System
         {
             InitializeComponent();
         }
-           
+
 
         private void customereedbackForm_Load(object sender, EventArgs e)
         {
@@ -71,5 +64,5 @@ namespace Foodle_Point_Management_System
             txtFeedback.Clear();
             numRating.Value = 5; // Reset to default rating
         }
-    } 
+    }
 }

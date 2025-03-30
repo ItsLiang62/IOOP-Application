@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class UserManagement: Form
+    public partial class UserManagement : Form
     {
         public UserManagement()
         {
@@ -19,6 +12,24 @@ namespace Foodle_Point_Management_System
 
         private void UserManagement_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide UserManagement instead of closing
+
+            // Check if AdminHomePage form is already open
+            Form adminHome = Application.OpenForms["AdminHomePage"];
+            if (adminHome == null)
+            {
+                adminHome = new frmManagerMain(); // Create new instance if not found
+                adminHome.Show();
+            }
+            else
+            {
+                adminHome.Show(); // Show the existing instance
+            }
 
         }
     }
