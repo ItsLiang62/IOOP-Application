@@ -11,11 +11,11 @@ namespace Foodle_Point_Management_System
     class CustomerProfile
     {
         // Attributes to store the customer's profile information
-        private string CustomerID { get; set; }
-        private string Name { get; set; }
-        private string Gender { get; set; }
-        private string PhoneNumber { get; set; }
-        private string Email { get; set; }
+       public string CustomerID { get; private set; }
+        public string Name { get; private set; }
+        public string Gender { get; private set; }
+        public string PhoneNumber { get; private set; }
+        public string Email { get; private set; }
 
         // Constructor to initialize the object
         public CustomerProfile(string customerID, string name, string gender, string phoneNumber, string email)
@@ -44,7 +44,7 @@ namespace Foodle_Point_Management_System
 
                 if (!string.IsNullOrWhiteSpace(Name))
                 {
-                    query += firstField ? "Name = @Name" : ", Name = @Name";
+                    query += firstField ? "CustomerName = @Name" : ", CustomerName = @Name";
                     firstField = false;
                 }
 

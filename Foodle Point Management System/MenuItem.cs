@@ -12,10 +12,10 @@ namespace Foodle_Point_Management_System
     {
         
 
-        private string ItemNumber { get; set; }
-        private string ItemName { get; set; }
-        private decimal Price { get; set; }
-        private string Category { get; set; }
+       public string ItemNumber { get; private set; }
+        public string ItemName { get; private set; }
+        public decimal Price { get; private set; }
+        public string Category { get; private set; }
 
         public MenuItem(string itemNumber, string itemName, decimal price, string category)
         {
