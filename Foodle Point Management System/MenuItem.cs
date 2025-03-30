@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Foodle_Point_Management_System
 {
     class MenuItem
     {
-        
+
 
         public string ItemNumber { get; set; }
         public string ItemName { get; set; }

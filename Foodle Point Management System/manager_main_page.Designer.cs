@@ -1,6 +1,6 @@
 ﻿namespace Foodle_Point_Management_System
 {
-    partial class frmManagerMain
+    partial class AdminHomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -39,9 +39,10 @@
             // 
             this.lblWelcomeManager.AutoSize = true;
             this.lblWelcomeManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeManager.Location = new System.Drawing.Point(226, 65);
+            this.lblWelcomeManager.Location = new System.Drawing.Point(339, 102);
+            this.lblWelcomeManager.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcomeManager.Name = "lblWelcomeManager";
-            this.lblWelcomeManager.Size = new System.Drawing.Size(325, 38);
+            this.lblWelcomeManager.Size = new System.Drawing.Size(514, 61);
             this.lblWelcomeManager.TabIndex = 0;
             this.lblWelcomeManager.Text = "Welcome, Manager!";
             this.lblWelcomeManager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -50,9 +51,10 @@
             // btnManageMenu
             // 
             this.btnManageMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageMenu.Location = new System.Drawing.Point(233, 137);
+            this.btnManageMenu.Location = new System.Drawing.Point(350, 214);
+            this.btnManageMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnManageMenu.Name = "btnManageMenu";
-            this.btnManageMenu.Size = new System.Drawing.Size(303, 55);
+            this.btnManageMenu.Size = new System.Drawing.Size(454, 86);
             this.btnManageMenu.TabIndex = 1;
             this.btnManageMenu.Text = "Manage Menu";
             this.btnManageMenu.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // btnManageHall
             // 
             this.btnManageHall.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageHall.Location = new System.Drawing.Point(233, 208);
+            this.btnManageHall.Location = new System.Drawing.Point(350, 325);
+            this.btnManageHall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnManageHall.Name = "btnManageHall";
-            this.btnManageHall.Size = new System.Drawing.Size(303, 55);
+            this.btnManageHall.Size = new System.Drawing.Size(454, 86);
             this.btnManageHall.TabIndex = 2;
             this.btnManageHall.Text = "Manage Hall Details";
             this.btnManageHall.UseVisualStyleBackColor = true;
@@ -72,9 +75,10 @@
             // btnViewReservation
             // 
             this.btnViewReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewReservation.Location = new System.Drawing.Point(233, 281);
+            this.btnViewReservation.Location = new System.Drawing.Point(350, 439);
+            this.btnViewReservation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnViewReservation.Name = "btnViewReservation";
-            this.btnViewReservation.Size = new System.Drawing.Size(303, 55);
+            this.btnViewReservation.Size = new System.Drawing.Size(454, 86);
             this.btnViewReservation.TabIndex = 3;
             this.btnViewReservation.Text = "View Hall Reservations";
             this.btnViewReservation.UseVisualStyleBackColor = true;
@@ -83,9 +87,10 @@
             // btnUpdateProfile
             // 
             this.btnUpdateProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateProfile.Location = new System.Drawing.Point(233, 351);
+            this.btnUpdateProfile.Location = new System.Drawing.Point(350, 548);
+            this.btnUpdateProfile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdateProfile.Name = "btnUpdateProfile";
-            this.btnUpdateProfile.Size = new System.Drawing.Size(303, 55);
+            this.btnUpdateProfile.Size = new System.Drawing.Size(454, 86);
             this.btnUpdateProfile.TabIndex = 4;
             this.btnUpdateProfile.Text = "Update Profile";
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
@@ -93,17 +98,19 @@
             // 
             // frmManagerMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 703);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewReservation);
             this.Controls.Add(this.btnManageHall);
             this.Controls.Add(this.btnManageMenu);
             this.Controls.Add(this.lblWelcomeManager);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmManagerMain";
             this.Text = "Welcome, Manager!";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmManagerMain_FormClosing);
+            this.Load += new System.EventHandler(this.frmManagerMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
