@@ -1,11 +1,18 @@
-﻿using Microsoft.Data.SqlClient;
-using Shared_Class_Library;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class frmEmployeeSignUp : Form
+    public partial class frmEmployeeSignUp: Form
     {
         private string EmployeeID
         { get; set; }
@@ -99,7 +106,7 @@ namespace Foodle_Point_Management_System
                     }
 
                 }
-
+                
             }
             else
             {
@@ -126,7 +133,7 @@ namespace Foodle_Point_Management_System
             if (!(validName && validDate && validEmail && validPhoneNum))
             {
 
-                foreach (string error in new string[] { eName, eDOB, eEmail, ePhoneNum })
+                foreach (string error in new string[] {eName, eDOB, eEmail, ePhoneNum})
                 {
                     if (!error.Equals("No error"))
                     {
@@ -140,6 +147,6 @@ namespace Foodle_Point_Management_System
             messageBoxErrorMessage = "No error";
             return true;
         }
-
+                  
     }
 }
