@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
@@ -14,8 +17,7 @@ namespace Foodle_Point_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new AdminHomePage());
-
+            Application.Run(new frmMain());
         }
     }
 }

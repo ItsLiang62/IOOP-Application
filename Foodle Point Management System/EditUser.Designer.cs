@@ -44,7 +44,7 @@
             // lblUsernameE
             // 
             this.lblUsernameE.AutoSize = true;
-            this.lblUsernameE.Location = new System.Drawing.Point(370, 206);
+            this.lblUsernameE.Location = new System.Drawing.Point(297, 215);
             this.lblUsernameE.Name = "lblUsernameE";
             this.lblUsernameE.Size = new System.Drawing.Size(116, 25);
             this.lblUsernameE.TabIndex = 0;
@@ -53,7 +53,7 @@
             // lblRoleE
             // 
             this.lblRoleE.AutoSize = true;
-            this.lblRoleE.Location = new System.Drawing.Point(370, 280);
+            this.lblRoleE.Location = new System.Drawing.Point(297, 289);
             this.lblRoleE.Name = "lblRoleE";
             this.lblRoleE.Size = new System.Drawing.Size(62, 25);
             this.lblRoleE.TabIndex = 1;
@@ -62,7 +62,7 @@
             // lblEmailE
             // 
             this.lblEmailE.AutoSize = true;
-            this.lblEmailE.Location = new System.Drawing.Point(370, 365);
+            this.lblEmailE.Location = new System.Drawing.Point(297, 374);
             this.lblEmailE.Name = "lblEmailE";
             this.lblEmailE.Size = new System.Drawing.Size(71, 25);
             this.lblEmailE.TabIndex = 2;
@@ -71,7 +71,7 @@
             // lblPhoneNumberE
             // 
             this.lblPhoneNumberE.AutoSize = true;
-            this.lblPhoneNumberE.Location = new System.Drawing.Point(370, 440);
+            this.lblPhoneNumberE.Location = new System.Drawing.Point(297, 449);
             this.lblPhoneNumberE.Name = "lblPhoneNumberE";
             this.lblPhoneNumberE.Size = new System.Drawing.Size(161, 25);
             this.lblPhoneNumberE.TabIndex = 3;
@@ -79,21 +79,21 @@
             // 
             // txtUsernameE
             // 
-            this.txtUsernameE.Location = new System.Drawing.Point(701, 206);
+            this.txtUsernameE.Location = new System.Drawing.Point(628, 215);
             this.txtUsernameE.Name = "txtUsernameE";
             this.txtUsernameE.Size = new System.Drawing.Size(165, 31);
             this.txtUsernameE.TabIndex = 4;
             // 
             // txtEmailE
             // 
-            this.txtEmailE.Location = new System.Drawing.Point(701, 365);
+            this.txtEmailE.Location = new System.Drawing.Point(628, 374);
             this.txtEmailE.Name = "txtEmailE";
             this.txtEmailE.Size = new System.Drawing.Size(165, 31);
             this.txtEmailE.TabIndex = 5;
             // 
             // txtPhoneNumberE
             // 
-            this.txtPhoneNumberE.Location = new System.Drawing.Point(701, 440);
+            this.txtPhoneNumberE.Location = new System.Drawing.Point(628, 449);
             this.txtPhoneNumberE.Name = "txtPhoneNumberE";
             this.txtPhoneNumberE.Size = new System.Drawing.Size(165, 31);
             this.txtPhoneNumberE.TabIndex = 6;
@@ -101,7 +101,7 @@
             // cmbRoleE
             // 
             this.cmbRoleE.FormattingEnabled = true;
-            this.cmbRoleE.Location = new System.Drawing.Point(701, 280);
+            this.cmbRoleE.Location = new System.Drawing.Point(628, 289);
             this.cmbRoleE.Name = "cmbRoleE";
             this.cmbRoleE.Size = new System.Drawing.Size(165, 33);
             this.cmbRoleE.TabIndex = 7;
@@ -109,7 +109,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(177, 77);
+            this.label1.Location = new System.Drawing.Point(104, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 25);
             this.label1.TabIndex = 8;
@@ -117,7 +117,7 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(701, 600);
+            this.btnSaveChanges.Location = new System.Drawing.Point(628, 609);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(183, 55);
             this.btnSaveChanges.TabIndex = 9;
@@ -126,13 +126,12 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(375, 600);
+            this.btnBack.Location = new System.Drawing.Point(302, 609);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(183, 55);
             this.btnBack.TabIndex = 10;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // EditUser
             // 

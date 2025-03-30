@@ -1,10 +1,17 @@
-﻿using Shared_Class_Library;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class frmCustomerLogin : Form
+    public partial class frmCustomerLogin: Form
     {
         private string CustomerID
         { get; set; }
@@ -52,7 +59,7 @@ namespace Foodle_Point_Management_System
             customerMainPage.Show();
             this.Hide();
 
-            MessageBox.Show("Login successful");
+            MessageBox.Show("Login successful"); 
         }
     }
 }

@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
@@ -13,7 +20,7 @@ namespace Foodle_Point_Management_System
         private void btnManageReservations_Click(object sender, EventArgs e)
         {
             ManageReservationsForm manageForm = new ManageReservationsForm();
-            manageForm.Show();
+            manageForm.Show(); 
         }
 
         private void btnUpdateReservationStatus_Click(object sender, EventArgs e)
