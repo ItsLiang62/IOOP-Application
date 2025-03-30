@@ -70,7 +70,6 @@
             this.label1.Size = new System.Drawing.Size(461, 30);
             this.label1.TabIndex = 15;
             this.label1.Text = "Edit Reservation Information";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnBack
             // 

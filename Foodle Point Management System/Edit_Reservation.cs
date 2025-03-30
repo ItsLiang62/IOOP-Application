@@ -41,10 +41,6 @@ namespace Foodle_Point_Management_System
             txtRequestResponse.Text = rowValues[7]?.ToString() ?? "";
             txtRemarks.Text = rowValues[8]?.ToString() ?? "";
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtStatus_TextChanged(object sender, EventArgs e)
         {
@@ -86,10 +82,7 @@ namespace Foodle_Point_Management_System
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void label3_Click(object sender, EventArgs e)
         {
