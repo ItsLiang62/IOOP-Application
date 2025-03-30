@@ -113,10 +113,11 @@ namespace Foodle_Point_Management_System
                 // Add the CartItem to the list
                 cartItems.Add(new CartItem(itemNumber, itemName, price));
             }
-
+            // Get the current date and time
+            DateTime currentDate = DateTime.Now;
             // Create the Order object
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            Order order = new Order(connectionString, customerID, cartItems);
+            Order order = new Order(connectionString, customerID, cartItems, currentDate);
 
             // Save the order to the database
             bool orderSaved = order.SaveOrder();

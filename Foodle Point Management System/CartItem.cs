@@ -10,9 +10,9 @@ namespace Foodle_Point_Management_System
     class CartItem
     {
 
-        public string ItemNumber { get; set; }
-        public string ItemName { get; set; }
-        public decimal Price { get; set; }
+        private string ItemNumber { get; set; }
+        private string ItemName { get; set; }
+        private decimal Price { get; set; }
 
         public CartItem(string itemNumber, string itemName, decimal price)
         {

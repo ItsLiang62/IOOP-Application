@@ -56,11 +56,11 @@ namespace Foodle_Point_Management_System
         {
             string customerID = _currentCustomer.GetCustomerID();
 
-            // Updated query to sum quantities of items
             string query = @"SELECT o.OrderID, o.ItemNumber, i.ItemName, o.DateOfOrder, o.OrderStatus 
-              FROM ItemOrder o
-              JOIN Item i ON o.ItemNumber = i.ItemNumber
-              WHERE o.CustomerID = @CustomerID";
+                     FROM ItemOrder o
+                     JOIN Item i ON o.ItemNumber = i.ItemNumber
+                     WHERE o.CustomerID = @CustomerID
+                     ORDER BY o.DateOfOrder DESC";
 
             using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
@@ -68,20 +68,31 @@ namespace Foodle_Point_Management_System
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                    cmd.CommandTimeout = 120;
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
+                        dgvOrders.Rows.Clear();  // Clear any previous data
+
                         while (reader.Read())
-                        {
-                            // Assuming dgvOrders is your DataGridView to show orders
-                            dgvOrders.Rows.Add(reader["OrderID"], reader["ItemNumber"], reader["ItemName"], reader["DateOfOrder"], reader["OrderStatus"]);
+                        {// Format the DateOfOrder to display only the date part (YYYY-MM-DD)
+                            string currentDateTime = Convert.ToDateTime(reader["DateOfOrder"]).ToString("yyyy-MM-dd");
+
+
+                            // Add the fetched data to the DataGridView
+                            dgvOrders.Rows.Add(
+                                reader["OrderID"],
+                                reader["ItemNumber"],
+                                reader["ItemName"],
+                               currentDateTime,  // Display the formatted current date and time
+                                reader["OrderStatus"]
+                            );
                         }
 
 
                     }
                 }
-            
-        }
-    } 
+            }
+                } 
 
 
 
@@ -131,6 +142,11 @@ namespace Foodle_Point_Management_System
             CustomerDashboard mainpage = new CustomerDashboard(_currentCustomer);
             mainpage.Show();
             this.Hide();
+        }
+
+        private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

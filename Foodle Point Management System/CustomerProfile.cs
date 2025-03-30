@@ -11,11 +11,11 @@ namespace Foodle_Point_Management_System
     class CustomerProfile
     {
         // Attributes to store the customer's profile information
-        public string CustomerID { get; set; }
-        public string Name { get; set; }
-        public string Gender { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+        private string CustomerID { get; set; }
+        private string Name { get; set; }
+        private string Gender { get; set; }
+        private string PhoneNumber { get; set; }
+        private string Email { get; set; }
 
         // Constructor to initialize the object
         public CustomerProfile(string customerID, string name, string gender, string phoneNumber, string email)
