@@ -16,6 +16,8 @@ namespace Foodle_Point_Management_System
     {
         private ItemTable myItemTable = new ItemTable();
 
+        private InputChecker myChecker = new InputChecker();
+
         private Manager ManagerUser
         { get; set; }
 
@@ -101,8 +103,6 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            InputChecker myChecker = new InputChecker();
-
             bool validItemName = myChecker.IsTextOnly(txtItemName.Text, out string eItemName, "Item Name");
             bool validPrice = myChecker.IsValidPrice(txtPrice.Text, out string ePrice);
 

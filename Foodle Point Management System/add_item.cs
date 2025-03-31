@@ -43,10 +43,10 @@ namespace Foodle_Point_Management_System
             string messageBoxErrorMessage;
 
             if (AllInputValid(out messageBoxErrorMessage))
-            {
-                ItemID = myItemTable.GetNewItemID(Category);
+            { 
                 ItemName = txtItemName.Text;
                 Category = cmbCategory.Text;
+                ItemID = myItemTable.GetNewItemID(Category);
                 Price = Math.Round(Convert.ToDouble(txtPrice.Text), 2);
 
                 try

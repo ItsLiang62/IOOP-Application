@@ -20,34 +20,22 @@ namespace Foodle_Point_Management_System
         private Manager ManagerUser
         { get; set; }
 
-        private string InputFullName
+        private string FullName
         { get; set; }
 
-        private string InputDOB
+        private string DOB
         { get; set; }
 
-        private string InputEmail
+        private string Email
         { get; set; }
 
-        private string InputPhoneNum
+        private string PhoneNum
         { get; set; }
 
-        private string NewFullName
+        private string Gender
         { get; set; }
 
-        private string NewGender
-        { get; set; }
-
-        private string NewDOB
-        { get; set; }
-
-        private string NewEmail
-        { get; set; }
-
-        private string NewPhoneNum
-        { get; set; }
-
-        private string NewPassword
+        private string Password
         { get; set; }
 
         public frmUpdateManagerProfile(Manager managerUser)
@@ -80,27 +68,23 @@ namespace Foodle_Point_Management_System
         {
             string employeeID = lblShowEmployeeID.Text;
 
-            InputFullName = txtName.Text;
-            InputEmail = txtEmail.Text;
-            InputPhoneNum = txtPhoneNum.Text;
-            InputDOB = txtDOB.Text;
-            NewGender = cmbGender.Text;
-            NewPassword = txtPassword.Text;
-
             if (AllInputValid(out string messageBoxErrorMessage))
             {
-                NewFullName = InputFullName;
-                NewDOB = InputDOB;
-                NewEmail = InputEmail;
-                NewPhoneNum = InputPhoneNum;
+                FullName = txtName.Text;
+                Email = txtEmail.Text;
+                PhoneNum = txtPhoneNum.Text;
+                DOB = txtDOB.Text;
+                Gender = cmbGender.Text;
+                Password = txtPassword.Text;
 
                 try
                 {
-                    myEmployeeTable.UpdateValue(employeeID, "EmployeeName", NewFullName);
-                    myEmployeeTable.UpdateValue(employeeID, "Gender", NewGender);
-                    myEmployeeTable.UpdateValue(employeeID, "DOB", NewDOB);
-                    myEmployeeTable.UpdateValue(employeeID, "Email", NewEmail);
-                    myEmployeeTable.UpdateValue(employeeID, "PhoneNumber", NewPhoneNum);
+                    myEmployeeTable.UpdateValue(employeeID, "EmployeeName", FullName);
+                    myEmployeeTable.UpdateValue(employeeID, "Gender", Gender);
+                    myEmployeeTable.UpdateValue(employeeID, "DOB", DOB);
+                    myEmployeeTable.UpdateValue(employeeID, "Email", Email);
+                    myEmployeeTable.UpdateValue(employeeID, "PhoneNumber", PhoneNum);
+                    myEmployeeTable.UpdateValue(employeeID, "Password", Password);
                 }
                 catch (Exception ex)
                 {
@@ -118,10 +102,10 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            bool validName = myChecker.IsTextOnly(InputFullName, out string eName, "Full Name");
-            bool validDate = myChecker.IsValidDate(InputDOB, out string eDOB);
-            bool validEmail = myChecker.IsValidEmail(InputEmail, out string eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(InputPhoneNum, out string ePhoneNum);
+            bool validName = myChecker.IsTextOnly(txtName.Text, out string eName, "Full Name");
+            bool validDate = myChecker.IsValidDate(txtDOB.Text, out string eDOB);
+            bool validEmail = myChecker.IsValidEmail(txtEmail.Text, out string eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(txtPhoneNum.Text, out string ePhoneNum);
 
             messageBoxErrorMessage = String.Empty;
 
