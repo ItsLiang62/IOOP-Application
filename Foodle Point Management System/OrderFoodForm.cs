@@ -17,13 +17,12 @@ namespace Foodle_Point_Management_System
     {
         private Customer _currentCustomer;
         private decimal totalPrice = 0m;
-        private List<MenuItem> allMenuItems = new List<MenuItem>(); 
+        private List<MenuItemCartItem> allMenuItems = new List<MenuItemCartItem>(); // List for MenuItemCartItem 
         private void LoadMenuItems()
         {
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            allMenuItems = MenuItem.GetAllMenuItems(connectionString); // Load items into the list
-
-            dgvMenuItems.DataSource = new BindingList<MenuItem>(allMenuItems); // Bind to DataGridView
+            allMenuItems = MenuItemCartItem.GetAllMenuItems(connectionString); // Load items into the list
+            dgvMenuItems.DataSource = new BindingList<MenuItemCartItem>(allMenuItems); // Bind to DataGridView
             LoadCategories(); // Load categories into ComboBoxdView
         }
 
@@ -62,8 +61,8 @@ namespace Foodle_Point_Management_System
             string itemName = dgvMenuItems.SelectedRows[0].Cells["ItemName"].Value.ToString();
             decimal price = Convert.ToDecimal(dgvMenuItems.SelectedRows[0].Cells["Price"].Value);
 
-            CartItem cartItem = new CartItem(itemNumber, itemName, price);
-            CartItem.AddToCart(dgvCart, cartItem);
+            MenuItemCartItem cartItem = new MenuItemCartItem(itemNumber, itemName, price);
+            MenuItemCartItem.AddToCart(dgvCart, cartItem);
             totalPrice += price;
             lblTotalPrice.Text = $"Total: {totalPrice:C}";
         }
@@ -81,8 +80,10 @@ namespace Foodle_Point_Management_System
             string newItemName = dgvMenuItems.SelectedRows[0].Cells["ItemName"].Value.ToString();
             decimal newPrice = Convert.ToDecimal(dgvMenuItems.SelectedRows[0].Cells["Price"].Value);
 
-            CartItem newCartItem = new CartItem(newItemNumber, newItemName, newPrice);
-            CartItem.EditCartItem(dgvCart, selectedCartIndex, newCartItem);
+            MenuItemCartItem newCartItem = new MenuItemCartItem(newItemNumber, newItemName, newPrice);
+            MenuItemCartItem.EditCartItem(dgvCart, selectedCartIndex, newCartItem);
+            // Update the total price after editing
+            UpdateTotalPrice();
         }
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)
@@ -99,7 +100,7 @@ namespace Foodle_Point_Management_System
             string customerID = _currentCustomer.GetCustomerID();  // Get the CustomerID from the logged-in customer
 
             // Create a list to hold the CartItems
-            List<CartItem> cartItems = new List<CartItem>();
+            List<MenuItemCartItem> cartItems = new List<MenuItemCartItem>();
 
             // Loop through each row in the cart to create CartItem objects
             foreach (DataGridViewRow row in dgvCart.Rows)
@@ -111,7 +112,7 @@ namespace Foodle_Point_Management_System
                 decimal price = row.Cells["Price"].Value != null ? Convert.ToDecimal(row.Cells["Price"].Value) : 0m;
 
                 // Add the CartItem to the list
-                cartItems.Add(new CartItem(itemNumber, itemName, price));
+                cartItems.Add(new MenuItemCartItem(itemNumber, itemName, price));
             }
             // Get the current date and time
             DateTime currentDate = DateTime.Now;
@@ -167,6 +168,20 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Item removal canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private void UpdateTotalPrice()
+        {
+            decimal updatedTotalPrice = 0;
+
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                if (!row.IsNewRow)  // Avoid the new row placeholder
+                {
+                    updatedTotalPrice += Convert.ToDecimal(row.Cells["Price"].Value);
+                }
+            }
+
+            lblTotalPrice.Text = $"Total: {updatedTotalPrice:C}";
+        }
 
         private void btnsearch_Click(object sender, EventArgs e)
         {
@@ -194,7 +209,7 @@ namespace Foodle_Point_Management_System
                                (string.IsNullOrEmpty(selectedCategory) || selectedCategory == "All" || item.Category == selectedCategory))
                 .ToList();
 
-            dgvMenuItems.DataSource = new BindingList<MenuItem>(filteredItems);
+            dgvMenuItems.DataSource = new BindingList<MenuItemCartItem>(filteredItems);
         }
 
         private void LoadCategories()
