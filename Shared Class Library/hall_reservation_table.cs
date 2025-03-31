@@ -9,19 +9,19 @@ namespace Shared_Class_Library
 {
     public class HallReservationTable : Table
     {
-        public HallReservationTable() : base()
+        public HallReservationTable(string connectionString) : base(connectionString)
         {
         }
 
-        public void InsertRow(string reservationID, string hallNumber, string customerID, string eventType, string eventDate, int expectedCount, string reservationStatus, string requestResponse, string remarks)
+        public void InsertRow(string reservationID, string hallNumber, string customerID, string eventType, string reservationStatus, string remarks)
         {
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO HallReservation (ReservationID, HallNumber, CustomerID, EventType, EventDate, ExpectedCount, ReservationStatus, RequestResponse, Remarks) " +
-                               "VALUES (@ReservationID, @HallNumber, @CustomerID, @EventType, @EventDate, @ExpectedCount, @ReservationStatus, @RequestResponse, @Remarks)";
+                string query = "INSERT INTO HallReservation (ReservationID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks) " +
+                               "VALUES (@ReservationID, @HallNumber, @CustomerID, @EventType, @ReservatioinStatus, @Remarks)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -29,10 +29,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@EventType", eventType);
-                    cmd.Parameters.AddWithValue("@EventDate", eventDate);
-                    cmd.Parameters.AddWithValue("@ExpectedCount", expectedCount);
                     cmd.Parameters.AddWithValue("@ReservationStatus", reservationStatus);
-                    cmd.Parameters.AddWithValue("@RequestResponse", requestResponse);
                     cmd.Parameters.AddWithValue("@Remarks", remarks);
 
                     cmd.ExecuteNonQuery();
@@ -42,7 +39,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string reservationID, string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ExpectedCount", "ReservationStatus", "RequestResponse", "Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -60,27 +57,13 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (column == "Event Date")
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                return ((DateTime)reader[column]).ToString("dd/MM/yyyy");
-                            }
-                            else
-                            {
-                                throw new Exception("Cannot find data. Are you sure you entered the ReservationID correctly?");
-                            }
+                            return reader[column];
                         }
                         else
                         {
-                            if (reader.Read())
-                            {
-                                return reader[column];
-                            }
-                            else
-                            {
-                                throw new Exception("Cannot find data. Are you sure you entered the ReservationID correctly?");
-                            }
+                            throw new Exception("Cannot find data. Are you sure you entered the ReservationID correctly?");
                         }
                     }
                 }
@@ -90,7 +73,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ExpectedCount", "ReservationStatus", "RequestResponse", "Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -109,23 +92,18 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (column == "EventDate")
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                columnValues.Add(((DateTime)reader[column]).ToString("dd/MM/yyyy"));
-                            }
+                            columnValues.Add(reader[column]);
+                        }
+                        if (columnValues.Count > 0)
+                        {
+                            return columnValues;
                         }
                         else
                         {
-                            while (reader.Read())
-                            {
-                                columnValues.Add(reader[column]);
-                            }
+                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
                         }
-                            
-                        
-                        return columnValues;
                     }
                 }
 
@@ -154,10 +132,7 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["HallNumber"]);
                             rowValues.Add(reader["CustomerID"]);
                             rowValues.Add(reader["EventType"]);
-                            rowValues.Add(((DateTime)reader["EventDate"]).ToString("dd/MM/yyyy"));
-                            rowValues.Add(reader["ExpectedCount"]);
                             rowValues.Add(reader["ReservationStatus"]);
-                            rowValues.Add(reader["RequestResponse"]);
                             rowValues.Add(reader["Remarks"]);
 
                             return rowValues;
@@ -174,7 +149,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string reservationID, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "ReservationID", "HallNumber", "CustomerID", "EventType", "EventDate", "ExpectedCount", "ReservationStatus", "RequestResponse", "Remarks" };
+            List<string> allowedColumns = new List<string> { "ReservatonID, HallNumber, CustomerID, EventType, ReservationStatus, Remarks" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -192,7 +167,10 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@reservationID", reservationID);
 
-                    cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered ReservationID or column name was not found.");
+                    }
                 }
             }
         }
@@ -215,44 +193,6 @@ namespace Shared_Class_Library
                         throw new Exception("Deletion failed. The entered ReservationID was not found");
                     }
                 }
-            }
-        }
-
-        public string GetNewReservationID()
-        {
-            string previousCustomerID;
-            string newCustomerID;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
-
-                string query = @"
-                    SELECT TOP 1 ReservationID
-                    FROM HallReservation
-                    ORDER BY CAST(SUBSTRING(ReservationID, 3, LEN(ReservationID)-1) AS INT) DESC";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            previousCustomerID = reader["ReservationID"].ToString();
-                            int previousCustomerIDNum = Convert.ToInt32(previousCustomerID.Substring(2));
-                            int newCustomerIDNum = previousCustomerIDNum + 1;
-                            newCustomerID = $"RE{newCustomerIDNum:D3}";
-
-                            return newCustomerID;
-                        }
-                        else
-                        {
-                            return $"RE001".ToUpper();
-                        }
-                    }
-                }
-
             }
         }
     }

@@ -1,6 +1,5 @@
 ﻿namespace Foodle_Point_Management_System
 {
-    //
     partial class frmCustomerLogin
     {
         /// <summary>

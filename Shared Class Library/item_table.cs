@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class ItemTable : Table
     {
-        public ItemTable() : base()
+        public ItemTable(string connectionString) : base(connectionString)
         {
         }
 
@@ -95,8 +95,14 @@ namespace Shared_Class_Library
                         {
                             columnValues.Add(reader[column]);
                         }
-
-                        return columnValues;
+                        if (columnValues.Count > 0)
+                        {
+                            return columnValues;
+                        }
+                        else
+                        {
+                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
+                        }
                     }
                 }
 

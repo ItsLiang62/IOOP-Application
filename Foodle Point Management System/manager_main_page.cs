@@ -51,29 +51,22 @@ namespace Foodle_Point_Management_System
 
         private void btnManageHall_Click(object sender, EventArgs e)
         {
-            frmManageHallDetails manageHallDetailsPage = new frmManageHallDetails(ManagerUser);
+            frmManageHallDetails manageHallDetailsPage = new frmManageHallDetails();
             manageHallDetailsPage.Show();
             this.Hide();
         }
 
         private void btnViewReservation_Click(object sender, EventArgs e)
         {
-            frmViewHallReservations viewHallReservationsPage = new frmViewHallReservations(ManagerUser);
+            frmViewHallReservations viewHallReservationsPage = new frmViewHallReservations();
             viewHallReservationsPage.Show();
             this.Hide();
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-            frmUpdateManagerProfile updateManagerProfilePage = new frmUpdateManagerProfile(ManagerUser);
+            frmUpdateManagerProfile updateManagerProfilePage = new frmUpdateManagerProfile();
             updateManagerProfilePage.Show();
-            this.Hide();
-        }
-
-        private void btnMain_Click(object sender, EventArgs e)
-        {
-            frmMain mainPage = new frmMain();
-            mainPage.Show();
             this.Hide();
         }
     }

@@ -36,7 +36,7 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnManageMenu = new System.Windows.Forms.Button();
+            this.btnManageMenuPage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -105,7 +105,7 @@
             "Chinese",
             "Arab",
             "Japanese",
-            "Desserts & Beverages"});
+            "Food & Beverages"});
             this.cmbCategory.Location = new System.Drawing.Point(361, 284);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(247, 37);
@@ -122,23 +122,23 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnManageMenu
+            // btnManageMenuPage
             // 
-            this.btnManageMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageMenu.Location = new System.Drawing.Point(23, 22);
-            this.btnManageMenu.Name = "btnManageMenu";
-            this.btnManageMenu.Size = new System.Drawing.Size(290, 37);
-            this.btnManageMenu.TabIndex = 13;
-            this.btnManageMenu.Text = "Return to Manage Menu Page";
-            this.btnManageMenu.UseVisualStyleBackColor = true;
-            this.btnManageMenu.Click += new System.EventHandler(this.btnManageMenuPage_Click);
+            this.btnManageMenuPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageMenuPage.Location = new System.Drawing.Point(23, 22);
+            this.btnManageMenuPage.Name = "btnManageMenuPage";
+            this.btnManageMenuPage.Size = new System.Drawing.Size(290, 37);
+            this.btnManageMenuPage.TabIndex = 13;
+            this.btnManageMenuPage.Text = "Return to Manage Menu Page";
+            this.btnManageMenuPage.UseVisualStyleBackColor = true;
+            this.btnManageMenuPage.Click += new System.EventHandler(this.btnManageMenuPage_Click);
             // 
             // frmAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnManageMenu);
+            this.Controls.Add(this.btnManageMenuPage);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.txtPrice);
@@ -165,6 +165,6 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnManageMenu;
+        private System.Windows.Forms.Button btnManageMenuPage;
     }
 }

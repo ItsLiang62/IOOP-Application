@@ -13,7 +13,7 @@ namespace Shared_Class_Library
 {
     public class EmployeeTable : Table 
     {
-        public EmployeeTable() : base()
+        public EmployeeTable(string connectionString) : base(connectionString)
         {
         }
 
@@ -63,27 +63,13 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (column == "DOB")
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                return ((DateTime)reader[column]).ToString("dd/MM/yyyy");
-                            }
-                            else
-                            {
-                                throw new Exception("Cannot find data. Are you sure you entered the EmployeeID correctly?");
-                            }           
+                            return reader[column];
                         }
                         else
                         {
-                            if (reader.Read())
-                            {
-                                return reader[column];
-                            }
-                            else
-                            {
-                                throw new Exception("Cannot find data. Are you sure you entered the EmployeeID and column name correctly?");
-                            }
+                            throw new Exception("Cannot find data. Are you sure you entered the EmployeeID and column name correctly?");
                         }
                     }
                 }
@@ -112,22 +98,18 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (column == "DOB")
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                columnValues.Add(((DateTime)reader[column]).ToString("dd/MM/yyyy"));
-                            }
+                            columnValues.Add(reader[column]);
+                        }
+                        if (columnValues.Count > 0)
+                        {
+                            return columnValues;
                         }
                         else
                         {
-                            while (reader.Read())
-                            {
-                                columnValues.Add(reader[column]);
-                            }
+                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
                         }
-
-                        return columnValues;
                     }
                 }
 
@@ -158,7 +140,7 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["Gender"]);
                             rowValues.Add(reader["Email"]);
                             rowValues.Add(reader["PhoneNumber"]);
-                            rowValues.Add(((DateTime)reader["DOB"]).ToString("dd/MM/yyyy"));
+                            rowValues.Add(reader["DOB"]);
                             rowValues.Add(reader["AccountPassword"]);
 
                             return rowValues;

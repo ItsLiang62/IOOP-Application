@@ -33,7 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numRating = new System.Windows.Forms.NumericUpDown();
             this.btnSubmitFeedback = new System.Windows.Forms.Button();
-            this.txtRequest = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numRating)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +58,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(78, 148);
+            this.label2.Location = new System.Drawing.Point(12, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 32);
             this.label2.TabIndex = 2;
@@ -68,7 +67,7 @@
             // numRating
             // 
             this.numRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numRating.Location = new System.Drawing.Point(308, 148);
+            this.numRating.Location = new System.Drawing.Point(199, 82);
             this.numRating.Maximum = new decimal(new int[] {
             5,
             0,
@@ -90,28 +89,19 @@
             // 
             // btnSubmitFeedback
             // 
-            this.btnSubmitFeedback.Location = new System.Drawing.Point(318, 324);
+            this.btnSubmitFeedback.Location = new System.Drawing.Point(243, 161);
             this.btnSubmitFeedback.Name = "btnSubmitFeedback";
-            this.btnSubmitFeedback.Size = new System.Drawing.Size(121, 30);
+            this.btnSubmitFeedback.Size = new System.Drawing.Size(75, 23);
             this.btnSubmitFeedback.TabIndex = 4;
             this.btnSubmitFeedback.Text = "Submit";
             this.btnSubmitFeedback.UseVisualStyleBackColor = true;
             this.btnSubmitFeedback.Click += new System.EventHandler(this.btnSubmitFeedback_Click);
-            // 
-            // txtRequest
-            // 
-            this.txtRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRequest.Location = new System.Drawing.Point(257, 238);
-            this.txtRequest.Name = "txtRequest";
-            this.txtRequest.Size = new System.Drawing.Size(182, 34);
-            this.txtRequest.TabIndex = 5;
             // 
             // customereedbackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtRequest);
             this.Controls.Add(this.btnSubmitFeedback);
             this.Controls.Add(this.numRating);
             this.Controls.Add(this.label2);
@@ -133,6 +123,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numRating;
         private System.Windows.Forms.Button btnSubmitFeedback;
-        private System.Windows.Forms.TextBox txtRequest;
     }
 }

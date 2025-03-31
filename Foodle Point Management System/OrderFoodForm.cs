@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class OrderFoodForm: Form
-
     {
-        private Customer _currentCustomer;
-        private decimal totalPrice = 0m;
         private List<MenuItem> allMenuItems = new List<MenuItem>(); 
         private void LoadMenuItems()
         {
@@ -27,12 +22,10 @@ namespace Foodle_Point_Management_System
             LoadCategories(); // Load categories into ComboBoxdView
         }
 
-        public OrderFoodForm(Customer customerID)
+        public OrderFoodForm()
         {
             InitializeComponent();
-            _currentCustomer = customerID;
             dgvCart.AutoGenerateColumns = false;
-            lblTotalPrice.Text = "Total: $0.00";
         }
 
 
@@ -45,8 +38,6 @@ namespace Foodle_Point_Management_System
                 dgvCart.Columns.Add("ItemNumber", "Item Number");
                 dgvCart.Columns.Add("ItemName", "Item Name");
                 dgvCart.Columns.Add("Price", "Price");
-                
-                
             }
         }
 
@@ -64,8 +55,6 @@ namespace Foodle_Point_Management_System
 
             CartItem cartItem = new CartItem(itemNumber, itemName, price);
             CartItem.AddToCart(dgvCart, cartItem);
-            totalPrice += price;
-            lblTotalPrice.Text = $"Total: {totalPrice:C}";
         }
 
         private void btnEditCart_Click(object sender, EventArgs e)
@@ -87,48 +76,40 @@ namespace Foodle_Point_Management_System
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
-
-            // Ensure the cart is not empty
-            if (dgvCart.Rows.Count == 0 || dgvCart.Rows[0].IsNewRow)
+            if (dgvCart.Rows.Count == 0 || dgvCart.Rows.Cast<DataGridViewRow>().All(row => row.IsNewRow))
             {
-                MessageBox.Show("You can not  pay without ordering.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return; // Exit the method if the cart is empty
+                MessageBox.Show("Your cart is empty. Please add items before proceeding to payment.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            // Get the CustomerID of the logged-in customer
-            string customerID = _currentCustomer.GetCustomerID();  // Get the CustomerID from the logged-in customer
-
-            // Create a list to hold the CartItems
+            string customerID = "C001"; // Replace with actual logged-in customer ID
             List<CartItem> cartItems = new List<CartItem>();
 
-            // Loop through each row in the cart to create CartItem objects
+            // ✅ Step 2: Loop through cart items and collect data
             foreach (DataGridViewRow row in dgvCart.Rows)
             {
-                if (row.IsNewRow) continue;  // Skip the empty row (new row placeholder)
+                if (row.Cells["ItemNumber"].Value == null) continue; // Skip empty rows
 
-                string itemNumber = row.Cells["ItemNumber"].Value?.ToString() ?? string.Empty;
-                string itemName = row.Cells["ItemName"].Value?.ToString() ?? string.Empty;
-                decimal price = row.Cells["Price"].Value != null ? Convert.ToDecimal(row.Cells["Price"].Value) : 0m;
-
-                // Add the CartItem to the list
-                cartItems.Add(new CartItem(itemNumber, itemName, price));
+                cartItems.Add(new CartItem(
+                    row.Cells["ItemNumber"].Value.ToString(),
+                    row.Cells["ItemName"].Value.ToString(),
+                    Convert.ToDecimal(row.Cells["Price"].Value)
+                ));
             }
 
-            // Create the Order object
-            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            Order order = new Order(connectionString, customerID, cartItems);
-
-            // Save the order to the database
-            bool orderSaved = order.SaveOrder();
-
-            if (orderSaved)
+            // ✅ Step 3: Ensure items were actually added
+            if (cartItems.Count == 0)
             {
-                MessageBox.Show("Payment successful. Your order has been placed!");
-                dgvCart.Rows.Clear();  // Clear the cart after successful payment
+                MessageBox.Show("Your cart is empty. Please add items before proceeding to payment.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            // ✅ Step 4: Process the payment
+            Order order = new Order("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True", customerID, cartItems);
+            if (order.SaveOrder())
             {
-                MessageBox.Show("An error occurred while processing your payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dgvCart.Rows.Clear(); // Clear the cart after payment
+                MessageBox.Show("Payment successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -140,27 +121,13 @@ namespace Foodle_Point_Management_System
                 return;
             }
 
-            // Confirm removal action from the user
-            DialogResult result = MessageBox.Show("Are you sure you want to remove this item from the cart?",
-                                                  "Confirm Removal",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
+            // Step 2: Remove the selected row from the cart
+            dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
 
-            // If user clicks 'Yes', remove the item
-            if (result == DialogResult.Yes)
-            {
-                // Step 2: Remove the selected row from the cart
-                dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
-
-                // Step 3: Show success message
-                MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                // If 'No' is selected, do nothing (optional)
-                MessageBox.Show("Item removal canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+            // Step 3: Show success message
+            MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        
+    }
 
         private void btnsearch_Click(object sender, EventArgs e)
         {
@@ -199,5 +166,6 @@ namespace Foodle_Point_Management_System
             cmbCategory.DataSource = categories;
             cmbCategory.SelectedIndex = 0; // Default selection: "All"
         }
+
     }
 }

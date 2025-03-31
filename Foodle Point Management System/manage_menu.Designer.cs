@@ -38,8 +38,7 @@
             this.btnAddItem = new System.Windows.Forms.Button();
             this.cmbItem = new System.Windows.Forms.ComboBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.lblSelectCategory = new System.Windows.Forms.Label();
-            this.btnManagerMain = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,14 +49,14 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 20);
             // 
             // lblTitle
             // 
@@ -149,34 +148,22 @@
             this.cmbCategory.TabIndex = 9;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
-            // lblSelectCategory
+            // label1
             // 
-            this.lblSelectCategory.AutoSize = true;
-            this.lblSelectCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectCategory.Location = new System.Drawing.Point(225, 113);
-            this.lblSelectCategory.Name = "lblSelectCategory";
-            this.lblSelectCategory.Size = new System.Drawing.Size(341, 29);
-            this.lblSelectCategory.TabIndex = 10;
-            this.lblSelectCategory.Text = "Please select a menu category";
-            // 
-            // btnManagerMain
-            // 
-            this.btnManagerMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagerMain.Location = new System.Drawing.Point(34, 27);
-            this.btnManagerMain.Name = "btnManagerMain";
-            this.btnManagerMain.Size = new System.Drawing.Size(118, 45);
-            this.btnManagerMain.TabIndex = 11;
-            this.btnManagerMain.Text = "Back";
-            this.btnManagerMain.UseVisualStyleBackColor = true;
-            this.btnManagerMain.Click += new System.EventHandler(this.btnManagerMain_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(225, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(341, 29);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Please select a menu category";
             // 
             // frmManageMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnManagerMain);
-            this.Controls.Add(this.lblSelectCategory);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.cmbItem);
             this.Controls.Add(this.btnAddItem);
@@ -209,7 +196,6 @@
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.ComboBox cmbItem;
         private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Label lblSelectCategory;
-        private System.Windows.Forms.Button btnManagerMain;
+        private System.Windows.Forms.Label label1;
     }
 }

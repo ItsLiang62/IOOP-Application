@@ -142,7 +142,7 @@
             // btnSignUp
             // 
             this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignUp.Location = new System.Drawing.Point(602, 353);
+            this.btnSignUp.Location = new System.Drawing.Point(593, 370);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(154, 43);
             this.btnSignUp.TabIndex = 47;

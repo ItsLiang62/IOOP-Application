@@ -174,6 +174,12 @@
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="CartItem.cs" />
+    <Compile Include="customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customer.Designer.cs">
+      <DependentUpon>customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,7 +192,6 @@
     <Compile Include="customereedbackForm.Designer.cs">
       <DependentUpon>customereedbackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerProfile.cs" />
     <Compile Include="customer_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,11 +201,11 @@
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="add_hall.resx">
-      <DependentUpon>add_hall.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customer.resx">
+      <DependentUpon>customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerDashboard.resx">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
@@ -235,14 +240,8 @@
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="edit_hall.resx">
-      <DependentUpon>edit_hall.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="edit_item.resx">
       <DependentUpon>edit_item.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Edit_Reservation.resx">
-      <DependentUpon>Edit_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="employee_login.resx">
       <DependentUpon>employee_login.cs</DependentUpon>
@@ -265,6 +264,24 @@
     <EmbeddedResource Include="customer_sign_up.resx">
       <DependentUpon>customer_sign_up.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="FeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedbackForm.Designer.cs">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FeedbackForm.resx">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="add_item.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,42 +293,6 @@
     </Compile>
     <Compile Include="edit_item.Designer.cs">
       <DependentUpon>edit_item.cs</DependentUpon>
-    </Compile>
-    <Compile Include="edit_hall.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="edit_hall.Designer.cs">
-      <DependentUpon>edit_hall.cs</DependentUpon>
-    </Compile>
-    <Compile Include="add_hall.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="add_hall.Designer.cs">
-      <DependentUpon>add_hall.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Add_Reservation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Add_Reservation.Designer.cs">
-      <DependentUpon>Add_Reservation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Edit_Reservation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Edit_Reservation.Designer.cs">
-      <DependentUpon>Edit_Reservation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reserve halls.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="reserve halls.Designer.cs">
-      <DependentUpon>reserve halls.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Send_Reply.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Send_Reply.Designer.cs">
-      <DependentUpon>Send_Reply.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateProfile.cs">
       <SubType>Form</SubType>
@@ -369,15 +350,6 @@
     </Compile>
     <EmbeddedResource Include="add_item.resx">
       <DependentUpon>add_item.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Add_Reservation.resx">
-      <DependentUpon>Add_Reservation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reserve halls.resx">
-      <DependentUpon>reserve halls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Send_Reply.resx">
-      <DependentUpon>Send_Reply.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateProfile.resx">
       <DependentUpon>UpdateProfile.cs</DependentUpon>

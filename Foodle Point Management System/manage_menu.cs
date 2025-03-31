@@ -16,7 +16,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmManageMenu: Form
     {
-        ItemTable myItemTable = new ItemTable();
+        ItemTable myItemTable = new ItemTable("Data Source = 172.18.48.1,1433; Initial Catalog = ioop_db; User ID = anderson_login; Password = 123; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False");
         InputChecker myChecker = new InputChecker();
 
         Manager ManagerUser
@@ -39,17 +39,18 @@ namespace Foodle_Point_Management_System
             Application.Exit();
         }
 
-        private void FillItemComboBox()
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbItem.Items.Clear();
 
+            List<string> itemIDs;
             InputCategory = cmbCategory.SelectedItem.ToString();
 
             try
             {
-                List<string> allItemIDs = myItemTable.GetItemIDsOfCategory(InputCategory);
+                itemIDs = myItemTable.GetItemIDsOfCategory(InputCategory);
 
-                foreach (string itemID in allItemIDs)
+                foreach (string itemID in itemIDs)
                 {
                     string itemName = myItemTable.GetValue(itemID, "ItemName").ToString();
                     cmbItem.Items.Add(itemID + " " + itemName);
@@ -59,11 +60,6 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.FillItemComboBox();
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -137,16 +133,7 @@ namespace Foodle_Point_Management_System
                 }
 
                 MessageBox.Show("Successfully deleted item");
-
-                this.FillItemComboBox();
             }
-        }
-
-        private void btnManagerMain_Click(object sender, EventArgs e)
-        {
-            frmManagerMain managerMainPage = new frmManagerMain(ManagerUser);
-            managerMainPage.Show();
-            this.Hide();
         }
     }
 }

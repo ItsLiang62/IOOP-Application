@@ -9,33 +9,34 @@ namespace Shared_Class_Library
 {
     public class ItemOrderTable : Table
     {
-        public ItemOrderTable() : base()
+        public ItemOrderTable(string connectionString) : base(connectionString)
         {
         }
 
-        public void InsertRow(string orderID, string itemID, string customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
+        public void InsertRow(string orderID, string itemID, double customerID, string chefEmployeeID, string dateOfOrder, string orderStatus)
         {
+
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string query = "INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
-                               "VALUES (@OrderID, @ItemNumber, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
+                string query = "INSERT INTO ItemOrder (OrderID, ItemID, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
+                               "VALUES (@OrderID, @ItemID, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
-                    cmd.Parameters.AddWithValue("@ItemNumber", itemID);
+                    cmd.Parameters.AddWithValue("@ItemID", itemID);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
                     cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
                     cmd.Parameters.AddWithValue("@OrderStatus", orderStatus);
 
                     cmd.ExecuteNonQuery();
+
                 }
             }
         }
-
         public object GetValue(string orderID, string column)
         {
             List<string> allowedColumns = new List<string> { "OrderID", "ItemID", "CustomerID", "ChefEmployeeID", "DateOfOrder", "OrderStatus" };
@@ -91,23 +92,18 @@ namespace Shared_Class_Library
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (column == "DateOfOrder")
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                columnValues.Add(((DateTime)reader["EventDate"]).ToString("dd/MM/yyyy"));
-                            }
+                            columnValues.Add(reader[column]);
+                        }
+                        if (columnValues.Count > 0)
+                        {
+                            return columnValues;
                         }
                         else
                         {
-                            while (reader.Read())
-                            {
-                                columnValues.Add(reader[column]);
-                            }
+                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
                         }
-                        
-
-                        return columnValues;
                     }
                 }
 
@@ -136,7 +132,7 @@ namespace Shared_Class_Library
                             rowValues.Add(reader["ItemID"]);
                             rowValues.Add(reader["CustomerID"]);
                             rowValues.Add(reader["ChefEmployeeID"]);
-                            rowValues.Add(((DateTime)reader["EventDate"]).ToString("dd/MM/yyyy"));
+                            rowValues.Add(reader["DateOfOrder"]);
                             rowValues.Add(reader["OrderStatus"]);
 
                             return rowValues;
@@ -171,7 +167,10 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
 
-                    cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered OrderID or column name was not found.");
+                    }
                 }
             }
         }
@@ -194,43 +193,6 @@ namespace Shared_Class_Library
                         throw new Exception("Deletion failed. The entered OrderID was not found");
                     }
                 }
-            }
-        }
-
-        public string GetNewOrderID()
-        {
-            string previousOrderID;
-            string newOrderID;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
-
-                string query = @"
-                    SELECT TOP 1 OrderID
-                    FROM ItemOrder 
-                    ORDER BY CAST(SUBSTRING(OrderID, 2, LEN(OrderID)-1) AS INT) DESC";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            previousOrderID = reader["OrderID"].ToString();
-                            int previousOrderIDNum = Convert.ToInt32(previousOrderID.Substring(1));
-                            int newOrderIDNum = previousOrderIDNum + 1;
-                            newOrderID = $"X{newOrderIDNum:D3}";
-
-                            return newOrderID;
-                        }
-                        else
-                        {
-                            return $"X001".ToUpper();
-                        }
-                    }
-                }
-
             }
         }
     }

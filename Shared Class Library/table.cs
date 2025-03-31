@@ -12,10 +12,9 @@ namespace Shared_Class_Library
         protected string ConnectionString
         { get; set; }
 
-        public Table()
+        public Table(string connectionString)
         {
-            //Enter connection string here before running the application
-            ConnectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            ConnectionString = connectionString;
         }
     }
 }

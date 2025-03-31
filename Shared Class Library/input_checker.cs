@@ -10,16 +10,16 @@ namespace Shared_Class_Library
 {
     public class InputChecker
     {
-        public bool IsTextOnly(string input, out string errorMessage, string inputTitle = "Input" )
+        public bool IsTextOnly(string input, out string errorMessage)
         {
-            if (this.IsEmptyInput(input, out errorMessage, inputTitle))
+            if (this.IsEmptyInput(input, out errorMessage))
             {
                 return false;
             }
 
             if (!Regex.IsMatch(input, @"^[A-Za-z\s]+$"))
             {
-                errorMessage = $"{inputTitle} must contain only alphabets";
+                errorMessage = "Input must contain only alphabets";
                 return false;
             }
             
@@ -27,16 +27,16 @@ namespace Shared_Class_Library
                 return true;
         }
 
-        public bool IsDigitOnly(string input, out string errorMessage, string inputTitle = "Input")
+        public bool IsDigitOnly(string input, out string errorMessage)
         {
-            if (this.IsEmptyInput(input, out errorMessage, inputTitle))
+            if (this.IsEmptyInput(input, out errorMessage))
             {
                 return false;
             }
 
             if (!Regex.IsMatch(input, @"^[0-9\s]+$"))
             {
-                errorMessage = $"{inputTitle} must contain only digits";
+                errorMessage = "Input must contain only digits";
                 return false;
             }
 
@@ -46,7 +46,7 @@ namespace Shared_Class_Library
 
         public bool IsValidPrice(string input, out string errorMessage)
         {
-            if (this.IsEmptyInput(input, out errorMessage, "Price"))
+            if (this.IsEmptyInput(input, out errorMessage))
             {
                 return false;
             }
@@ -63,7 +63,7 @@ namespace Shared_Class_Library
 
         public bool IsValidPhoneNumber(string input, out string errorMessage)
         {
-            if (this.IsEmptyInput(input, out errorMessage, "Phone Number"))
+            if (this.IsEmptyInput(input, out errorMessage))
             {
                 return false;
             }
@@ -115,11 +115,11 @@ namespace Shared_Class_Library
             return true;
         }
 
-        public bool IsEmptyInput(string input, out string errorMessage, string inputTitle = "Input")
+        public bool IsEmptyInput(string input, out string errorMessage)
         {
-            if (String.IsNullOrEmpty(input))
+            if (input == "")
             {
-                errorMessage = $"{inputTitle} cannot be empty";
+                errorMessage = "Input cannot be empty";
                 return true;
             }
             else

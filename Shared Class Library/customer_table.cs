@@ -10,9 +10,8 @@ namespace Shared_Class_Library
 {
     public class CustomerTable: Table
     {
-        public CustomerTable() : base()
+        public CustomerTable(string connectionString) : base(connectionString)
         {
-
         }
 
         public void InsertRow(string customerID, string customerName, string gender, string email, string phoneNumber)
@@ -98,8 +97,14 @@ namespace Shared_Class_Library
                         {
                             columnValues.Add(reader[column]);
                         }
-                        
-                        return columnValues;
+                        if (columnValues.Count > 0)
+                        {
+                            return columnValues;
+                        }
+                        else
+                        {
+                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
+                        }
                     }
                 }
 
@@ -227,7 +232,10 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
 
-                    cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Update failed. The entered CustomerID or column name was not found.");
+                    }
                 }
             }
         }
