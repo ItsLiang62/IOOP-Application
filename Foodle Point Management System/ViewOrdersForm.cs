@@ -29,17 +29,16 @@ namespace Foodle_Point_Management_System
 
         private void ViewOrdersForm_Load(object sender, EventArgs e)
         {
-            dgvOrders.Columns.Clear();
+            dgvOrders.Columns.Clear(); // Clear any existing columns
 
-            // Add necessary columns
+            // Adding new columns
             dgvOrders.Columns.Add("OrderID", "Order ID");
             dgvOrders.Columns.Add("ItemNumber", "Item Number");
-            dgvOrders.Columns.Add("ItemName", "Item Name");
-            dgvOrders.Columns.Add("Quantity", "Quantity"); // Add Quantity column
+            dgvOrders.Columns.Add("ItemName", "Item Name"); // Add ItemName column
             dgvOrders.Columns.Add("DateOfOrder", "Date of Order");
             dgvOrders.Columns.Add("OrderStatus", "Order Status");
             LoadCustomerOrders();
-            
+
             dgvReservations.Columns.Clear(); // Clear any existing columns
 
             // Adding new columns
@@ -48,7 +47,8 @@ namespace Foodle_Point_Management_System
             dgvReservations.Columns.Add("EventType", "Event Type");
             dgvReservations.Columns.Add("EventDate", "Event Date");
             dgvReservations.Columns.Add("ReservationStatus", "Reservation Status");
-
+            dgvReservations.Columns.Add("ExpectedCount", "Expected Count");  // Add ExpectedCount column
+            dgvReservations.Columns.Add("RequestResponse", "Request Response");
             LoadCustomerReservations();
         }
 
@@ -56,28 +56,11 @@ namespace Foodle_Point_Management_System
         {
             string customerID = _currentCustomer.GetCustomerID();
 
-            // SQL query to get orders and the quantity of each item
-            string query = @"SELECT 
-                        o.OrderID, 
-                        o.ItemNumber, 
-                        i.ItemName, 
-                        SUM(o.Quantity) AS Quantity, 
-                        o.DateOfOrder, 
-                        o.OrderStatus
-                    FROM 
-                        ItemOrder o
-                    JOIN 
-                        Item i ON o.ItemNumber = i.ItemNumber
-                    WHERE 
-                        o.CustomerID = @CustomerID
-                    GROUP BY 
-                        o.OrderID, 
-                        o.ItemNumber, 
-                        i.ItemName, 
-                        o.DateOfOrder, 
-                        o.OrderStatus
-                    ORDER BY 
-                        o.DateOfOrder DESC";
+            string query = @"SELECT o.OrderID, o.ItemNumber, i.ItemName, o.DateOfOrder, o.OrderStatus 
+                     FROM ItemOrder o
+                     JOIN Item i ON o.ItemNumber = i.ItemNumber
+                     WHERE o.CustomerID = @CustomerID
+                     ORDER BY o.DateOfOrder DESC";
 
             using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
@@ -85,24 +68,31 @@ namespace Foodle_Point_Management_System
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                    cmd.CommandTimeout = 120;
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
+                        dgvOrders.Rows.Clear();  // Clear any previous data
+
                         while (reader.Read())
-                        {
-                            // Assuming dgvOrders is your DataGridView for displaying orders
+                        {// Format the DateOfOrder to display only the date part (YYYY-MM-DD)
+                            string currentDateTime = Convert.ToDateTime(reader["DateOfOrder"]).ToString("yyyy-MM-dd");
+
+
+                            // Add the fetched data to the DataGridView
                             dgvOrders.Rows.Add(
                                 reader["OrderID"],
                                 reader["ItemNumber"],
                                 reader["ItemName"],
-                                reader["Quantity"],  // This now displays the quantity of each item
-                                reader["DateOfOrder"],
+                               currentDateTime,  // Display the formatted current date and time
                                 reader["OrderStatus"]
                             );
                         }
+
+
                     }
                 }
             }
-        }
+                } 
 
 
 
@@ -111,10 +101,11 @@ namespace Foodle_Point_Management_System
             string customerID = _currentCustomer.GetCustomerID();
 
             // SQL query to get reservations along with the HallName
-            string query = @"SELECT r.ReservationID, h.HallName, r.EventType, r.EventDate, r.ReservationStatus 
-                     FROM HallReservation r
-                     JOIN Hall h ON r.HallNumber = h.HallNumber
-                     WHERE r.CustomerID = @CustomerID";
+            string query = @"SELECT r.ReservationID, h.HallName, r.EventType, r.EventDate, r.ReservationStatus,
+                        r.ExpectedCount, r.RequestResponse
+                 FROM HallReservation r
+                 JOIN Hall h ON r.HallNumber = h.HallNumber
+                 WHERE r.CustomerID = @CustomerID";
 
             using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
@@ -126,12 +117,36 @@ namespace Foodle_Point_Management_System
                     {
                         while (reader.Read())
                         {
-                            // Assuming dgvReservations is your DataGridView for reservations
-                            dgvReservations.Rows.Add(reader["ReservationID"], reader["HallName"], reader["EventType"], reader["EventDate"], reader["ReservationStatus"]);
+                            dgvReservations.Rows.Add(
+                                reader["ReservationID"],
+                                reader["HallName"],
+                                reader["EventType"],
+                                reader["EventDate"],
+                                reader["ReservationStatus"],
+                                reader["ExpectedCount"],
+                                reader["RequestResponse"]
+                            );
                         }
                     }
                 }
             }
+            }
+
+        private void dgvReservations_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnreturn_Click(object sender, EventArgs e)
+        {
+            CustomerDashboard mainpage = new CustomerDashboard(_currentCustomer);
+            mainpage.Show();
+            this.Hide();
+        }
+
+        private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

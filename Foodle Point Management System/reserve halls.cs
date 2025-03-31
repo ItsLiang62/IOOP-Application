@@ -81,6 +81,12 @@ namespace Foodle_Point_Management_System
         {
         }
 
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            CustomerDashboard mainpage = new CustomerDashboard(_currentCustomer);
+            mainpage.Show();
+            this.Hide();
+        }
     }
     
  }

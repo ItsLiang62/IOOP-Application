@@ -113,10 +113,11 @@ namespace Foodle_Point_Management_System
                 // Add the CartItem to the list
                 cartItems.Add(new CartItem(itemNumber, itemName, price));
             }
-
+            // Get the current date and time
+            DateTime currentDate = DateTime.Now;
             // Create the Order object
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            Order order = new Order(connectionString, customerID, cartItems);
+            Order order = new Order(connectionString, customerID, cartItems, currentDate);
 
             // Save the order to the database
             bool orderSaved = order.SaveOrder();
@@ -124,7 +125,8 @@ namespace Foodle_Point_Management_System
             if (orderSaved)
             {
                 MessageBox.Show("Payment successful. Your order has been placed!");
-                dgvCart.Rows.Clear();  // Clear the cart after successful payment
+                dgvCart.Rows.Clear();
+                lblTotalPrice.Text = "Total: $0.00";// Clear the cart after successful payment
             }
             else
             {
@@ -139,6 +141,8 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Please select an item from the cart to remove.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string itemName = dgvCart.SelectedRows[0].Cells["ItemName"].Value.ToString();
+            decimal itemPrice = Convert.ToDecimal(dgvCart.SelectedRows[0].Cells["Price"].Value);
 
             // Confirm removal action from the user
             DialogResult result = MessageBox.Show("Are you sure you want to remove this item from the cart?",
@@ -151,7 +155,9 @@ namespace Foodle_Point_Management_System
             {
                 // Step 2: Remove the selected row from the cart
                 dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
-
+                // Recalculate the total price
+                totalPrice -= itemPrice;
+                lblTotalPrice.Text = $"Total: {totalPrice:C}";  // Update the total price label
                 // Step 3: Show success message
                 MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -198,6 +204,13 @@ namespace Foodle_Point_Management_System
 
             cmbCategory.DataSource = categories;
             cmbCategory.SelectedIndex = 0; // Default selection: "All"
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            CustomerDashboard mainpage = new CustomerDashboard(_currentCustomer);
+            mainpage.Show();
+            this.Hide();
         }
     }
 }
