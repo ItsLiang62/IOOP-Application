@@ -46,6 +46,7 @@
             this.dgvUsers.RowTemplate.Height = 33;
             this.dgvUsers.Size = new System.Drawing.Size(932, 559);
             this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
             // btnAddUser
             // 
@@ -55,6 +56,7 @@
             this.btnAddUser.TabIndex = 1;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // btnEditUser
             // 
@@ -64,6 +66,7 @@
             this.btnEditUser.TabIndex = 2;
             this.btnEditUser.Text = "Edit User";
             this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnDeleteUser
             // 
@@ -91,6 +94,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserManagement
             // 

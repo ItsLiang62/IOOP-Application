@@ -21,5 +21,21 @@ namespace Foodle_Point_Management_System
         {
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide ManageUsers
+            AdminHomePage adminPage = Application.OpenForms["AdminHomePage"] as AdminHomePage;
+
+            if (adminPage != null)
+            {
+                adminPage.Show(); // Show existing AdminHomePage
+            }
+            else
+            {
+                adminPage = new AdminHomePage(); // In case it was closed
+                adminPage.Show();
+            }
+        }
     }
 }

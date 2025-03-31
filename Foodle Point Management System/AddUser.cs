@@ -16,5 +16,23 @@ namespace Foodle_Point_Management_System
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide AddUser form
+
+            // Check if UserManagement is already open
+            UserManagement userManagementForm = Application.OpenForms["UserManagement"] as UserManagement;
+
+            if (userManagementForm != null)
+            {
+                userManagementForm.Show(); // Show existing UserManagement form
+            }
+            else
+            {
+                userManagementForm = new UserManagement(); // If closed, create a new instance
+                userManagementForm.Show();
+            }
+        }
     }
 }
