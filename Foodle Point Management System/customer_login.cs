@@ -14,7 +14,6 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerLogin: Form
     {
-        //
         private CustomerTable myCustomerTable = new CustomerTable();
 
         private string CustomerID

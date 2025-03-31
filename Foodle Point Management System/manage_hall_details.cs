@@ -13,13 +13,12 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmManageHallDetails: Form
     {
-        private InputChecker myChecker = new InputChecker();
         private HallTable myHallTable = new HallTable();
 
         private Manager ManagerUser
         { get; set; }
 
-        private string InputHallNumberHallName
+        private string SelectedHallNumberHallName
         { get; set; }
 
         public frmManageHallDetails(Manager managerUser)
@@ -66,8 +65,8 @@ namespace Foodle_Point_Management_System
         {
             if (IsHallSelected())
             {
-                InputHallNumberHallName = cmbHall.Text;
-                frmEditHall editHallPage = new frmEditHall(ManagerUser, InputHallNumberHallName.Substring(0, 2));
+                SelectedHallNumberHallName = cmbHall.Text;
+                frmEditHall editHallPage = new frmEditHall(ManagerUser, SelectedHallNumberHallName.Substring(0, 2));
                 editHallPage.Show();
                 this.Hide();
             }
@@ -89,8 +88,8 @@ namespace Foodle_Point_Management_System
         {
             if (IsHallSelected())
             {
-                InputHallNumberHallName = cmbHall.Text;
-                string hallNumberToDelete = InputHallNumberHallName.Substring(0, 2);
+                SelectedHallNumberHallName = cmbHall.Text;
+                string hallNumberToDelete = SelectedHallNumberHallName.Substring(0, 2);
 
                 try
                 {
