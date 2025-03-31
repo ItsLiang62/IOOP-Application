@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +17,34 @@ namespace Foodle_Point_Management_System
         private ResvCoordinator ResvCoordinatorUser
         { get; set; }
         private HallReservationTable reservationTable = new HallReservationTable();
+        private HallTable hallTable = new HallTable();
         public ManageReservationsForm(ResvCoordinator ResvCoordinatorUser)
         {
             InitializeComponent();
             this.ResvCoordinatorUser = ResvCoordinatorUser;
+            InitializeReservationListView();
             LoadReservations();
+        }
+
+        private void InitializeReservationListView()
+        {
+            lvReservations.Columns.Clear();
+            lvReservations.Items.Clear();
+
+            // Set up columns to match all fields from HallReservation table
+            lvReservations.Columns.Add("Reservation ID", 100);
+            lvReservations.Columns.Add("Hall Number", 80);
+            lvReservations.Columns.Add("Customer ID", 100);
+            lvReservations.Columns.Add("Event Type", 120);
+            lvReservations.Columns.Add("Event Date", 100);
+            lvReservations.Columns.Add("Expected Count", 90);
+            lvReservations.Columns.Add("Status", 80);
+            lvReservations.Columns.Add("Response", 150);
+            lvReservations.Columns.Add("Remarks", 200);
+
+            lvReservations.View = View.Details;
+            lvReservations.FullRowSelect = true;
+            lvReservations.GridLines = true;
         }
         private void LoadReservations()
         {
@@ -105,9 +129,17 @@ namespace Foodle_Point_Management_System
                 {
                     try
                     {
+                        // Get hall number before deleting
+                        string hallNumber = lvReservations.SelectedItems[0].SubItems[1].Text;
+
+                        // Delete the reservation
                         reservationTable.DeleteRow(reservationID);
-                        LoadReservations();
+
+                        // Update hall availability
+                        hallTable.UpdateValue(hallNumber, "IsAvailable", true);
+
                         MessageBox.Show("Reservation deleted successfully!");
+                        LoadReservations();
                     }
                     catch (Exception ex)
                     {
@@ -128,6 +160,75 @@ namespace Foodle_Point_Management_System
 
         private void ManageReservationsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+        }
+        private List<string> GetAvailableHalls(int expectedCount)
+        {
+            List<string> suitableHalls = new List<string>();
+
+            // Get all hall numbers
+            var hallNumbers = hallTable.GetColumnValues("HallNumber");
+
+            foreach (string hallNumber in hallNumbers)
+            {
+                // Check if hall is available and has sufficient capacity
+                bool isAvailable = (bool)hallTable.GetValue(hallNumber, "IsAvailable");
+                int capacity = (int)hallTable.GetValue(hallNumber, "Capacity");
+
+                if (isAvailable && capacity >= expectedCount)
+                {
+                    suitableHalls.Add(hallNumber);
+                }
+            }
+
+            return suitableHalls;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (lvReservations.SelectedItems.Count > 0)
+            {
+                string reservationID = lvReservations.SelectedItems[0].Text;
+                int expectedCount = int.Parse(lvReservations.SelectedItems[0].SubItems[5].Text);
+
+                try
+                {
+                    // Find available halls that can accommodate the party size
+                    var availableHalls = GetAvailableHalls(expectedCount);
+
+                    if (availableHalls.Count > 0)
+                    {
+                        // Show hall selection dialog
+                        HallSelectionForm hallForm = new HallSelectionForm(availableHalls);
+                        if (hallForm.ShowDialog() == DialogResult.OK)
+                        {
+                            string selectedHall = hallForm.SelectedHall;
+
+                            // Update reservation with selected hall
+                            reservationTable.UpdateValue(reservationID, "HallNumber", selectedHall);
+                            reservationTable.UpdateValue(reservationID, "ReservationStatus", "Assigned");
+
+                            // Update hall availability
+                            hallTable.UpdateValue(selectedHall, "IsAvailable", false);
+
+                            MessageBox.Show($"Hall {selectedHall} assigned successfully!");
+                            LoadReservations();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No available halls can accommodate this party size.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error assigning hall: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a reservation to assign hall.");
+            }
 
         }
     }

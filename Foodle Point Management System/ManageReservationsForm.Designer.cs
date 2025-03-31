@@ -34,6 +34,8 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lvReservations = new System.Windows.Forms.ListView();
+            this.btnAssignHall = new System.Windows.Forms.Button();
+            this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +52,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(141, 357);
+            this.btnAdd.Location = new System.Drawing.Point(85, 357);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(122, 44);
             this.btnAdd.TabIndex = 2;
@@ -61,7 +63,7 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEdit.Location = new System.Drawing.Point(297, 357);
+            this.btnEdit.Location = new System.Drawing.Point(236, 357);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(122, 44);
             this.btnEdit.TabIndex = 3;
@@ -72,7 +74,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(450, 357);
+            this.btnDelete.Location = new System.Drawing.Point(390, 357);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(122, 44);
             this.btnDelete.TabIndex = 4;
@@ -100,11 +102,23 @@
             this.lvReservations.UseCompatibleStateImageBehavior = false;
             this.lvReservations.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // btnAssignHall
+            // 
+            this.btnAssignHall.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAssignHall.Location = new System.Drawing.Point(549, 357);
+            this.btnAssignHall.Name = "btnAssignHall";
+            this.btnAssignHall.Size = new System.Drawing.Size(212, 44);
+            this.btnAssignHall.TabIndex = 7;
+            this.btnAssignHall.Text = "Assign Hall";
+            this.btnAssignHall.UseVisualStyleBackColor = true;
+            this.btnAssignHall.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ManageReservationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAssignHall);
             this.Controls.Add(this.lvReservations);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDelete);
@@ -128,5 +142,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ListView lvReservations;
+        private System.Windows.Forms.Button btnAssignHall;
+        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
     }
 }

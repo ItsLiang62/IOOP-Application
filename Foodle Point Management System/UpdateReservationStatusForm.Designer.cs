@@ -82,11 +82,6 @@
             this.cmbReservationStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbReservationStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbReservationStatus.FormattingEnabled = true;
-            this.cmbReservationStatus.Items.AddRange(new object[] {
-            "Pending",
-            "Confirmed",
-            "Completed",
-            "Rejected"});
             this.cmbReservationStatus.Location = new System.Drawing.Point(262, 352);
             this.cmbReservationStatus.Name = "cmbReservationStatus";
             this.cmbReservationStatus.Size = new System.Drawing.Size(149, 33);
