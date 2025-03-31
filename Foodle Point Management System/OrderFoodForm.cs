@@ -170,17 +170,19 @@ namespace Foodle_Point_Management_System
         }
         private void UpdateTotalPrice()
         {
-            decimal updatedTotalPrice = 0;
+            totalPrice = 0m;
 
             foreach (DataGridViewRow row in dgvCart.Rows)
             {
-                if (!row.IsNewRow)  // Avoid the new row placeholder
+                if (!row.IsNewRow)  // Skip the new row
                 {
-                    updatedTotalPrice += Convert.ToDecimal(row.Cells["Price"].Value);
+                    decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
+                    totalPrice += price;
                 }
             }
 
-            lblTotalPrice.Text = $"Total: {updatedTotalPrice:C}";
+            // Update the label to show the new total price
+            lblTotalPrice.Text = $"Total: {totalPrice:C}";
         }
 
         private void btnsearch_Click(object sender, EventArgs e)

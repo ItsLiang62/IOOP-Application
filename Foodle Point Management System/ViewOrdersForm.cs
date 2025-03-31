@@ -117,11 +117,12 @@ namespace Foodle_Point_Management_System
                     {
                         while (reader.Read())
                         {
+                            string currentDate = Convert.ToDateTime(reader["EventDate"]).ToString("yyyy-MM-dd");
                             dgvReservations.Rows.Add(
                                 reader["ReservationID"],
                                 reader["HallName"],
                                 reader["EventType"],
-                                reader["EventDate"],
+                               currentDate,
                                 reader["ReservationStatus"],
                                 reader["ExpectedCount"],
                                 reader["RequestResponse"]
