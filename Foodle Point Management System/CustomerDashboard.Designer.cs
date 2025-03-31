@@ -33,6 +33,7 @@
             this.btnViewOrders = new System.Windows.Forms.Button();
             this.btnFeedback = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
+            this.btnReservation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +82,7 @@
             // btnProfile
             // 
             this.btnProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfile.Location = new System.Drawing.Point(257, 294);
+            this.btnProfile.Location = new System.Drawing.Point(257, 394);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Size = new System.Drawing.Size(219, 73);
             this.btnProfile.TabIndex = 4;
@@ -89,11 +90,23 @@
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
+            // btnReservation
+            // 
+            this.btnReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReservation.Location = new System.Drawing.Point(257, 306);
+            this.btnReservation.Name = "btnReservation";
+            this.btnReservation.Size = new System.Drawing.Size(219, 73);
+            this.btnReservation.TabIndex = 5;
+            this.btnReservation.Text = "Reserve Hall";
+            this.btnReservation.UseVisualStyleBackColor = true;
+            this.btnReservation.Click += new System.EventHandler(this.btnReservation_Click);
+            // 
             // CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 503);
+            this.Controls.Add(this.btnReservation);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnFeedback);
             this.Controls.Add(this.btnViewOrders);
@@ -101,6 +114,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CustomerDashboard";
             this.Text = "CustomerDashboard";
+            this.Load += new System.EventHandler(this.CustomerDashboard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +127,6 @@
         private System.Windows.Forms.Button btnViewOrders;
         private System.Windows.Forms.Button btnFeedback;
         private System.Windows.Forms.Button btnProfile;
+        private System.Windows.Forms.Button btnReservation;
     }
 }

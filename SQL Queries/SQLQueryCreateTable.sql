@@ -59,7 +59,10 @@ ReservationID varchar(255) primary key,
 HallNumber varchar(255) not null,
 CustomerID varchar(255) not null,
 EventType varchar(255) not null,
+EventDate date not null,
+ExpectedCount tinyint,
 ReservationStatus varchar(255) not null,
+RequestResponse varchar(255),
 Remarks varchar(255),
 foreign key (HallNumber) references Hall(HallNumber),
 foreign key (CustomerID) references Customer(CustomerID)
@@ -79,6 +82,7 @@ foreign key (CustomerID) references Customer(CustomerID)
 create table Ingredients (
 
 IngredientNumber varchar(255) primary key,
-IngredientName varchar(255)
+IngredientName varchar(255),
+Quantity smallint
 
 );

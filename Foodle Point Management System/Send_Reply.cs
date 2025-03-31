@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class customer: Form
+    public partial class Send_Reply : Form
     {
-        public customer()
+        public Send_Reply()
         {
             InitializeComponent();
         }

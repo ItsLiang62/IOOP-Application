@@ -110,7 +110,7 @@
             this.llblSignUpEmployee.TabIndex = 6;
             this.llblSignUpEmployee.TabStop = true;
             this.llblSignUpEmployee.Text = "Sign Up as Employee";
-            this.llblSignUpEmployee.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSignUpCustomer_LinkClicked);
+            this.llblSignUpEmployee.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSignUpEmployee_LinkClicked);
             // 
             // llblSignUpCustomer
             // 

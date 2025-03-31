@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +16,19 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerSignUp: Form
     {
+        private CustomerTable myCustomerTable = new CustomerTable();
+        private string InputFullName
+        { get; set; }
+
+        private string InputGender
+        { get; set; }
+
+        private string InputPhoneNum
+        { get; set; }
+
+        private string InputEmail
+        { get; set; }
+        
         private string CustomerID
         { get; set; }
 
@@ -52,7 +65,9 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            CustomerTable myCustomerTable = new CustomerTable("Data Source=172.18.48.1;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+
+            CustomerTable myCustomerTable = new CustomerTable();
+
 
             FullName = txtName.Text;
             Gender = cmbGender.Text;

@@ -9,7 +9,7 @@ namespace Shared_Class_Library
 {
     public class HallTable : Table
     {
-        public HallTable(string connectionString) : base(connectionString)
+        public HallTable() : base()
         {
         }
 
@@ -39,7 +39,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string hallNumber, string column)
         {
-            List<string> allowedColumns = new List<string> { "HallNumber, HallName, Capacity, RecommendedEvent1, RecommendedEvent2, IsAvailable" };
+            List<string> allowedColumns = new List<string> { "HallNumber", "HallName", "Capacity", "RecommendedEvent1", "RecommendedEvent2", "IsAvailable" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -73,7 +73,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "HallNumber, HallName, Capacity, RecommendedEvent1, RecommendedEvent2, IsAvailable" };
+            List<string> allowedColumns = new List<string> { "HallNumber", "HallName", "Capacity", "RecommendedEvent1", "RecommendedEvent2", "IsAvailable" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -96,14 +96,8 @@ namespace Shared_Class_Library
                         {
                             columnValues.Add(reader[column]);
                         }
-                        if (columnValues.Count > 0)
-                        {
-                            return columnValues;
-                        }
-                        else
-                        {
-                            throw new Exception("Cannot find column. Are you sure you entered the column name correctly?");
-                        }
+                        
+                        return columnValues;
                     }
                 }
 
@@ -149,7 +143,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string hallNumber, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "HallNumber, HallName, Capacity, RecommendedEvent1, RecommendedEvent2, IsAvailable" };
+            List<string> allowedColumns = new List<string> { "HallNumber", "HallName", "Capacity", "RecommendedEvent1", "RecommendedEvent2", "IsAvailable" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -167,10 +161,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered HallNumber or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -193,6 +184,43 @@ namespace Shared_Class_Library
                         throw new Exception("Deletion failed. The entered HallNumber was not found");
                     }
                 }
+            }
+        }
+
+        public string GetNewHallNumber()
+        {
+            string previousHallNumber;
+            string newHallNumber;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                    SELECT TOP 1 HallNumber
+                    FROM Hall 
+                    ORDER BY CAST(SUBSTRING(HallNumber, 2, LEN(HallNumber)-1) AS INT) DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            previousHallNumber = reader["HallNumber"].ToString();
+                            int previousHallNumberNum = Convert.ToInt32(previousHallNumber.Substring(1));
+                            int newHallNumberNum = previousHallNumberNum + 1;
+                            newHallNumber = $"H{newHallNumberNum}";
+
+                            return newHallNumber;
+                        }
+                        else
+                        {
+                            return $"H1".ToUpper();
+                        }
+                    }
+                }
+
             }
         }
     }

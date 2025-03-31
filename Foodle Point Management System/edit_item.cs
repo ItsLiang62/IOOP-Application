@@ -14,7 +14,7 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmEditItem: Form
     {
-        private ItemTable myItemTable = new ItemTable("Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        private ItemTable myItemTable = new ItemTable();
 
         private Manager ManagerUser
         { get; set; }
@@ -36,6 +36,7 @@ namespace Foodle_Point_Management_System
 
         private string NewCategory
         { get; set; }
+
         public frmEditItem(Manager manager, string itemIDToEdit)
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace Foodle_Point_Management_System
         {
             txtItemName.Text = myItemTable.GetValue(ItemIDToEdit, "ItemName").ToString();
             txtPrice.Text = myItemTable.GetValue(ItemIDToEdit, "Price").ToString();
-            cmbCategory.SelectedItem = myItemTable.GetValue(ItemIDToEdit, "Category").ToString();
+            cmbCategory.Text = myItemTable.GetValue(ItemIDToEdit, "Category").ToString();
         }
 
         private void frmEditItem_FormClosing(object sender, FormClosingEventArgs e)
@@ -111,18 +112,17 @@ namespace Foodle_Point_Management_System
         {
             InputChecker myChecker = new InputChecker();
 
-            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName);
+            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName, "Item Name");
             bool validPrice = myChecker.IsValidPrice(InputPrice, out string ePrice);
 
             messageBoxErrorMessage = String.Empty;
 
-            if (!validItemName)
+            foreach (string error in new string[] { eItemName, ePrice })
             {
-                messageBoxErrorMessage += eItemName + "\n";
-            }
-            if (!validPrice)
-            {
-                messageBoxErrorMessage += ePrice + "\n";
+                if (error != "No error")
+                {
+                    messageBoxErrorMessage += error + "\n";
+                }
             }
 
             if (messageBoxErrorMessage != String.Empty)
