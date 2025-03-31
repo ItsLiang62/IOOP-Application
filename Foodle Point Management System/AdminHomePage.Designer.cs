@@ -43,6 +43,7 @@
             this.btnManageUser.TabIndex = 0;
             this.btnManageUser.Text = "Manage User";
             this.btnManageUser.UseVisualStyleBackColor = true;
+            this.btnManageUser.Click += new System.EventHandler(this.btnManageUser_Click);
             // 
             // btnViewFeedback
             // 
@@ -52,6 +53,7 @@
             this.btnViewFeedback.TabIndex = 1;
             this.btnViewFeedback.Text = "View Feedback";
             this.btnViewFeedback.UseVisualStyleBackColor = true;
+            this.btnViewFeedback.Click += new System.EventHandler(this.btnViewFeedback_Click);
             // 
             // btnViewSalesReport
             // 
@@ -61,6 +63,7 @@
             this.btnViewSalesReport.TabIndex = 2;
             this.btnViewSalesReport.Text = "View Sales Report";
             this.btnViewSalesReport.UseVisualStyleBackColor = true;
+            this.btnViewSalesReport.Click += new System.EventHandler(this.btnViewSalesReport_Click);
             // 
             // btnUpdateProfile
             // 
@@ -70,6 +73,7 @@
             this.btnUpdateProfile.TabIndex = 3;
             this.btnUpdateProfile.Text = "Update Profile";
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
+            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
             // 
             // btnLogout
             // 
@@ -79,6 +83,7 @@
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "LogOut";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // AdminHomePage
             // 

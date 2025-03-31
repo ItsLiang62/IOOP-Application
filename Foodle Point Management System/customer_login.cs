@@ -63,5 +63,10 @@ namespace Foodle_Point_Management_System
 
             MessageBox.Show("Login successful"); 
         }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -154,6 +154,10 @@ namespace Foodle_Point_Management_System
                 return true;
             }
         }
-                  
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
