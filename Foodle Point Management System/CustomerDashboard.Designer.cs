@@ -41,16 +41,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(614, 19);
+            this.label1.Location = new System.Drawing.Point(401, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 32);
+            this.label1.Size = new System.Drawing.Size(538, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome";
+            this.label1.Text = "Welcome , what would you want to do?";
             // 
             // btnOrderFood
             // 
             this.btnOrderFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrderFood.Location = new System.Drawing.Point(572, 67);
+            this.btnOrderFood.Location = new System.Drawing.Point(572, 99);
             this.btnOrderFood.Name = "btnOrderFood";
             this.btnOrderFood.Size = new System.Drawing.Size(219, 73);
             this.btnOrderFood.TabIndex = 1;
@@ -61,7 +61,7 @@
             // btnViewOrders
             // 
             this.btnViewOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewOrders.Location = new System.Drawing.Point(572, 159);
+            this.btnViewOrders.Location = new System.Drawing.Point(572, 204);
             this.btnViewOrders.Name = "btnViewOrders";
             this.btnViewOrders.Size = new System.Drawing.Size(219, 73);
             this.btnViewOrders.TabIndex = 2;
@@ -72,7 +72,7 @@
             // btnFeedback
             // 
             this.btnFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFeedback.Location = new System.Drawing.Point(572, 248);
+            this.btnFeedback.Location = new System.Drawing.Point(572, 301);
             this.btnFeedback.Name = "btnFeedback";
             this.btnFeedback.Size = new System.Drawing.Size(219, 73);
             this.btnFeedback.TabIndex = 3;
@@ -83,7 +83,7 @@
             // btnProfile
             // 
             this.btnProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfile.Location = new System.Drawing.Point(572, 435);
+            this.btnProfile.Location = new System.Drawing.Point(572, 496);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Size = new System.Drawing.Size(219, 73);
             this.btnProfile.TabIndex = 4;
@@ -94,7 +94,7 @@
             // btnReservation
             // 
             this.btnReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservation.Location = new System.Drawing.Point(572, 339);
+            this.btnReservation.Location = new System.Drawing.Point(572, 398);
             this.btnReservation.Name = "btnReservation";
             this.btnReservation.Size = new System.Drawing.Size(219, 73);
             this.btnReservation.TabIndex = 5;
@@ -105,7 +105,7 @@
             // btnlogout
             // 
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlogout.Location = new System.Drawing.Point(2, 12);
+            this.btnlogout.Location = new System.Drawing.Point(0, 558);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(281, 78);
             this.btnlogout.TabIndex = 6;

@@ -46,9 +46,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(712, 24);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(705, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 16);
+            this.label1.Size = new System.Drawing.Size(145, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Profile Management";
             // 
@@ -63,9 +64,10 @@
             // 
             // txtName
             // 
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(618, 72);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(318, 22);
+            this.txtName.Size = new System.Drawing.Size(318, 30);
             this.txtName.TabIndex = 2;
             // 
             // label3
@@ -88,21 +90,23 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(618, 274);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(318, 22);
+            this.txtEmail.Size = new System.Drawing.Size(318, 30);
             this.txtEmail.TabIndex = 6;
             // 
             // txtPhone
             // 
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(618, 198);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(318, 22);
+            this.txtPhone.Size = new System.Drawing.Size(318, 30);
             this.txtPhone.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(557, 422);
+            this.button1.Location = new System.Drawing.Point(697, 406);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 71);
             this.button1.TabIndex = 9;
@@ -112,9 +116,10 @@
             // 
             // txtgender
             // 
+            this.txtgender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtgender.Location = new System.Drawing.Point(618, 134);
             this.txtgender.Name = "txtgender";
-            this.txtgender.Size = new System.Drawing.Size(318, 22);
+            this.txtgender.Size = new System.Drawing.Size(318, 30);
             this.txtgender.TabIndex = 10;
             // 
             // label5
@@ -139,7 +144,7 @@
             // btnreturn
             // 
             this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreturn.Location = new System.Drawing.Point(12, 589);
+            this.btnreturn.Location = new System.Drawing.Point(12, 438);
             this.btnreturn.Name = "btnreturn";
             this.btnreturn.Size = new System.Drawing.Size(281, 78);
             this.btnreturn.TabIndex = 15;
@@ -151,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1528, 740);
+            this.ClientSize = new System.Drawing.Size(1528, 532);
             this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);

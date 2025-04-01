@@ -38,6 +38,7 @@
             this.btnsend = new System.Windows.Forms.Button();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
             this.btnlogout = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +107,7 @@
             // 
             // btnsend
             // 
-            this.btnsend.Location = new System.Drawing.Point(734, 469);
+            this.btnsend.Location = new System.Drawing.Point(780, 414);
             this.btnsend.Name = "btnsend";
             this.btnsend.Size = new System.Drawing.Size(144, 47);
             this.btnsend.TabIndex = 9;
@@ -116,7 +117,7 @@
             // 
             // dtpEventDate
             // 
-            this.dtpEventDate.Location = new System.Drawing.Point(734, 222);
+            this.dtpEventDate.Location = new System.Drawing.Point(748, 222);
             this.dtpEventDate.Name = "dtpEventDate";
             this.dtpEventDate.Size = new System.Drawing.Size(200, 22);
             this.dtpEventDate.TabIndex = 10;
@@ -124,7 +125,7 @@
             // btnlogout
             // 
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlogout.Location = new System.Drawing.Point(12, 498);
+            this.btnlogout.Location = new System.Drawing.Point(1, 469);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(281, 78);
             this.btnlogout.TabIndex = 11;
@@ -132,11 +133,22 @@
             this.btnlogout.UseVisualStyleBackColor = true;
             this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(755, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(169, 29);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "ReserveHalls";
+            // 
             // reserve_halls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1453, 647);
+            this.ClientSize = new System.Drawing.Size(1453, 547);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnlogout);
             this.Controls.Add(this.dtpEventDate);
             this.Controls.Add(this.btnsend);
@@ -166,5 +178,6 @@
         private System.Windows.Forms.Button btnsend;
         private System.Windows.Forms.DateTimePicker dtpEventDate;
         private System.Windows.Forms.Button btnlogout;
+        private System.Windows.Forms.Label label4;
     }
 }

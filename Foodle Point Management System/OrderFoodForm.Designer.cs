@@ -42,6 +42,8 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnreturn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +52,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(333, 9);
+            this.label1.Location = new System.Drawing.Point(607, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 29);
             this.label1.TabIndex = 0;
@@ -58,7 +60,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(378, 77);
+            this.txtSearch.Location = new System.Drawing.Point(677, 63);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 22);
             this.txtSearch.TabIndex = 1;
@@ -68,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(270, 70);
+            this.label2.Location = new System.Drawing.Point(522, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 29);
             this.label2.TabIndex = 2;
@@ -77,7 +79,7 @@
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(397, 131);
+            this.cmbCategory.Location = new System.Drawing.Point(665, 108);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(121, 24);
             this.cmbCategory.TabIndex = 3;
@@ -87,20 +89,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(234, 126);
+            this.label3.Location = new System.Drawing.Point(506, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 29);
+            this.label3.Size = new System.Drawing.Size(125, 29);
             this.label3.TabIndex = 4;
-            this.label3.Text = "gategories:";
+            this.label3.Text = "Category:";
             // 
             // dgvMenuItems
             // 
             this.dgvMenuItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenuItems.Location = new System.Drawing.Point(0, 197);
+            this.dgvMenuItems.Location = new System.Drawing.Point(0, 170);
             this.dgvMenuItems.Name = "dgvMenuItems";
             this.dgvMenuItems.RowHeadersWidth = 51;
             this.dgvMenuItems.RowTemplate.Height = 24;
-            this.dgvMenuItems.Size = new System.Drawing.Size(547, 183);
+            this.dgvMenuItems.Size = new System.Drawing.Size(569, 210);
             this.dgvMenuItems.TabIndex = 5;
             // 
             // dgvCart
@@ -115,9 +117,10 @@
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.Location = new System.Drawing.Point(153, 400);
+            this.btnAddToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToCart.Location = new System.Drawing.Point(198, 386);
             this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(75, 23);
+            this.btnAddToCart.Size = new System.Drawing.Size(95, 39);
             this.btnAddToCart.TabIndex = 7;
             this.btnAddToCart.Text = "Add";
             this.btnAddToCart.UseVisualStyleBackColor = true;
@@ -125,9 +128,10 @@
             // 
             // btnEditCart
             // 
-            this.btnEditCart.Location = new System.Drawing.Point(1026, 426);
+            this.btnEditCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCart.Location = new System.Drawing.Point(1017, 408);
             this.btnEditCart.Name = "btnEditCart";
-            this.btnEditCart.Size = new System.Drawing.Size(75, 23);
+            this.btnEditCart.Size = new System.Drawing.Size(84, 41);
             this.btnEditCart.TabIndex = 8;
             this.btnEditCart.Text = "Edit";
             this.btnEditCart.UseVisualStyleBackColor = true;
@@ -135,19 +139,21 @@
             // 
             // btnRemoveCart
             // 
-            this.btnRemoveCart.Location = new System.Drawing.Point(1227, 426);
+            this.btnRemoveCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveCart.Location = new System.Drawing.Point(1199, 408);
             this.btnRemoveCart.Name = "btnRemoveCart";
-            this.btnRemoveCart.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveCart.Size = new System.Drawing.Size(85, 43);
             this.btnRemoveCart.TabIndex = 9;
-            this.btnRemoveCart.Text = "remove";
+            this.btnRemoveCart.Text = "Delete";
             this.btnRemoveCart.UseVisualStyleBackColor = true;
             this.btnRemoveCart.Click += new System.EventHandler(this.btnRemoveCart_Click);
             // 
             // btnProceedToPayment
             // 
-            this.btnProceedToPayment.Location = new System.Drawing.Point(649, 563);
+            this.btnProceedToPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProceedToPayment.Location = new System.Drawing.Point(584, 582);
             this.btnProceedToPayment.Name = "btnProceedToPayment";
-            this.btnProceedToPayment.Size = new System.Drawing.Size(75, 23);
+            this.btnProceedToPayment.Size = new System.Drawing.Size(213, 48);
             this.btnProceedToPayment.TabIndex = 10;
             this.btnProceedToPayment.Text = "Pay";
             this.btnProceedToPayment.UseVisualStyleBackColor = true;
@@ -185,11 +191,33 @@
             this.btnreturn.UseVisualStyleBackColor = true;
             this.btnreturn.Click += new System.EventHandler(this.btnlogout_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(1003, 126);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 29);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Cart";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(234, 138);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 29);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Menu";
+            // 
             // OrderFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1477, 649);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblTotalPrice);
@@ -230,5 +258,7 @@
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnreturn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
     }
 }

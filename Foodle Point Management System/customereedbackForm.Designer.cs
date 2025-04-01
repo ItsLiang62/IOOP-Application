@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 33);
+            this.label1.Location = new System.Drawing.Point(16, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(224, 32);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // txtFeedback
             // 
             this.txtFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedback.Location = new System.Drawing.Point(257, 33);
+            this.txtFeedback.Location = new System.Drawing.Point(246, 86);
             this.txtFeedback.Name = "txtFeedback";
             this.txtFeedback.Size = new System.Drawing.Size(182, 34);
             this.txtFeedback.TabIndex = 1;
@@ -68,7 +68,7 @@
             // numRating
             // 
             this.numRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numRating.Location = new System.Drawing.Point(308, 148);
+            this.numRating.Location = new System.Drawing.Point(273, 152);
             this.numRating.Maximum = new decimal(new int[] {
             5,
             0,
@@ -90,7 +90,7 @@
             // 
             // btnSubmitFeedback
             // 
-            this.btnSubmitFeedback.Location = new System.Drawing.Point(318, 324);
+            this.btnSubmitFeedback.Location = new System.Drawing.Point(394, 368);
             this.btnSubmitFeedback.Name = "btnSubmitFeedback";
             this.btnSubmitFeedback.Size = new System.Drawing.Size(121, 30);
             this.btnSubmitFeedback.TabIndex = 4;
