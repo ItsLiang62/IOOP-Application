@@ -71,6 +71,7 @@
             this.dataGridViewSales.RowTemplate.Height = 33;
             this.dataGridViewSales.Size = new System.Drawing.Size(796, 343);
             this.dataGridViewSales.TabIndex = 3;
+            this.dataGridViewSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSales_CellContentClick);
             // 
             // btnBack
             // 

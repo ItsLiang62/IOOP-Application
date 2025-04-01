@@ -15,30 +15,54 @@ namespace Foodle_Point_Management_System
 {
     public partial class UserManagement: Form
     {
-        // Change the access modifier of EmployeeDataLoader to public
-        public class EmployeeDataLoader
-        {
-            private EmployeeTable myEmployeeTable;
-            public void LoadEmployeeData(DataGridView dgv)
-            {
-                // Implementation of the method
-                // Example: Load data from myEmployeeTable to the DataGridView
-                dgv.DataSource = myEmployeeTable.GetColumnValues("employeeID"); // Assuming you want to load employee IDs
-            }
-        }
+        private SystemAdministrator currentAdmin;
 
 
-        public UserManagement()
+
+        public UserManagement(SystemAdministrator admin)
         {
             InitializeComponent();
+            currentAdmin = admin;
+
 
         }
         private string connectionString = ConfigurationManager.ConnectionStrings["FoodleDBConnection"].ConnectionString;
         private void UserManagement_Load(object sender, EventArgs e)
         {
-            
+            LoadEmployeeData();
+
         }
 
+        private void LoadEmployeeData()
+        {
+            try
+            {
+                EmployeeTable empTable = new EmployeeTable();
+                List<object> empIDs = empTable.GetColumnValues("EmployeeID");
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("ID");
+                dt.Columns.Add("Name");
+                dt.Columns.Add("Position");
+                dt.Columns.Add("Gender");
+                dt.Columns.Add("Email");
+                dt.Columns.Add("Phone");
+                dt.Columns.Add("DOB");
+
+                foreach (var empIdObj in empIDs)
+                {
+                    string id = empIdObj.ToString();
+                    List<object> row = empTable.GetRowValues(id);
+                    dt.Rows.Add(row.Take(7).ToArray()); // Exclude password
+                }
+
+                dgvUsers.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading employees: {ex.Message}");
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close(); // Hide ManageUsers
@@ -50,14 +74,14 @@ namespace Foodle_Point_Management_System
             }
             else
             {
-                adminPage = new AdminHomePage(); // In case it was closed
+                adminPage = new AdminHomePage(currentAdmin); // In case it was closed
                 adminPage.Show();
             }
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            AddUser AddUserForm = new AddUser();
+            AddUser AddUserForm = new AddUser(currentAdmin);
             this.Hide(); // Hide AdminHomePage
             AddUserForm.ShowDialog(); // Open in modal mode (prevents external window behavior)
             this.Show(); // Show AdminHomePage again when ManageUsers closes

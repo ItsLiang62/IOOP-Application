@@ -97,6 +97,7 @@
             this.Controls.Add(this.btnManageUser);
             this.Name = "AdminHomePage";
             this.Text = "AdminHomePage";
+            this.Load += new System.EventHandler(this.AdminHomePage_Load);
             this.ResumeLayout(false);
 
         }

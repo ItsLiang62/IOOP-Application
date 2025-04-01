@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared_Class_Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,20 @@ namespace Foodle_Point_Management_System
 {
     public partial class EditUser: Form
     {
-        public EditUser()
+        private SystemAdministrator currentAdmin;
+
+        public EditUser(SystemAdministrator admin)
         {
             InitializeComponent();
+            currentAdmin = admin;  // Store the passed admin object
         }
 
         private void EditUser_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsernameE_TextChanged(object sender, EventArgs e)
         {
 
         }

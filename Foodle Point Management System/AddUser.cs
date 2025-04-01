@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared_Class_Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace Foodle_Point_Management_System
 {
     public partial class AddUser: Form
     {
-        public AddUser()
+        private SystemAdministrator currentAdmin;
+
+        public AddUser(SystemAdministrator admin)
         {
             InitializeComponent();
+            currentAdmin = admin;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -30,9 +34,14 @@ namespace Foodle_Point_Management_System
             }
             else
             {
-                userManagementForm = new UserManagement(); // If closed, create a new instance
+                userManagementForm = new UserManagement(currentAdmin); // If closed, create a new instance
                 userManagementForm.Show();
             }
+        }
+
+        private void AddUser_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

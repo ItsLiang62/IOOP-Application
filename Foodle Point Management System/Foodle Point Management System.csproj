@@ -305,6 +305,7 @@
     <Compile Include="Edit_Reservation.Designer.cs">
       <DependentUpon>Edit_Reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="reserve halls.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -509,7 +510,6 @@
       <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <!-- Program and Assembly Info -->
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!-- Resources -->
     <EmbeddedResource Include="Properties\Resources.resx">

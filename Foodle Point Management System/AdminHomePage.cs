@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared_Class_Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,17 @@ namespace Foodle_Point_Management_System
 {
     public partial class AdminHomePage: Form
     {
-        public AdminHomePage()
+        private SystemAdministrator currentAdmin;
+
+        public AdminHomePage(SystemAdministrator admin)
         {
             InitializeComponent();
+            currentAdmin = admin;
         }
 
         private void btnManageUser_Click(object sender, EventArgs e)
         {
-            UserManagement UserForm = new UserManagement();
+            UserManagement UserForm = new UserManagement(currentAdmin);
             this.Hide(); // Hide AdminHomePage
             UserForm.ShowDialog(); // Open in modal mode (prevents external window behavior)
             this.Show(); // Show AdminHomePage again when ManageUsers closes
@@ -27,7 +31,7 @@ namespace Foodle_Point_Management_System
 
         private void btnViewSalesReport_Click(object sender, EventArgs e)
         {
-            ViewSales SalesForm = new ViewSales();
+            ViewSales SalesForm = new ViewSales(currentAdmin);
             this.Hide();
             SalesForm.ShowDialog(); 
             this.Show(); 
@@ -35,7 +39,7 @@ namespace Foodle_Point_Management_System
 
         private void btnViewFeedback_Click(object sender, EventArgs e)
         {
-            ViewCustomerFeedback FeedbackForm = new ViewCustomerFeedback();
+            ViewCustomerFeedback FeedbackForm = new ViewCustomerFeedback(currentAdmin);
             this.Hide();
             FeedbackForm.ShowDialog(); 
             this.Show(); 
@@ -43,7 +47,7 @@ namespace Foodle_Point_Management_System
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-            UpdateProfile ProfileForm = new UpdateProfile();
+            UpdateProfile ProfileForm = new UpdateProfile(currentAdmin);
             this.Hide();
             ProfileForm.ShowDialog(); 
             this.Show(); 
@@ -55,6 +59,11 @@ namespace Foodle_Point_Management_System
             this.Hide(); 
             frmMain.ShowDialog(); 
             this.Show(); 
+        }
+
+        private void AdminHomePage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

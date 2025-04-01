@@ -130,6 +130,7 @@
             this.btnUpdateProfile.TabIndex = 10;
             this.btnUpdateProfile.Text = "Update Profile";
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
+            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
             // 
             // btnBack
             // 

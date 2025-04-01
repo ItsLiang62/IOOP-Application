@@ -83,6 +83,7 @@
             this.txtUsernameE.Name = "txtUsernameE";
             this.txtUsernameE.Size = new System.Drawing.Size(165, 31);
             this.txtUsernameE.TabIndex = 4;
+            this.txtUsernameE.TextChanged += new System.EventHandler(this.txtUsernameE_TextChanged);
             // 
             // txtEmailE
             // 
