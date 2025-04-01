@@ -27,8 +27,9 @@ namespace Foodle_Point_Management_System
 
             OrderFoodForm orderFoodForm = new OrderFoodForm(_currentCustomer);
             orderFoodForm.Show();
+            this.Hide();
 
-       
+
 
         }
 
@@ -36,18 +37,24 @@ namespace Foodle_Point_Management_System
         {
             ViewOrdersForm viewOrders = new ViewOrdersForm(_currentCustomer);
             viewOrders.Show();
+            this.Hide();
+
         }
 
         private void btnFeedback_Click(object sender, EventArgs e)
         {
             customereedbackForm feedbackForm = new customereedbackForm(_currentCustomer);
             feedbackForm.Show();
+            this.Hide();
+
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(_currentCustomer);
             profileForm.Show();
+            this.Hide();
+
         }
 
         private void CustomerDashboard_Load(object sender, EventArgs e)
@@ -59,6 +66,20 @@ namespace Foodle_Point_Management_System
         {
             reserve_halls reserve_halls = new reserve_halls(_currentCustomer);
             reserve_halls.Show();
+            this.Hide();
+
+        }
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            frmMain mainPage = new frmMain();
+            mainPage.Show();
+            this.Hide();
         }
     }
 }

@@ -28,6 +28,7 @@
             /// </summary>
             private void InitializeComponent()
             {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -38,6 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtgender = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnreturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -99,7 +102,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(703, 392);
+            this.button1.Location = new System.Drawing.Point(557, 422);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 71);
             this.button1.TabIndex = 9;
@@ -123,11 +126,34 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Gender:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(67, 332);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(1113, 40);
+            this.label6.TabIndex = 12;
+            this.label6.Text = resources.GetString("label6.Text");
+            // 
+            // btnreturn
+            // 
+            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreturn.Location = new System.Drawing.Point(12, 589);
+            this.btnreturn.Name = "btnreturn";
+            this.btnreturn.Size = new System.Drawing.Size(281, 78);
+            this.btnreturn.TabIndex = 15;
+            this.btnreturn.Text = "Return To  The Main Page";
+            this.btnreturn.UseVisualStyleBackColor = true;
+            this.btnreturn.Click += new System.EventHandler(this.btnreturn_Click);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1528, 740);
+            this.Controls.Add(this.btnreturn);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtgender);
             this.Controls.Add(this.button1);
@@ -157,5 +183,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtgender;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnreturn;
     }
 }

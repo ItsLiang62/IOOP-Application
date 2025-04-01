@@ -16,25 +16,21 @@ namespace Foodle_Point_Management_System
     {
         private ItemTable myItemTable = new ItemTable();
 
+        private InputChecker myChecker = new InputChecker();
+
         private Manager ManagerUser
         { get; set; }
 
         private string ItemIDToEdit
         { get; set; }
 
-        private string InputItemName
+        private string ItemName
         { get; set; }
 
-        private string InputPrice
+        private double Price
         { get; set; }
 
-        private string NewItemName
-        { get; set; }
-
-        private double NewPrice
-        { get; set; }
-
-        private string NewCategory
+        private string Category
         { get; set; }
 
         public frmEditItem(Manager manager, string itemIDToEdit)
@@ -77,22 +73,19 @@ namespace Foodle_Point_Management_System
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            InputItemName = txtItemName.Text;
-            InputPrice = txtPrice.Text;
-            NewCategory = cmbCategory.Text;
-
             string messageBoxErrorMessage;
 
             if (AllInputValid(out messageBoxErrorMessage))
             {
-                NewItemName = InputItemName;
-                NewPrice = Math.Round(Convert.ToDouble(InputPrice), 2);
+                ItemName = txtItemName.Text;
+                Price = Math.Round(Convert.ToDouble(txtPrice.Text), 2);
+                Category = cmbCategory.Text;
 
                 try
                 {
-                    myItemTable.UpdateValue(ItemIDToEdit, "ItemName", NewItemName);
-                    myItemTable.UpdateValue(ItemIDToEdit, "Price", NewPrice);
-                    myItemTable.UpdateValue(ItemIDToEdit, "Category", NewCategory);
+                    myItemTable.UpdateValue(ItemIDToEdit, "ItemName", ItemName);
+                    myItemTable.UpdateValue(ItemIDToEdit, "Price", Price);
+                    myItemTable.UpdateValue(ItemIDToEdit, "Category", Category);
                 }
                 catch (Exception ex)
                 {
@@ -110,10 +103,8 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            InputChecker myChecker = new InputChecker();
-
-            bool validItemName = myChecker.IsTextOnly(InputItemName, out string eItemName, "Item Name");
-            bool validPrice = myChecker.IsValidPrice(InputPrice, out string ePrice);
+            bool validItemName = myChecker.IsTextOnly(txtItemName.Text, out string eItemName, "Item Name");
+            bool validPrice = myChecker.IsValidPrice(txtPrice.Text, out string ePrice);
 
             messageBoxErrorMessage = String.Empty;
 

@@ -37,6 +37,7 @@
             this.jj = new System.Windows.Forms.Label();
             this.btnsend = new System.Windows.Forms.Button();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
+            this.btnlogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -120,11 +121,23 @@
             this.dtpEventDate.Size = new System.Drawing.Size(200, 22);
             this.dtpEventDate.TabIndex = 10;
             // 
+            // btnlogout
+            // 
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.Location = new System.Drawing.Point(12, 498);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(281, 78);
+            this.btnlogout.TabIndex = 11;
+            this.btnlogout.Text = "Return To  The Main Page";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
+            // 
             // reserve_halls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1453, 647);
+            this.Controls.Add(this.btnlogout);
             this.Controls.Add(this.dtpEventDate);
             this.Controls.Add(this.btnsend);
             this.Controls.Add(this.jj);
@@ -136,6 +149,7 @@
             this.Controls.Add(this.label1);
             this.Name = "reserve_halls";
             this.Text = "reserve_halls";
+            this.Load += new System.EventHandler(this.reserve_halls_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +165,6 @@
         private System.Windows.Forms.Label jj;
         private System.Windows.Forms.Button btnsend;
         private System.Windows.Forms.DateTimePicker dtpEventDate;
+        private System.Windows.Forms.Button btnlogout;
     }
 }

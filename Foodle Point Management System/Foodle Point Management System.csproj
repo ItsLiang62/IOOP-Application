@@ -173,7 +173,6 @@
     <Compile Include="AdminHomePage.Designer.cs">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="CartItem.cs" />
     <Compile Include="CustomerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +185,7 @@
     <Compile Include="customereedbackForm.Designer.cs">
       <DependentUpon>customereedbackForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerProfile.cs" />
     <Compile Include="customer_login.cs">
       <SubType>Form</SubType>
     </Compile>

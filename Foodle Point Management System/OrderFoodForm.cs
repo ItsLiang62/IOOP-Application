@@ -16,14 +16,13 @@ namespace Foodle_Point_Management_System
 
     {
         private Customer _currentCustomer;
-
-        private List<MenuItem> allMenuItems = new List<MenuItem>(); 
+        private decimal totalPrice = 0m;
+        private List<MenuItemCartItem> allMenuItems = new List<MenuItemCartItem>(); // List for MenuItemCartItem 
         private void LoadMenuItems()
         {
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            allMenuItems = MenuItem.GetAllMenuItems(connectionString); // Load items into the list
-
-            dgvMenuItems.DataSource = new BindingList<MenuItem>(allMenuItems); // Bind to DataGridView
+            allMenuItems = MenuItemCartItem.GetAllMenuItems(connectionString); // Load items into the list
+            dgvMenuItems.DataSource = new BindingList<MenuItemCartItem>(allMenuItems); // Bind to DataGridView
             LoadCategories(); // Load categories into ComboBoxdView
         }
 
@@ -32,6 +31,7 @@ namespace Foodle_Point_Management_System
             InitializeComponent();
             _currentCustomer = customerID;
             dgvCart.AutoGenerateColumns = false;
+            lblTotalPrice.Text = "Total: $0.00";
         }
 
 
@@ -44,6 +44,8 @@ namespace Foodle_Point_Management_System
                 dgvCart.Columns.Add("ItemNumber", "Item Number");
                 dgvCart.Columns.Add("ItemName", "Item Name");
                 dgvCart.Columns.Add("Price", "Price");
+                
+                
             }
         }
 
@@ -59,8 +61,10 @@ namespace Foodle_Point_Management_System
             string itemName = dgvMenuItems.SelectedRows[0].Cells["ItemName"].Value.ToString();
             decimal price = Convert.ToDecimal(dgvMenuItems.SelectedRows[0].Cells["Price"].Value);
 
-            CartItem cartItem = new CartItem(itemNumber, itemName, price);
-            CartItem.AddToCart(dgvCart, cartItem);
+            MenuItemCartItem cartItem = new MenuItemCartItem(itemNumber, itemName, price);
+            MenuItemCartItem.AddToCart(dgvCart, cartItem);
+            totalPrice += price;
+            lblTotalPrice.Text = $"Total: {totalPrice:C}";
         }
 
         private void btnEditCart_Click(object sender, EventArgs e)
@@ -76,40 +80,45 @@ namespace Foodle_Point_Management_System
             string newItemName = dgvMenuItems.SelectedRows[0].Cells["ItemName"].Value.ToString();
             decimal newPrice = Convert.ToDecimal(dgvMenuItems.SelectedRows[0].Cells["Price"].Value);
 
-            CartItem newCartItem = new CartItem(newItemNumber, newItemName, newPrice);
-            CartItem.EditCartItem(dgvCart, selectedCartIndex, newCartItem);
+            MenuItemCartItem newCartItem = new MenuItemCartItem(newItemNumber, newItemName, newPrice);
+            MenuItemCartItem.EditCartItem(dgvCart, selectedCartIndex, newCartItem);
+            // Update the total price after editing
+            UpdateTotalPrice();
         }
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
 
             // Ensure the cart is not empty
-            if (dgvCart.Rows.Count == 0)
+            if (dgvCart.Rows.Count == 0 || dgvCart.Rows[0].IsNewRow)
             {
-                MessageBox.Show("Your cart is empty. Please add items before proceeding to payment.");
-                return;
+                MessageBox.Show("You can not  pay without ordering.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Exit the method if the cart is empty
             }
 
             // Get the CustomerID of the logged-in customer
             string customerID = _currentCustomer.GetCustomerID();  // Get the CustomerID from the logged-in customer
 
             // Create a list to hold the CartItems
-            List<CartItem> cartItems = new List<CartItem>();
+            List<MenuItemCartItem> cartItems = new List<MenuItemCartItem>();
 
             // Loop through each row in the cart to create CartItem objects
             foreach (DataGridViewRow row in dgvCart.Rows)
             {
+                if (row.IsNewRow) continue;  // Skip the empty row (new row placeholder)
+
                 string itemNumber = row.Cells["ItemNumber"].Value?.ToString() ?? string.Empty;
                 string itemName = row.Cells["ItemName"].Value?.ToString() ?? string.Empty;
                 decimal price = row.Cells["Price"].Value != null ? Convert.ToDecimal(row.Cells["Price"].Value) : 0m;
 
                 // Add the CartItem to the list
-                cartItems.Add(new CartItem(itemNumber, itemName, price));
+                cartItems.Add(new MenuItemCartItem(itemNumber, itemName, price));
             }
-
+            // Get the current date and time
+            DateTime currentDate = DateTime.Now;
             // Create the Order object
             string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            Order order = new Order(connectionString, customerID, cartItems);
+            Order order = new Order(connectionString, customerID, cartItems, currentDate);
 
             // Save the order to the database
             bool orderSaved = order.SaveOrder();
@@ -117,11 +126,12 @@ namespace Foodle_Point_Management_System
             if (orderSaved)
             {
                 MessageBox.Show("Payment successful. Your order has been placed!");
-                dgvCart.Rows.Clear();  // Clear the cart after successful payment
+                dgvCart.Rows.Clear();
+                lblTotalPrice.Text = "Total: $0.00";// Clear the cart after successful payment
             }
             else
             {
-                MessageBox.Show("an error occurred while processing your payment.");
+                MessageBox.Show("An error occurred while processing your payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -132,14 +142,48 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Please select an item from the cart to remove.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string itemName = dgvCart.SelectedRows[0].Cells["ItemName"].Value.ToString();
+            decimal itemPrice = Convert.ToDecimal(dgvCart.SelectedRows[0].Cells["Price"].Value);
 
-            // Step 2: Remove the selected row from the cart
-            dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
+            // Confirm removal action from the user
+            DialogResult result = MessageBox.Show("Are you sure you want to remove this item from the cart?",
+                                                  "Confirm Removal",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
 
-            // Step 3: Show success message
-            MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        
-    }
+            // If user clicks 'Yes', remove the item
+            if (result == DialogResult.Yes)
+            {
+                // Step 2: Remove the selected row from the cart
+                dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
+                // Recalculate the total price
+                totalPrice -= itemPrice;
+                lblTotalPrice.Text = $"Total: {totalPrice:C}";  // Update the total price label
+                // Step 3: Show success message
+                MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // If 'No' is selected, do nothing (optional)
+                MessageBox.Show("Item removal canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void UpdateTotalPrice()
+        {
+            totalPrice = 0m;
+
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                if (!row.IsNewRow)  // Skip the new row
+                {
+                    decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
+                    totalPrice += price;
+                }
+            }
+
+            // Update the label to show the new total price
+            lblTotalPrice.Text = $"Total: {totalPrice:C}";
+        }
 
         private void btnsearch_Click(object sender, EventArgs e)
         {
@@ -167,7 +211,7 @@ namespace Foodle_Point_Management_System
                                (string.IsNullOrEmpty(selectedCategory) || selectedCategory == "All" || item.Category == selectedCategory))
                 .ToList();
 
-            dgvMenuItems.DataSource = new BindingList<MenuItem>(filteredItems);
+            dgvMenuItems.DataSource = new BindingList<MenuItemCartItem>(filteredItems);
         }
 
         private void LoadCategories()
@@ -177,6 +221,13 @@ namespace Foodle_Point_Management_System
 
             cmbCategory.DataSource = categories;
             cmbCategory.SelectedIndex = 0; // Default selection: "All"
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            CustomerDashboard mainpage = new CustomerDashboard(_currentCustomer);
+            mainpage.Show();
+            this.Hide();
         }
     }
 }
