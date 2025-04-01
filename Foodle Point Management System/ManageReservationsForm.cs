@@ -71,15 +71,6 @@ namespace Foodle_Point_Management_System
             }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            LoadReservations();
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Add_Reservation addForm = new Add_Reservation(ResvCoordinatorUser);
@@ -108,10 +99,6 @@ namespace Foodle_Point_Management_System
             }
         }
 
-        private void ManageReservationsForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -153,15 +140,6 @@ namespace Foodle_Point_Management_System
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ManageReservationsForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
         private List<string> GetAvailableHalls(int expectedCount)
         {
             List<string> suitableHalls = new List<string>();

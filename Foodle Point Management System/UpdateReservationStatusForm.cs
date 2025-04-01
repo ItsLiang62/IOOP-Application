@@ -68,24 +68,6 @@ namespace Foodle_Point_Management_System
                 lvReservations.Items.Add(item);
             }
         }
-        private void lvReservations_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lvReservations.SelectedItems.Count > 0)
-            {
-                string currentStatus = lvReservations.SelectedItems[0].SubItems[5].Text;
-                cmbReservationStatus.SelectedItem = currentStatus;
-            }
-        }
-        private void chkPending_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkRejected_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();

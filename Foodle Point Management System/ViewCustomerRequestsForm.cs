@@ -71,10 +71,6 @@ namespace Foodle_Point_Management_System
                 }
             }
         }
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            LoadPendingRequests();
-        }
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();

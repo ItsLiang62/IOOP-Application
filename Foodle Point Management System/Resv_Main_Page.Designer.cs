@@ -127,7 +127,6 @@
             this.Name = "Resv_Main_Page";
             this.Text = "Resv_Main_Page";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Resv_Main_Page_FormClosing);
-            this.Load += new System.EventHandler(this.Resv_Main_Page_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

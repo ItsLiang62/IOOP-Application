@@ -113,10 +113,5 @@ namespace Foodle_Point_Management_System
             // Return true if no errors
             return messageBoxErrorMessage == string.Empty;
         }
-
-        private void cmbGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

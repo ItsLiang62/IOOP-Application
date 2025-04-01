@@ -60,7 +60,6 @@
             this.label1.Size = new System.Drawing.Size(285, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Add a Reservation";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblReservationID
             // 
@@ -81,7 +80,6 @@
             this.lblCustomerID.Size = new System.Drawing.Size(141, 20);
             this.lblCustomerID.TabIndex = 3;
             this.lblCustomerID.Text = "Customer ID:";
-            this.lblCustomerID.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblHallNumber
             // 
@@ -129,7 +127,6 @@
             this.txtReservationID.Name = "txtReservationID";
             this.txtReservationID.Size = new System.Drawing.Size(149, 25);
             this.txtReservationID.TabIndex = 8;
-            this.txtReservationID.TextChanged += new System.EventHandler(this.txtReservationID_TextChanged);
             // 
             // txtCustomerID
             // 
@@ -137,7 +134,6 @@
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(149, 25);
             this.txtCustomerID.TabIndex = 9;
-            this.txtCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
             // 
             // txtHallNumber
             // 
@@ -230,7 +226,6 @@
             this.txtEventDate.Name = "txtEventDate";
             this.txtEventDate.Size = new System.Drawing.Size(149, 25);
             this.txtEventDate.TabIndex = 36;
-            this.txtEventDate.TextChanged += new System.EventHandler(this.txtEventDate_TextChanged);
             // 
             // cmbReservationStatus
             // 
@@ -275,7 +270,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Add_Reservation";
             this.Text = "Add_Reservation";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

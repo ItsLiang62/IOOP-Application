@@ -47,7 +47,6 @@
             this.label1.Size = new System.Drawing.Size(269, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Reservation List";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnAdd
             // 
@@ -100,7 +99,6 @@
             this.lvReservations.Size = new System.Drawing.Size(776, 282);
             this.lvReservations.TabIndex = 6;
             this.lvReservations.UseCompatibleStateImageBehavior = false;
-            this.lvReservations.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // btnAssignHall
             // 
@@ -127,8 +125,6 @@
             this.Controls.Add(this.label1);
             this.Name = "ManageReservationsForm";
             this.Text = "ManageReservationsForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageReservationsForm_FormClosing);
-            this.Load += new System.EventHandler(this.ManageReservationsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

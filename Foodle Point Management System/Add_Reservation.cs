@@ -28,40 +28,10 @@ namespace Foodle_Point_Management_System
             txtReservationID.Enabled = false;
         }
 
-        private void SetupForm()
-        {
-            cmbReservationStatus.Items.AddRange(new object[] { "Pending", "Confirmed", "Completed", "Rejected" });
-            cmbReservationStatus.SelectedIndex = 0; 
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void txtReservationID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCustomerID_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnConfirmAdd_Click(object sender, EventArgs e)
@@ -102,11 +72,6 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show($"Error adding reservation: {ex.Message}");
             }
-        }
-
-        private void txtEventDate_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -50,11 +50,6 @@ namespace Foodle_Point_Management_System
             this.Hide();
         }
 
-        private void Resv_Main_Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Resv_Main_Page_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

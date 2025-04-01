@@ -40,7 +40,6 @@
             this.txtReply.Name = "txtReply";
             this.txtReply.Size = new System.Drawing.Size(655, 25);
             this.txtReply.TabIndex = 1;
-            this.txtReply.TextChanged += new System.EventHandler(this.txtReply_TextChanged);
             // 
             // btnSend
             // 

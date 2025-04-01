@@ -42,63 +42,6 @@ namespace Foodle_Point_Management_System
             txtRemarks.Text = rowValues[8]?.ToString() ?? "";
         }
 
-        private void txtStatus_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCapacity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEvents_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtHallNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCustomerID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtReservationID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCoordinatorID_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnConfirmAdd_Click(object sender, EventArgs e)
         {
             try

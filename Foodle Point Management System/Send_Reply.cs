@@ -117,10 +117,5 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show($"Error sending reply: {ex.Message}");
             }
         }
-
-        private void txtReply_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
