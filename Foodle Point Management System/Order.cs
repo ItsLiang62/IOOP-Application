@@ -13,12 +13,12 @@ namespace Foodle_Point_Management_System
         private string _connectionString;
         public string OrderID { get; private set; }
         public string CustomerID { get; private set; }
-        public List<CartItem> Items { get; private set; }
+        public List<MenuItemCartItem> Items { get; private set; }
         public string ChefEmployeeID { get; private set; }
         public string OrderStatus { get; private set; } = "Confirmed";
         public DateTime DateOfOrder { get; private set; }
 
-        public Order(string connectionString, string customerID, List<CartItem> items,DateTime dateOfOrder)
+        public Order(string connectionString, string customerID, List<MenuItemCartItem> items,DateTime dateOfOrder)
         {
             _connectionString = connectionString;
             OrderID = Guid.NewGuid().ToString("N");

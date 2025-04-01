@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 
 namespace Foodle_Point_Management_System
 {
-    class MenuItem
+    class MenuItemCartItem
     {
         
 
@@ -17,7 +18,7 @@ namespace Foodle_Point_Management_System
         public decimal Price { get; private set; }
         public string Category { get; private set; }
 
-        public MenuItem(string itemNumber, string itemName, decimal price, string category)
+        public MenuItemCartItem(string itemNumber, string itemName, decimal price, string category = null)
         {
             ItemNumber = itemNumber;
             ItemName = itemName;
@@ -25,10 +26,26 @@ namespace Foodle_Point_Management_System
             Category = category;
         }
 
-        // Method to get all menu items from the database
-        public static List<MenuItem> GetAllMenuItems(string connectionString)
+        // Method to add an item to the cart (for CartItem behavior)
+        public static void AddToCart(DataGridView dgvCart, MenuItemCartItem cartItem)
         {
-            List<MenuItem> menuItems = new List<MenuItem>();
+            dgvCart.Rows.Add(cartItem.ItemNumber, cartItem.ItemName, cartItem.Price);
+        }
+        public static void EditCartItem(DataGridView dgvCart, int rowIndex, MenuItemCartItem newItem)
+        {
+            dgvCart.Rows[rowIndex].Cells["ItemNumber"].Value = newItem.ItemNumber;
+            dgvCart.Rows[rowIndex].Cells["ItemName"].Value = newItem.ItemName;
+            dgvCart.Rows[rowIndex].Cells["Price"].Value = newItem.Price;
+        }
+        public static void RemoveFromCart(DataGridView dgvCart, int rowIndex)
+        {
+            dgvCart.Rows.RemoveAt(rowIndex);
+        }
+
+        // Method to get all menu items from the database
+        public static List<MenuItemCartItem> GetAllMenuItems(string connectionString)
+        {
+            List<MenuItemCartItem> menuItems = new List<MenuItemCartItem>();
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -39,7 +56,7 @@ namespace Foodle_Point_Management_System
 
                 while (reader.Read())
                 {
-                    menuItems.Add(new MenuItem(
+                    menuItems.Add(new MenuItemCartItem(
                         reader["ItemNumber"].ToString(),
                         reader["ItemName"].ToString(),
                         Convert.ToDecimal(reader["Price"]),
