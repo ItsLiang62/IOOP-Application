@@ -193,43 +193,28 @@ namespace Foodle_Point_Management_System
 
                 try
                 {
-                    // Find available halls that can accommodate the party size
                     var availableHalls = GetAvailableHalls(expectedCount);
-
                     if (availableHalls.Count > 0)
                     {
-                        // Show hall selection dialog
-                        HallSelectionForm hallForm = new HallSelectionForm(availableHalls);
-                        if (hallForm.ShowDialog() == DialogResult.OK)
-                        {
-                            string selectedHall = hallForm.SelectedHall;
+                        string selectedHall = availableHalls[0]; // Take first available
 
-                            // Update reservation with selected hall
-                            reservationTable.UpdateValue(reservationID, "HallNumber", selectedHall);
-                            reservationTable.UpdateValue(reservationID, "ReservationStatus", "Assigned");
+                        reservationTable.UpdateValue(reservationID, "HallNumber", selectedHall);
+                        reservationTable.UpdateValue(reservationID, "ReservationStatus", "Assigned");
+                        hallTable.UpdateValue(selectedHall, "IsAvailable", false);
 
-                            // Update hall availability
-                            hallTable.UpdateValue(selectedHall, "IsAvailable", false);
-
-                            MessageBox.Show($"Hall {selectedHall} assigned successfully!");
-                            LoadReservations();
-                        }
+                        MessageBox.Show($"Automatically assigned to {selectedHall}");
+                        LoadReservations();
                     }
                     else
                     {
-                        MessageBox.Show("No available halls can accommodate this party size.");
+                        MessageBox.Show("No available halls");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error assigning hall: {ex.Message}");
+                    MessageBox.Show($"Error: {ex.Message}");
                 }
             }
-            else
-            {
-                MessageBox.Show("Please select a reservation to assign hall.");
-            }
-
         }
     }
 }
