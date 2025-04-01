@@ -18,7 +18,17 @@ namespace Foodle_Point_Management_System
         public AdminHomePage(SystemAdministrator admin)
         {
             InitializeComponent();
+            //MessageBox.Show("AdminHomePage loaded");
             currentAdmin = admin;
+            // Check if admin is null
+            if (admin == null)
+            {
+                MessageBox.Show("Admin object is null! Check if the login was successful.");
+                return; // Prevent form from loading if admin is null
+            }
+
+            currentAdmin = admin; // Initialize currentAdmin if valid
+
         }
 
         private void btnManageUser_Click(object sender, EventArgs e)

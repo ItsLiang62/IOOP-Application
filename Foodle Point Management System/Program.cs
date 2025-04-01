@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Shared_Class_Library;
 using System.Windows.Forms;
 
-
-
 namespace Foodle_Point_Management_System
 {
     class Program
@@ -18,9 +16,16 @@ namespace Foodle_Point_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Temporary admin object (use real ID if you have it)
-            SystemAdministrator tempAdmin = new SystemAdministrator("A001");
-            Application.Run(new AdminHomePage(tempAdmin)); // Pass admin object to AdminHomePage
+            try
+            {
+                SystemAdministrator tempAdmin = new SystemAdministrator("A001"); // must exist in DB
+                Application.Run(new AdminHomePage(tempAdmin));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading admin: " + ex.Message);
+            }
+
         }
     }
 }

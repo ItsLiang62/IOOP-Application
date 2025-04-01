@@ -15,21 +15,25 @@ namespace Foodle_Point_Management_System
 {
     public partial class UserManagement: Form
     {
-        private SystemAdministrator currentAdmin;
+       private SystemAdministrator currentAdmin;
 
 
 
         public UserManagement(SystemAdministrator admin)
         {
             InitializeComponent();
-            currentAdmin = admin;
+            if (admin == null)
+            {
+                MessageBox.Show("Admin object is null in UserManagement!");
+                return;  // Prevent form from loading if admin is null
+            }
 
-
+            currentAdmin = admin;  // Correct assignment of admin
         }
-        private string connectionString = ConfigurationManager.ConnectionStrings["FoodleDBConnection"].ConnectionString;
         private void UserManagement_Load(object sender, EventArgs e)
         {
             LoadEmployeeData();
+
 
         }
 
@@ -37,9 +41,13 @@ namespace Foodle_Point_Management_System
         {
             try
             {
+                // Create an instance of EmployeeTable to fetch data
                 EmployeeTable empTable = new EmployeeTable();
+
+                // Get all Employee IDs from the database
                 List<object> empIDs = empTable.GetColumnValues("EmployeeID");
 
+                // Create a DataTable to hold the employee data for display
                 DataTable dt = new DataTable();
                 dt.Columns.Add("ID");
                 dt.Columns.Add("Name");
@@ -48,21 +56,49 @@ namespace Foodle_Point_Management_System
                 dt.Columns.Add("Email");
                 dt.Columns.Add("Phone");
                 dt.Columns.Add("DOB");
+                dt.Columns.Add("AccountPassword");
 
+
+                // Loop through each EmployeeID and retrieve their details
                 foreach (var empIdObj in empIDs)
                 {
                     string id = empIdObj.ToString();
                     List<object> row = empTable.GetRowValues(id);
-                    dt.Rows.Add(row.Take(7).ToArray()); // Exclude password
+
+                    // Ensure row data is valid (expecting 7 columns for ID, Name, Position, etc.)
+                    if (row.Count == 8)
+                    {
+                        dt.Rows.Add(row.ToArray()); // Add all 8 values
+
+                        // Add the data to the DataTable
+
+                        //dt.Rows.Add(row.Take(8).ToArray());  // Exclude password and other irrelevant fields
+                    }
+                    else
+                    {
+                        // Optional: Show a message if data is invalid
+                        MessageBox.Show($"Invalid data for employee {id}. Skipping.");
+                    }
                 }
 
+                dgvUsers.DataSource = dt;
+                // Hide the "AccountPassword" column in the DataGridView
+                dgvUsers.Columns["AccountPassword"].Visible = false;
+
+
+                // Bind the DataTable to the DataGridView (dgvUsers)
                 dgvUsers.DataSource = dt;
             }
             catch (Exception ex)
             {
+                // Display an error message if something goes wrong
                 MessageBox.Show($"Error loading employees: {ex.Message}");
             }
         }
+
+
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close(); // Hide ManageUsers
@@ -79,12 +115,14 @@ namespace Foodle_Point_Management_System
             }
         }
 
+
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            AddUser AddUserForm = new AddUser(currentAdmin);
-            this.Hide(); // Hide AdminHomePage
-            AddUserForm.ShowDialog(); // Open in modal mode (prevents external window behavior)
-            this.Show(); // Show AdminHomePage again when ManageUsers closes
+            //AddUser AddUserForm = new AddUser(currentAdmin);
+            //this.Hide(); // Hide AdminHomePage
+            //AddUserForm.ShowDialog(); // Open in modal mode (prevents external window behavior)
+            //this.Show(); // Show AdminHomePage again when ManageUsers closes
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -94,7 +132,17 @@ namespace Foodle_Point_Management_System
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            
+            if (dgvUsers.SelectedRows.Count > 0)
+            {
+                string selectedID = dgvUsers.SelectedRows[0].Cells["ID"].Value.ToString();
+                EditUser editForm = new EditUser(currentAdmin, selectedID);
+                editForm.ShowDialog();
+                LoadEmployeeData(); // Refresh grid after editing
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to edit.");
+            }
         }
     }
 }
