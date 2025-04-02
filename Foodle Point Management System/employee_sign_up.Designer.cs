@@ -28,70 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnReturnMain = new System.Windows.Forms.Button();
-            this.lblName = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.lblGender = new System.Windows.Forms.Label();
-            this.txtDOB = new System.Windows.Forms.TextBox();
-            this.lblDOB = new System.Windows.Forms.Label();
-            this.txtPhoneNum = new System.Windows.Forms.TextBox();
-            this.lblPhoneNum = new System.Windows.Forms.Label();
-            this.cmbPosition = new System.Windows.Forms.ComboBox();
-            this.cmbGender = new System.Windows.Forms.ComboBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnSignUp = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(237, 180);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(729, 42);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Please Fill In Your Employee Information";
-            // 
-            // btnReturnMain
-            // 
-            this.btnReturnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnMain.Location = new System.Drawing.Point(44, 47);
-            this.btnReturnMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnReturnMain.Name = "btnReturnMain";
-            this.btnReturnMain.Size = new System.Drawing.Size(324, 70);
-            this.btnReturnMain.TabIndex = 12;
-            this.btnReturnMain.Text = "Return to Main Page";
-            this.btnReturnMain.UseVisualStyleBackColor = true;
-            this.btnReturnMain.Click += new System.EventHandler(this.btnReturnMain_Click);
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(114, 278);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(197, 42);
-            this.lblName.TabIndex = 13;
-            this.lblName.Text = "Full Name:";
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(326, 278);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(319, 44);
-            this.txtName.TabIndex = 14;
-       feature_sys_admin
-            //this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-=======
+            
 
             // 
             // lblPosition

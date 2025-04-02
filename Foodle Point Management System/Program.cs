@@ -16,11 +16,12 @@ namespace Foodle_Point_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
- feature_sys_admin
+           
+        
 
-            //Application.Run(new frmMain());
+            Application.Run(new frmMain());
 
-            try
+            /*try
             {
                 SystemAdministrator tempAdmin = new SystemAdministrator("A001"); // must exist in DB
                 Application.Run(new AdminHomePage(tempAdmin));
@@ -29,7 +30,7 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show("Error loading admin: " + ex.Message);
             } 
-
+            */
 
         }
     }
