@@ -161,6 +161,7 @@
             this.Controls.Add(this.lblet);
             this.Name = "reserve_halls";
             this.Text = "reserve_halls";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.reserve_halls_FormClosing);
             this.Load += new System.EventHandler(this.reserve_halls_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -144,5 +144,10 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Please select a user to edit.");
             }
         }
+
+        private void UserManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

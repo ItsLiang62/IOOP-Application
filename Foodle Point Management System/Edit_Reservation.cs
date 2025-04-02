@@ -58,7 +58,7 @@ namespace Foodle_Point_Management_System
                 reservationTable.UpdateValue(reservationID, "Remarks", txtRemarks.Text);
 
                 MessageBox.Show("Reservation updated successfully!");
-                this.Close();
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -70,6 +70,11 @@ namespace Foodle_Point_Management_System
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void Edit_Reservation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

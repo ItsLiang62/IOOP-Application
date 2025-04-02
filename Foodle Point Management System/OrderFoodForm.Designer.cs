@@ -234,6 +234,7 @@
             this.Controls.Add(this.lblfood);
             this.Name = "OrderFoodForm";
             this.Text = "OrderFoodForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrderFoodForm_FormClosing);
             this.Load += new System.EventHandler(this.OrderFoodForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();

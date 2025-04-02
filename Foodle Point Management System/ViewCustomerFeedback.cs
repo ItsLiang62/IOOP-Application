@@ -41,5 +41,10 @@ namespace Foodle_Point_Management_System
         {
 
         }
+
+        private void ViewCustomerFeedback_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
