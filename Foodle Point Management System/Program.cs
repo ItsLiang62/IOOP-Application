@@ -16,6 +16,7 @@ namespace Foodle_Point_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+ feature_sys_admin
 
             //Application.Run(new frmMain());
 
@@ -28,6 +29,7 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show("Error loading admin: " + ex.Message);
             } 
+
 
         }
     }

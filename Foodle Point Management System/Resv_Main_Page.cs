@@ -24,40 +24,42 @@ namespace Foodle_Point_Management_System
 
         private void btnManageReservations_Click(object sender, EventArgs e)
         {
-            ManageReservationsForm manageForm = new ManageReservationsForm();
+            ManageReservationsForm manageForm = new ManageReservationsForm(ResvCoordinatorUser);
             manageForm.Show();
             this.Hide();
         }
 
         private void btnUpdateReservationStatus_Click(object sender, EventArgs e)
         {
-            UpdateReservationStatusForm updateForm = new UpdateReservationStatusForm();
+            UpdateReservationStatusForm updateForm = new UpdateReservationStatusForm(ResvCoordinatorUser);
             updateForm.Show();
             this.Hide();
         }
 
         private void btnViewCustomerRequests_Click(object sender, EventArgs e)
         {
-            ViewCustomerRequestsForm requestForm = new ViewCustomerRequestsForm();
+            ViewCustomerRequestsForm requestForm = new ViewCustomerRequestsForm(ResvCoordinatorUser);
             requestForm.Show();
             this.Hide();
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-            UpdateProfileForm profileForm = new UpdateProfileForm();
+            UpdateProfileForm profileForm = new UpdateProfileForm(ResvCoordinatorUser);
             profileForm.Show();
             this.Hide();
-        }
-
-        private void Resv_Main_Page_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void Resv_Main_Page_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmMain mainPage = new frmMain();
+            mainPage.Show();
+            this.Hide();
         }
     }
 }

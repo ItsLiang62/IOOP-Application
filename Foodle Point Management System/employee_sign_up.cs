@@ -65,7 +65,6 @@ namespace Foodle_Point_Management_System
 
             if (AllInputValid(out messageBoxErrorMessage))
             {
-                EmployeeID = myEmployeeTable.GetNewEmployeeID(Position);
                 FullName = txtName.Text;
                 Position = cmbPosition.Text;
                 Gender = cmbGender.Text;
@@ -73,6 +72,7 @@ namespace Foodle_Point_Management_System
                 PhoneNum = txtPhoneNum.Text;
                 DOB = txtDOB.Text;
                 Password = txtPassword.Text;
+                EmployeeID = myEmployeeTable.GetNewEmployeeID(Position);
 
                 try
                 {
