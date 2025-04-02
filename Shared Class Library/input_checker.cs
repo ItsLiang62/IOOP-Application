@@ -10,7 +10,7 @@ namespace Shared_Class_Library
 {
     public class InputChecker
     {
-        public bool IsTextOnly(string input, out string errorMessage, string inputTitle = "Input" )
+        public bool IsTextOnly(string input, out string errorMessage, string inputTitle = "Input")
         {
             if (this.IsEmptyInput(input, out errorMessage, inputTitle))
             {
