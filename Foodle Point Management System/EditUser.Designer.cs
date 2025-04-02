@@ -125,7 +125,7 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(628, 712);
+            this.btnSaveChanges.Location = new System.Drawing.Point(628, 567);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(183, 55);
             this.btnSaveChanges.TabIndex = 9;
@@ -135,7 +135,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(302, 712);
+            this.btnBack.Location = new System.Drawing.Point(302, 567);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(183, 55);
             this.btnBack.TabIndex = 10;

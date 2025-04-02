@@ -48,18 +48,18 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(335, 206);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(116, 25);
+            this.lblUsername.Size = new System.Drawing.Size(175, 25);
             this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Username:";
+            this.lblUsername.Text = "Employee Name:";
             // 
             // lblRole
             // 
             this.lblRole.AutoSize = true;
             this.lblRole.Location = new System.Drawing.Point(335, 281);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(62, 25);
+            this.lblRole.Size = new System.Drawing.Size(95, 25);
             this.lblRole.TabIndex = 1;
-            this.lblRole.Text = "Role:";
+            this.lblRole.Text = "Position:";
             // 
             // lblEmail
             // 
@@ -75,9 +75,9 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Location = new System.Drawing.Point(335, 430);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(80, 25);
+            this.lblPhone.Size = new System.Drawing.Size(161, 25);
             this.lblPhone.TabIndex = 3;
-            this.lblPhone.Text = "Phone:";
+            this.lblPhone.Text = "Phone Number:";
             // 
             // lblPassword
             // 
@@ -119,10 +119,17 @@
             // cmbRole
             // 
             this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Items.AddRange(new object[] {
+            "Admin",
+            "Manager",
+            "Chef",
+            "Waiter",
+            "ReservationCoordinator"});
             this.cmbRole.Location = new System.Drawing.Point(641, 281);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(196, 33);
             this.cmbRole.TabIndex = 9;
+            this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
             // 
             // btnSaveChanges
             // 
