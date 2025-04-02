@@ -37,37 +37,38 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.cmbPosition1 = new System.Windows.Forms.ComboBox();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxGender = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(223, 132);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(73, 16);
+            this.lblUsername.Size = new System.Drawing.Size(175, 25);
             this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Username:";
+            this.lblUsername.Text = "Employee Name:";
             // 
             // lblRole
             // 
             this.lblRole.AutoSize = true;
             this.lblRole.Location = new System.Drawing.Point(223, 180);
-            this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(39, 16);
+            this.lblRole.Size = new System.Drawing.Size(95, 25);
             this.lblRole.TabIndex = 1;
-            this.lblRole.Text = "Role:";
+            this.lblRole.Text = "Position:";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(223, 229);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Location = new System.Drawing.Point(335, 423);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(44, 16);
             this.lblEmail.TabIndex = 2;
@@ -76,18 +77,16 @@
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(223, 275);
-            this.lblPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPhone.Location = new System.Drawing.Point(335, 559);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(49, 16);
+            this.lblPhone.Size = new System.Drawing.Size(161, 25);
             this.lblPhone.TabIndex = 3;
-            this.lblPhone.Text = "Phone:";
+            this.lblPhone.Text = "Phone Number:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(223, 317);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Location = new System.Drawing.Point(335, 625);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(70, 16);
             this.lblPassword.TabIndex = 4;
@@ -100,55 +99,59 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(132, 22);
             this.txtUsername.TabIndex = 5;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(427, 229);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Location = new System.Drawing.Point(641, 423);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(132, 22);
             this.txtEmail.TabIndex = 6;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(427, 271);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPhone.Location = new System.Drawing.Point(641, 553);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(132, 22);
             this.txtPhone.TabIndex = 7;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(427, 314);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Location = new System.Drawing.Point(641, 619);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(132, 22);
             this.txtPassword.TabIndex = 8;
             // 
-            // cmbRole
+            // cmbPosition1
             // 
-            this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(427, 180);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(132, 24);
-            this.cmbRole.TabIndex = 9;
+            this.cmbPosition1.FormattingEnabled = true;
+            this.cmbPosition1.Items.AddRange(new object[] {
+            "Admin",
+            "Manager",
+            "Chef",
+            "Waiter",
+            "ReservationCoordinator"});
+            this.cmbPosition1.Location = new System.Drawing.Point(641, 281);
+            this.cmbPosition1.Name = "cmbPosition1";
+            this.cmbPosition1.Size = new System.Drawing.Size(196, 33);
+            this.cmbPosition1.TabIndex = 9;
+            this.cmbPosition1.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(486, 391);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChanges.Location = new System.Drawing.Point(724, 692);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(131, 36);
             this.btnSaveChanges.TabIndex = 10;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(65, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 16);
             this.label1.TabIndex = 11;
@@ -156,8 +159,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(227, 391);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(340, 692);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(131, 36);
             this.btnBack.TabIndex = 12;
@@ -165,15 +167,55 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(336, 497);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 25);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "DOB";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(641, 491);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(364, 31);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(340, 352);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 25);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Gender:";
+            // 
+            // comboBoxGender
+            // 
+            this.comboBoxGender.FormattingEnabled = true;
+            this.comboBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.comboBoxGender.Location = new System.Drawing.Point(641, 352);
+            this.comboBoxGender.Name = "comboBoxGender";
+            this.comboBoxGender.Size = new System.Drawing.Size(196, 33);
+            this.comboBoxGender.TabIndex = 16;
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 617);
+            this.ClientSize = new System.Drawing.Size(1368, 964);
+            this.Controls.Add(this.comboBoxGender);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSaveChanges);
-            this.Controls.Add(this.cmbRole);
+            this.Controls.Add(this.cmbPosition1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
@@ -204,9 +246,13 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.ComboBox cmbRole;
+        private System.Windows.Forms.ComboBox cmbPosition1;
         private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxGender;
     }
 }

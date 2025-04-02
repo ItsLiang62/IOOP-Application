@@ -134,8 +134,8 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(419, 456);
             this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChanges.Location = new System.Drawing.Point(628, 567);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(122, 35);
             this.btnSaveChanges.TabIndex = 9;
@@ -145,8 +145,8 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(201, 456);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(302, 567);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(122, 35);
             this.btnBack.TabIndex = 10;
