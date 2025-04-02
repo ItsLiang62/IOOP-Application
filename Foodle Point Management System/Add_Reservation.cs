@@ -20,10 +20,8 @@ namespace Foodle_Point_Management_System
             InitializeComponent();
             this.ResvCoordinatorUser = ResvCoordinatorUser;
 
-            // Set default status to Pending
             cmbReservationStatus.SelectedIndex = 0;
 
-            // Auto-generate new reservation ID
             txtReservationID.Text = reservationTable.GetNewReservationID();
             txtReservationID.Enabled = false;
         }
@@ -38,7 +36,6 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                // Validate inputs
                 if (string.IsNullOrWhiteSpace(txtHallNumber.Text) ||
                     string.IsNullOrWhiteSpace(txtCustomerID.Text) ||
                     string.IsNullOrWhiteSpace(txtEventType.Text) ||
@@ -47,8 +44,6 @@ namespace Foodle_Point_Management_System
                     MessageBox.Show("Please fill in all required fields.");
                     return;
                 }
-
-                // Get values from form controls
                 string reservationID = txtReservationID.Text;
                 string hallNumber = txtHallNumber.Text;
                 string customerID = txtCustomerID.Text;
@@ -59,7 +54,6 @@ namespace Foodle_Point_Management_System
                 string requestResponse = txtRequestResponse.Text;
                 string remarks = txtRemarks.Text;
 
-                // Insert new reservation
                 reservationTable.InsertRow(
                     reservationID, hallNumber, customerID, eventType,
                     eventDate, expectedCount, status, requestResponse, remarks

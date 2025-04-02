@@ -23,21 +23,25 @@ namespace Foodle_Point_Management_System
             this.ResvCoordinatorUser = ResvCoordinatorUser;
             this.reservationID = reservationID;
             LoadReservationDetails();
+
         }
         private void LoadReservationDetails()
         {
             var rowValues = reservationTable.GetRowValues(reservationID);
 
             txtReservationID.Text = rowValues[0].ToString();
+            txtReservationID.Enabled = false;
             txtHallNumber.Text = rowValues[1].ToString();
             txtCustomerID.Text = rowValues[2].ToString();
             txtEventType.Text = rowValues[3].ToString();
-            txtEventDate.Text = rowValues[4].ToString();
+
+            if (DateTime.TryParse(rowValues[4].ToString(), out DateTime eventDate))
+            {
+                txtEventDate.Text = eventDate.ToString("yyyy-MM-dd"); 
+            }
+
             txtExpectedCount.Text = rowValues[5].ToString();
-
-            // Set combobox to current status
             cmbReservationStatus.SelectedItem = rowValues[6].ToString();
-
             txtRequestResponse.Text = rowValues[7]?.ToString() ?? "";
             txtRemarks.Text = rowValues[8]?.ToString() ?? "";
         }
@@ -46,13 +50,39 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                // Update each field that can be edited
-                reservationTable.UpdateValue(reservationID, "ReservationID", txtReservationID.Text);
+                HallTable hallTable = new HallTable();
+                object hallExists = hallTable.GetValue(txtHallNumber.Text, "HallNumber");
+                if (hallExists == null)
+                {
+                    MessageBox.Show($"Error: Hall {txtHallNumber.Text} does not exist");
+                    return;
+                }
+
+                CustomerTable customerTable = new CustomerTable();
+                object customerExists = customerTable.GetValue(txtCustomerID.Text, "CustomerID");
+                if (customerExists == null)
+                {
+                    MessageBox.Show($"Error: Customer {txtCustomerID.Text} does not exist");
+                    return;
+                }
+
+                if (!int.TryParse(txtExpectedCount.Text, out int expectedCount) || expectedCount <= 0)
+                {
+                    MessageBox.Show("Expected Count must be a positive number");
+                    return;
+                }
+
+                if (!DateTime.TryParse(txtEventDate.Text, out DateTime eventDate))
+                {
+                    MessageBox.Show("Please enter a valid date (YYYY-MM-DD)");
+                    return;
+                }
+
                 reservationTable.UpdateValue(reservationID, "HallNumber", txtHallNumber.Text);
                 reservationTable.UpdateValue(reservationID, "CustomerID", txtCustomerID.Text);
                 reservationTable.UpdateValue(reservationID, "EventType", txtEventType.Text);
-                reservationTable.UpdateValue(reservationID, "EventDate", txtEventDate.Text);
-                reservationTable.UpdateValue(reservationID, "ExpectedCount", int.Parse(txtExpectedCount.Text));
+                reservationTable.UpdateValue(reservationID, "EventDate", eventDate.ToString("yyyy-MM-dd"));
+                reservationTable.UpdateValue(reservationID, "ExpectedCount", expectedCount);
                 reservationTable.UpdateValue(reservationID, "ReservationStatus", cmbReservationStatus.SelectedItem.ToString());
                 reservationTable.UpdateValue(reservationID, "RequestResponse", txtRequestResponse.Text);
                 reservationTable.UpdateValue(reservationID, "Remarks", txtRemarks.Text);
