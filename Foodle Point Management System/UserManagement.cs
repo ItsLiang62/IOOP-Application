@@ -101,8 +101,8 @@ namespace Foodle_Point_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close(); // Hide ManageUsers
-            AdminHomePage adminPage = Application.OpenForms["AdminHomePage"] as AdminHomePage;
+            this.Hide(); // Hide ManageUsers
+            AdminHomePage adminPage = new AdminHomePage(currentAdmin);
 
             if (adminPage != null)
             {
@@ -152,6 +152,7 @@ namespace Foodle_Point_Management_System
         private void UserManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
 
 
 
