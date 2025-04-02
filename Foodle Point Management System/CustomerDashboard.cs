@@ -81,5 +81,10 @@ namespace Foodle_Point_Management_System
             mainPage.Show();
             this.Hide();
         }
+
+        private void CustomerDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

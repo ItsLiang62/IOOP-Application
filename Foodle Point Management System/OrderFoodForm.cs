@@ -229,5 +229,10 @@ namespace Foodle_Point_Management_System
             mainpage.Show();
             this.Hide();
         }
+
+        private void OrderFoodForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

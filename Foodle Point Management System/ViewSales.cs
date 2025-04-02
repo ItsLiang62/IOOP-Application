@@ -42,6 +42,11 @@ namespace Foodle_Point_Management_System
 
         }
 
+        private void ViewSales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+            
         private void cmbMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
 

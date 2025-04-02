@@ -127,6 +127,7 @@
             this.Controls.Add(this.tabControlOrders);
             this.Name = "ViewOrdersForm";
             this.Text = "ViewOrdersForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewOrdersForm_FormClosing);
             this.Load += new System.EventHandler(this.ViewOrdersForm_Load);
             this.tabReservations.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).EndInit();

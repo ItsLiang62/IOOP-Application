@@ -36,16 +36,16 @@
             // 
             // txtReply
             // 
-            this.txtReply.Location = new System.Drawing.Point(67, 299);
+            this.txtReply.Location = new System.Drawing.Point(67, 319);
             this.txtReply.Name = "txtReply";
-            this.txtReply.Size = new System.Drawing.Size(655, 25);
+            this.txtReply.Size = new System.Drawing.Size(655, 22);
             this.txtReply.TabIndex = 1;
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(262, 355);
+            this.btnSend.Location = new System.Drawing.Point(262, 379);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(253, 65);
+            this.btnSend.Size = new System.Drawing.Size(253, 69);
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -53,9 +53,9 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(25, 29);
+            this.btnBack.Location = new System.Drawing.Point(25, 31);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(150, 59);
+            this.btnBack.Size = new System.Drawing.Size(150, 63);
             this.btnBack.TabIndex = 30;
             this.btnBack.Text = "Back to Reservation list";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -64,23 +64,24 @@
             // lvReservations
             // 
             this.lvReservations.HideSelection = false;
-            this.lvReservations.Location = new System.Drawing.Point(12, 95);
+            this.lvReservations.Location = new System.Drawing.Point(12, 101);
             this.lvReservations.Name = "lvReservations";
-            this.lvReservations.Size = new System.Drawing.Size(776, 198);
+            this.lvReservations.Size = new System.Drawing.Size(776, 211);
             this.lvReservations.TabIndex = 31;
             this.lvReservations.UseCompatibleStateImageBehavior = false;
             // 
             // Send_Reply
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 480);
             this.Controls.Add(this.lvReservations);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtReply);
             this.Name = "Send_Reply";
             this.Text = "Send_Reply";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Send_Reply_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -113,5 +113,10 @@ namespace Foodle_Point_Management_System
             // Return true if no errors
             return messageBoxErrorMessage == string.Empty;
         }
+
+        private void UpdateProfileForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

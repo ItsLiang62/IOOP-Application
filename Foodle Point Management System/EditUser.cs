@@ -134,5 +134,10 @@ namespace Foodle_Point_Management_System
             // Show the UserManagement form
             userManagementForm.Show();
         }
+
+        private void EditUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
