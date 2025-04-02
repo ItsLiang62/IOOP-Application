@@ -34,7 +34,7 @@
             this.dgvSales = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.btnClearFilter = new System.Windows.Forms.Button();
             this.btnGR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
@@ -54,18 +54,17 @@
             // 
             this.cmbMonth.FormattingEnabled = true;
             this.cmbMonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "10",
+            "11",
+            "12"});
             this.cmbMonth.Location = new System.Drawing.Point(552, 87);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(180, 33);
@@ -89,13 +88,13 @@
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.RowHeadersWidth = 82;
             this.dgvSales.RowTemplate.Height = 33;
-            this.dgvSales.Size = new System.Drawing.Size(1012, 536);
+            this.dgvSales.Size = new System.Drawing.Size(924, 485);
             this.dgvSales.TabIndex = 3;
             this.dgvSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSales_CellContentClick);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(346, 874);
+            this.btnBack.Location = new System.Drawing.Point(310, 800);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(191, 73);
             this.btnBack.TabIndex = 4;
@@ -113,10 +112,10 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Select Year:";
             // 
-            // comboBox1
+            // comboBoxYear
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxYear.FormattingEnabled = true;
+            this.comboBoxYear.Items.AddRange(new object[] {
             "2025",
             "2026",
             "2027",
@@ -127,11 +126,11 @@
             "2032",
             "2033",
             "2034"});
-            this.comboBox1.Location = new System.Drawing.Point(552, 207);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 33);
-            this.comboBox1.TabIndex = 6;
+            this.comboBoxYear.Location = new System.Drawing.Point(552, 207);
+            this.comboBoxYear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxYear.Name = "comboBoxYear";
+            this.comboBoxYear.Size = new System.Drawing.Size(180, 33);
+            this.comboBoxYear.TabIndex = 6;
             // 
             // btnClearFilter
             // 
@@ -142,16 +141,18 @@
             this.btnClearFilter.TabIndex = 7;
             this.btnClearFilter.Text = "Clear Filter";
             this.btnClearFilter.UseVisualStyleBackColor = true;
+            this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
             // 
             // btnGR
             // 
-            this.btnGR.Location = new System.Drawing.Point(628, 874);
+            this.btnGR.Location = new System.Drawing.Point(592, 800);
             this.btnGR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGR.Name = "btnGR";
             this.btnGR.Size = new System.Drawing.Size(207, 73);
             this.btnGR.TabIndex = 8;
             this.btnGR.Text = "Generate Report";
             this.btnGR.UseVisualStyleBackColor = true;
+            this.btnGR.Click += new System.EventHandler(this.btnGR_Click);
             // 
             // ViewSales
             // 
@@ -160,7 +161,7 @@
             this.ClientSize = new System.Drawing.Size(1380, 1014);
             this.Controls.Add(this.btnGR);
             this.Controls.Add(this.btnClearFilter);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxYear);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvSales);
@@ -184,7 +185,7 @@
         private System.Windows.Forms.DataGridView dgvSales;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Button btnClearFilter;
         private System.Windows.Forms.Button btnGR;
     }
