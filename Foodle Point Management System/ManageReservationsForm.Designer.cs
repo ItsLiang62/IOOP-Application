@@ -109,7 +109,7 @@
             this.btnAssignHall.TabIndex = 7;
             this.btnAssignHall.Text = "Assign Hall";
             this.btnAssignHall.UseVisualStyleBackColor = true;
-            this.btnAssignHall.Click += new System.EventHandler(this.button1_Click);
+            this.btnAssignHall.Click += new System.EventHandler(this.btnAssignHall_Click);
             // 
             // ManageReservationsForm
             // 
