@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +13,6 @@ namespace Foodle_Point_Management_System
 {
     public partial class frmCustomerLogin: Form
     {
-        //
         private CustomerTable myCustomerTable = new CustomerTable();
 
         private string CustomerID
@@ -62,11 +60,6 @@ namespace Foodle_Point_Management_System
             this.Hide();
 
             MessageBox.Show("Login successful"); 
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -14,15 +14,10 @@ namespace Foodle_Point_Management_System
     public partial class frmAddHall: Form
     {
         HallTable myHallTable = new HallTable();
+
         InputChecker myChecker = new InputChecker();
 
         private Manager ManagerUser
-        { get; set; }
-
-        private string InputHallName
-        { get; set; }
-
-        private string InputCapacity
         { get; set; }
 
         private string HallNumber
@@ -51,11 +46,10 @@ namespace Foodle_Point_Management_System
         }
 
 
-
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            bool validHallName = myChecker.IsTextOnly(InputHallName, out string eHallName, "Hall Name");
-            bool validPrice = myChecker.IsDigitOnly(InputCapacity, out string eCapacity, "Capacity");
+            bool validHallName = myChecker.IsTextOnly(txtHallName.Text, out string eHallName, "Hall Name");
+            bool validPrice = myChecker.IsDigitOnly(txtCapacity.Text, out string eCapacity, "Capacity");
 
             messageBoxErrorMessage = String.Empty;
 
@@ -80,23 +74,20 @@ namespace Foodle_Point_Management_System
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            InputHallName = txtHallName.Text;
-            InputCapacity = txtCapacity.Text;
-            RecommendedEvent1 = cmbRecommendedEvent1.Text;
-            RecommendedEvent2 = cmbRecommendedEvent2.Text;
-            IsAvailable = true;
-
-            if (RecommendedEvent1 == RecommendedEvent2)
-            {
-                MessageBox.Show("Please fill in different recommended events.");
-                return;
-            }
-
             if (AllInputValid(out string messageBoxErrorMessage))
             {
+                HallName = txtHallName.Text;
+                Capacity = Convert.ToInt32(txtCapacity.Text);
+                RecommendedEvent1 = cmbRecommendedEvent1.Text;
+                RecommendedEvent2 = cmbRecommendedEvent2.Text;
                 HallNumber = myHallTable.GetNewHallNumber();
-                HallName = InputHallName;
-                Capacity = Convert.ToInt32(InputCapacity);
+                IsAvailable = true; ;
+
+                if (RecommendedEvent1 == RecommendedEvent2)
+                {
+                    MessageBox.Show("Please fill in different recommended events.");
+                    return;
+                }
 
                 try
                 {

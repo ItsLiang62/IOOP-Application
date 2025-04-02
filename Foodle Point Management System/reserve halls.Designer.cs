@@ -28,36 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblet = new System.Windows.Forms.Label();
+            this.lbled = new System.Windows.Forms.Label();
             this.txtEventType = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblenop = new System.Windows.Forms.Label();
             this.txtExpectedPeople = new System.Windows.Forms.TextBox();
             this.txtAdditionalThings = new System.Windows.Forms.TextBox();
-            this.jj = new System.Windows.Forms.Label();
+            this.lblat = new System.Windows.Forms.Label();
             this.btnsend = new System.Windows.Forms.Button();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
+            this.btnlogout = new System.Windows.Forms.Button();
+            this.lblmessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblet
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(524, 153);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Event Type:";
+            this.lblet.AutoSize = true;
+            this.lblet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblet.Location = new System.Drawing.Point(524, 153);
+            this.lblet.Name = "lblet";
+            this.lblet.Size = new System.Drawing.Size(151, 29);
+            this.lblet.TabIndex = 1;
+            this.lblet.Text = "Event Type:";
             // 
-            // label3
+            // lbled
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(524, 217);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 29);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Event Date:";
+            this.lbled.AutoSize = true;
+            this.lbled.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbled.Location = new System.Drawing.Point(524, 217);
+            this.lbled.Name = "lbled";
+            this.lbled.Size = new System.Drawing.Size(146, 29);
+            this.lbled.TabIndex = 3;
+            this.lbled.Text = "Event Date:";
             // 
             // txtEventType
             // 
@@ -67,15 +69,15 @@
             this.txtEventType.Size = new System.Drawing.Size(203, 28);
             this.txtEventType.TabIndex = 4;
             // 
-            // label2
+            // lblenop
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(386, 285);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(356, 29);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Expected Number of People :";
+            this.lblenop.AutoSize = true;
+            this.lblenop.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblenop.Location = new System.Drawing.Point(386, 285);
+            this.lblenop.Name = "lblenop";
+            this.lblenop.Size = new System.Drawing.Size(356, 29);
+            this.lblenop.TabIndex = 5;
+            this.lblenop.Text = "Expected Number of People :";
             // 
             // txtExpectedPeople
             // 
@@ -93,19 +95,19 @@
             this.txtAdditionalThings.Size = new System.Drawing.Size(203, 28);
             this.txtAdditionalThings.TabIndex = 7;
             // 
-            // jj
+            // lblat
             // 
-            this.jj.AutoSize = true;
-            this.jj.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jj.Location = new System.Drawing.Point(524, 349);
-            this.jj.Name = "jj";
-            this.jj.Size = new System.Drawing.Size(198, 29);
-            this.jj.TabIndex = 8;
-            this.jj.Text = "addition things :";
+            this.lblat.AutoSize = true;
+            this.lblat.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblat.Location = new System.Drawing.Point(524, 349);
+            this.lblat.Name = "lblat";
+            this.lblat.Size = new System.Drawing.Size(198, 29);
+            this.lblat.TabIndex = 8;
+            this.lblat.Text = "addition things :";
             // 
             // btnsend
             // 
-            this.btnsend.Location = new System.Drawing.Point(734, 469);
+            this.btnsend.Location = new System.Drawing.Point(780, 414);
             this.btnsend.Name = "btnsend";
             this.btnsend.Size = new System.Drawing.Size(144, 47);
             this.btnsend.TabIndex = 9;
@@ -115,25 +117,48 @@
             // 
             // dtpEventDate
             // 
-            this.dtpEventDate.Location = new System.Drawing.Point(734, 222);
+            this.dtpEventDate.Location = new System.Drawing.Point(748, 222);
             this.dtpEventDate.Name = "dtpEventDate";
             this.dtpEventDate.Size = new System.Drawing.Size(200, 22);
             this.dtpEventDate.TabIndex = 10;
+            // 
+            // btnlogout
+            // 
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.Location = new System.Drawing.Point(1, 469);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(281, 78);
+            this.btnlogout.TabIndex = 11;
+            this.btnlogout.Text = "Return To  The Main Page";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
+            // 
+            // lblmessage
+            // 
+            this.lblmessage.AutoSize = true;
+            this.lblmessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmessage.Location = new System.Drawing.Point(755, 87);
+            this.lblmessage.Name = "lblmessage";
+            this.lblmessage.Size = new System.Drawing.Size(169, 29);
+            this.lblmessage.TabIndex = 12;
+            this.lblmessage.Text = "ReserveHalls";
             // 
             // reserve_halls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1453, 647);
+            this.ClientSize = new System.Drawing.Size(1453, 547);
+            this.Controls.Add(this.lblmessage);
+            this.Controls.Add(this.btnlogout);
             this.Controls.Add(this.dtpEventDate);
             this.Controls.Add(this.btnsend);
-            this.Controls.Add(this.jj);
+            this.Controls.Add(this.lblat);
             this.Controls.Add(this.txtAdditionalThings);
             this.Controls.Add(this.txtExpectedPeople);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblenop);
             this.Controls.Add(this.txtEventType);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbled);
+            this.Controls.Add(this.lblet);
             this.Name = "reserve_halls";
             this.Text = "reserve_halls";
             this.Load += new System.EventHandler(this.reserve_halls_Load);
@@ -143,14 +168,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblet;
+        private System.Windows.Forms.Label lbled;
         private System.Windows.Forms.TextBox txtEventType;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblenop;
         private System.Windows.Forms.TextBox txtExpectedPeople;
         private System.Windows.Forms.TextBox txtAdditionalThings;
-        private System.Windows.Forms.Label jj;
+        private System.Windows.Forms.Label lblat;
         private System.Windows.Forms.Button btnsend;
         private System.Windows.Forms.DateTimePicker dtpEventDate;
+        private System.Windows.Forms.Button btnlogout;
+        private System.Windows.Forms.Label lblmessage;
     }
 }

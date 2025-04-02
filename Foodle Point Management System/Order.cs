@@ -13,18 +13,18 @@ namespace Foodle_Point_Management_System
         private string _connectionString;
         public string OrderID { get; private set; }
         public string CustomerID { get; private set; }
-        public List<CartItem> Items { get; private set; }
+        public List<MenuItemCartItem> Items { get; private set; }
         public string ChefEmployeeID { get; private set; }
         public string OrderStatus { get; private set; } = "Confirmed";
         public DateTime DateOfOrder { get; private set; }
 
-        public Order(string connectionString, string customerID, List<CartItem> items)
+        public Order(string connectionString, string customerID, List<MenuItemCartItem> items,DateTime dateOfOrder)
         {
             _connectionString = connectionString;
             OrderID = Guid.NewGuid().ToString("N");
             CustomerID = customerID;
             Items = items;
-            DateOfOrder = DateTime.Now;
+            DateOfOrder = dateOfOrder;
             ChefEmployeeID = GetAvailableChef(); // Dynamically assign a chef
         }
 
@@ -55,45 +55,40 @@ namespace Foodle_Point_Management_System
         // ✅ Save Order to Database
         public bool SaveOrder()
         {
+            // Create the SQL insert statement to save the order with the current date
+            string query = @"INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, DateOfOrder, OrderStatus, ChefEmployeeID)
+                     VALUES (@OrderID, @ItemNumber, @CustomerID, @DateOfOrder, @OrderStatus, @ChefEmployeeID)";
+
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                SqlTransaction transaction = conn.BeginTransaction();
 
-                try
+                foreach (var cartItem in Items)
                 {
-                    foreach (CartItem item in Items)
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        string uniqueOrderID = Guid.NewGuid().ToString("N"); // ✅ Generate a UNIQUE OrderID for each item
-
-                        string query = "INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus) " +
-                                       "VALUES (@OrderID, @ItemNumber, @CustomerID, @ChefEmployeeID, @DateOfOrder, @OrderStatus)";
-
-                        using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                        // Create a new OrderID
+                        string orderID = Guid.NewGuid().ToString();
+                        // Assign the ChefEmployeeID (default to 'EMP001' if not available)
+                        string chefEmployeeID = "EMP001";
+                        DateTime dateOfOrder = DateTime.Now;
+                        cmd.Parameters.AddWithValue("@OrderID", orderID);
+                        cmd.Parameters.AddWithValue("@ItemNumber", cartItem.ItemNumber);
+                        cmd.Parameters.AddWithValue("@CustomerID", this.CustomerID);
+                        cmd.Parameters.AddWithValue("@DateOfOrder", this.DateOfOrder);
+                        cmd.Parameters.AddWithValue("@OrderStatus", "Confirmed");  // Set the initial status to Confirmed
+                        cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected <= 0)
                         {
-                            cmd.Parameters.AddWithValue("@OrderID", uniqueOrderID);
-                            cmd.Parameters.AddWithValue("@ItemNumber", item.ItemNumber);
-                            cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
-                            cmd.Parameters.AddWithValue("@ChefEmployeeID", ChefEmployeeID);
-                            cmd.Parameters.AddWithValue("@DateOfOrder", DateOfOrder);
-                            cmd.Parameters.AddWithValue("@OrderStatus", OrderStatus);
-
-                            cmd.ExecuteNonQuery();
+                            return false;  // If insertion fails for any item, return false
                         }
                     }
-
-                    transaction.Commit();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    MessageBox.Show("Error processing payment: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
                 }
             }
-        }
+
+            return true;
 
 
-    }
+        }  }
 }

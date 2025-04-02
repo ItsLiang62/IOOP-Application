@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,24 +19,6 @@ namespace Foodle_Point_Management_System
         private InputChecker myChecker = new InputChecker();
 
         private string EmployeeID
-        { get; set; }
-
-        private string InputFullName
-        { get; set; }
-
-        private string InputPosition
-        { get; set; }
-
-        private string InputGender
-        { get; set; }
-
-        private string InputDOB
-        { get; set; }
-
-        private string InputPhoneNum
-        { get; set; }
-
-        private string InputEmail
         { get; set; }
 
         private string FullName
@@ -81,23 +63,16 @@ namespace Foodle_Point_Management_System
         {
             string messageBoxErrorMessage;
 
-            InputFullName = txtName.Text;
-            InputPosition = cmbPosition.Text;
-            InputGender = cmbGender.Text;
-            InputEmail = txtEmail.Text;
-            InputPhoneNum = txtPhoneNum.Text;
-            InputDOB = txtDOB.Text;
-            Password = txtPassword.Text;
-
             if (AllInputValid(out messageBoxErrorMessage))
             {
-                FullName = InputFullName;
-                Gender = InputGender;
-                Position = InputPosition;
-                Email = InputEmail;
-                PhoneNum = InputPhoneNum;
-                DOB = InputDOB;
                 EmployeeID = myEmployeeTable.GetNewEmployeeID(Position);
+                FullName = txtName.Text;
+                Position = cmbPosition.Text;
+                Gender = cmbGender.Text;
+                Email = txtEmail.Text;
+                PhoneNum = txtPhoneNum.Text;
+                DOB = txtDOB.Text;
+                Password = txtPassword.Text;
 
                 try
                 {
@@ -128,12 +103,12 @@ namespace Foodle_Point_Management_System
 
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
-            bool validName = myChecker.IsTextOnly(InputFullName, out string eName, "Full Name");
-            bool validDate = myChecker.IsValidDate(InputDOB, out string eDOB);
-            bool validEmail = myChecker.IsValidEmail(InputEmail, out string eEmail);
-            bool validPhoneNum = myChecker.IsValidPhoneNumber(InputPhoneNum, out string ePhoneNum);
-            bool validGender = !myChecker.IsEmptyInput(InputGender, out string eGender, "Gender");
-            bool validPosition = !myChecker.IsEmptyInput(InputPosition, out string ePosition, "Position");
+            bool validName = myChecker.IsTextOnly(txtName.Text, out string eName, "Full Name");
+            bool validDate = myChecker.IsValidDate(txtDOB.Text, out string eDOB);
+            bool validEmail = myChecker.IsValidEmail(txtEmail.Text, out string eEmail);
+            bool validPhoneNum = myChecker.IsValidPhoneNumber(txtPhoneNum.Text, out string ePhoneNum);
+            bool validGender = !myChecker.IsEmptyInput(cmbGender.Text, out string eGender, "Gender");
+            bool validPosition = !myChecker.IsEmptyInput(cmbPosition.Text, out string ePosition, "Position");
 
             messageBoxErrorMessage = String.Empty;
 
@@ -154,10 +129,6 @@ namespace Foodle_Point_Management_System
                 return true;
             }
         }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+                  
     }
 }
