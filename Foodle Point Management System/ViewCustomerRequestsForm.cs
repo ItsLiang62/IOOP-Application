@@ -20,7 +20,7 @@ namespace Foodle_Point_Management_System
             this.ResvCoordinatorUser = ResvCoordinatorUser;
             InitializeComponent();
             InitializeReservationListView();
-            LoadPendingRequests();
+            LoadReservations();
         }
         private void InitializeReservationListView()
         {
@@ -40,7 +40,7 @@ namespace Foodle_Point_Management_System
             lvReservations.View = View.Details;
             lvReservations.FullRowSelect = true;
         }
-        private void LoadPendingRequests()
+        private void LoadReservations()
         {
             lvReservations.Items.Clear();
 
@@ -50,14 +50,15 @@ namespace Foodle_Point_Management_System
             {
                 var rowValues = reservationTable.GetRowValues(id.ToString());
 
-                ListViewItem item = new ListViewItem(rowValues[0].ToString()); 
+                ListViewItem item = new ListViewItem(rowValues[0].ToString());
+                item.SubItems.Add(rowValues[1].ToString());
                 item.SubItems.Add(rowValues[2].ToString());
                 item.SubItems.Add(rowValues[3].ToString());
-                item.SubItems.Add(rowValues[4].ToString()); 
-                item.SubItems.Add(rowValues[5].ToString()); 
-                item.SubItems.Add(rowValues[6].ToString()); 
-                item.SubItems.Add(rowValues[7]?.ToString() ?? ""); 
-                item.SubItems.Add(rowValues[8]?.ToString() ?? ""); 
+                item.SubItems.Add(rowValues[4].ToString());
+                item.SubItems.Add(rowValues[5].ToString());
+                item.SubItems.Add(rowValues[6].ToString());
+                item.SubItems.Add(rowValues[7]?.ToString() ?? "");
+                item.SubItems.Add(rowValues[8]?.ToString() ?? "");
 
                 lvReservations.Items.Add(item);
             }
@@ -77,7 +78,7 @@ namespace Foodle_Point_Management_System
 
                 Send_Reply replyForm = new Send_Reply(ResvCoordinatorUser, reservationID, currentResponse);
                 replyForm.ShowDialog();
-                LoadPendingRequests();
+                LoadReservations();
             }
             else
             {

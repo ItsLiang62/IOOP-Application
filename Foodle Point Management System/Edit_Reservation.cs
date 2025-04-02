@@ -102,9 +102,5 @@ namespace Foodle_Point_Management_System
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void Edit_Reservation_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }
