@@ -33,14 +33,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSales = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnClearFilter = new System.Windows.Forms.Button();
+            this.btnGR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(743, 87);
+            this.btnFilter.Location = new System.Drawing.Point(747, 72);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(146, 47);
+            this.btnFilter.Size = new System.Drawing.Size(154, 47);
             this.btnFilter.TabIndex = 0;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
@@ -62,7 +66,7 @@
             "October",
             "November",
             "December"});
-            this.cmbMonth.Location = new System.Drawing.Point(502, 87);
+            this.cmbMonth.Location = new System.Drawing.Point(490, 72);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(121, 33);
             this.cmbMonth.TabIndex = 1;
@@ -71,7 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 98);
+            this.label1.Location = new System.Drawing.Point(194, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 25);
             this.label1.TabIndex = 2;
@@ -80,7 +84,7 @@
             // dgvSales
             // 
             this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSales.Location = new System.Drawing.Point(167, 166);
+            this.dgvSales.Location = new System.Drawing.Point(177, 282);
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.RowHeadersWidth = 82;
             this.dgvSales.RowTemplate.Height = 33;
@@ -90,7 +94,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(489, 545);
+            this.btnBack.Location = new System.Drawing.Point(338, 652);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(134, 47);
             this.btnBack.TabIndex = 4;
@@ -98,11 +102,61 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(194, 171);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Select Year:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+            "2031",
+            "2032",
+            "2033",
+            "2034"});
+            this.comboBox1.Location = new System.Drawing.Point(490, 163);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 33);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // btnClearFilter
+            // 
+            this.btnClearFilter.Location = new System.Drawing.Point(747, 150);
+            this.btnClearFilter.Name = "btnClearFilter";
+            this.btnClearFilter.Size = new System.Drawing.Size(154, 46);
+            this.btnClearFilter.TabIndex = 7;
+            this.btnClearFilter.Text = "Clear Filter";
+            this.btnClearFilter.UseVisualStyleBackColor = true;
+            // 
+            // btnGR
+            // 
+            this.btnGR.Location = new System.Drawing.Point(612, 652);
+            this.btnGR.Name = "btnGR";
+            this.btnGR.Size = new System.Drawing.Size(196, 47);
+            this.btnGR.TabIndex = 8;
+            this.btnGR.Text = "Generate Report";
+            this.btnGR.UseVisualStyleBackColor = true;
+            // 
             // ViewSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 647);
+            this.ClientSize = new System.Drawing.Size(1157, 725);
+            this.Controls.Add(this.btnGR);
+            this.Controls.Add(this.btnClearFilter);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvSales);
             this.Controls.Add(this.label1);
@@ -110,6 +164,7 @@
             this.Controls.Add(this.btnFilter);
             this.Name = "ViewSales";
             this.Text = "ViewSales";
+            this.Load += new System.EventHandler(this.ViewSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,5 +178,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSales;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnClearFilter;
+        private System.Windows.Forms.Button btnGR;
     }
 }

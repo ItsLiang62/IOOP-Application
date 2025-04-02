@@ -49,7 +49,12 @@ namespace Foodle_Point_Management_System
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void ViewSales_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
