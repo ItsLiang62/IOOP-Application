@@ -41,5 +41,15 @@ namespace Foodle_Point_Management_System
         {
 
         }
+
+        private void cmbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
