@@ -82,6 +82,7 @@
             // 
             // dgvSales
             // 
+            this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSales.Location = new System.Drawing.Point(85, 286);
             this.dgvSales.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
