@@ -153,7 +153,7 @@ namespace Foodle_Point_Management_System
             return suitableHalls;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAssignHall_Click(object sender, EventArgs e)
         {
             if (lvReservations.SelectedItems.Count > 0)
             {
