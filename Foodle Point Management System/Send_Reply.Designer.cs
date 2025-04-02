@@ -28,25 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvReservations = new System.Windows.Forms.DataGridView();
             this.txtReply = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.lvReservations = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // dgvReservations
-            // 
-            this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservations.Location = new System.Drawing.Point(67, 37);
-            this.dgvReservations.Name = "dgvReservations";
-            this.dgvReservations.RowHeadersWidth = 51;
-            this.dgvReservations.RowTemplate.Height = 27;
-            this.dgvReservations.Size = new System.Drawing.Size(655, 150);
-            this.dgvReservations.TabIndex = 0;
             // 
             // txtReply
             // 
-            this.txtReply.Location = new System.Drawing.Point(67, 232);
+            this.txtReply.Location = new System.Drawing.Point(67, 299);
             this.txtReply.Name = "txtReply";
             this.txtReply.Size = new System.Drawing.Size(655, 25);
             this.txtReply.TabIndex = 1;
@@ -59,27 +49,47 @@
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(25, 29);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(150, 59);
+            this.btnBack.TabIndex = 30;
+            this.btnBack.Text = "Back to Reservation list";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // lvReservations
+            // 
+            this.lvReservations.HideSelection = false;
+            this.lvReservations.Location = new System.Drawing.Point(12, 95);
+            this.lvReservations.Name = "lvReservations";
+            this.lvReservations.Size = new System.Drawing.Size(776, 198);
+            this.lvReservations.TabIndex = 31;
+            this.lvReservations.UseCompatibleStateImageBehavior = false;
             // 
             // Send_Reply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lvReservations);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtReply);
-            this.Controls.Add(this.dgvReservations);
             this.Name = "Send_Reply";
             this.Text = "Send_Reply";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvReservations;
         private System.Windows.Forms.TextBox txtReply;
         private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ListView lvReservations;
     }
 }

@@ -34,6 +34,8 @@
             this.btnUpdateReservationStatus = new System.Windows.Forms.Button();
             this.btnViewCustomerRequests = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.sqlDataAdapter1 = new Microsoft.Data.SqlClient.SqlDataAdapter();
             this.SuspendLayout();
             // 
             // btnManageReservations
@@ -100,11 +102,22 @@
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
             this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(8, 9);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(146, 51);
+            this.btnBack.TabIndex = 6;
+            this.btnBack.Text = "Back to Main Page";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Resv_Main_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewCustomerRequests);
             this.Controls.Add(this.btnUpdateReservationStatus);
@@ -114,7 +127,6 @@
             this.Name = "Resv_Main_Page";
             this.Text = "Resv_Main_Page";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Resv_Main_Page_FormClosing);
-            this.Load += new System.EventHandler(this.Resv_Main_Page_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +140,7 @@
         private System.Windows.Forms.Button btnUpdateReservationStatus;
         private System.Windows.Forms.Button btnViewCustomerRequests;
         private System.Windows.Forms.Button btnUpdateProfile;
+        private System.Windows.Forms.Button btnBack;
+        private Microsoft.Data.SqlClient.SqlDataAdapter sqlDataAdapter1;
     }
 }
