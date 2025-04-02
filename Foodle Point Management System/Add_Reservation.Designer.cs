@@ -270,7 +270,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Add_Reservation";
             this.Text = "Add_Reservation";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Reservation_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

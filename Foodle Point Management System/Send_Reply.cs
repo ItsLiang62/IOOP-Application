@@ -99,10 +99,5 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show($"Error sending reply: {ex.Message}");
             }
         }
-
-        private void Send_Reply_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }
