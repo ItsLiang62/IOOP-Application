@@ -104,7 +104,6 @@
             this.Name = "AdminHomePage";
             this.Text = "AdminHomePage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminHomePage_FormClosing);
-            this.Load += new System.EventHandler(this.AdminHomePage_Load);
             this.ResumeLayout(false);
 
         }

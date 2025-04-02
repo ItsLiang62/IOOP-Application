@@ -35,50 +35,39 @@ namespace Foodle_Point_Management_System
         {
             UserManagement UserForm = new UserManagement(currentAdmin);
             this.Hide(); // Hide AdminHomePage
-            UserForm.ShowDialog(); // Open in modal mode (prevents external window behavior)
-            this.Show(); // Show AdminHomePage again when ManageUsers closes
-        }
+            UserForm.Show();        }
 
         private void btnViewSalesReport_Click(object sender, EventArgs e)
         {
             ViewSales SalesForm = new ViewSales(currentAdmin);
             this.Hide();
-            SalesForm.ShowDialog(); 
-            this.Show(); 
+            SalesForm.Show(); 
         }
 
         private void btnViewFeedback_Click(object sender, EventArgs e)
         {
             ViewCustomerFeedback FeedbackForm = new ViewCustomerFeedback(currentAdmin);
             this.Hide();
-            FeedbackForm.ShowDialog(); 
-            this.Show(); 
+            FeedbackForm.Show(); 
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
             UpdateProfile ProfileForm = new UpdateProfile(currentAdmin);
             this.Hide();
-            ProfileForm.ShowDialog(); 
-            this.Show(); 
+            ProfileForm.Show(); 
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             frmMain frmMain = new frmMain();
             this.Hide(); 
-            frmMain.ShowDialog(); 
-            this.Show(); 
-        }
-
-        private void AdminHomePage_Load(object sender, EventArgs e)
-        {
-
+            frmMain.Show(); 
         }
 
         private void AdminHomePage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
+            Application.Exit();
         }
     }
 }
