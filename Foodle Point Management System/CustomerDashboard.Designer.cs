@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.btnOrderFood = new System.Windows.Forms.Button();
             this.btnViewOrders = new System.Windows.Forms.Button();
             this.btnFeedback = new System.Windows.Forms.Button();
@@ -37,15 +37,15 @@
             this.btnlogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblWelcome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(401, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(538, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome , what would you want to do?";
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(401, 45);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(538, 32);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "Welcome , what would you want to do?";
             // 
             // btnOrderFood
             // 
@@ -105,7 +105,7 @@
             // btnlogout
             // 
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlogout.Location = new System.Drawing.Point(0, 558);
+            this.btnlogout.Location = new System.Drawing.Point(3, 518);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(281, 78);
             this.btnlogout.TabIndex = 6;
@@ -117,14 +117,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 648);
+            this.ClientSize = new System.Drawing.Size(1358, 600);
             this.Controls.Add(this.btnlogout);
             this.Controls.Add(this.btnReservation);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnFeedback);
             this.Controls.Add(this.btnViewOrders);
             this.Controls.Add(this.btnOrderFood);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblWelcome);
             this.Name = "CustomerDashboard";
             this.Text = "CustomerDashboard";
             this.Load += new System.EventHandler(this.CustomerDashboard_Load);
@@ -135,7 +135,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnOrderFood;
         private System.Windows.Forms.Button btnViewOrders;
         private System.Windows.Forms.Button btnFeedback;

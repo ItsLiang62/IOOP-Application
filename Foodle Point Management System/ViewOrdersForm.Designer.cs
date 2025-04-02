@@ -34,7 +34,7 @@
             this.tabOrders = new System.Windows.Forms.TabPage();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.btnreturn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblmessage = new System.Windows.Forms.Label();
             this.tabReservations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             this.tabControlOrders.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.tabControlOrders.Controls.Add(this.tabOrders);
             this.tabControlOrders.Controls.Add(this.tabReservations);
-            this.tabControlOrders.Location = new System.Drawing.Point(182, 49);
+            this.tabControlOrders.Location = new System.Drawing.Point(191, 12);
             this.tabControlOrders.Name = "tabControlOrders";
             this.tabControlOrders.SelectedIndex = 0;
             this.tabControlOrders.Size = new System.Drawing.Size(996, 464);
@@ -88,7 +88,7 @@
             // dgvOrders
             // 
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(3, -25);
+            this.dgvOrders.Location = new System.Drawing.Point(6, 0);
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.RowHeadersWidth = 51;
             this.dgvOrders.RowTemplate.Height = 24;
@@ -99,7 +99,7 @@
             // btnreturn
             // 
             this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreturn.Location = new System.Drawing.Point(12, 515);
+            this.btnreturn.Location = new System.Drawing.Point(12, 481);
             this.btnreturn.Name = "btnreturn";
             this.btnreturn.Size = new System.Drawing.Size(281, 78);
             this.btnreturn.TabIndex = 14;
@@ -107,22 +107,22 @@
             this.btnreturn.UseVisualStyleBackColor = true;
             this.btnreturn.Click += new System.EventHandler(this.btnreturn_Click);
             // 
-            // label1
+            // lblmessage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(402, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(470, 29);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "To View Your Orders And Reservations";
+            this.lblmessage.AutoSize = true;
+            this.lblmessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmessage.Location = new System.Drawing.Point(402, -4);
+            this.lblmessage.Name = "lblmessage";
+            this.lblmessage.Size = new System.Drawing.Size(470, 29);
+            this.lblmessage.TabIndex = 15;
+            this.lblmessage.Text = "To View Your Orders And Reservations";
             // 
             // ViewOrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1749, 598);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblmessage);
             this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.tabControlOrders);
             this.Name = "ViewOrdersForm";
@@ -146,6 +146,6 @@
         private System.Windows.Forms.TabPage tabOrders;
         private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.Button btnreturn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblmessage;
     }
 }
