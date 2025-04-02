@@ -119,10 +119,13 @@ namespace Foodle_Point_Management_System
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            //AddUser AddUserForm = new AddUser(currentAdmin);
-            //this.Hide(); // Hide AdminHomePage
-            //AddUserForm.ShowDialog(); // Open in modal mode (prevents external window behavior)
-            //this.Show(); // Show AdminHomePage again when ManageUsers closes
+            // Create and show AddUser form in a modal way
+            AddUser addUserForm = new AddUser(currentAdmin);
+            addUserForm.ShowDialog(); // This pauses here until AddUser is closed
+
+            // After closing the AddUser form, reload the data in UserManagement
+            LoadEmployeeData(); // Refresh the DataGridView with new user data
+
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -142,6 +145,56 @@ namespace Foodle_Point_Management_System
             else
             {
                 MessageBox.Show("Please select a user to edit.");
+            }
+        }
+
+
+
+
+
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            // Check if any row is selected
+            if (dgvUsers.SelectedRows.Count > 0)
+            {
+                // Get the EmployeeID of the selected row
+                string selectedID = dgvUsers.SelectedRows[0].Cells["ID"].Value.ToString();
+
+                // Ask for confirmation
+                DialogResult confirm = MessageBox.Show(
+                    $"Are you sure you want to delete Employee ID {selectedID}?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Create a new EmployeeTable instance to access methods
+                        EmployeeTable empTable = new EmployeeTable();
+                        // Delete the row from the database using the Employee ID
+                        empTable.DeleteRow(selectedID);  // Make sure this method is implemented correctly
+
+                        // Display success message
+                        MessageBox.Show("User deleted successfully!");
+
+                        // Reload the data in DataGridView to refresh the UI
+                        LoadEmployeeData();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Display error message if deletion fails
+                        MessageBox.Show($"Error deleting user: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                // If no row is selected, show an alert message
+                MessageBox.Show("Please select a user to delete.");
             }
         }
     }

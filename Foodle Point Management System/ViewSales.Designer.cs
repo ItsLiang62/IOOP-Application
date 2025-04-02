@@ -31,9 +31,9 @@
             this.btnFilter = new System.Windows.Forms.Button();
             this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewSales = new System.Windows.Forms.DataGridView();
+            this.dgvSales = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFilter
@@ -44,14 +44,29 @@
             this.btnFilter.TabIndex = 0;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // cmbMonth
             // 
             this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
             this.cmbMonth.Location = new System.Drawing.Point(502, 87);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(121, 33);
             this.cmbMonth.TabIndex = 1;
+            this.cmbMonth.SelectedIndexChanged += new System.EventHandler(this.cmbMonth_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -62,16 +77,16 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Select Month:";
             // 
-            // dataGridViewSales
+            // dgvSales
             // 
-            this.dataGridViewSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSales.Location = new System.Drawing.Point(167, 166);
-            this.dataGridViewSales.Name = "dataGridViewSales";
-            this.dataGridViewSales.RowHeadersWidth = 82;
-            this.dataGridViewSales.RowTemplate.Height = 33;
-            this.dataGridViewSales.Size = new System.Drawing.Size(796, 343);
-            this.dataGridViewSales.TabIndex = 3;
-            this.dataGridViewSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSales_CellContentClick);
+            this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSales.Location = new System.Drawing.Point(167, 166);
+            this.dgvSales.Name = "dgvSales";
+            this.dgvSales.RowHeadersWidth = 82;
+            this.dgvSales.RowTemplate.Height = 33;
+            this.dgvSales.Size = new System.Drawing.Size(796, 343);
+            this.dgvSales.TabIndex = 3;
+            this.dgvSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSales_CellContentClick);
             // 
             // btnBack
             // 
@@ -89,13 +104,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 647);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.dataGridViewSales);
+            this.Controls.Add(this.dgvSales);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbMonth);
             this.Controls.Add(this.btnFilter);
             this.Name = "ViewSales";
             this.Text = "ViewSales";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,7 +121,7 @@
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.ComboBox cmbMonth;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridViewSales;
+        private System.Windows.Forms.DataGridView dgvSales;
         private System.Windows.Forms.Button btnBack;
     }
 }
