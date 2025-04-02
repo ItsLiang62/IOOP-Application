@@ -37,14 +37,15 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvwHallReservation = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnManagerMain
             // 
             this.btnManagerMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagerMain.Location = new System.Drawing.Point(31, 25);
+            this.btnManagerMain.Location = new System.Drawing.Point(31, 27);
             this.btnManagerMain.Name = "btnManagerMain";
-            this.btnManagerMain.Size = new System.Drawing.Size(118, 42);
+            this.btnManagerMain.Size = new System.Drawing.Size(118, 45);
             this.btnManagerMain.TabIndex = 12;
             this.btnManagerMain.Text = "Back";
             this.btnManagerMain.UseVisualStyleBackColor = true;
@@ -54,7 +55,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(218, 45);
+            this.lblTitle.Location = new System.Drawing.Point(218, 48);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(376, 38);
             this.lblTitle.TabIndex = 13;
@@ -87,7 +88,7 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Status";
+            this.columnHeader6.Text = "ExpectedCount";
             this.columnHeader6.Width = 50;
             // 
             // lvwHallReservation
@@ -98,24 +99,29 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7});
             this.lvwHallReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvwHallReservation.FullRowSelect = true;
             this.lvwHallReservation.GridLines = true;
             this.lvwHallReservation.HideSelection = false;
-            this.lvwHallReservation.Location = new System.Drawing.Point(59, 111);
+            this.lvwHallReservation.Location = new System.Drawing.Point(59, 118);
             this.lvwHallReservation.Name = "lvwHallReservation";
             this.lvwHallReservation.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lvwHallReservation.Size = new System.Drawing.Size(668, 284);
+            this.lvwHallReservation.Size = new System.Drawing.Size(668, 303);
             this.lvwHallReservation.TabIndex = 0;
             this.lvwHallReservation.UseCompatibleStateImageBehavior = false;
             this.lvwHallReservation.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Status";
+            // 
             // frmViewHallReservations
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 422);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnManagerMain);
             this.Controls.Add(this.lvwHallReservation);
@@ -137,5 +143,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ListView lvwHallReservation;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
