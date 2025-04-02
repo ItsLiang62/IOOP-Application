@@ -274,9 +274,10 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
-                string query = "DELETE * FROM Employee WHERE EmployeeID = @EmployeeID";
+                string query = "DELETE FROM Employee WHERE EmployeeID = @EmployeeID";
 
-                
+
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@EmployeeID", employeeID);

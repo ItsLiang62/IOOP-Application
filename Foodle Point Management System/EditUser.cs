@@ -49,6 +49,32 @@ namespace Foodle_Point_Management_System
 
         }
 
+        private bool ValidateInputs()
+        {
+            // Validate Username
+            if (string.IsNullOrWhiteSpace(txtUsernameE.Text))
+            {
+                MessageBox.Show("Username cannot be empty.");
+                return false;
+            }
+
+            // Validate Email
+            if (string.IsNullOrWhiteSpace(txtEmailE.Text) || !txtEmailE.Text.Contains("@"))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return false;
+            }
+
+            // Validate Phone Number (ensure it's at least 10 characters long)
+            if (string.IsNullOrWhiteSpace(txtPhoneNumberE.Text) || txtPhoneNumberE.Text.Length < 10)
+            {
+                MessageBox.Show("Please enter a valid phone number.");
+                return false;
+            }
+
+            return true;
+        }
+
 
         private void EditUser_Load(object sender, EventArgs e)
         {
@@ -67,23 +93,29 @@ namespace Foodle_Point_Management_System
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            try
+            if (ValidateInputs())  // Only proceed if the inputs are valid
             {
-                EmployeeTable empTable = new EmployeeTable();
+                try
+                {
+                    EmployeeTable empTable = new EmployeeTable();
 
-                empTable.UpdateValue(employeeID, "EmployeeName", txtUsernameE.Text);
-                empTable.UpdateValue(employeeID, "Position", cmbRoleE.Text);
-                empTable.UpdateValue(employeeID, "Email", txtEmailE.Text);
-                empTable.UpdateValue(employeeID, "PhoneNumber", txtPhoneNumberE.Text);
+                    // Save the updated user data to the database
+                    empTable.UpdateValue(employeeID, "EmployeeName", txtUsernameE.Text);
+                    empTable.UpdateValue(employeeID, "Position", cmbRoleE.Text);
+                    empTable.UpdateValue(employeeID, "Email", txtEmailE.Text);
+                    empTable.UpdateValue(employeeID, "PhoneNumber", txtPhoneNumberE.Text);
 
-                MessageBox.Show("User profile updated successfully!");
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating user: " + ex.Message);
+                    MessageBox.Show("User profile updated successfully!");
+                    this.Close(); // Close the form after successful save
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating user: " + ex.Message);
+                }
             }
         }
+
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -101,6 +133,11 @@ namespace Foodle_Point_Management_System
 
             // Show the UserManagement form
             userManagementForm.Show();
+        }
+
+        private void EditUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

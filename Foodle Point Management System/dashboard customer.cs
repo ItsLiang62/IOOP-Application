@@ -16,5 +16,10 @@ namespace Foodle_Point_Management_System
         {
             InitializeComponent();
         }
+
+        private void dashboard_customer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

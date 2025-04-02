@@ -101,5 +101,9 @@ namespace Foodle_Point_Management_System
             }
         }
 
+        private void UpdateReservationStatusForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

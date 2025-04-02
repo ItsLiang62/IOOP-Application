@@ -127,6 +127,7 @@
             this.Controls.Add(this.lblWelcome);
             this.Name = "CustomerDashboard";
             this.Text = "CustomerDashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerDashboard_FormClosing);
             this.Load += new System.EventHandler(this.CustomerDashboard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

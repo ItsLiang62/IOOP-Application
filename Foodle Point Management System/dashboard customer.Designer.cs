@@ -81,6 +81,7 @@
             this.Controls.Add(this.order);
             this.Name = "dashboard_customer";
             this.Text = "dashboard_customer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.dashboard_customer_FormClosing);
             this.ResumeLayout(false);
 
         }

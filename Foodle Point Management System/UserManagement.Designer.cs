@@ -40,19 +40,21 @@
             // dgvUsers
             // 
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(28, 161);
+            this.dgvUsers.Location = new System.Drawing.Point(19, 103);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 82;
             this.dgvUsers.RowTemplate.Height = 33;
-            this.dgvUsers.Size = new System.Drawing.Size(1206, 606);
+            this.dgvUsers.Size = new System.Drawing.Size(804, 388);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(1270, 323);
+            this.btnAddUser.Location = new System.Drawing.Point(847, 207);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(155, 58);
+            this.btnAddUser.Size = new System.Drawing.Size(103, 37);
             this.btnAddUser.TabIndex = 1;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
@@ -60,9 +62,10 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(1270, 431);
+            this.btnEditUser.Location = new System.Drawing.Point(847, 276);
+            this.btnEditUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(155, 56);
+            this.btnEditUser.Size = new System.Drawing.Size(103, 36);
             this.btnEditUser.TabIndex = 2;
             this.btnEditUser.Text = "Edit User";
             this.btnEditUser.UseVisualStyleBackColor = true;
@@ -70,27 +73,31 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(1270, 534);
+            this.btnDeleteUser.Location = new System.Drawing.Point(847, 342);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(155, 53);
+            this.btnDeleteUser.Size = new System.Drawing.Size(103, 34);
             this.btnDeleteUser.TabIndex = 3;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 61);
+            this.label1.Location = new System.Drawing.Point(15, 39);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 25);
+            this.label1.Size = new System.Drawing.Size(96, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Manage Users";
             // 
             // Back
             // 
-            this.Back.Location = new System.Drawing.Point(608, 833);
+            this.Back.Location = new System.Drawing.Point(405, 533);
+            this.Back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(131, 49);
+            this.Back.Size = new System.Drawing.Size(87, 31);
             this.Back.TabIndex = 5;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = true;
@@ -98,17 +105,19 @@
             // 
             // UserManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 935);
+            this.ClientSize = new System.Drawing.Size(970, 598);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnEditUser);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.dgvUsers);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UserManagement";
             this.Text = "UserManagement";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserManagement_FormClosing);
             this.Load += new System.EventHandler(this.UserManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);

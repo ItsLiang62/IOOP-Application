@@ -29,7 +29,7 @@ namespace Foodle_Point_Management_System
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            this.Hide();
         }
 
         private void btnConfirmAdd_Click(object sender, EventArgs e)
@@ -60,12 +60,17 @@ namespace Foodle_Point_Management_System
                 );
 
                 MessageBox.Show("Reservation added successfully!");
-                this.Close();
+                this.Hide();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding reservation: {ex.Message}");
             }
+        }
+
+        private void Add_Reservation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

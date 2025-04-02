@@ -84,5 +84,10 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("Please select a request to reply to.");
             }
         }
+
+        private void ViewCustomerRequestsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
