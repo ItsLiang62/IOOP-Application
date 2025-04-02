@@ -84,7 +84,14 @@ namespace Foodle_Point_Management_System
                     this.Hide();
                 }
 
-                MessageBox.Show("Login Successful");
+                else if (Position == "System Administrator")
+                {
+                    AdminHomePage systemAdministratorMainPage = new AdminHomePage(new SystemAdministrator(EmployeeID));
+                    systemAdministratorMainPage.Show();
+                    this.Hide();
+                }
+
+                    MessageBox.Show("Login Successful");
             }
             else
             {
