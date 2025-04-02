@@ -28,47 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblfeedback = new System.Windows.Forms.Label();
             this.txtFeedback = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblrating = new System.Windows.Forms.Label();
             this.numRating = new System.Windows.Forms.NumericUpDown();
             this.btnSubmitFeedback = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numRating)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblfeedback
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "\"Your Feedback:";
+            this.lblfeedback.AutoSize = true;
+            this.lblfeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfeedback.Location = new System.Drawing.Point(16, 86);
+            this.lblfeedback.Name = "lblfeedback";
+            this.lblfeedback.Size = new System.Drawing.Size(224, 32);
+            this.lblfeedback.TabIndex = 0;
+            this.lblfeedback.Text = "\"Your Feedback:";
             // 
             // txtFeedback
             // 
             this.txtFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedback.Location = new System.Drawing.Point(257, 33);
+            this.txtFeedback.Location = new System.Drawing.Point(246, 86);
             this.txtFeedback.Name = "txtFeedback";
             this.txtFeedback.Size = new System.Drawing.Size(182, 34);
             this.txtFeedback.TabIndex = 1;
             // 
-            // label2
+            // lblrating
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(78, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 32);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Rating (1-5):";
+            this.lblrating.AutoSize = true;
+            this.lblrating.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrating.Location = new System.Drawing.Point(78, 148);
+            this.lblrating.Name = "lblrating";
+            this.lblrating.Size = new System.Drawing.Size(171, 32);
+            this.lblrating.TabIndex = 2;
+            this.lblrating.Text = "Rating (1-5):";
             // 
             // numRating
             // 
             this.numRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numRating.Location = new System.Drawing.Point(308, 148);
+            this.numRating.Location = new System.Drawing.Point(273, 152);
             this.numRating.Maximum = new decimal(new int[] {
             5,
             0,
@@ -90,9 +90,10 @@
             // 
             // btnSubmitFeedback
             // 
-            this.btnSubmitFeedback.Location = new System.Drawing.Point(318, 324);
+            this.btnSubmitFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitFeedback.Location = new System.Drawing.Point(246, 214);
             this.btnSubmitFeedback.Name = "btnSubmitFeedback";
-            this.btnSubmitFeedback.Size = new System.Drawing.Size(121, 30);
+            this.btnSubmitFeedback.Size = new System.Drawing.Size(170, 61);
             this.btnSubmitFeedback.TabIndex = 4;
             this.btnSubmitFeedback.Text = "Submit";
             this.btnSubmitFeedback.UseVisualStyleBackColor = true;
@@ -101,7 +102,7 @@
             // btnlogout
             // 
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlogout.Location = new System.Drawing.Point(12, 340);
+            this.btnlogout.Location = new System.Drawing.Point(1, 294);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(281, 78);
             this.btnlogout.TabIndex = 7;
@@ -113,13 +114,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(676, 374);
             this.Controls.Add(this.btnlogout);
             this.Controls.Add(this.btnSubmitFeedback);
             this.Controls.Add(this.numRating);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblrating);
             this.Controls.Add(this.txtFeedback);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblfeedback);
             this.Name = "customereedbackForm";
             this.Text = "customereedbackForm";
             this.Load += new System.EventHandler(this.customereedbackForm_Load);
@@ -131,9 +132,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblfeedback;
         private System.Windows.Forms.TextBox txtFeedback;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblrating;
         private System.Windows.Forms.NumericUpDown numRating;
         private System.Windows.Forms.Button btnSubmitFeedback;
         private System.Windows.Forms.Button btnlogout;
