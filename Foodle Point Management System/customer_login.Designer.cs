@@ -101,7 +101,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomerLogin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

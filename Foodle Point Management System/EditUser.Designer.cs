@@ -44,25 +44,25 @@
             // lblUsernameE
             // 
             this.lblUsernameE.AutoSize = true;
-            this.lblUsernameE.Location = new System.Drawing.Point(297, 215);
+            this.lblUsernameE.Location = new System.Drawing.Point(297, 150);
             this.lblUsernameE.Name = "lblUsernameE";
-            this.lblUsernameE.Size = new System.Drawing.Size(116, 25);
+            this.lblUsernameE.Size = new System.Drawing.Size(175, 25);
             this.lblUsernameE.TabIndex = 0;
-            this.lblUsernameE.Text = "Username:";
+            this.lblUsernameE.Text = "Employee Name:";
             // 
             // lblRoleE
             // 
             this.lblRoleE.AutoSize = true;
-            this.lblRoleE.Location = new System.Drawing.Point(297, 289);
+            this.lblRoleE.Location = new System.Drawing.Point(297, 224);
             this.lblRoleE.Name = "lblRoleE";
-            this.lblRoleE.Size = new System.Drawing.Size(62, 25);
+            this.lblRoleE.Size = new System.Drawing.Size(95, 25);
             this.lblRoleE.TabIndex = 1;
-            this.lblRoleE.Text = "Role:";
+            this.lblRoleE.Text = "Position:";
             // 
             // lblEmailE
             // 
             this.lblEmailE.AutoSize = true;
-            this.lblEmailE.Location = new System.Drawing.Point(297, 374);
+            this.lblEmailE.Location = new System.Drawing.Point(297, 309);
             this.lblEmailE.Name = "lblEmailE";
             this.lblEmailE.Size = new System.Drawing.Size(71, 25);
             this.lblEmailE.TabIndex = 2;
@@ -71,7 +71,7 @@
             // lblPhoneNumberE
             // 
             this.lblPhoneNumberE.AutoSize = true;
-            this.lblPhoneNumberE.Location = new System.Drawing.Point(297, 449);
+            this.lblPhoneNumberE.Location = new System.Drawing.Point(297, 384);
             this.lblPhoneNumberE.Name = "lblPhoneNumberE";
             this.lblPhoneNumberE.Size = new System.Drawing.Size(161, 25);
             this.lblPhoneNumberE.TabIndex = 3;
@@ -79,21 +79,22 @@
             // 
             // txtUsernameE
             // 
-            this.txtUsernameE.Location = new System.Drawing.Point(628, 215);
+            this.txtUsernameE.Location = new System.Drawing.Point(628, 150);
             this.txtUsernameE.Name = "txtUsernameE";
             this.txtUsernameE.Size = new System.Drawing.Size(165, 31);
             this.txtUsernameE.TabIndex = 4;
+            this.txtUsernameE.TextChanged += new System.EventHandler(this.txtUsernameE_TextChanged);
             // 
             // txtEmailE
             // 
-            this.txtEmailE.Location = new System.Drawing.Point(628, 374);
+            this.txtEmailE.Location = new System.Drawing.Point(628, 309);
             this.txtEmailE.Name = "txtEmailE";
             this.txtEmailE.Size = new System.Drawing.Size(165, 31);
             this.txtEmailE.TabIndex = 5;
             // 
             // txtPhoneNumberE
             // 
-            this.txtPhoneNumberE.Location = new System.Drawing.Point(628, 449);
+            this.txtPhoneNumberE.Location = new System.Drawing.Point(628, 384);
             this.txtPhoneNumberE.Name = "txtPhoneNumberE";
             this.txtPhoneNumberE.Size = new System.Drawing.Size(165, 31);
             this.txtPhoneNumberE.TabIndex = 6;
@@ -101,10 +102,17 @@
             // cmbRoleE
             // 
             this.cmbRoleE.FormattingEnabled = true;
-            this.cmbRoleE.Location = new System.Drawing.Point(628, 289);
+            this.cmbRoleE.Items.AddRange(new object[] {
+            "Admin",
+            "Manager",
+            "Chef",
+            "Waiter",
+            "ReservationCoordinator"});
+            this.cmbRoleE.Location = new System.Drawing.Point(628, 224);
             this.cmbRoleE.Name = "cmbRoleE";
             this.cmbRoleE.Size = new System.Drawing.Size(165, 33);
             this.cmbRoleE.TabIndex = 7;
+            this.cmbRoleE.SelectedIndexChanged += new System.EventHandler(this.cmbRoleE_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -117,21 +125,23 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(628, 609);
+            this.btnSaveChanges.Location = new System.Drawing.Point(628, 712);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(183, 55);
             this.btnSaveChanges.TabIndex = 9;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(302, 609);
+            this.btnBack.Location = new System.Drawing.Point(302, 712);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(183, 55);
             this.btnBack.TabIndex = 10;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // EditUser
             // 
