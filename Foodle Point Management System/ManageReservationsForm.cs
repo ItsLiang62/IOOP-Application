@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -136,16 +137,16 @@ namespace Foodle_Point_Management_System
         {
             List<string> suitableHalls = new List<string>();
 
-            var hallNumbers = hallTable.GetColumnValues("HallNumber");
+            List<object> hallNumbers = hallTable.GetColumnValues("HallNumber");
 
-            foreach (string hallNumber in hallNumbers)
+            foreach (object hallNumber in hallNumbers)
             {
-                bool isAvailable = (bool)hallTable.GetValue(hallNumber, "IsAvailable");
-                int capacity = (int)hallTable.GetValue(hallNumber, "Capacity");
+                bool isAvailable = Convert.ToBoolean(hallTable.GetValue(hallNumber.ToString(), "IsAvailable"));
+                int capacity = Convert.ToInt32(hallTable.GetValue(hallNumber.ToString(), "Capacity"));
 
                 if (isAvailable && capacity >= expectedCount)
                 {
-                    suitableHalls.Add(hallNumber);
+                    suitableHalls.Add(hallNumber.ToString());
                 }
             }
 
@@ -162,9 +163,10 @@ namespace Foodle_Point_Management_System
                 try
                 {
                     var availableHalls = GetAvailableHalls(expectedCount);
+
                     if (availableHalls.Count > 0)
                     {
-                        string selectedHall = availableHalls[0]; 
+                        string selectedHall = availableHalls[0];
 
                         reservationTable.UpdateValue(reservationID, "HallNumber", selectedHall);
                         hallTable.UpdateValue(selectedHall, "IsAvailable", false);
@@ -180,13 +182,14 @@ namespace Foodle_Point_Management_System
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error: {ex.Message}");
+                    return;
                 }
             }
         }
 
         private void ManageReservationsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
+            Application.Exit();
         }
     }
 }
