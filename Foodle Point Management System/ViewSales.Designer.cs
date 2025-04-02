@@ -38,9 +38,10 @@
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(743, 87);
+            this.btnFilter.Location = new System.Drawing.Point(495, 56);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(146, 47);
+            this.btnFilter.Size = new System.Drawing.Size(97, 30);
             this.btnFilter.TabIndex = 0;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
@@ -49,6 +50,7 @@
             // cmbMonth
             // 
             this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbMonth.Items.AddRange(new object[] {
             "January",
             "February",
@@ -64,16 +66,17 @@
             "December"});
             this.cmbMonth.Location = new System.Drawing.Point(502, 87);
             this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(121, 33);
+            this.cmbMonth.Size = new System.Drawing.Size(82, 24);
             this.cmbMonth.TabIndex = 1;
             this.cmbMonth.SelectedIndexChanged += new System.EventHandler(this.cmbMonth_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 98);
+            this.label1.Location = new System.Drawing.Point(131, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 25);
+            this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Select Month:";
             // 
@@ -90,9 +93,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(489, 545);
+            this.btnBack.Location = new System.Drawing.Point(326, 349);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(134, 47);
+            this.btnBack.Size = new System.Drawing.Size(89, 30);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -100,16 +104,18 @@
             // 
             // ViewSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 647);
+            this.ClientSize = new System.Drawing.Size(771, 414);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvSales);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbMonth);
             this.Controls.Add(this.btnFilter);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewSales";
             this.Text = "ViewSales";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewSales_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

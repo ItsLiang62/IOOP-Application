@@ -149,6 +149,10 @@ namespace Foodle_Point_Management_System
         }
 
 
+        private void UserManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+
 
 
 

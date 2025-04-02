@@ -44,6 +44,10 @@ namespace Foodle_Point_Management_System
 
         }
 
+        private void AddUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+
         private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
 

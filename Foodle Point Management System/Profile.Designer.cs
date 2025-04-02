@@ -171,6 +171,7 @@
             this.Controls.Add(this.lblmessage2);
             this.Name = "Profile";
             this.Text = "Profile";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Profile_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

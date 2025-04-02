@@ -48,6 +48,11 @@ namespace Foodle_Point_Management_System
             mainpage.Show();
             this.Hide();
         }
+
+        private void Profile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
 }

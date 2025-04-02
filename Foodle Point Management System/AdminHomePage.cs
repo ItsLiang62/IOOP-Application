@@ -75,5 +75,10 @@ namespace Foodle_Point_Management_System
         {
 
         }
+
+        private void AdminHomePage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

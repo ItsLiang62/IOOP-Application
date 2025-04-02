@@ -37,9 +37,9 @@
             // btnSendReply
             // 
             this.btnSendReply.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSendReply.Location = new System.Drawing.Point(509, 333);
+            this.btnSendReply.Location = new System.Drawing.Point(509, 355);
             this.btnSendReply.Name = "btnSendReply";
-            this.btnSendReply.Size = new System.Drawing.Size(221, 55);
+            this.btnSendReply.Size = new System.Drawing.Size(221, 59);
             this.btnSendReply.TabIndex = 2;
             this.btnSendReply.Text = "Send Reply";
             this.btnSendReply.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(12, 20);
+            this.btnBack.Location = new System.Drawing.Point(12, 21);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(157, 51);
+            this.btnBack.Size = new System.Drawing.Size(157, 54);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back to Main Page";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(26, 96);
+            this.label1.Location = new System.Drawing.Point(26, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(605, 30);
             this.label1.TabIndex = 0;
@@ -68,23 +68,24 @@
             // lvReservations
             // 
             this.lvReservations.HideSelection = false;
-            this.lvReservations.Location = new System.Drawing.Point(12, 129);
+            this.lvReservations.Location = new System.Drawing.Point(12, 138);
             this.lvReservations.Name = "lvReservations";
-            this.lvReservations.Size = new System.Drawing.Size(776, 198);
+            this.lvReservations.Size = new System.Drawing.Size(776, 211);
             this.lvReservations.TabIndex = 9;
             this.lvReservations.UseCompatibleStateImageBehavior = false;
             // 
             // ViewCustomerRequestsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 480);
             this.Controls.Add(this.lvReservations);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSendReply);
             this.Controls.Add(this.label1);
             this.Name = "ViewCustomerRequestsForm";
             this.Text = "ViewCustomerRequestsForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewCustomerRequestsForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
