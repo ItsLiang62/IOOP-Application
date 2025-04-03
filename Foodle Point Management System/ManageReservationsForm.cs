@@ -18,6 +18,7 @@ namespace Foodle_Point_Management_System
         { get; set; }
         private HallReservationTable reservationTable = new HallReservationTable();
         private HallTable hallTable = new HallTable();
+
         public ManageReservationsForm(ResvCoordinator ResvCoordinatorUser)
         {
             InitializeComponent();
