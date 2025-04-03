@@ -132,7 +132,7 @@
             // 
             this.cmbPosition1.FormattingEnabled = true;
             this.cmbPosition1.Items.AddRange(new object[] {
-            "Admin",
+            "System Administor",
             "Manager",
             "Chef",
             "Waiter",

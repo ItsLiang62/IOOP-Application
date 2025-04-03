@@ -255,14 +255,20 @@ namespace Shared_Class_Library
 
                 string query = $"UPDATE Employee SET {column} = @NewValue WHERE EmployeeID = @EmployeeID";
 
+                // Log the query, column name, and new value for debugging purposes
+                Console.WriteLine($"Executing query: {query} with column: {column} and new value: {newValue}");
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
 
+
+                    // Execute the query and check if the update was successful
+
                     if (cmd.ExecuteNonQuery() == 0)
                     {
-                        throw new Exception("Update failed. The entered EmployeeID or column name was not found.");
+                        throw new Exception($"Update failed. The entered EmployeeID '{employeeID}' or column name '{column}' was not found.");
                     }
                 }
             }
