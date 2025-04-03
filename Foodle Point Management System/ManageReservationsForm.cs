@@ -142,6 +142,7 @@ namespace Foodle_Point_Management_System
 
             foreach (object hallNumber in hallNumbers)
             {
+                // Check if hall is available and has sufficient capacity
                 bool isAvailable = Convert.ToBoolean(hallTable.GetValue(hallNumber.ToString(), "IsAvailable"));
                 int capacity = Convert.ToInt32(hallTable.GetValue(hallNumber.ToString(), "Capacity"));
 
