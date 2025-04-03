@@ -7,9 +7,6 @@ using Microsoft.Data.SqlClient;
 using Shared_Class_Library;
 
 
-
-
-
 namespace Shared_Class_Library
 {
 

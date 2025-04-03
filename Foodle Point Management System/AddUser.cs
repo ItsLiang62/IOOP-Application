@@ -41,7 +41,7 @@ namespace Foodle_Point_Management_System
 
         private void AddUser_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void AddUser_FormClosing(object sender, FormClosingEventArgs e)

@@ -71,11 +71,13 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "FeedbackID, CustomerID, FeedbackSentence, Rating" };
+            List<string> allowedColumns = new List<string> { "FeedbackID", "CustomerID", "FeedbackSentence", "Rating" };
+
 
             if (!allowedColumns.Contains(column))
             {
-                throw new Exception("Invalid column name. Please enter a correct column.");
+                throw new ArgumentException($"Column '{column}' does not exist in the Feedback table.");
+
             }
 
             List<object> columnValues = new List<object>();
