@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Shared_Class_Library.ItemOrderTable;
+using static Shared_Class_Library.SalesCalculation;
+
+
 
 namespace Foodle_Point_Management_System
 {
@@ -68,8 +70,9 @@ namespace Foodle_Point_Management_System
             int month = cmbMonth.SelectedIndex + 1;
             int year = int.Parse(comboBoxYear.SelectedItem.ToString());
 
-            ItemOrderTable itemOrderTable = new ItemOrderTable();
-            List<SalesReportRecord> salesRecords = itemOrderTable.GetSalesByMonthYear(month, year);
+            SalesCalculation salesCalculation = new SalesCalculation();
+            List<SalesReportRecord> salesRecords = salesCalculation.GetSalesByMonthYear(month, year);
+
 
             if (salesRecords.Any())
                 dgvSales.DataSource = salesRecords;
