@@ -137,8 +137,7 @@ namespace Foodle_Point_Management_System
 
         private void EditUser_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show(e.CloseReason.ToString());
-            //Application.Exit();
+            Application.Exit();
         }
     }
 }
