@@ -54,13 +54,13 @@
             this.lblfood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfood.Location = new System.Drawing.Point(607, 9);
             this.lblfood.Name = "lblfood";
-            this.lblfood.Size = new System.Drawing.Size(145, 29);
+            this.lblfood.Size = new System.Drawing.Size(152, 29);
             this.lblfood.TabIndex = 0;
-            this.lblfood.Text = "Food menu";
+            this.lblfood.Text = "Food Menu:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(677, 63);
+            this.txtSearch.Location = new System.Drawing.Point(659, 63);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 22);
             this.txtSearch.TabIndex = 1;
@@ -69,29 +69,29 @@
             // lblsearch
             // 
             this.lblsearch.AutoSize = true;
-            this.lblsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsearch.Location = new System.Drawing.Point(522, 56);
             this.lblsearch.Name = "lblsearch";
-            this.lblsearch.Size = new System.Drawing.Size(98, 29);
+            this.lblsearch.Size = new System.Drawing.Size(91, 29);
             this.lblsearch.TabIndex = 2;
             this.lblsearch.Text = "search:";
             // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(665, 108);
+            this.cmbCategory.Location = new System.Drawing.Point(659, 108);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(121, 24);
+            this.cmbCategory.Size = new System.Drawing.Size(104, 24);
             this.cmbCategory.TabIndex = 3;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // lblcategory
             // 
             this.lblcategory.AutoSize = true;
-            this.lblcategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategory.Location = new System.Drawing.Point(506, 108);
+            this.lblcategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcategory.Location = new System.Drawing.Point(506, 101);
             this.lblcategory.Name = "lblcategory";
-            this.lblcategory.Size = new System.Drawing.Size(125, 29);
+            this.lblcategory.Size = new System.Drawing.Size(116, 29);
             this.lblcategory.TabIndex = 4;
             this.lblcategory.Text = "Category:";
             // 
@@ -102,13 +102,13 @@
             this.dgvMenuItems.Name = "dgvMenuItems";
             this.dgvMenuItems.RowHeadersWidth = 51;
             this.dgvMenuItems.RowTemplate.Height = 24;
-            this.dgvMenuItems.Size = new System.Drawing.Size(569, 210);
+            this.dgvMenuItems.Size = new System.Drawing.Size(541, 210);
             this.dgvMenuItems.TabIndex = 5;
             // 
             // dgvCart
             // 
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(809, 170);
+            this.dgvCart.Location = new System.Drawing.Point(788, 170);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersWidth = 51;
             this.dgvCart.RowTemplate.Height = 24;
@@ -117,7 +117,7 @@
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToCart.Location = new System.Drawing.Point(198, 386);
             this.btnAddToCart.Name = "btnAddToCart";
             this.btnAddToCart.Size = new System.Drawing.Size(95, 39);
@@ -128,8 +128,8 @@
             // 
             // btnEditCart
             // 
-            this.btnEditCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCart.Location = new System.Drawing.Point(1017, 408);
+            this.btnEditCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCart.Location = new System.Drawing.Point(906, 408);
             this.btnEditCart.Name = "btnEditCart";
             this.btnEditCart.Size = new System.Drawing.Size(84, 41);
             this.btnEditCart.TabIndex = 8;
@@ -139,8 +139,8 @@
             // 
             // btnRemoveCart
             // 
-            this.btnRemoveCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveCart.Location = new System.Drawing.Point(1199, 408);
+            this.btnRemoveCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveCart.Location = new System.Drawing.Point(1146, 408);
             this.btnRemoveCart.Name = "btnRemoveCart";
             this.btnRemoveCart.Size = new System.Drawing.Size(85, 43);
             this.btnRemoveCart.TabIndex = 9;
@@ -150,7 +150,7 @@
             // 
             // btnPayment
             // 
-            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayment.Location = new System.Drawing.Point(587, 516);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(213, 48);
@@ -182,7 +182,7 @@
             // 
             // btnreturn
             // 
-            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnreturn.Location = new System.Drawing.Point(12, 500);
             this.btnreturn.Name = "btnreturn";
             this.btnreturn.Size = new System.Drawing.Size(281, 78);
@@ -194,20 +194,20 @@
             // lblcart
             // 
             this.lblcart.AutoSize = true;
-            this.lblcart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcart.Location = new System.Drawing.Point(1003, 126);
+            this.lblcart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcart.Location = new System.Drawing.Point(1032, 125);
             this.lblcart.Name = "lblcart";
-            this.lblcart.Size = new System.Drawing.Size(61, 29);
+            this.lblcart.Size = new System.Drawing.Size(57, 29);
             this.lblcart.TabIndex = 14;
             this.lblcart.Text = "Cart";
             // 
             // lblmenu
             // 
             this.lblmenu.AutoSize = true;
-            this.lblmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmenu.Location = new System.Drawing.Point(234, 138);
             this.lblmenu.Name = "lblmenu";
-            this.lblmenu.Size = new System.Drawing.Size(77, 29);
+            this.lblmenu.Size = new System.Drawing.Size(73, 29);
             this.lblmenu.TabIndex = 15;
             this.lblmenu.Text = "Menu";
             // 
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1477, 649);
+            this.ClientSize = new System.Drawing.Size(1368, 584);
             this.Controls.Add(this.lblmenu);
             this.Controls.Add(this.lblcart);
             this.Controls.Add(this.btnreturn);

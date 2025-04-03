@@ -154,5 +154,10 @@ namespace Foodle_Point_Management_System
         {
             Application.Exit();
         }
+
+        private void lblmessage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -56,16 +56,17 @@
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(541, 75);
+            this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblname.Location = new System.Drawing.Point(471, 73);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(47, 16);
+            this.lblname.Size = new System.Drawing.Size(84, 29);
             this.lblname.TabIndex = 1;
             this.lblname.Text = "Name:";
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(618, 72);
+            this.txtName.Location = new System.Drawing.Point(618, 73);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(318, 30);
             this.txtName.TabIndex = 2;
@@ -73,18 +74,20 @@
             // lblphone
             // 
             this.lblphone.AutoSize = true;
-            this.lblphone.Location = new System.Drawing.Point(488, 204);
+            this.lblphone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblphone.Location = new System.Drawing.Point(431, 199);
             this.lblphone.Name = "lblphone";
-            this.lblphone.Size = new System.Drawing.Size(100, 16);
+            this.lblphone.Size = new System.Drawing.Size(182, 29);
             this.lblphone.TabIndex = 3;
             this.lblphone.Text = "Phone Number:";
             // 
             // lblemail
             // 
             this.lblemail.AutoSize = true;
-            this.lblemail.Location = new System.Drawing.Point(533, 280);
+            this.lblemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblemail.Location = new System.Drawing.Point(471, 274);
             this.lblemail.Name = "lblemail";
-            this.lblemail.Size = new System.Drawing.Size(44, 16);
+            this.lblemail.Size = new System.Drawing.Size(80, 29);
             this.lblemail.TabIndex = 4;
             this.lblemail.Text = "Email:";
             // 
@@ -106,7 +109,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(697, 406);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(682, 406);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 71);
             this.button1.TabIndex = 9;
@@ -125,26 +129,28 @@
             // lblgender
             // 
             this.lblgender.AutoSize = true;
-            this.lblgender.Location = new System.Drawing.Point(533, 140);
+            this.lblgender.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgender.Location = new System.Drawing.Point(471, 135);
             this.lblgender.Name = "lblgender";
-            this.lblgender.Size = new System.Drawing.Size(55, 16);
+            this.lblgender.Size = new System.Drawing.Size(100, 29);
             this.lblgender.TabIndex = 11;
             this.lblgender.Text = "Gender:";
             // 
             // lblmessage
             // 
             this.lblmessage.AutoSize = true;
-            this.lblmessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmessage.Location = new System.Drawing.Point(67, 332);
+            this.lblmessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblmessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmessage.Location = new System.Drawing.Point(236, 336);
             this.lblmessage.Name = "lblmessage";
-            this.lblmessage.Size = new System.Drawing.Size(1113, 40);
+            this.lblmessage.Size = new System.Drawing.Size(980, 42);
             this.lblmessage.TabIndex = 12;
             this.lblmessage.Text = resources.GetString("lblmessage.Text");
             // 
             // btnreturn
             // 
-            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreturn.Location = new System.Drawing.Point(12, 438);
+            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreturn.Location = new System.Drawing.Point(12, 406);
             this.btnreturn.Name = "btnreturn";
             this.btnreturn.Size = new System.Drawing.Size(281, 78);
             this.btnreturn.TabIndex = 15;
@@ -156,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1528, 532);
+            this.ClientSize = new System.Drawing.Size(1528, 492);
             this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.lblmessage);
             this.Controls.Add(this.lblgender);

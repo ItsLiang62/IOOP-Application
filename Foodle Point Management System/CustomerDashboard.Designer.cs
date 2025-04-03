@@ -41,7 +41,7 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(401, 45);
+            this.lblWelcome.Location = new System.Drawing.Point(417, 53);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(538, 32);
             this.lblWelcome.TabIndex = 0;
@@ -50,9 +50,9 @@
             // btnOrderFood
             // 
             this.btnOrderFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrderFood.Location = new System.Drawing.Point(572, 99);
+            this.btnOrderFood.Location = new System.Drawing.Point(506, 111);
             this.btnOrderFood.Name = "btnOrderFood";
-            this.btnOrderFood.Size = new System.Drawing.Size(219, 73);
+            this.btnOrderFood.Size = new System.Drawing.Size(365, 73);
             this.btnOrderFood.TabIndex = 1;
             this.btnOrderFood.Text = "Order Food";
             this.btnOrderFood.UseVisualStyleBackColor = true;
@@ -61,9 +61,9 @@
             // btnViewOrders
             // 
             this.btnViewOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewOrders.Location = new System.Drawing.Point(572, 204);
+            this.btnViewOrders.Location = new System.Drawing.Point(506, 204);
             this.btnViewOrders.Name = "btnViewOrders";
-            this.btnViewOrders.Size = new System.Drawing.Size(219, 73);
+            this.btnViewOrders.Size = new System.Drawing.Size(365, 73);
             this.btnViewOrders.TabIndex = 2;
             this.btnViewOrders.Text = "View Orders & Reservations";
             this.btnViewOrders.UseVisualStyleBackColor = true;
@@ -72,9 +72,9 @@
             // btnFeedback
             // 
             this.btnFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFeedback.Location = new System.Drawing.Point(572, 301);
+            this.btnFeedback.Location = new System.Drawing.Point(506, 301);
             this.btnFeedback.Name = "btnFeedback";
-            this.btnFeedback.Size = new System.Drawing.Size(219, 73);
+            this.btnFeedback.Size = new System.Drawing.Size(365, 73);
             this.btnFeedback.TabIndex = 3;
             this.btnFeedback.Text = "Send Feedback";
             this.btnFeedback.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // btnProfile
             // 
             this.btnProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfile.Location = new System.Drawing.Point(572, 496);
+            this.btnProfile.Location = new System.Drawing.Point(506, 496);
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(219, 73);
+            this.btnProfile.Size = new System.Drawing.Size(365, 73);
             this.btnProfile.TabIndex = 4;
             this.btnProfile.Text = "Profile";
             this.btnProfile.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@
             // btnReservation
             // 
             this.btnReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservation.Location = new System.Drawing.Point(572, 398);
+            this.btnReservation.Location = new System.Drawing.Point(506, 398);
             this.btnReservation.Name = "btnReservation";
-            this.btnReservation.Size = new System.Drawing.Size(219, 73);
+            this.btnReservation.Size = new System.Drawing.Size(365, 73);
             this.btnReservation.TabIndex = 5;
             this.btnReservation.Text = "Reserve Hall";
             this.btnReservation.UseVisualStyleBackColor = true;
