@@ -19,6 +19,7 @@ namespace Foodle_Point_Management_System
         { get; set; }
         private HallReservationTable reservationTable = new HallReservationTable();
         private HallTable hallTable = new HallTable();
+
         public ManageReservationsForm(ResvCoordinator ResvCoordinatorUser)
         {
             InitializeComponent();
@@ -73,7 +74,7 @@ namespace Foodle_Point_Management_System
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Add_Reservation addForm = new Add_Reservation(ResvCoordinatorUser);
-            addForm.ShowDialog();
+            addForm.Show();
             LoadReservations();
         }
 
@@ -89,7 +90,7 @@ namespace Foodle_Point_Management_System
             {
                 string reservationID = lvReservations.SelectedItems[0].Text;
                 Edit_Reservation editForm = new Edit_Reservation(ResvCoordinatorUser, reservationID);
-                editForm.ShowDialog();
+                editForm.Show();
                 LoadReservations();
             }
             else
@@ -141,6 +142,7 @@ namespace Foodle_Point_Management_System
 
             foreach (object hallNumber in hallNumbers)
             {
+                // Check if hall is available and has sufficient capacity
                 bool isAvailable = Convert.ToBoolean(hallTable.GetValue(hallNumber.ToString(), "IsAvailable"));
                 int capacity = Convert.ToInt32(hallTable.GetValue(hallNumber.ToString(), "Capacity"));
 
