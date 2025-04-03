@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Shared_Class_Library.ItemOrderTable;
 
 namespace Foodle_Point_Management_System
 {
@@ -60,6 +61,27 @@ namespace Foodle_Point_Management_System
         private void ViewSales_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGR_Click(object sender, EventArgs e)
+        {
+            int month = cmbMonth.SelectedIndex + 1;
+            int year = int.Parse(comboBoxYear.SelectedItem.ToString());
+
+            ItemOrderTable itemOrderTable = new ItemOrderTable();
+            List<SalesReportRecord> salesRecords = itemOrderTable.GetSalesByMonthYear(month, year);
+
+            if (salesRecords.Any())
+                dgvSales.DataSource = salesRecords;
+            else
+                MessageBox.Show("No records found for the selected month and year.");
+        }
+
+        private void btnClearFilter_Click(object sender, EventArgs e)
+        {
+            cmbMonth.SelectedIndex = -1;
+            comboBoxYear.SelectedIndex = -1;
+            dgvSales.DataSource = null;
         }
     }
 }
