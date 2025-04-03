@@ -106,7 +106,7 @@ namespace Foodle_Point_Management_System
                     empTable.UpdateValue(employeeID, "PhoneNumber", txtPhoneNumberE.Text);
 
                     MessageBox.Show("User profile updated successfully!");
-                    this.Close(); // Close the form after successful save
+                    this.Hide(); // Close the form after successful save
                 }
                 catch (Exception ex)
                 {
@@ -137,7 +137,8 @@ namespace Foodle_Point_Management_System
 
         private void EditUser_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            MessageBox.Show(e.CloseReason.ToString());
+            //Application.Exit();
         }
     }
 }
