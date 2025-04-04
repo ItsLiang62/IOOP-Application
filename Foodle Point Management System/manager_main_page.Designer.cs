@@ -35,14 +35,14 @@
             this.btnViewReservation = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(287, 130);
+            this.lblWelcome.Location = new System.Drawing.Point(288, 120);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(228, 29);
             this.lblWelcome.TabIndex = 0;
@@ -99,29 +99,29 @@
             this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMain.Location = new System.Drawing.Point(12, 12);
             this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(218, 52);
+            this.btnMain.Size = new System.Drawing.Size(197, 52);
             this.btnMain.TabIndex = 5;
             this.btnMain.Text = "Return to Main Page";
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(228, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 38);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Welcome, Manager!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(272, 60);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(253, 38);
+            this.lblTitle.TabIndex = 6;
+            this.lblTitle.Text = "Manager Portal";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmManagerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnMain);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewReservation);
@@ -144,6 +144,6 @@
         private System.Windows.Forms.Button btnViewReservation;
         private System.Windows.Forms.Button btnUpdateProfile;
         private System.Windows.Forms.Button btnMain;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
