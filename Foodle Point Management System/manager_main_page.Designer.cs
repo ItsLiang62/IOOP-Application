@@ -29,30 +29,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblWelcomeManager = new System.Windows.Forms.Label();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.btnManageMenu = new System.Windows.Forms.Button();
             this.btnManageHall = new System.Windows.Forms.Button();
             this.btnViewReservation = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblWelcomeManager
+            // lblWelcome
             // 
-            this.lblWelcomeManager.AutoSize = true;
-            this.lblWelcomeManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeManager.Location = new System.Drawing.Point(243, 73);
-            this.lblWelcomeManager.Name = "lblWelcomeManager";
-            this.lblWelcomeManager.Size = new System.Drawing.Size(325, 38);
-            this.lblWelcomeManager.TabIndex = 0;
-            this.lblWelcomeManager.Text = "Welcome, Manager!";
-            this.lblWelcomeManager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblWelcomeManager.Resize += new System.EventHandler(this.lblWelcomeManager_Resize);
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(287, 130);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(228, 29);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "Welcome, Manager!";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWelcome.Resize += new System.EventHandler(this.lblWelcomeManager_Resize);
             // 
             // btnManageMenu
             // 
             this.btnManageMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageMenu.Location = new System.Drawing.Point(250, 145);
+            this.btnManageMenu.Location = new System.Drawing.Point(250, 176);
             this.btnManageMenu.Name = "btnManageMenu";
             this.btnManageMenu.Size = new System.Drawing.Size(303, 55);
             this.btnManageMenu.TabIndex = 1;
@@ -63,7 +64,7 @@
             // btnManageHall
             // 
             this.btnManageHall.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageHall.Location = new System.Drawing.Point(250, 216);
+            this.btnManageHall.Location = new System.Drawing.Point(250, 237);
             this.btnManageHall.Name = "btnManageHall";
             this.btnManageHall.Size = new System.Drawing.Size(303, 55);
             this.btnManageHall.TabIndex = 2;
@@ -74,7 +75,7 @@
             // btnViewReservation
             // 
             this.btnViewReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewReservation.Location = new System.Drawing.Point(250, 289);
+            this.btnViewReservation.Location = new System.Drawing.Point(250, 298);
             this.btnViewReservation.Name = "btnViewReservation";
             this.btnViewReservation.Size = new System.Drawing.Size(303, 55);
             this.btnViewReservation.TabIndex = 3;
@@ -104,17 +105,29 @@
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(228, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(325, 38);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Welcome, Manager!";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmManagerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnMain);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewReservation);
             this.Controls.Add(this.btnManageHall);
             this.Controls.Add(this.btnManageMenu);
-            this.Controls.Add(this.lblWelcomeManager);
+            this.Controls.Add(this.lblWelcome);
             this.Name = "frmManagerMain";
             this.Text = "Welcome, Manager!";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmManagerMain_FormClosing);
@@ -125,11 +138,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblWelcomeManager;
+        private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnManageMenu;
         private System.Windows.Forms.Button btnManageHall;
         private System.Windows.Forms.Button btnViewReservation;
         private System.Windows.Forms.Button btnUpdateProfile;
         private System.Windows.Forms.Button btnMain;
+        private System.Windows.Forms.Label label1;
     }
 }
