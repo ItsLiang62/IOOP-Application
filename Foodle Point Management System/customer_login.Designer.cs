@@ -33,7 +33,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.btnReturnMain = new System.Windows.Forms.Button();
+            this.btnMain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -75,16 +75,16 @@
             this.lblEmail.TabIndex = 12;
             this.lblEmail.Text = "Email:";
             // 
-            // btnReturnMain
+            // btnMain
             // 
-            this.btnReturnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnMain.Location = new System.Drawing.Point(28, 33);
-            this.btnReturnMain.Name = "btnReturnMain";
-            this.btnReturnMain.Size = new System.Drawing.Size(293, 45);
-            this.btnReturnMain.TabIndex = 11;
-            this.btnReturnMain.Text = "Return to Main Page";
-            this.btnReturnMain.UseVisualStyleBackColor = true;
-            this.btnReturnMain.Click += new System.EventHandler(this.btnReturnMain_Click);
+            this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMain.Location = new System.Drawing.Point(28, 33);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(147, 45);
+            this.btnMain.TabIndex = 11;
+            this.btnMain.Text = "Main Page";
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // frmCustomerLogin
             // 
@@ -95,12 +95,13 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.btnReturnMain);
+            this.Controls.Add(this.btnMain);
             this.Name = "frmCustomerLogin";
             this.Text = "Login as Customer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomerLogin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -109,6 +110,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Button btnReturnMain;
+        private System.Windows.Forms.Button btnMain;
     }
 }
