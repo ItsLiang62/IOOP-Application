@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.cmbMonth = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSales = new System.Windows.Forms.Label();
             this.dgvSales = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
             this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.btnClearFilter = new System.Windows.Forms.Button();
             this.btnGR = new System.Windows.Forms.Button();
@@ -61,14 +61,14 @@
             this.cmbMonth.TabIndex = 1;
             this.cmbMonth.SelectedIndexChanged += new System.EventHandler(this.cmbMonth_SelectedIndexChanged);
             // 
-            // label1
+            // lblSales
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(147, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Select Month:";
+            this.lblSales.AutoSize = true;
+            this.lblSales.Location = new System.Drawing.Point(147, 50);
+            this.lblSales.Name = "lblSales";
+            this.lblSales.Size = new System.Drawing.Size(144, 25);
+            this.lblSales.TabIndex = 2;
+            this.lblSales.Text = "Select Month:";
             // 
             // dgvSales
             // 
@@ -93,15 +93,15 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // label2
+            // lblYear
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 165);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Select Year:";
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(147, 165);
+            this.lblYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(130, 25);
+            this.lblYear.TabIndex = 5;
+            this.lblYear.Text = "Select Year:";
             // 
             // comboBoxYear
             // 
@@ -163,10 +163,10 @@
             this.Controls.Add(this.btnGR);
             this.Controls.Add(this.btnClearFilter);
             this.Controls.Add(this.comboBoxYear);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblYear);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvSales);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSales);
             this.Controls.Add(this.cmbMonth);
             this.Name = "ViewSales";
             this.Text = "ViewSales";
@@ -179,10 +179,10 @@
 
         #endregion
         private System.Windows.Forms.ComboBox cmbMonth;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSales;
         private System.Windows.Forms.DataGridView dgvSales;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblYear;
         private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Button btnClearFilter;
         private System.Windows.Forms.Button btnGR;

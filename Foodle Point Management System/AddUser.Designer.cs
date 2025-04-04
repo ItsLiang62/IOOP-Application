@@ -41,7 +41,7 @@
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDOB = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
@@ -176,15 +176,15 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // label2
+            // lblDOB
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(336, 547);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 25);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "DOB";
+            this.lblDOB.AutoSize = true;
+            this.lblDOB.Location = new System.Drawing.Point(336, 547);
+            this.lblDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDOB.Name = "lblDOB";
+            this.lblDOB.Size = new System.Drawing.Size(57, 25);
+            this.lblDOB.TabIndex = 13;
+            this.lblDOB.Text = "DOB";
             // 
             // dateTimePicker1
             // 
@@ -224,7 +224,7 @@
             this.Controls.Add(this.comboBoxGender);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDOB);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnSaveChanges);
@@ -262,7 +262,7 @@
         private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxGender;
