@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblRole = new System.Windows.Forms.Label();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtEmplyeeName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmbPosition1 = new System.Windows.Forms.ComboBox();
             this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -47,25 +47,25 @@
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // lblUsername
+            // lblEmployeeName
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(334, 206);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(175, 25);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Employee Name:";
+            this.lblEmployeeName.AutoSize = true;
+            this.lblEmployeeName.Location = new System.Drawing.Point(334, 206);
+            this.lblEmployeeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(175, 25);
+            this.lblEmployeeName.TabIndex = 0;
+            this.lblEmployeeName.Text = "Employee Name:";
             // 
-            // lblRole
+            // lblPosition
             // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(334, 281);
-            this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(95, 25);
-            this.lblRole.TabIndex = 1;
-            this.lblRole.Text = "Position:";
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Location = new System.Drawing.Point(334, 281);
+            this.lblPosition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(95, 25);
+            this.lblPosition.TabIndex = 1;
+            this.lblPosition.Text = "Position:";
             // 
             // lblEmail
             // 
@@ -97,13 +97,13 @@
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
-            // txtUsername
+            // txtEmplyeeName
             // 
-            this.txtUsername.Location = new System.Drawing.Point(640, 198);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(196, 31);
-            this.txtUsername.TabIndex = 5;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtEmplyeeName.Location = new System.Drawing.Point(640, 198);
+            this.txtEmplyeeName.Name = "txtEmplyeeName";
+            this.txtEmplyeeName.Size = new System.Drawing.Size(196, 31);
+            this.txtEmplyeeName.TabIndex = 5;
+            this.txtEmplyeeName.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtEmail
             // 
@@ -155,15 +155,15 @@
             this.btnSaveChanges.UseVisualStyleBackColor = true;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 77);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 25);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Add User";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(98, 77);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(101, 25);
+            this.lblTitle.TabIndex = 11;
+            this.lblTitle.Text = "Add User";
             // 
             // btnBack
             // 
@@ -226,18 +226,18 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.cmbPosition1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtEmplyeeName);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblRole);
-            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblPosition);
+            this.Controls.Add(this.lblEmployeeName);
             this.Name = "AddUser";
             this.Text = "AddUser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddUser_FormClosing);
@@ -249,18 +249,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Label lblEmployeeName;
+        private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtEmplyeeName;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ComboBox cmbPosition1;
         private System.Windows.Forms.Button btnSaveChanges;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;

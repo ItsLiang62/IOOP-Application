@@ -61,7 +61,7 @@ namespace Foodle_Point_Management_System
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             // Validate inputs
-            if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
+            if (string.IsNullOrWhiteSpace(txtEmplyeeName.Text) ||
                 string.IsNullOrWhiteSpace(cmbPosition1.Text) ||
                 string.IsNullOrWhiteSpace(comboBoxGender.Text) ||
                 string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -78,7 +78,7 @@ namespace Foodle_Point_Management_System
                 EmployeeTable empTable = new EmployeeTable();
                 string newEmployeeID = empTable.GetNewEmployeeID(position);
 
-                string employeeName = txtUsername.Text;
+                string employeeName = txtEmplyeeName.Text;
                 string gender = comboBoxGender.SelectedItem.ToString();  // Get gender from ComboBox
                 string email = txtEmail.Text;
                 string phone = txtPhone.Text;
