@@ -22,22 +22,17 @@ namespace Foodle_Point_Management_System
             this.ResvCoordinatorUser = ResvCoordinatorUser;
             this.reservationID = reservationID;
             txtReply.Text = currentResponse;
-            // Initialize ListView columns
             InitializeReservationListView();
 
-            // Load and display the selected reservation
             LoadReservationDetails();
 
-            // Show current response if exists
             txtReply.Text = currentResponse;
         }
         private void InitializeReservationListView()
         {
-            // Clear existing columns and items
             lvReservations.Columns.Clear();
             lvReservations.Items.Clear();
 
-            // Add columns to ListView
             lvReservations.Columns.Add("Reservation ID", 100);
             lvReservations.Columns.Add("Hall Number", 80);
             lvReservations.Columns.Add("Customer ID", 100);
@@ -48,7 +43,6 @@ namespace Foodle_Point_Management_System
             lvReservations.Columns.Add("Current Response", 200);
             lvReservations.Columns.Add("Remarks", 200);
 
-            // Set view to show details
             lvReservations.View = View.Details;
             lvReservations.FullRowSelect = true;
         }
@@ -56,24 +50,20 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                // Get reservation details from database
                 var rowValues = reservationTable.GetRowValues(reservationID);
 
-                // Clear any existing items
                 lvReservations.Items.Clear();
 
-                // Create new ListViewItem with reservation details
-                ListViewItem item = new ListViewItem(rowValues[0].ToString()); // ReservationID
-                item.SubItems.Add(rowValues[1].ToString()); // HallNumber
-                item.SubItems.Add(rowValues[2].ToString()); // CustomerID
-                item.SubItems.Add(rowValues[3].ToString()); // EventType
-                item.SubItems.Add(rowValues[4].ToString()); // EventDate
-                item.SubItems.Add(rowValues[5].ToString()); // ExpectedCount
-                item.SubItems.Add(rowValues[6].ToString()); // Status
-                item.SubItems.Add(rowValues[7]?.ToString() ?? ""); // RequestResponse
-                item.SubItems.Add(rowValues[8]?.ToString() ?? ""); // Remarks
+                ListViewItem item = new ListViewItem(rowValues[0].ToString()); 
+                item.SubItems.Add(rowValues[1].ToString()); 
+                item.SubItems.Add(rowValues[2].ToString()); 
+                item.SubItems.Add(rowValues[3].ToString()); 
+                item.SubItems.Add(rowValues[4].ToString()); 
+                item.SubItems.Add(rowValues[5].ToString()); 
+                item.SubItems.Add(rowValues[6].ToString()); 
+                item.SubItems.Add(rowValues[7]?.ToString() ?? ""); 
+                item.SubItems.Add(rowValues[8]?.ToString() ?? ""); 
 
-                // Add to ListView
                 lvReservations.Items.Add(item);
             }
             catch (Exception ex)
@@ -99,15 +89,7 @@ namespace Foodle_Point_Management_System
                     return;
                 }
 
-                // Update the response in database
                 reservationTable.UpdateValue(reservationID, "RequestResponse", response);
-
-                // Update status to "Replied" if it was "Pending"
-                string currentStatus = reservationTable.GetValue(reservationID, "ReservationStatus").ToString();
-                if (currentStatus == "Pending")
-                {
-                    reservationTable.UpdateValue(reservationID, "ReservationStatus", "Replied");
-                }
 
                 MessageBox.Show("Reply sent successfully!");
                 this.Close();
@@ -116,11 +98,6 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show($"Error sending reply: {ex.Message}");
             }
-        }
-
-        private void Send_Reply_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
