@@ -47,7 +47,7 @@ namespace Foodle_Point_Management_System
             InitializeComponent();
         }
 
-        private void btnReturnMain_Click(object sender, EventArgs e)
+        private void btnMain_Click(object sender, EventArgs e)
         {
             frmMain mainPage = new frmMain();
             mainPage.Show();

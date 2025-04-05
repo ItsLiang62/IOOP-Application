@@ -24,11 +24,11 @@ namespace Foodle_Point_Management_System
 
             if (ManagerUser.GetGender() == "Male")
             {
-                lblWelcomeManager.Text = $"Welcome, Mr. {ManagerUser.GetFullName()}!";
+                lblWelcome.Text = $"Welcome, Mr. {ManagerUser.GetFullName()}! What would you like to do today?";
             }
             else if (ManagerUser.GetGender() == "Female")
             {
-                lblWelcomeManager.Text = $"Welcome, Mrs. {ManagerUser.GetFullName()}!";
+                lblWelcome.Text = $"Welcome, Mrs. {ManagerUser.GetFullName()}! What would you like to do today?";
             }
         }
 
@@ -39,7 +39,7 @@ namespace Foodle_Point_Management_System
 
         private void lblWelcomeManager_Resize(object sender, EventArgs e)
         {
-            lblWelcomeManager.Left = (this.ClientSize.Width - lblWelcomeManager.Width) / 2;
+            lblWelcome.Left = (this.ClientSize.Width - lblWelcome.Width) / 2;
         }
 
         private void btnManageMenu_Click(object sender, EventArgs e)
