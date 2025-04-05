@@ -68,10 +68,10 @@
             // 
             this.tabControlOrders.Controls.Add(this.tabOrders);
             this.tabControlOrders.Controls.Add(this.tabReservations);
-            this.tabControlOrders.Location = new System.Drawing.Point(191, 12);
+            this.tabControlOrders.Location = new System.Drawing.Point(203, 53);
             this.tabControlOrders.Name = "tabControlOrders";
             this.tabControlOrders.SelectedIndex = 0;
-            this.tabControlOrders.Size = new System.Drawing.Size(996, 464);
+            this.tabControlOrders.Size = new System.Drawing.Size(996, 422);
             this.tabControlOrders.TabIndex = 1;
             // 
             // tabOrders
@@ -80,7 +80,7 @@
             this.tabOrders.Location = new System.Drawing.Point(4, 25);
             this.tabOrders.Name = "tabOrders";
             this.tabOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOrders.Size = new System.Drawing.Size(988, 435);
+            this.tabOrders.Size = new System.Drawing.Size(988, 393);
             this.tabOrders.TabIndex = 0;
             this.tabOrders.Text = "Orders ";
             this.tabOrders.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
             // dgvOrders
             // 
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(6, 0);
+            this.dgvOrders.Location = new System.Drawing.Point(6, 6);
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.RowHeadersWidth = 51;
             this.dgvOrders.RowTemplate.Height = 24;
@@ -98,8 +98,8 @@
             // 
             // btnreturn
             // 
-            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreturn.Location = new System.Drawing.Point(12, 481);
+            this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreturn.Location = new System.Drawing.Point(12, 477);
             this.btnreturn.Name = "btnreturn";
             this.btnreturn.Size = new System.Drawing.Size(281, 78);
             this.btnreturn.TabIndex = 14;
@@ -110,10 +110,10 @@
             // lblmessage
             // 
             this.lblmessage.AutoSize = true;
-            this.lblmessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmessage.Location = new System.Drawing.Point(402, -4);
+            this.lblmessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmessage.Location = new System.Drawing.Point(457, 21);
             this.lblmessage.Name = "lblmessage";
-            this.lblmessage.Size = new System.Drawing.Size(470, 29);
+            this.lblmessage.Size = new System.Drawing.Size(434, 29);
             this.lblmessage.TabIndex = 15;
             this.lblmessage.Text = "To View Your Orders And Reservations";
             // 

@@ -43,9 +43,9 @@
             this.lblfeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfeedback.Location = new System.Drawing.Point(16, 86);
             this.lblfeedback.Name = "lblfeedback";
-            this.lblfeedback.Size = new System.Drawing.Size(224, 32);
+            this.lblfeedback.Size = new System.Drawing.Size(214, 32);
             this.lblfeedback.TabIndex = 0;
-            this.lblfeedback.Text = "\"Your Feedback:";
+            this.lblfeedback.Text = "Your Feedback:";
             // 
             // txtFeedback
             // 
@@ -59,7 +59,7 @@
             // 
             this.lblrating.AutoSize = true;
             this.lblrating.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrating.Location = new System.Drawing.Point(78, 148);
+            this.lblrating.Location = new System.Drawing.Point(16, 148);
             this.lblrating.Name = "lblrating";
             this.lblrating.Size = new System.Drawing.Size(171, 32);
             this.lblrating.TabIndex = 2;
@@ -68,7 +68,7 @@
             // numRating
             // 
             this.numRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numRating.Location = new System.Drawing.Point(273, 152);
+            this.numRating.Location = new System.Drawing.Point(246, 152);
             this.numRating.Maximum = new decimal(new int[] {
             5,
             0,
@@ -80,7 +80,7 @@
             0,
             0});
             this.numRating.Name = "numRating";
-            this.numRating.Size = new System.Drawing.Size(120, 30);
+            this.numRating.Size = new System.Drawing.Size(182, 30);
             this.numRating.TabIndex = 3;
             this.numRating.Value = new decimal(new int[] {
             1,
@@ -90,10 +90,10 @@
             // 
             // btnSubmitFeedback
             // 
-            this.btnSubmitFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitFeedback.Location = new System.Drawing.Point(246, 214);
+            this.btnSubmitFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitFeedback.Location = new System.Drawing.Point(246, 216);
             this.btnSubmitFeedback.Name = "btnSubmitFeedback";
-            this.btnSubmitFeedback.Size = new System.Drawing.Size(170, 61);
+            this.btnSubmitFeedback.Size = new System.Drawing.Size(182, 54);
             this.btnSubmitFeedback.TabIndex = 4;
             this.btnSubmitFeedback.Text = "Submit";
             this.btnSubmitFeedback.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             // 
             // btnlogout
             // 
-            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.Location = new System.Drawing.Point(1, 294);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(281, 78);

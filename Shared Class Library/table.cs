@@ -19,7 +19,7 @@ namespace Shared_Class_Library
 
             //ConnectionString = "Data Source=172.18.48.1;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
-            ConnectionString = "Server=tcp:ioop-sql-server.database.windows.net,1433;Initial Catalog=IOOP-DB;Persist Security Info=False;User ID=CloudSA1adb6faf;Password=Mm05087732@@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            ConnectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         }
     }
 }
