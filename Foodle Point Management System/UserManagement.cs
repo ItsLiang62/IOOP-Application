@@ -121,7 +121,7 @@ namespace Foodle_Point_Management_System
         {
             // Create and show AddUser form in a modal way
             AddUser addUserForm = new AddUser(currentAdmin);
-            addUserForm.Show(); // This pauses here until AddUser is closed
+            addUserForm.ShowDialog(); // This pauses here until AddUser is closed
 
             // After closing the AddUser form, reload the data in UserManagement
             LoadEmployeeData(); // Refresh the DataGridView with new user data
@@ -139,7 +139,7 @@ namespace Foodle_Point_Management_System
             {
                 string selectedID = dgvUsers.SelectedRows[0].Cells["ID"].Value.ToString();
                 EditUser editForm = new EditUser(currentAdmin, selectedID);
-                editForm.Show();
+                editForm.ShowDialog();
                 LoadEmployeeData(); // Refresh grid after editing
             }
             else

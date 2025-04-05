@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMain = new System.Windows.Forms.Button();
+            this.btnReturnMain = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -37,16 +37,16 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnMain
+            // btnReturnMain
             // 
-            this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMain.Location = new System.Drawing.Point(44, 37);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(140, 45);
-            this.btnMain.TabIndex = 4;
-            this.btnMain.Text = "Main Page";
-            this.btnMain.UseVisualStyleBackColor = true;
-            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            this.btnReturnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnMain.Location = new System.Drawing.Point(44, 37);
+            this.btnReturnMain.Name = "btnReturnMain";
+            this.btnReturnMain.Size = new System.Drawing.Size(293, 45);
+            this.btnReturnMain.TabIndex = 4;
+            this.btnReturnMain.Text = "Return to Main Page";
+            this.btnReturnMain.UseVisualStyleBackColor = true;
+            this.btnReturnMain.Click += new System.EventHandler(this.btnReturnMain_Click);
             // 
             // lblEmail
             // 
@@ -116,7 +116,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.btnMain);
+            this.Controls.Add(this.btnReturnMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmEmployeeLogin";
             this.Text = "Login as Employee";
@@ -128,7 +128,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnMain;
+        private System.Windows.Forms.Button btnReturnMain;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtEmail;

@@ -20,13 +20,15 @@ namespace Foodle_Point_Management_System
             this.ResvCoordinatorUser = ResvCoordinatorUser;
             InitializeComponent();
             InitializeReservationListView();
-            LoadReservations();
+            LoadPendingRequests();
         }
         private void InitializeReservationListView()
         {
+            // Clear existing columns and items
             lvReservations.Columns.Clear();
             lvReservations.Items.Clear();
 
+            // Add columns to ListView
             lvReservations.Columns.Add("Reservation ID", 100);
             lvReservations.Columns.Add("Hall Number", 80);
             lvReservations.Columns.Add("Customer ID", 100);
@@ -37,30 +39,36 @@ namespace Foodle_Point_Management_System
             lvReservations.Columns.Add("Current Response", 200);
             lvReservations.Columns.Add("Remarks", 200);
 
+            // Set view to show details
             lvReservations.View = View.Details;
             lvReservations.FullRowSelect = true;
         }
-        private void LoadReservations()
+        private void LoadPendingRequests()
         {
             lvReservations.Items.Clear();
 
+            // Get all reservation IDs with pending status
             var reservationIDs = reservationTable.GetColumnValues("ReservationID");
 
             foreach (string id in reservationIDs)
             {
-                var rowValues = reservationTable.GetRowValues(id.ToString());
+                var status = reservationTable.GetValue(id.ToString(), "ReservationStatus").ToString();
+                if (status == "Pending")
+                {
+                    var rowValues = reservationTable.GetRowValues(id.ToString());
 
-                ListViewItem item = new ListViewItem(rowValues[0].ToString());
-                item.SubItems.Add(rowValues[1].ToString());
-                item.SubItems.Add(rowValues[2].ToString());
-                item.SubItems.Add(rowValues[3].ToString());
-                item.SubItems.Add(rowValues[4].ToString());
-                item.SubItems.Add(rowValues[5].ToString());
-                item.SubItems.Add(rowValues[6].ToString());
-                item.SubItems.Add(rowValues[7]?.ToString() ?? "");
-                item.SubItems.Add(rowValues[8]?.ToString() ?? "");
+                    ListViewItem item = new ListViewItem(rowValues[0].ToString()); // ReservationID
+                    item.SubItems.Add(rowValues[1].ToString()); // HallNumber
+                    item.SubItems.Add(rowValues[2].ToString()); // CustomerID
+                    item.SubItems.Add(rowValues[3].ToString()); // EventType
+                    item.SubItems.Add(rowValues[4].ToString()); // EventDate
+                    item.SubItems.Add(rowValues[5].ToString()); // ExpectedCount
+                    item.SubItems.Add(rowValues[6].ToString()); // Status
+                    item.SubItems.Add(rowValues[7]?.ToString() ?? ""); // RequestResponse
+                    item.SubItems.Add(rowValues[8]?.ToString() ?? ""); // Remarks
 
-                lvReservations.Items.Add(item);
+                    lvReservations.Items.Add(item);
+                }
             }
         }
         private void btnBack_Click(object sender, EventArgs e)
@@ -78,7 +86,7 @@ namespace Foodle_Point_Management_System
 
                 Send_Reply replyForm = new Send_Reply(ResvCoordinatorUser, reservationID, currentResponse);
                 replyForm.ShowDialog();
-                LoadReservations();
+                LoadPendingRequests();
             }
             else
             {

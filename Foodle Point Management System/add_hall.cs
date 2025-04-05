@@ -39,10 +39,10 @@ namespace Foodle_Point_Management_System
         { get; set; }
 
 
-        public frmAddHall(Manager managerUser)
+        public frmAddHall(Manager mangerUser)
         {
             InitializeComponent();
-            ManagerUser = managerUser;
+            ManagerUser = ManagerUser;
         }
 
 
@@ -99,7 +99,7 @@ namespace Foodle_Point_Management_System
                     return;
                 }
 
-                MessageBox.Show("Successfully added hall.");
+                MessageBox.Show("Successfully added item.");
             }
             else
             {
