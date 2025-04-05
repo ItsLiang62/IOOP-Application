@@ -16,6 +16,7 @@ namespace Foodle_Point_Management_System
         private ResvCoordinator ResvCoordinatorUser;
         private EmployeeTable employeeTable = new EmployeeTable();
         private InputChecker inputChecker = new InputChecker();
+        // Properties to hold input values
         private string InputFullName { get; set; }
         private string InputDOB { get; set; }
         private string InputEmail { get; set; }
@@ -30,8 +31,8 @@ namespace Foodle_Point_Management_System
 
         private void LoadProfileData()
         {
+            // Display current profile data in the form controls
             txtReservationCoordinatorID.Text = ResvCoordinatorUser.GetEmployeeID();
-            txtReservationCoordinatorID.Enabled = false;
             txtFullName.Text = ResvCoordinatorUser.GetFullName();
             cmbGender.Text = ResvCoordinatorUser.GetGender();
             txtDateOfBirth.Text = ResvCoordinatorUser.GetDOB();
@@ -48,16 +49,19 @@ namespace Foodle_Point_Management_System
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
+            // Get input values from form controls
             InputFullName = txtFullName.Text;
             InputDOB = txtDateOfBirth.Text;
             InputEmail = txtEmail.Text;
             InputPhoneNum = txtPhoneNumber.Text;
             InputPassword = txtPassword.Text;
 
+            // Validate all inputs
             if (AllInputValid(out string errorMessage))
             {
                 try
                 {
+                    // Update each field in the database
                     employeeTable.UpdateValue(ResvCoordinatorUser.GetEmployeeID(), "EmployeeName", InputFullName);
                     employeeTable.UpdateValue(ResvCoordinatorUser.GetEmployeeID(), "Gender", cmbGender.Text);
                     employeeTable.UpdateValue(ResvCoordinatorUser.GetEmployeeID(), "DOB", InputDOB);
@@ -65,6 +69,7 @@ namespace Foodle_Point_Management_System
                     employeeTable.UpdateValue(ResvCoordinatorUser.GetEmployeeID(), "Email", InputEmail);
                     employeeTable.UpdateValue(ResvCoordinatorUser.GetEmployeeID(), "AccountPassword", InputPassword);
 
+                    // Refresh the coordinator object to get updated values
                     ResvCoordinatorUser.Refresh();
 
                     MessageBox.Show("Profile updated successfully!");
@@ -81,6 +86,7 @@ namespace Foodle_Point_Management_System
         }
         private bool AllInputValid(out string messageBoxErrorMessage)
         {
+            // Validate each input field
             bool validName = inputChecker.IsTextOnly(InputFullName, out string eName, "Full Name");
             bool validDate = inputChecker.IsValidDate(InputDOB, out string eDOB);
             bool validEmail = inputChecker.IsValidEmail(InputEmail, out string eEmail);
@@ -89,6 +95,7 @@ namespace Foodle_Point_Management_System
 
             messageBoxErrorMessage = string.Empty;
 
+            // Collect all error messages
             foreach (string error in new string[] { eName, eDOB, eEmail, ePhoneNum })
             {
                 if (error != "No error")
@@ -97,11 +104,13 @@ namespace Foodle_Point_Management_System
                 }
             }
 
+            // Add password error if empty
             if (!validPassword)
             {
                 messageBoxErrorMessage += "Password cannot be empty" + Environment.NewLine;
             }
 
+            // Return true if no errors
             return messageBoxErrorMessage == string.Empty;
         }
 

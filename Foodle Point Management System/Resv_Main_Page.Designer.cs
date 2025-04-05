@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.btnManageReservations = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblQuestion = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnUpdateReservationStatus = new System.Windows.Forms.Button();
             this.btnViewCustomerRequests = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
@@ -49,25 +49,25 @@
             this.btnManageReservations.UseVisualStyleBackColor = true;
             this.btnManageReservations.Click += new System.EventHandler(this.btnManageReservations_Click);
             // 
-            // lblTitle
+            // label1
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("SimSun", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTitle.Location = new System.Drawing.Point(160, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(477, 40);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "RESERVATION COORDINATOR";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SimSun", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(160, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(477, 40);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "RESERVATION COORDINATOR";
             // 
-            // lblQuestion
+            // label2
             // 
-            this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblQuestion.Location = new System.Drawing.Point(225, 73);
-            this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(334, 23);
-            this.lblQuestion.TabIndex = 2;
-            this.lblQuestion.Text = "what would you want to do ?";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(225, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(334, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "what would you want to do ?";
             // 
             // btnUpdateReservationStatus
             // 
@@ -121,8 +121,8 @@
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewCustomerRequests);
             this.Controls.Add(this.btnUpdateReservationStatus);
-            this.Controls.Add(this.lblQuestion);
-            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnManageReservations);
             this.Name = "Resv_Main_Page";
             this.Text = "Resv_Main_Page";
@@ -135,8 +135,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnManageReservations;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblQuestion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnUpdateReservationStatus;
         private System.Windows.Forms.Button btnViewCustomerRequests;
         private System.Windows.Forms.Button btnUpdateProfile;

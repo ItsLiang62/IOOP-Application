@@ -29,31 +29,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblWelcome = new System.Windows.Forms.Label();
+            this.lblWelcomeManager = new System.Windows.Forms.Label();
             this.btnManageMenu = new System.Windows.Forms.Button();
             this.btnManageHall = new System.Windows.Forms.Button();
             this.btnViewReservation = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblWelcome
+            // lblWelcomeManager
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(288, 120);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(228, 29);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "Welcome, Manager!";
-            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblWelcome.Resize += new System.EventHandler(this.lblWelcomeManager_Resize);
+            this.lblWelcomeManager.AutoSize = true;
+            this.lblWelcomeManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeManager.Location = new System.Drawing.Point(243, 73);
+            this.lblWelcomeManager.Name = "lblWelcomeManager";
+            this.lblWelcomeManager.Size = new System.Drawing.Size(325, 38);
+            this.lblWelcomeManager.TabIndex = 0;
+            this.lblWelcomeManager.Text = "Welcome, Manager!";
+            this.lblWelcomeManager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWelcomeManager.Resize += new System.EventHandler(this.lblWelcomeManager_Resize);
             // 
             // btnManageMenu
             // 
             this.btnManageMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageMenu.Location = new System.Drawing.Point(250, 176);
+            this.btnManageMenu.Location = new System.Drawing.Point(250, 145);
             this.btnManageMenu.Name = "btnManageMenu";
             this.btnManageMenu.Size = new System.Drawing.Size(303, 55);
             this.btnManageMenu.TabIndex = 1;
@@ -64,7 +63,7 @@
             // btnManageHall
             // 
             this.btnManageHall.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageHall.Location = new System.Drawing.Point(250, 237);
+            this.btnManageHall.Location = new System.Drawing.Point(250, 216);
             this.btnManageHall.Name = "btnManageHall";
             this.btnManageHall.Size = new System.Drawing.Size(303, 55);
             this.btnManageHall.TabIndex = 2;
@@ -75,7 +74,7 @@
             // btnViewReservation
             // 
             this.btnViewReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewReservation.Location = new System.Drawing.Point(250, 298);
+            this.btnViewReservation.Location = new System.Drawing.Point(250, 289);
             this.btnViewReservation.Name = "btnViewReservation";
             this.btnViewReservation.Size = new System.Drawing.Size(303, 55);
             this.btnViewReservation.TabIndex = 3;
@@ -99,35 +98,23 @@
             this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMain.Location = new System.Drawing.Point(12, 12);
             this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(197, 52);
+            this.btnMain.Size = new System.Drawing.Size(218, 52);
             this.btnMain.TabIndex = 5;
             this.btnMain.Text = "Return to Main Page";
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(272, 60);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(253, 38);
-            this.lblTitle.TabIndex = 6;
-            this.lblTitle.Text = "Manager Portal";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmManagerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnMain);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewReservation);
             this.Controls.Add(this.btnManageHall);
             this.Controls.Add(this.btnManageMenu);
-            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.lblWelcomeManager);
             this.Name = "frmManagerMain";
             this.Text = "Welcome, Manager!";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmManagerMain_FormClosing);
@@ -138,12 +125,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label lblWelcomeManager;
         private System.Windows.Forms.Button btnManageMenu;
         private System.Windows.Forms.Button btnManageHall;
         private System.Windows.Forms.Button btnViewReservation;
         private System.Windows.Forms.Button btnUpdateProfile;
         private System.Windows.Forms.Button btnMain;
-        private System.Windows.Forms.Label lblTitle;
     }
 }
