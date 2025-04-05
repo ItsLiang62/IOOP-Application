@@ -101,7 +101,7 @@ namespace Foodle_Point_Management_System
                     return;
                 }
 
-                MessageBox.Show("Successfully deleted item.");
+                MessageBox.Show("Successfully deleted hall.");
 
                 this.FillComboBox();
             }
