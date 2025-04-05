@@ -37,10 +37,9 @@
             // 
             // btnManageUser
             // 
-            this.btnManageUser.Location = new System.Drawing.Point(203, 144);
-            this.btnManageUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnManageUser.Location = new System.Drawing.Point(304, 225);
             this.btnManageUser.Name = "btnManageUser";
-            this.btnManageUser.Size = new System.Drawing.Size(163, 48);
+            this.btnManageUser.Size = new System.Drawing.Size(244, 75);
             this.btnManageUser.TabIndex = 0;
             this.btnManageUser.Text = "Manage User";
             this.btnManageUser.UseVisualStyleBackColor = true;
@@ -48,10 +47,9 @@
             // 
             // btnViewFeedback
             // 
-            this.btnViewFeedback.Location = new System.Drawing.Point(201, 205);
-            this.btnViewFeedback.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewFeedback.Location = new System.Drawing.Point(302, 320);
             this.btnViewFeedback.Name = "btnViewFeedback";
-            this.btnViewFeedback.Size = new System.Drawing.Size(165, 48);
+            this.btnViewFeedback.Size = new System.Drawing.Size(248, 75);
             this.btnViewFeedback.TabIndex = 1;
             this.btnViewFeedback.Text = "View Feedback";
             this.btnViewFeedback.UseVisualStyleBackColor = true;
@@ -59,10 +57,9 @@
             // 
             // btnViewSalesReport
             // 
-            this.btnViewSalesReport.Location = new System.Drawing.Point(389, 145);
-            this.btnViewSalesReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewSalesReport.Location = new System.Drawing.Point(584, 227);
             this.btnViewSalesReport.Name = "btnViewSalesReport";
-            this.btnViewSalesReport.Size = new System.Drawing.Size(163, 47);
+            this.btnViewSalesReport.Size = new System.Drawing.Size(244, 73);
             this.btnViewSalesReport.TabIndex = 2;
             this.btnViewSalesReport.Text = "View Sales Report";
             this.btnViewSalesReport.UseVisualStyleBackColor = true;
@@ -70,10 +67,9 @@
             // 
             // btnUpdateProfile
             // 
-            this.btnUpdateProfile.Location = new System.Drawing.Point(389, 205);
-            this.btnUpdateProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateProfile.Location = new System.Drawing.Point(584, 320);
             this.btnUpdateProfile.Name = "btnUpdateProfile";
-            this.btnUpdateProfile.Size = new System.Drawing.Size(165, 47);
+            this.btnUpdateProfile.Size = new System.Drawing.Size(248, 73);
             this.btnUpdateProfile.TabIndex = 3;
             this.btnUpdateProfile.Text = "Update Profile";
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
@@ -81,10 +77,9 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(333, 290);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Location = new System.Drawing.Point(500, 453);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(93, 31);
+            this.btnLogout.Size = new System.Drawing.Size(140, 48);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "LogOut";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -92,18 +87,18 @@
             // 
             // AdminHomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 474);
+            this.ClientSize = new System.Drawing.Size(1148, 741);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnViewSalesReport);
             this.Controls.Add(this.btnViewFeedback);
             this.Controls.Add(this.btnManageUser);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminHomePage";
             this.Text = "AdminHomePage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminHomePage_FormClosing);
+            this.Load += new System.EventHandler(this.AdminHomePage_Load);
             this.ResumeLayout(false);
 
         }

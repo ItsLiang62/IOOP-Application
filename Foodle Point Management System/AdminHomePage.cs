@@ -35,7 +35,8 @@ namespace Foodle_Point_Management_System
         {
             UserManagement UserForm = new UserManagement(currentAdmin);
             this.Hide(); // Hide AdminHomePage
-            UserForm.Show();        }
+            UserForm.Show();
+        }
 
         private void btnViewSalesReport_Click(object sender, EventArgs e)
         {
@@ -68,6 +69,11 @@ namespace Foodle_Point_Management_System
         private void AdminHomePage_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AdminHomePage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

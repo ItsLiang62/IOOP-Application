@@ -16,10 +16,8 @@ namespace Foodle_Point_Management_System
     public partial class UserManagement: Form
     {
        private SystemAdministrator currentAdmin;
-
-
-
         public UserManagement(SystemAdministrator admin)
+
         {
             InitializeComponent();
             if (admin == null)
@@ -33,8 +31,6 @@ namespace Foodle_Point_Management_System
         private void UserManagement_Load(object sender, EventArgs e)
         {
             LoadEmployeeData();
-
-
         }
 
         private void LoadEmployeeData()
@@ -65,28 +61,20 @@ namespace Foodle_Point_Management_System
                     string id = empIdObj.ToString();
                     List<object> row = empTable.GetRowValues(id);
 
-                    // Ensure row data is valid (expecting 7 columns for ID, Name, Position, etc.)
                     if (row.Count == 8)
                     {
-                        dt.Rows.Add(row.ToArray()); // Add all 8 values
+                        dt.Rows.Add(row.ToArray());
 
                         // Add the data to the DataTable
-
-                        //dt.Rows.Add(row.Take(8).ToArray());  // Exclude password and other irrelevant fields
                     }
                     else
                     {
-                        // Optional: Show a message if data is invalid
                         MessageBox.Show($"Invalid data for employee {id}. Skipping.");
                     }
                 }
 
                 dgvUsers.DataSource = dt;
-                // Hide the "AccountPassword" column in the DataGridView
                 dgvUsers.Columns["AccountPassword"].Visible = false;
-
-
-                // Bind the DataTable to the DataGridView (dgvUsers)
                 dgvUsers.DataSource = dt;
             }
             catch (Exception ex)
@@ -186,7 +174,7 @@ namespace Foodle_Point_Management_System
                         // Display success message
                         MessageBox.Show("User deleted successfully!");
 
-                        // Reload the data in DataGridView to refresh the UI
+                        // Reload the data in DataGridView to refresh
                         LoadEmployeeData();
                     }
                     catch (Exception ex)
