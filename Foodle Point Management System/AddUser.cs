@@ -88,7 +88,7 @@ namespace Foodle_Point_Management_System
                 empTable.InsertRow(newEmployeeID, employeeName, position, gender, email, phone, dob, password);
 
                 MessageBox.Show("New user added successfully!");
-                this.Close();
+                this.Hide();
             }
             catch (Exception ex)
             {
