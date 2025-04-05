@@ -150,7 +150,7 @@
             // btnreturn
             // 
             this.btnreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreturn.Location = new System.Drawing.Point(12, 438);
+            this.btnreturn.Location = new System.Drawing.Point(12, 416);
             this.btnreturn.Name = "btnreturn";
             this.btnreturn.Size = new System.Drawing.Size(281, 78);
             this.btnreturn.TabIndex = 15;
@@ -162,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1528, 532);
+            this.ClientSize = new System.Drawing.Size(1528, 500);
             this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.lblmessage);
             this.Controls.Add(this.lblgender);
