@@ -75,6 +75,10 @@ namespace Foodle_Point_Management_System
                 dgvSales.DataSource = salesRecords;
             else
                 MessageBox.Show("No records found for the selected month and year.");
+
+            // Total Sales Calculation
+            double total = salesRecords.Sum(item => item.Price);
+            lblTotalSales.Text = $"Total Sales: RM {total:F2}";
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
@@ -82,6 +86,9 @@ namespace Foodle_Point_Management_System
             cmbMonth.SelectedIndex = -1;
             comboBoxYear.SelectedIndex = -1;
             dgvSales.DataSource = null;
+
+            lblTotalSales.Text = "Total Sales: RM 0.00";
+
         }
     }
 }
