@@ -13,7 +13,7 @@ using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class ManageReservationsForm: Form
+    public partial class ManageReservationsForm : Form
     {
         private ResvCoordinator ResvCoordinatorUser
         { get; set; }
@@ -57,15 +57,15 @@ namespace Foodle_Point_Management_System
             {
                 var rowValues = reservationTable.GetRowValues(id.ToString());
 
-                ListViewItem item = new ListViewItem(rowValues[0].ToString()); 
-                item.SubItems.Add(rowValues[1].ToString()); 
-                item.SubItems.Add(rowValues[2].ToString()); 
-                item.SubItems.Add(rowValues[3].ToString()); 
-                item.SubItems.Add(rowValues[4].ToString()); 
-                item.SubItems.Add(rowValues[5].ToString()); 
-                item.SubItems.Add(rowValues[6].ToString()); 
-                item.SubItems.Add(rowValues[7]?.ToString() ?? ""); 
-                item.SubItems.Add(rowValues[8]?.ToString() ?? ""); 
+                ListViewItem item = new ListViewItem(rowValues[0].ToString());
+                item.SubItems.Add(rowValues[1].ToString());
+                item.SubItems.Add(rowValues[2].ToString());
+                item.SubItems.Add(rowValues[3].ToString());
+                item.SubItems.Add(rowValues[4].ToString());
+                item.SubItems.Add(rowValues[5].ToString());
+                item.SubItems.Add(rowValues[6].ToString());
+                item.SubItems.Add(rowValues[7]?.ToString() ?? "");
+                item.SubItems.Add(rowValues[8]?.ToString() ?? "");
 
                 lvReservations.Items.Add(item);
             }

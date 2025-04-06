@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFilter = new System.Windows.Forms.Button();
             this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSales = new System.Windows.Forms.DataGridView();
@@ -37,18 +36,9 @@
             this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.btnClearFilter = new System.Windows.Forms.Button();
             this.btnGR = new System.Windows.Forms.Button();
+            this.lblTotalSales = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.Location = new System.Drawing.Point(879, 95);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(148, 58);
-            this.btnFilter.TabIndex = 0;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // cmbMonth
             // 
@@ -135,7 +125,7 @@
             // 
             // btnClearFilter
             // 
-            this.btnClearFilter.Location = new System.Drawing.Point(879, 191);
+            this.btnClearFilter.Location = new System.Drawing.Point(861, 140);
             this.btnClearFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClearFilter.Name = "btnClearFilter";
             this.btnClearFilter.Size = new System.Drawing.Size(148, 57);
@@ -146,7 +136,7 @@
             // 
             // btnGR
             // 
-            this.btnGR.Location = new System.Drawing.Point(592, 800);
+            this.btnGR.Location = new System.Drawing.Point(542, 800);
             this.btnGR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGR.Name = "btnGR";
             this.btnGR.Size = new System.Drawing.Size(207, 73);
@@ -155,11 +145,21 @@
             this.btnGR.UseVisualStyleBackColor = true;
             this.btnGR.Click += new System.EventHandler(this.btnGR_Click);
             // 
+            // lblTotalSales
+            // 
+            this.lblTotalSales.AutoSize = true;
+            this.lblTotalSales.Location = new System.Drawing.Point(796, 788);
+            this.lblTotalSales.Name = "lblTotalSales";
+            this.lblTotalSales.Size = new System.Drawing.Size(213, 25);
+            this.lblTotalSales.TabIndex = 9;
+            this.lblTotalSales.Text = "Total Sales: RM 0.00";
+            // 
             // ViewSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1380, 1014);
+            this.Controls.Add(this.lblTotalSales);
             this.Controls.Add(this.btnGR);
             this.Controls.Add(this.btnClearFilter);
             this.Controls.Add(this.comboBoxYear);
@@ -168,9 +168,8 @@
             this.Controls.Add(this.dgvSales);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbMonth);
-            this.Controls.Add(this.btnFilter);
             this.Name = "ViewSales";
-            this.Text = "ViewSales";
+            this.Text = "Total Sales: RM 0.00";
             this.Load += new System.EventHandler(this.ViewSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
@@ -179,8 +178,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.ComboBox cmbMonth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSales;
@@ -189,5 +186,6 @@
         private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Button btnClearFilter;
         private System.Windows.Forms.Button btnGR;
+        private System.Windows.Forms.Label lblTotalSales;
     }
 }
