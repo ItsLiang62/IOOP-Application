@@ -16,7 +16,7 @@ namespace Foodle_Point_Management_System
     public partial class UpdateProfileChef : Form
     {
 
-        private string connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=Chef_T1;Trusted_Connection=True;";
+        private string connectionString = @"Data Source=10.101.55.129,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
         private int employeeId; // Assume this is set when the form is opened
 
         public UpdateProfileChef(int employeeId)
@@ -32,7 +32,7 @@ namespace Foodle_Point_Management_System
 
         private void LoadProfile()
         {
-             try
+            try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

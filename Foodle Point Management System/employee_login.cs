@@ -91,7 +91,14 @@ namespace Foodle_Point_Management_System
                     this.Hide();
                 }
 
-                    MessageBox.Show("Login Successful");
+                else if (Position == "Chef")
+                {
+                    frmChefMain chefMainPage = new frmChefMain();
+                    chefMainPage.Show();
+                    this.Hide();
+                }
+
+                MessageBox.Show("Login Successful");
             }
             else
             {

@@ -22,11 +22,6 @@ namespace Foodle_Point_Management_System
             btnUpdateProfile.Click += btnUpdateProfile_Click;
         }
 
-        private void frmChefMain_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnViewOrders_Click(object sender, EventArgs e)
         {
             OpenForm(new ViewOrdersChef());
@@ -48,9 +43,9 @@ namespace Foodle_Point_Management_System
             OpenForm(new ManageInventoryChef());
         }
 
-        private void BtnUpdateProfileChef_Click(object sender, EventArgs e)
+        private void btnUpdateProfile_Click_1(object sender, EventArgs e)
         {
-            OpenForm(form: new UpdateProfileChef());
+            OpenForm(new UpdateProfileChef());
         }
     }
 }
