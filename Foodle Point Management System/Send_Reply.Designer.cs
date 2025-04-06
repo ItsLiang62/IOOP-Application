@@ -81,7 +81,6 @@
             this.Controls.Add(this.txtReply);
             this.Name = "Send_Reply";
             this.Text = "Send_Reply";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Send_Reply_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
