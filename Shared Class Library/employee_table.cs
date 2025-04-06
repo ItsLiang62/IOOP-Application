@@ -203,7 +203,7 @@ namespace Shared_Class_Library
         public string GetNewEmployeeID(string position)
         {
             string previousEmployeeID;
-            string newEmployeeID;
+            string nextEmployeeID;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -211,9 +211,9 @@ namespace Shared_Class_Library
 
                 string query = @"
                     SELECT TOP 1 EmployeeID
-                    FROM Employee 
+                    FROM Employees 
                     WHERE Position = @Position
-                    ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID)-1) AS INT) DESC";
+                    ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID) - 1) AS INT) DESC";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -223,12 +223,12 @@ namespace Shared_Class_Library
                     {
                         if (reader.Read())
                         {
-                            previousEmployeeID = reader["EmployeeID"].ToString();
-                            int previousEmployeeIDNum = Convert.ToInt32(previousEmployeeID.Substring(1));
-                            int newEmployeeIDNum = previousEmployeeIDNum + 1;
-                            newEmployeeID = $"{previousEmployeeID[0]}{newEmployeeIDNum:D3}";
+                            string currentEmployeeID = reader["EmployeeID"].ToString();
+                            int currentEmployeeIDNum = Convert.ToInt32(currentEmployeeID.Substring(1));
+                            int nextEmployeeIDNum = currentEmployeeIDNum + 1;
+                            string nextEmployeeID = $"{currentEmployeeID[0]}{nextEmployeeIDNum:D3}";
 
-                            return newEmployeeID;
+                            return nextEmployeeID;
                         }
                         else
                         {

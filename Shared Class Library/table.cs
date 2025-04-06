@@ -16,7 +16,7 @@ namespace Shared_Class_Library
 
         {
             //Enter connection string here before running the application
-            ConnectionString = "Data Source=172.18.48.1;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            ConnectionString = @"Server=(localdb)\MSSQLLocalDB;Database=Chef_T1;Trusted_Connection=True;"; //"Data Source=172.18.48.1;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
         }
     }
 }
