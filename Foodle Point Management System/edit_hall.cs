@@ -84,12 +84,12 @@ namespace Foodle_Point_Management_System
 
         }
 
-        private void btnEdit_Resize(object sender, EventArgs e)
+        private void btnSave_Resize(object sender, EventArgs e)
         {
             lblTitle.Left = (this.ClientSize.Width - lblTitle.Width) / 2;
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (AllInputValid(out string messageBoxErrorMessage))
             {
