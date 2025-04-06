@@ -345,9 +345,6 @@
     <Compile Include="UpdateProfileChef.Designer.cs">
       <DependentUpon>UpdateProfileChef.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateProfileChef1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="update_manager_profile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -491,21 +488,6 @@
     <EmbeddedResource Include="Resv_Main_Page.resx">
       <DependentUpon>Resv_Main_Page.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="OrderFood.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderFood.Designer.cs">
-      <DependentUpon>OrderFood.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="OrderFood.resx">
-      <DependentUpon>OrderFood.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="order food .cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="order food .Designer.cs">
-      <DependentUpon>order food .cs</DependentUpon>
-    </Compile>
     <Compile Include="UpdateProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>

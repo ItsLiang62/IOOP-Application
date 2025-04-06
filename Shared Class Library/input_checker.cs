@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -91,7 +93,7 @@ namespace Shared_Class_Library
         {
             if (!DateTime.TryParseExact(input, "d/M/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime tempDate))
             {
-                errorMessage = "Invalid date. Make sure the date has no leading zeroes";
+                errorMessage = "Invalid date. Make sure the date follows the format d/M/yyyy (E.g. 9/9/2005).";
                 return false;
             }
 

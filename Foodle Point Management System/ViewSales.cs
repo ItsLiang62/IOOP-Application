@@ -1,4 +1,6 @@
-﻿using Shared_Class_Library;
+﻿// Mohammad
+
+using Shared_Class_Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,6 +93,11 @@ namespace Foodle_Point_Management_System
             comboBoxYear.SelectedIndex = -1;
             dgvSales.DataSource = null;
             lblTotalSales.Text = "Total Sales: RM 0.00";
+        }
+
+        private void ViewSales_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

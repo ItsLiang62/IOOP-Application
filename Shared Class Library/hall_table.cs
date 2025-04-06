@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -168,6 +170,21 @@ namespace Shared_Class_Library
 
         public void DeleteRow(string hallNumber)
         {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE FROM HallReservation WHERE HallNumber = @hallNumber";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();

@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Abdullah
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -134,6 +136,11 @@ namespace Foodle_Point_Management_System
             this.Hide();
             var mainForm = new frmChefMain();
             mainForm.Show();
+        }
+
+        private void ManageInventoryChef_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

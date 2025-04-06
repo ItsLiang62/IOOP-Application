@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Abdullah
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,6 +108,11 @@ namespace Foodle_Point_Management_System
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+        }
+
+        private void UpdateProfileChef_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Abdullah
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +50,11 @@ namespace Foodle_Point_Management_System
             
             OpenForm(new UpdateProfileChef());
 
+        }
+
+        private void frmChefMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

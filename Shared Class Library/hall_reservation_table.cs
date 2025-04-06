@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -190,7 +192,16 @@ namespace Shared_Class_Library
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    if (column == "EventDate")
+                    {
+                        DateTime newDate = DateTime.ParseExact(newValue.ToString(), "d/M/yyyy", CultureInfo.InvariantCulture);
+                        cmd.Parameters.AddWithValue("@NewValue", newDate);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    }
+
                     cmd.Parameters.AddWithValue("@reservationID", reservationID);
 
                     cmd.ExecuteNonQuery();

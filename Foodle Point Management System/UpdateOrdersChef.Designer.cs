@@ -39,9 +39,9 @@ namespace Foodle_Point_Management_System
             // 
             // btnCompleted
             // 
-            this.btnCompleted.Location = new System.Drawing.Point(543, 362);
+            this.btnCompleted.Location = new System.Drawing.Point(621, 362);
             this.btnCompleted.Name = "btnCompleted";
-            this.btnCompleted.Size = new System.Drawing.Size(96, 23);
+            this.btnCompleted.Size = new System.Drawing.Size(110, 23);
             this.btnCompleted.TabIndex = 0;
             this.btnCompleted.Text = "Completed";
             this.btnCompleted.UseVisualStyleBackColor = true;
@@ -49,9 +49,9 @@ namespace Foodle_Point_Management_System
             // 
             // btnInProgress
             // 
-            this.btnInProgress.Location = new System.Drawing.Point(201, 362);
+            this.btnInProgress.Location = new System.Drawing.Point(230, 362);
             this.btnInProgress.Name = "btnInProgress";
-            this.btnInProgress.Size = new System.Drawing.Size(98, 23);
+            this.btnInProgress.Size = new System.Drawing.Size(112, 23);
             this.btnInProgress.TabIndex = 1;
             this.btnInProgress.Text = "In Progress";
             this.btnInProgress.UseVisualStyleBackColor = true;
@@ -60,11 +60,11 @@ namespace Foodle_Point_Management_System
             // dataGridViewOrders
             // 
             this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrders.Location = new System.Drawing.Point(77, 56);
+            this.dataGridViewOrders.Location = new System.Drawing.Point(88, 56);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
             this.dataGridViewOrders.RowHeadersWidth = 51;
             this.dataGridViewOrders.RowTemplate.Height = 26;
-            this.dataGridViewOrders.Size = new System.Drawing.Size(630, 300);
+            this.dataGridViewOrders.Size = new System.Drawing.Size(720, 300);
             this.dataGridViewOrders.TabIndex = 2;
             // 
             // btnReturn
@@ -72,7 +72,7 @@ namespace Foodle_Point_Management_System
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(3, 7);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(195, 43);
+            this.btnReturn.Size = new System.Drawing.Size(223, 43);
             this.btnReturn.TabIndex = 64;
             this.btnReturn.Text = "Return to Main";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -80,16 +80,17 @@ namespace Foodle_Point_Management_System
             // 
             // UpdateOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 450);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.dataGridViewOrders);
             this.Controls.Add(this.btnInProgress);
             this.Controls.Add(this.btnCompleted);
             this.Name = "UpdateOrders";
             this.Text = "UpdateOrders";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateOrders_FormClosing);
             this.Load += new System.EventHandler(this.UpdateOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
             this.ResumeLayout(false);
