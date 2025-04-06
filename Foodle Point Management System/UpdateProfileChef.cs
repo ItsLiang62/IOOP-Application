@@ -107,5 +107,10 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
+        private void UpdateProfileChef_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

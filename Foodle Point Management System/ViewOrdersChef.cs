@@ -46,5 +46,10 @@ namespace Foodle_Point_Management_System
             var mainForm = new frmChefMain();
             mainForm.Show();
         }
+
+        private void ViewOrdersChef_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

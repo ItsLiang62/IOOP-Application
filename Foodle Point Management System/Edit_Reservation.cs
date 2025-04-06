@@ -103,5 +103,9 @@ namespace Foodle_Point_Management_System
             this.Hide();
         }
 
+        private void Edit_Reservation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

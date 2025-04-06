@@ -92,5 +92,10 @@ namespace Foodle_Point_Management_System
             dgvSales.DataSource = null;
             lblTotalSales.Text = "Total Sales: RM 0.00";
         }
+
+        private void ViewSales_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

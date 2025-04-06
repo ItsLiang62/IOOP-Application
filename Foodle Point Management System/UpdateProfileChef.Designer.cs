@@ -54,23 +54,23 @@ namespace Foodle_Point_Management_System
             // 
             // txtFullNameChef
             // 
-            this.txtFullNameChef.Location = new System.Drawing.Point(284, 146);
+            this.txtFullNameChef.Location = new System.Drawing.Point(325, 146);
             this.txtFullNameChef.Name = "txtFullNameChef";
-            this.txtFullNameChef.Size = new System.Drawing.Size(188, 24);
+            this.txtFullNameChef.Size = new System.Drawing.Size(214, 22);
             this.txtFullNameChef.TabIndex = 2;
             // 
             // txtPhoneNumberChef
             // 
-            this.txtPhoneNumberChef.Location = new System.Drawing.Point(284, 329);
+            this.txtPhoneNumberChef.Location = new System.Drawing.Point(325, 329);
             this.txtPhoneNumberChef.Name = "txtPhoneNumberChef";
-            this.txtPhoneNumberChef.Size = new System.Drawing.Size(188, 24);
+            this.txtPhoneNumberChef.Size = new System.Drawing.Size(214, 22);
             this.txtPhoneNumberChef.TabIndex = 3;
             // 
             // txtDOBChef
             // 
-            this.txtDOBChef.Location = new System.Drawing.Point(284, 287);
+            this.txtDOBChef.Location = new System.Drawing.Point(325, 287);
             this.txtDOBChef.Name = "txtDOBChef";
-            this.txtDOBChef.Size = new System.Drawing.Size(188, 24);
+            this.txtDOBChef.Size = new System.Drawing.Size(214, 22);
             this.txtDOBChef.TabIndex = 4;
             // 
             // cmbGenderChef
@@ -81,9 +81,9 @@ namespace Foodle_Point_Management_System
             this.cmbGenderChef.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cmbGenderChef.Location = new System.Drawing.Point(284, 234);
+            this.cmbGenderChef.Location = new System.Drawing.Point(325, 234);
             this.cmbGenderChef.Name = "cmbGenderChef";
-            this.cmbGenderChef.Size = new System.Drawing.Size(188, 33);
+            this.cmbGenderChef.Size = new System.Drawing.Size(214, 33);
             this.cmbGenderChef.TabIndex = 44;
             // 
             // lblShowPositionChef
@@ -91,9 +91,9 @@ namespace Foodle_Point_Management_System
             this.lblShowPositionChef.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblShowPositionChef.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblShowPositionChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowPositionChef.Location = new System.Drawing.Point(285, 186);
+            this.lblShowPositionChef.Location = new System.Drawing.Point(326, 186);
             this.lblShowPositionChef.Name = "lblShowPositionChef";
-            this.lblShowPositionChef.Size = new System.Drawing.Size(187, 35);
+            this.lblShowPositionChef.Size = new System.Drawing.Size(214, 35);
             this.lblShowPositionChef.TabIndex = 50;
             // 
             // lblEIDChef
@@ -101,16 +101,16 @@ namespace Foodle_Point_Management_System
             this.lblEIDChef.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblEIDChef.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblEIDChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEIDChef.Location = new System.Drawing.Point(285, 93);
+            this.lblEIDChef.Location = new System.Drawing.Point(326, 93);
             this.lblEIDChef.Name = "lblEIDChef";
-            this.lblEIDChef.Size = new System.Drawing.Size(187, 35);
+            this.lblEIDChef.Size = new System.Drawing.Size(214, 35);
             this.lblEIDChef.TabIndex = 51;
             // 
             // lblEmployeeIDChef
             // 
             this.lblEmployeeIDChef.AutoSize = true;
             this.lblEmployeeIDChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeIDChef.Location = new System.Drawing.Point(105, 99);
+            this.lblEmployeeIDChef.Location = new System.Drawing.Point(120, 99);
             this.lblEmployeeIDChef.Name = "lblEmployeeIDChef";
             this.lblEmployeeIDChef.Size = new System.Drawing.Size(157, 29);
             this.lblEmployeeIDChef.TabIndex = 52;
@@ -120,7 +120,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblDOBCshef.AutoSize = true;
             this.lblDOBCshef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDOBCshef.Location = new System.Drawing.Point(105, 280);
+            this.lblDOBCshef.Location = new System.Drawing.Point(120, 280);
             this.lblDOBCshef.Name = "lblDOBCshef";
             this.lblDOBCshef.Size = new System.Drawing.Size(71, 29);
             this.lblDOBCshef.TabIndex = 53;
@@ -130,7 +130,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblGenderChef.AutoSize = true;
             this.lblGenderChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenderChef.Location = new System.Drawing.Point(105, 238);
+            this.lblGenderChef.Location = new System.Drawing.Point(120, 238);
             this.lblGenderChef.Name = "lblGenderChef";
             this.lblGenderChef.Size = new System.Drawing.Size(100, 29);
             this.lblGenderChef.TabIndex = 54;
@@ -140,7 +140,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblPositionChef.AutoSize = true;
             this.lblPositionChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPositionChef.Location = new System.Drawing.Point(105, 192);
+            this.lblPositionChef.Location = new System.Drawing.Point(120, 192);
             this.lblPositionChef.Name = "lblPositionChef";
             this.lblPositionChef.Size = new System.Drawing.Size(106, 29);
             this.lblPositionChef.TabIndex = 55;
@@ -150,7 +150,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblFullNameChef.AutoSize = true;
             this.lblFullNameChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullNameChef.Location = new System.Drawing.Point(106, 141);
+            this.lblFullNameChef.Location = new System.Drawing.Point(121, 141);
             this.lblFullNameChef.Name = "lblFullNameChef";
             this.lblFullNameChef.Size = new System.Drawing.Size(130, 29);
             this.lblFullNameChef.TabIndex = 56;
@@ -160,7 +160,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblPhoneNumberChef.AutoSize = true;
             this.lblPhoneNumberChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumberChef.Location = new System.Drawing.Point(105, 324);
+            this.lblPhoneNumberChef.Location = new System.Drawing.Point(120, 324);
             this.lblPhoneNumberChef.Name = "lblPhoneNumberChef";
             this.lblPhoneNumberChef.Size = new System.Drawing.Size(182, 29);
             this.lblPhoneNumberChef.TabIndex = 57;
@@ -170,7 +170,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblPassowrdChef.AutoSize = true;
             this.lblPassowrdChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassowrdChef.Location = new System.Drawing.Point(478, 238);
+            this.lblPassowrdChef.Location = new System.Drawing.Point(546, 238);
             this.lblPassowrdChef.Name = "lblPassowrdChef";
             this.lblPassowrdChef.Size = new System.Drawing.Size(126, 29);
             this.lblPassowrdChef.TabIndex = 58;
@@ -180,7 +180,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblEmailChef.AutoSize = true;
             this.lblEmailChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailChef.Location = new System.Drawing.Point(478, 146);
+            this.lblEmailChef.Location = new System.Drawing.Point(546, 146);
             this.lblEmailChef.Name = "lblEmailChef";
             this.lblEmailChef.Size = new System.Drawing.Size(80, 29);
             this.lblEmailChef.TabIndex = 59;
@@ -188,24 +188,24 @@ namespace Foodle_Point_Management_System
             // 
             // txtPasswordChef
             // 
-            this.txtPasswordChef.Location = new System.Drawing.Point(478, 270);
+            this.txtPasswordChef.Location = new System.Drawing.Point(546, 270);
             this.txtPasswordChef.Name = "txtPasswordChef";
-            this.txtPasswordChef.Size = new System.Drawing.Size(188, 24);
+            this.txtPasswordChef.Size = new System.Drawing.Size(214, 22);
             this.txtPasswordChef.TabIndex = 60;
             // 
             // txtEmailChef
             // 
-            this.txtEmailChef.Location = new System.Drawing.Point(478, 178);
+            this.txtEmailChef.Location = new System.Drawing.Point(546, 178);
             this.txtEmailChef.Name = "txtEmailChef";
-            this.txtEmailChef.Size = new System.Drawing.Size(188, 24);
+            this.txtEmailChef.Size = new System.Drawing.Size(214, 22);
             this.txtEmailChef.TabIndex = 61;
             // 
             // btnUpdateProfileChef
             // 
             this.btnUpdateProfileChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateProfileChef.Location = new System.Drawing.Point(443, 381);
+            this.btnUpdateProfileChef.Location = new System.Drawing.Point(506, 381);
             this.btnUpdateProfileChef.Name = "btnUpdateProfileChef";
-            this.btnUpdateProfileChef.Size = new System.Drawing.Size(178, 43);
+            this.btnUpdateProfileChef.Size = new System.Drawing.Size(203, 43);
             this.btnUpdateProfileChef.TabIndex = 62;
             this.btnUpdateProfileChef.Text = "Update Profile";
             this.btnUpdateProfileChef.UseVisualStyleBackColor = true;
@@ -214,9 +214,9 @@ namespace Foodle_Point_Management_System
             // btnReturn
             // 
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(41, 25);
+            this.btnReturn.Location = new System.Drawing.Point(47, 25);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(195, 43);
+            this.btnReturn.Size = new System.Drawing.Size(223, 43);
             this.btnReturn.TabIndex = 63;
             this.btnReturn.Text = "Return to Main";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -226,7 +226,7 @@ namespace Foodle_Point_Management_System
             // 
             this.lblTitleChef.AutoSize = true;
             this.lblTitleChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleChef.Location = new System.Drawing.Point(256, 39);
+            this.lblTitleChef.Location = new System.Drawing.Point(293, 39);
             this.lblTitleChef.Name = "lblTitleChef";
             this.lblTitleChef.Size = new System.Drawing.Size(242, 29);
             this.lblTitleChef.TabIndex = 64;
@@ -234,10 +234,10 @@ namespace Foodle_Point_Management_System
             // 
             // UpdateProfileChef
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 450);
             this.Controls.Add(this.lblTitleChef);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnUpdateProfileChef);
@@ -260,6 +260,7 @@ namespace Foodle_Point_Management_System
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "UpdateProfileChef";
             this.Text = "UpdateProfileChef";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateProfileChef_FormClosing);
             this.Load += new System.EventHandler(this.UpdateProfileChef_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

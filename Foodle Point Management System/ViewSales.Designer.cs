@@ -55,18 +55,20 @@
             "10",
             "11",
             "12"});
-            this.cmbMonth.Location = new System.Drawing.Point(552, 87);
+            this.cmbMonth.Location = new System.Drawing.Point(368, 56);
+            this.cmbMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(180, 33);
+            this.cmbMonth.Size = new System.Drawing.Size(121, 24);
             this.cmbMonth.TabIndex = 1;
             this.cmbMonth.SelectedIndexChanged += new System.EventHandler(this.cmbMonth_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(146, 95);
+            this.label1.Location = new System.Drawing.Point(97, 61);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 25);
+            this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Select Month:";
             // 
@@ -74,20 +76,20 @@
             // 
             this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSales.Location = new System.Drawing.Point(85, 286);
-            this.dgvSales.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvSales.Location = new System.Drawing.Point(57, 183);
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.RowHeadersWidth = 82;
             this.dgvSales.RowTemplate.Height = 33;
-            this.dgvSales.Size = new System.Drawing.Size(924, 485);
+            this.dgvSales.Size = new System.Drawing.Size(616, 310);
             this.dgvSales.TabIndex = 3;
             this.dgvSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSales_CellContentClick);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(310, 800);
+            this.btnBack.Location = new System.Drawing.Point(207, 512);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(191, 73);
+            this.btnBack.Size = new System.Drawing.Size(127, 47);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -96,10 +98,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(146, 215);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(97, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 25);
+            this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Select Year:";
             // 
@@ -117,18 +118,16 @@
             "2032",
             "2033",
             "2034"});
-            this.comboBoxYear.Location = new System.Drawing.Point(552, 207);
-            this.comboBoxYear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxYear.Location = new System.Drawing.Point(368, 132);
             this.comboBoxYear.Name = "comboBoxYear";
-            this.comboBoxYear.Size = new System.Drawing.Size(180, 33);
+            this.comboBoxYear.Size = new System.Drawing.Size(121, 24);
             this.comboBoxYear.TabIndex = 6;
             // 
             // btnClearFilter
             // 
-            this.btnClearFilter.Location = new System.Drawing.Point(861, 140);
-            this.btnClearFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClearFilter.Location = new System.Drawing.Point(574, 90);
             this.btnClearFilter.Name = "btnClearFilter";
-            this.btnClearFilter.Size = new System.Drawing.Size(148, 57);
+            this.btnClearFilter.Size = new System.Drawing.Size(99, 36);
             this.btnClearFilter.TabIndex = 7;
             this.btnClearFilter.Text = "Clear Filter";
             this.btnClearFilter.UseVisualStyleBackColor = true;
@@ -136,10 +135,9 @@
             // 
             // btnGR
             // 
-            this.btnGR.Location = new System.Drawing.Point(542, 800);
-            this.btnGR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGR.Location = new System.Drawing.Point(361, 512);
             this.btnGR.Name = "btnGR";
-            this.btnGR.Size = new System.Drawing.Size(207, 73);
+            this.btnGR.Size = new System.Drawing.Size(138, 47);
             this.btnGR.TabIndex = 8;
             this.btnGR.Text = "Generate Report";
             this.btnGR.UseVisualStyleBackColor = true;
@@ -148,17 +146,18 @@
             // lblTotalSales
             // 
             this.lblTotalSales.AutoSize = true;
-            this.lblTotalSales.Location = new System.Drawing.Point(796, 788);
+            this.lblTotalSales.Location = new System.Drawing.Point(531, 504);
+            this.lblTotalSales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalSales.Name = "lblTotalSales";
-            this.lblTotalSales.Size = new System.Drawing.Size(213, 25);
+            this.lblTotalSales.Size = new System.Drawing.Size(130, 16);
             this.lblTotalSales.TabIndex = 9;
             this.lblTotalSales.Text = "Total Sales: RM 0.00";
             // 
             // ViewSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1380, 1014);
+            this.ClientSize = new System.Drawing.Size(920, 649);
             this.Controls.Add(this.lblTotalSales);
             this.Controls.Add(this.btnGR);
             this.Controls.Add(this.btnClearFilter);
@@ -168,8 +167,10 @@
             this.Controls.Add(this.dgvSales);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbMonth);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewSales";
             this.Text = "Total Sales: RM 0.00";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewSales_FormClosing_1);
             this.Load += new System.EventHandler(this.ViewSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);

@@ -135,5 +135,10 @@ namespace Foodle_Point_Management_System
             var mainForm = new frmChefMain();
             mainForm.Show();
         }
+
+        private void ManageInventoryChef_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

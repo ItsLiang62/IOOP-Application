@@ -127,6 +127,7 @@ namespace Foodle_Point_Management_System
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "frmChefMain";
             this.Text = "Welcome, Chef!";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmChefMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

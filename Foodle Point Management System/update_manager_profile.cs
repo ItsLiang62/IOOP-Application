@@ -84,7 +84,7 @@ namespace Foodle_Point_Management_System
                         myEmployeeTable.UpdateValue(employeeID, "DOB", DOB);
                         myEmployeeTable.UpdateValue(employeeID, "Email", Email);
                         myEmployeeTable.UpdateValue(employeeID, "PhoneNumber", PhoneNum);
-                        myEmployeeTable.UpdateValue(employeeID, "Password", Password);
+                        myEmployeeTable.UpdateValue(employeeID, "AccountPassword", Password);
                     }
                     catch (Exception ex)
                     {

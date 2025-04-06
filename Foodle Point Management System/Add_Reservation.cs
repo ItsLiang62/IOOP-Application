@@ -67,5 +67,10 @@ namespace Foodle_Point_Management_System
                 MessageBox.Show($"Error adding reservation: {ex.Message}");
             }
         }
+
+        private void Add_Reservation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
