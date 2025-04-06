@@ -30,7 +30,7 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnManageMenu = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtItemName = new System.Windows.Forms.TextBox();
@@ -61,16 +61,16 @@
             this.btnManageMenu.UseVisualStyleBackColor = true;
             this.btnManageMenu.Click += new System.EventHandler(this.btnManageMenuPage_Click);
             // 
-            // btnEdit
+            // btnSave
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(305, 364);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(177, 50);
-            this.btnEdit.TabIndex = 21;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(305, 364);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(177, 50);
+            this.btnSave.TabIndex = 21;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // cmbCategory
             // 
@@ -139,7 +139,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtItemName);
@@ -160,7 +160,7 @@
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnManageMenu;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtItemName;

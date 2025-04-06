@@ -23,14 +23,14 @@ namespace Foodle_Point_Management_System
 
             /*try
             {
-                SystemAdministrator tempAdmin = new SystemAdministrator("A001"); // must exist in DB
+                SystemAdministrator tempAdmin = new SystemAdministrator("S001"); // must exist in DB
                 Application.Run(new AdminHomePage(tempAdmin));
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading admin: " + ex.Message);
-            } 
-            */
+            } */
+            
 
         }
     }
