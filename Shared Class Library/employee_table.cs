@@ -203,7 +203,7 @@ namespace Shared_Class_Library
         public string GetNewEmployeeID(string position)
         {
             string previousEmployeeID;
-            string nextEmployeeID;
+            string newEmployeeID;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -211,7 +211,7 @@ namespace Shared_Class_Library
 
                 string query = @"
                     SELECT TOP 1 EmployeeID
-                    FROM Employees 
+                    FROM Employee 
                     WHERE Position = @Position
                     ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID) - 1) AS INT) DESC";
 
@@ -223,12 +223,12 @@ namespace Shared_Class_Library
                     {
                         if (reader.Read())
                         {
-                            string currentEmployeeID = reader["EmployeeID"].ToString();
-                            int currentEmployeeIDNum = Convert.ToInt32(currentEmployeeID.Substring(1));
-                            int nextEmployeeIDNum = currentEmployeeIDNum + 1;
-                            string nextEmployeeID = $"{currentEmployeeID[0]}{nextEmployeeIDNum:D3}";
+                            previousEmployeeID = reader["EmployeeID"].ToString();
+                            int previousEmployeeIDNum = Convert.ToInt32(previousEmployeeID.Substring(1));
+                            int newEmployeeIDNum = previousEmployeeIDNum + 1;
+                            newEmployeeID = $"{previousEmployeeID[0]}{newEmployeeIDNum:D3}";
 
-                            return nextEmployeeID;
+                            return newEmployeeID;
                         }
                         else
                         {
@@ -260,10 +260,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@NewValue", newValue);
                     cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered EmployeeID or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
