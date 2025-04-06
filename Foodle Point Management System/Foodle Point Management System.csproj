@@ -308,6 +308,12 @@
     <Compile Include="Edit_Reservation.Designer.cs">
       <DependentUpon>Edit_Reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageInventoryChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageInventoryChef.Designer.cs">
+      <DependentUpon>ManageInventoryChef.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="reserve halls.cs">
       <SubType>Form</SubType>
@@ -321,11 +327,26 @@
     <Compile Include="Send_Reply.Designer.cs">
       <DependentUpon>Send_Reply.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateOrdersChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOrdersChef.Designer.cs">
+      <DependentUpon>UpdateOrdersChef.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateProfile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateProfile.Designer.cs">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfileChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProfileChef.Designer.cs">
+      <DependentUpon>UpdateProfileChef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfileChef1.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="update_manager_profile.cs">
       <SubType>Form</SubType>
@@ -344,6 +365,12 @@
     </Compile>
     <Compile Include="ViewCustomerFeedback.Designer.cs">
       <DependentUpon>ViewCustomerFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrdersChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOrdersChef.Designer.cs">
+      <DependentUpon>ViewOrdersChef.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewOrdersForm.cs">
       <SubType>Form</SubType>
@@ -381,14 +408,23 @@
     <EmbeddedResource Include="Add_Reservation.resx">
       <DependentUpon>Add_Reservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageInventoryChef.resx">
+      <DependentUpon>ManageInventoryChef.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reserve halls.resx">
       <DependentUpon>reserve halls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Send_Reply.resx">
       <DependentUpon>Send_Reply.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateOrdersChef.resx">
+      <DependentUpon>UpdateOrdersChef.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateProfile.resx">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProfileChef.resx">
+      <DependentUpon>UpdateProfileChef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="update_manager_profile.resx">
       <DependentUpon>update_manager_profile.cs</DependentUpon>
@@ -524,6 +560,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewOrdersChef.resx">
+      <DependentUpon>ViewOrdersChef.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewOrdersForm.resx">
       <DependentUpon>ViewOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
