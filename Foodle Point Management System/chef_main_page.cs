@@ -45,12 +45,6 @@ namespace Foodle_Point_Management_System
 
         private void btnUpdateProfile_Click_1(object sender, EventArgs e)
         {
-
-           
-        }
-
-        private void btnUpdateProfile_Click_1(object sender, EventArgs e)
-        {
             
             OpenForm(new UpdateProfileChef());
 

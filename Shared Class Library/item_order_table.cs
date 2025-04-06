@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@ItemNumber", itemID);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
-                    cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
+                    cmd.Parameters.AddWithValue("@DateOfOrder", DateTime.ParseExact(dateOfOrder, "d/M/yyyy", CultureInfo.InvariantCulture));
                     cmd.Parameters.AddWithValue("@OrderStatus", orderStatus);
 
                     cmd.ExecuteNonQuery();

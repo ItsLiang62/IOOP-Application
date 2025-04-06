@@ -89,9 +89,7 @@ namespace Shared_Class_Library
 
         public bool IsValidDate(string input, out string errorMessage)
         {
-            DateTime tempDate;
-            
-            if (!DateTime.TryParseExact(input, "d/M/yyyy", null, System.Globalization.DateTimeStyles.None, out tempDate))
+            if (!DateTime.TryParseExact(input, "d/M/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime tempDate))
             {
                 errorMessage = "Invalid date. Make sure the date has no leading zeroes";
                 return false;
