@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,12 +43,24 @@
             this.dataGridViewOrders.Size = new System.Drawing.Size(630, 300);
             this.dataGridViewOrders.TabIndex = 1;
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(12, 12);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(195, 43);
+            this.btnReturn.TabIndex = 64;
+            this.btnReturn.Text = "Return to Main";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // ViewOrdersChef
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(981, 568);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.dataGridViewOrders);
             this.Name = "ViewOrdersChef";
             this.Text = "ViewOrdersChef";
@@ -60,5 +73,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewOrders;
+        private System.Windows.Forms.Button btnReturn;
     }
 }

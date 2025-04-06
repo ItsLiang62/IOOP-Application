@@ -33,6 +33,7 @@ namespace Foodle_Point_Management_System
             this.btnCompleted = new System.Windows.Forms.Button();
             this.btnInProgress = new System.Windows.Forms.Button();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,12 +60,23 @@ namespace Foodle_Point_Management_System
             // dataGridViewOrders
             // 
             this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrders.Location = new System.Drawing.Point(75, 45);
+            this.dataGridViewOrders.Location = new System.Drawing.Point(77, 56);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
             this.dataGridViewOrders.RowHeadersWidth = 51;
             this.dataGridViewOrders.RowTemplate.Height = 26;
             this.dataGridViewOrders.Size = new System.Drawing.Size(630, 300);
             this.dataGridViewOrders.TabIndex = 2;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(3, 7);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(195, 43);
+            this.btnReturn.TabIndex = 64;
+            this.btnReturn.Text = "Return to Main";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // UpdateOrders
             // 
@@ -72,6 +84,7 @@ namespace Foodle_Point_Management_System
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.dataGridViewOrders);
             this.Controls.Add(this.btnInProgress);
             this.Controls.Add(this.btnCompleted);
@@ -93,5 +106,6 @@ namespace Foodle_Point_Management_System
         private System.Windows.Forms.Button btnCompleted;
         private System.Windows.Forms.Button btnInProgress;
         private System.Windows.Forms.DataGridView dataGridViewOrders;
+        private System.Windows.Forms.Button btnReturn;
     }
 }

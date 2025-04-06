@@ -88,6 +88,7 @@ namespace Foodle_Point_Management_System
             this.btnUpdateProfile.TabIndex = 4;
             this.btnUpdateProfile.Text = "Update My Profile";
             this.btnUpdateProfile.UseVisualStyleBackColor = false;
+            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click_1);
             // 
             // lblChefPortal
             // 

@@ -3,7 +3,7 @@
 namespace Foodle_Point_Management_System
 {
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-    partial class UpdateProfileChef
+    public partial class UpdateProfileChef
     {
         /// <summary>
         /// Required designer variable.

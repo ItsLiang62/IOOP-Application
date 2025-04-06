@@ -37,13 +37,14 @@
             this.txtIngredientName = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewInventory
             // 
             this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInventory.Location = new System.Drawing.Point(190, 42);
+            this.dataGridViewInventory.Location = new System.Drawing.Point(191, 51);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.RowHeadersWidth = 51;
             this.dataGridViewInventory.RowTemplate.Height = 26;
@@ -82,7 +83,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(370, 361);
+            this.btnSearch.Location = new System.Drawing.Point(370, 373);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 4;
@@ -120,12 +121,24 @@
             this.txtQuantity.Size = new System.Drawing.Size(100, 24);
             this.txtQuantity.TabIndex = 8;
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(3, 2);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(195, 43);
+            this.btnReturn.TabIndex = 64;
+            this.btnReturn.Text = "Return to Main";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // ManageInventoryChef
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.txtIngredientName);
@@ -154,5 +167,6 @@
         private System.Windows.Forms.TextBox txtIngredientName;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Button btnReturn;
     }
 }
