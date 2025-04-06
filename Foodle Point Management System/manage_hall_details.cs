@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
@@ -93,15 +94,30 @@ namespace Foodle_Point_Management_System
                 SelectedHallNumberHallName = cmbHall.Text;
                 string hallNumberToDelete = SelectedHallNumberHallName.Substring(0, 2);
 
-                try
+                DialogResult result = MessageBox.Show(
+                    "Deleting this hall will delete all the hall reservations that use the hall. Proceed deletion?",
+                    "Confirm Deletion",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.Yes)
                 {
-                    myHallTable.DeleteRow(hallNumberToDelete);
+                    try
+                    {
+                        myHallTable.DeleteRow(hallNumberToDelete);
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
                     return;
                 }
+
 
                 MessageBox.Show("Successfully deleted hall.");
 

@@ -174,6 +174,21 @@ namespace Shared_Class_Library
             {
                 conn.Open();
 
+                string query = "DELETE FROM HallReservation WHERE HallNumber = @hallNumber";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
                 string query = "DELETE FROM Hall WHERE HallNumber = @hallNumber";
 
 
