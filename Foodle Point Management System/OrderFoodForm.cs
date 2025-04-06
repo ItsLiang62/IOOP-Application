@@ -137,16 +137,26 @@ namespace Foodle_Point_Management_System
 
         private void btnRemoveCart_Click(object sender, EventArgs e)
         {
+            // Check if any row is selected
             if (dgvCart.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select an item from the cart to remove.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // Check if the selected row is an empty row (placeholder)
+            if (dgvCart.SelectedRows[0].IsNewRow)
+            {
+                MessageBox.Show("You cannot remove an empty row.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // If a valid row is selected, proceed with removing the item
             string itemName = dgvCart.SelectedRows[0].Cells["ItemName"].Value.ToString();
             decimal itemPrice = Convert.ToDecimal(dgvCart.SelectedRows[0].Cells["Price"].Value);
 
             // Confirm removal action from the user
-            DialogResult result = MessageBox.Show("Are you sure you want to remove this item from the cart?",
+            DialogResult result = MessageBox.Show($"Are you sure you want to remove this {itemName} from the cart?",
                                                   "Confirm Removal",
                                                   MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question);
@@ -154,17 +164,19 @@ namespace Foodle_Point_Management_System
             // If user clicks 'Yes', remove the item
             if (result == DialogResult.Yes)
             {
-                // Step 2: Remove the selected row from the cart
-                dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
+                
+                MenuItemCartItem.RemoveFromCart(dgvCart, dgvCart.SelectedRows[0].Index);
+
                 // Recalculate the total price
                 totalPrice -= itemPrice;
                 lblTotalPrice.Text = $"Total: {totalPrice:C}";  // Update the total price label
-                // Step 3: Show success message
+
+                // Show success message
                 MessageBox.Show("Item removed from the cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                // If 'No' is selected, do nothing (optional)
+                // If 'No' is selected, do nothing
                 MessageBox.Show("Item removal canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

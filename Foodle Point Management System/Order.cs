@@ -70,7 +70,7 @@ namespace Foodle_Point_Management_System
                         // Create a new OrderID
                         string orderID = Guid.NewGuid().ToString();
                         // Assign the ChefEmployeeID (default to 'EMP001' if not available)
-                        string chefEmployeeID = "EMP001";
+                        string chefEmployeeID = GetAvailableChef();
                         DateTime dateOfOrder = DateTime.Now;
                         cmd.Parameters.AddWithValue("@OrderID", orderID);
                         cmd.Parameters.AddWithValue("@ItemNumber", cartItem.ItemNumber);
