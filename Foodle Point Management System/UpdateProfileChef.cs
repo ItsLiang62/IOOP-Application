@@ -28,6 +28,8 @@ namespace Foodle_Point_Management_System
 
         public UpdateProfileChef()
         {
+            InitializeComponent();
+            
         }
 
         private void LoadProfile()

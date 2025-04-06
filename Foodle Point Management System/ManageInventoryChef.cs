@@ -128,5 +128,12 @@ namespace Foodle_Point_Management_System
                 dataGridViewInventory.DataSource = dataTable;
             }
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var mainForm = new frmChefMain();
+            mainForm.Show();
+        }
     }
 }

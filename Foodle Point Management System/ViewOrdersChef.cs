@@ -40,9 +40,11 @@ namespace Foodle_Point_Management_System
 
         }
 
-      
-
-
-
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var mainForm = new frmChefMain();
+            mainForm.Show();
+        }
     }
 }
