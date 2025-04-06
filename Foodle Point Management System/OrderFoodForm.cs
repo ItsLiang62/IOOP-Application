@@ -156,7 +156,7 @@ namespace Foodle_Point_Management_System
             decimal itemPrice = Convert.ToDecimal(dgvCart.SelectedRows[0].Cells["Price"].Value);
 
             // Confirm removal action from the user
-            DialogResult result = MessageBox.Show("Are you sure you want to remove this item from the cart?",
+            DialogResult result = MessageBox.Show($"Are you sure you want to remove this {itemName} from the cart?",
                                                   "Confirm Removal",
                                                   MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question);
@@ -164,8 +164,8 @@ namespace Foodle_Point_Management_System
             // If user clicks 'Yes', remove the item
             if (result == DialogResult.Yes)
             {
-                // Remove the selected row from the cart
-                dgvCart.Rows.RemoveAt(dgvCart.SelectedRows[0].Index);
+                
+                MenuItemCartItem.RemoveFromCart(dgvCart, dgvCart.SelectedRows[0].Index);
 
                 // Recalculate the total price
                 totalPrice -= itemPrice;
