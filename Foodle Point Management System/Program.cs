@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Shared_Class_Library;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Foodle_Point_Management_System
 {

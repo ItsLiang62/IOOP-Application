@@ -38,7 +38,7 @@ namespace Foodle_Point_Management_System
 
             if (DateTime.TryParse(rowValues[4].ToString(), out DateTime eventDate))
             {
-                txtEventDate.Text = eventDate.ToString("yyyy-MM-dd"); 
+                txtEventDate.Text = eventDate.ToString("d/M/yyyy"); 
             }
 
             txtExpectedCount.Text = rowValues[5].ToString();
@@ -73,20 +73,21 @@ namespace Foodle_Point_Management_System
                     return;
                 }
 
-                if (!DateTime.TryParse(txtEventDate.Text, out DateTime eventDate))
-                {
-                    MessageBox.Show("Please enter a valid date (YYYY-MM-DD)");
-                    return;
-                }
+                
 
                 reservationTable.UpdateValue(reservationID, "HallNumber", txtHallNumber.Text);
                 reservationTable.UpdateValue(reservationID, "CustomerID", txtCustomerID.Text);
                 reservationTable.UpdateValue(reservationID, "EventType", txtEventType.Text);
-                reservationTable.UpdateValue(reservationID, "EventDate", eventDate.ToString("yyyy-MM-dd"));
+                reservationTable.UpdateValue(reservationID, "EventDate", txtEventDate.Text);
                 reservationTable.UpdateValue(reservationID, "ExpectedCount", expectedCount);
                 reservationTable.UpdateValue(reservationID, "ReservationStatus", cmbReservationStatus.SelectedItem.ToString());
                 reservationTable.UpdateValue(reservationID, "RequestResponse", txtRequestResponse.Text);
                 reservationTable.UpdateValue(reservationID, "Remarks", txtRemarks.Text);
+
+                if (cmbReservationStatus.SelectedItem.ToString() == "Completed")
+                {
+                    hallTable.UpdateValue(txtHallNumber.Text, "IsAvailable", true);
+                }
 
                 MessageBox.Show("Reservation updated successfully!");
                 this.Hide();

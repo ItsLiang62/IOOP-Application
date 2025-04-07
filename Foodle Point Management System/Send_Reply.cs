@@ -94,7 +94,7 @@ namespace Foodle_Point_Management_System
                 reservationTable.UpdateValue(reservationID, "RequestResponse", response);
 
                 MessageBox.Show("Reply sent successfully!");
-                this.Close();
+                this.Hide();
             }
             catch (Exception ex)
             {

@@ -4,13 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shared_Class_Library;
+using Microsoft.Data.SqlClient;
 
 namespace Foodle_Point_Management_System
 {
@@ -22,7 +23,7 @@ namespace Foodle_Point_Management_System
         private List<MenuItemCartItem> allMenuItems = new List<MenuItemCartItem>(); // List for MenuItemCartItem 
         private void LoadMenuItems()
         {
-            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
             allMenuItems = MenuItemCartItem.GetAllMenuItems(connectionString); // Load items into the list
             dgvMenuItems.DataSource = new BindingList<MenuItemCartItem>(allMenuItems); // Bind to DataGridView
             LoadCategories(); // Load categories into ComboBoxdView
