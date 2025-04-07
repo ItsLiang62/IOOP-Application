@@ -33,12 +33,14 @@ Category varchar(255)
 create table ItemOrder (
 
 OrderID varchar(255) primary key,
-ItemNumber varchar(255) not null,
+ItemID varchar(255) not null,
 CustomerID varchar(255) not null,
 ChefEmployeeID varchar(255) not null,
 DateOfOrder date not null,
 OrderStatus varchar(255) not null,
-foreign key (ChefEmployeeID) references Employee(EmployeeID)
+foreign key (ChefEmployeeID) references Employee(EmployeeID),
+foreign key (ItemID) references Item(ItemID),
+foreign key (CustomerID) references Customer(CustomerID)
 
 );
 

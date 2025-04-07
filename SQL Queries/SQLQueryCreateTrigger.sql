@@ -13,7 +13,7 @@ BEGIN
     ELSE
     BEGIN
         -- If the condition is met, insert the row
-        INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus)
-        SELECT OrderID, ItemNumber, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus FROM inserted;
+        INSERT INTO ItemOrder (OrderID, ItemID, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus)
+        SELECT OrderID, ItemID, CustomerID, ChefEmployeeID, DateOfOrder, OrderStatus FROM inserted;
     END;
 END;
