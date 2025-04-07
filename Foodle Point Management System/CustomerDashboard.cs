@@ -10,7 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Shared_Class_Library;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Foodle_Point_Management_System
 {

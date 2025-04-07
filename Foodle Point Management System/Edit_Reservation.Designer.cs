@@ -31,24 +31,22 @@
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.cmbReservationStatus = new System.Windows.Forms.ComboBox();
             this.txtEventDate = new System.Windows.Forms.TextBox();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.txtEventType = new System.Windows.Forms.TextBox();
             this.lblRequestResponse = new System.Windows.Forms.Label();
-            this.lblReservationStatus = new System.Windows.Forms.Label();
             this.lblEventType = new System.Windows.Forms.Label();
             this.txtRequestResponse = new System.Windows.Forms.TextBox();
             this.txtExpectedCount = new System.Windows.Forms.TextBox();
-            this.txtHallNumber = new System.Windows.Forms.TextBox();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.txtReservationID = new System.Windows.Forms.TextBox();
             this.lblRemarks = new System.Windows.Forms.Label();
             this.lblExpectedCount = new System.Windows.Forms.Label();
             this.lblEventDate = new System.Windows.Forms.Label();
-            this.lblHallNumber = new System.Windows.Forms.Label();
             this.lblCustomerID = new System.Windows.Forms.Label();
             this.lblReservationID = new System.Windows.Forms.Label();
+            this.lblHallNumber = new System.Windows.Forms.Label();
+            this.txtHallNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSaveChanges
@@ -81,21 +79,6 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // cmbReservationStatus
-            // 
-            this.cmbReservationStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbReservationStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbReservationStatus.FormattingEnabled = true;
-            this.cmbReservationStatus.Items.AddRange(new object[] {
-            "Pending",
-            "Confirmed",
-            "Completed",
-            "Rejected"});
-            this.cmbReservationStatus.Location = new System.Drawing.Point(600, 223);
-            this.cmbReservationStatus.Name = "cmbReservationStatus";
-            this.cmbReservationStatus.Size = new System.Drawing.Size(149, 33);
-            this.cmbReservationStatus.TabIndex = 63;
-            // 
             // txtEventDate
             // 
             this.txtEventDate.Location = new System.Drawing.Point(600, 115);
@@ -105,7 +88,7 @@
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(600, 339);
+            this.txtRemarks.Location = new System.Drawing.Point(600, 290);
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(149, 22);
             this.txtRemarks.TabIndex = 61;
@@ -121,21 +104,11 @@
             // 
             this.lblRequestResponse.AutoSize = true;
             this.lblRequestResponse.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblRequestResponse.Location = new System.Drawing.Point(409, 283);
+            this.lblRequestResponse.Location = new System.Drawing.Point(409, 234);
             this.lblRequestResponse.Name = "lblRequestResponse";
             this.lblRequestResponse.Size = new System.Drawing.Size(185, 20);
             this.lblRequestResponse.TabIndex = 59;
             this.lblRequestResponse.Text = "RequestResponse:";
-            // 
-            // lblReservationStatus
-            // 
-            this.lblReservationStatus.AutoSize = true;
-            this.lblReservationStatus.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblReservationStatus.Location = new System.Drawing.Point(387, 223);
-            this.lblReservationStatus.Name = "lblReservationStatus";
-            this.lblReservationStatus.Size = new System.Drawing.Size(207, 20);
-            this.lblReservationStatus.TabIndex = 58;
-            this.lblReservationStatus.Text = "ReservationStatus:";
             // 
             // lblEventType
             // 
@@ -149,7 +122,7 @@
             // 
             // txtRequestResponse
             // 
-            this.txtRequestResponse.Location = new System.Drawing.Point(600, 284);
+            this.txtRequestResponse.Location = new System.Drawing.Point(600, 235);
             this.txtRequestResponse.Name = "txtRequestResponse";
             this.txtRequestResponse.Size = new System.Drawing.Size(149, 22);
             this.txtRequestResponse.TabIndex = 56;
@@ -160,13 +133,6 @@
             this.txtExpectedCount.Name = "txtExpectedCount";
             this.txtExpectedCount.Size = new System.Drawing.Size(149, 22);
             this.txtExpectedCount.TabIndex = 55;
-            // 
-            // txtHallNumber
-            // 
-            this.txtHallNumber.Location = new System.Drawing.Point(232, 166);
-            this.txtHallNumber.Name = "txtHallNumber";
-            this.txtHallNumber.Size = new System.Drawing.Size(149, 22);
-            this.txtHallNumber.TabIndex = 54;
             // 
             // txtCustomerID
             // 
@@ -186,7 +152,7 @@
             // 
             this.lblRemarks.AutoSize = true;
             this.lblRemarks.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblRemarks.Location = new System.Drawing.Point(497, 338);
+            this.lblRemarks.Location = new System.Drawing.Point(497, 289);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Size = new System.Drawing.Size(97, 20);
             this.lblRemarks.TabIndex = 51;
@@ -212,16 +178,6 @@
             this.lblEventDate.TabIndex = 49;
             this.lblEventDate.Text = "EventDate:";
             // 
-            // lblHallNumber
-            // 
-            this.lblHallNumber.AutoSize = true;
-            this.lblHallNumber.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblHallNumber.Location = new System.Drawing.Point(85, 172);
-            this.lblHallNumber.Name = "lblHallNumber";
-            this.lblHallNumber.Size = new System.Drawing.Size(141, 20);
-            this.lblHallNumber.TabIndex = 48;
-            this.lblHallNumber.Text = "Hall Number:";
-            // 
             // lblCustomerID
             // 
             this.lblCustomerID.AutoSize = true;
@@ -242,17 +198,32 @@
             this.lblReservationID.TabIndex = 46;
             this.lblReservationID.Text = "Reservation ID:";
             // 
+            // lblHallNumber
+            // 
+            this.lblHallNumber.AutoSize = true;
+            this.lblHallNumber.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblHallNumber.Location = new System.Drawing.Point(85, 172);
+            this.lblHallNumber.Name = "lblHallNumber";
+            this.lblHallNumber.Size = new System.Drawing.Size(141, 20);
+            this.lblHallNumber.TabIndex = 48;
+            this.lblHallNumber.Text = "Hall Number:";
+            // 
+            // txtHallNumber
+            // 
+            this.txtHallNumber.Location = new System.Drawing.Point(232, 166);
+            this.txtHallNumber.Name = "txtHallNumber";
+            this.txtHallNumber.Size = new System.Drawing.Size(149, 22);
+            this.txtHallNumber.TabIndex = 54;
+            // 
             // Edit_Reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 480);
-            this.Controls.Add(this.cmbReservationStatus);
             this.Controls.Add(this.txtEventDate);
             this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.txtEventType);
             this.Controls.Add(this.lblRequestResponse);
-            this.Controls.Add(this.lblReservationStatus);
             this.Controls.Add(this.lblEventType);
             this.Controls.Add(this.txtRequestResponse);
             this.Controls.Add(this.txtExpectedCount);
@@ -281,23 +252,21 @@
         private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.ComboBox cmbReservationStatus;
         private System.Windows.Forms.TextBox txtEventDate;
         private System.Windows.Forms.TextBox txtRemarks;
         private System.Windows.Forms.TextBox txtEventType;
         private System.Windows.Forms.Label lblRequestResponse;
-        private System.Windows.Forms.Label lblReservationStatus;
         private System.Windows.Forms.Label lblEventType;
         private System.Windows.Forms.TextBox txtRequestResponse;
         private System.Windows.Forms.TextBox txtExpectedCount;
-        private System.Windows.Forms.TextBox txtHallNumber;
         private System.Windows.Forms.TextBox txtCustomerID;
         private System.Windows.Forms.TextBox txtReservationID;
         private System.Windows.Forms.Label lblRemarks;
         private System.Windows.Forms.Label lblExpectedCount;
         private System.Windows.Forms.Label lblEventDate;
-        private System.Windows.Forms.Label lblHallNumber;
         private System.Windows.Forms.Label lblCustomerID;
         private System.Windows.Forms.Label lblReservationID;
+        private System.Windows.Forms.Label lblHallNumber;
+        private System.Windows.Forms.TextBox txtHallNumber;
     }
 }

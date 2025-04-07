@@ -46,7 +46,7 @@ namespace Foodle_Point_Management_System
 
             // Create a new ReservationHandler instance
             Reservation_handler reservationHandler = new Reservation_handler(
-                "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True",
+                "Data Source=172.18.48.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Trust Server Certificate=True",
                 customerID,
                 eventType,
                 eventDate,

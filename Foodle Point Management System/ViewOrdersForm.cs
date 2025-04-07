@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shared_Class_Library;
+using Microsoft.Data.SqlClient;
 
 namespace Foodle_Point_Management_System
 {
@@ -35,7 +36,7 @@ namespace Foodle_Point_Management_System
 
             // Adding new columns
             dgvOrders.Columns.Add("OrderID", "Order ID");
-            dgvOrders.Columns.Add("ItemNumber", "Item Number");
+            dgvOrders.Columns.Add("ItemID", "Item ID");
             dgvOrders.Columns.Add("ItemName", "Item Name"); // Add ItemName column
             dgvOrders.Columns.Add("DateOfOrder", "Date of Order");
             dgvOrders.Columns.Add("OrderStatus", "Order Status");
@@ -58,13 +59,13 @@ namespace Foodle_Point_Management_System
         {
             string customerID = _currentCustomer.GetCustomerID();
 
-            string query = @"SELECT o.OrderID, o.ItemNumber, i.ItemName, o.DateOfOrder, o.OrderStatus 
+            string query = @"SELECT o.OrderID, o.ItemID, i.ItemName, o.DateOfOrder, o.OrderStatus 
                      FROM ItemOrder o
-                     JOIN Item i ON o.ItemNumber = i.ItemNumber
+                     JOIN Item i ON o.ItemID = i.ItemID
                      WHERE o.CustomerID = @CustomerID
                      ORDER BY o.DateOfOrder DESC";
 
-            using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
+            using (SqlConnection conn = new SqlConnection("Data Source=172.18.48.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Trust Server Certificate=True"))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -83,7 +84,7 @@ namespace Foodle_Point_Management_System
                             // Add the fetched data to the DataGridView
                             dgvOrders.Rows.Add(
                                 reader["OrderID"],
-                                reader["ItemNumber"],
+                                reader["ItemID"],
                                 reader["ItemName"],
                                currentDateTime,  // Display the formatted current date and time
                                 reader["OrderStatus"]
@@ -109,7 +110,7 @@ namespace Foodle_Point_Management_System
                  JOIN Hall h ON r.HallNumber = h.HallNumber
                  WHERE r.CustomerID = @CustomerID";
 
-            using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
+            using (SqlConnection conn = new SqlConnection("Data Source=172.18.48.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Trust Server Certificate=True"))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))

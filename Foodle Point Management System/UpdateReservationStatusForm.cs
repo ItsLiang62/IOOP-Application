@@ -16,6 +16,8 @@ namespace Foodle_Point_Management_System
     public partial class UpdateReservationStatusForm : Form
 
     {
+        private HallTable hallTable = new HallTable();
+
         private HallReservationTable reservationTable = new HallReservationTable();
         private ResvCoordinator ResvCoordinatorUser
         { get; set; }
@@ -90,10 +92,17 @@ namespace Foodle_Point_Management_System
 
             string reservationID = lvReservations.SelectedItems[0].Text;
             string newStatus = cmbReservationStatus.SelectedItem.ToString();
+            string hallNumber = lvReservations.SelectedItems[0].SubItems[1].Text;
 
             try
             {
                 reservationTable.UpdateValue(reservationID, "ReservationStatus", newStatus);
+
+                if (newStatus == "Completed" || newStatus == "Rejected")
+                {
+                    hallTable.UpdateValue(hallNumber, "IsAvailable", true);
+                }
+
                 MessageBox.Show("Status updated successfully!");
                 LoadReservations();
             }
@@ -106,6 +115,32 @@ namespace Foodle_Point_Management_System
         private void UpdateReservationStatusForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void lvReservations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvReservations.SelectedItems.Count == 0)
+            {
+                btnUpdateStatus.Visible = false;
+                cmbReservationStatus.Visible = false;
+                lblStatus.Visible = false;
+                return;
+            }
+
+            string status = lvReservations.SelectedItems[0].SubItems[6].Text;
+
+            if (status == "Completed" || status == "Rejected")
+            {
+                btnUpdateStatus.Visible = false;
+                cmbReservationStatus.Visible = false;
+                lblStatus.Visible = false;
+            }
+            else
+            {
+                btnUpdateStatus.Visible = true;
+                cmbReservationStatus.Visible = true;
+                lblStatus.Visible = true;
+            }
         }
     }
 }
