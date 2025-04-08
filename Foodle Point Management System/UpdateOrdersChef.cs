@@ -18,18 +18,20 @@ namespace Foodle_Point_Management_System
     public partial class UpdateOrders : Form
     {
         private string connectionString = @"Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        Chef CurrentChef { get; set; }
 
-        public UpdateOrders()
+        public UpdateOrders(Chef currentChef)
         {
             InitializeComponent();
             LoadOrders();
+            CurrentChef = currentChef;
         }
 
         private void LoadOrders()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT OrderID, TableNumber, DishName, Status FROM Orders WHERE Status IN ('Pending', 'In Progress')";
+                string query = "SELECT OrderID, ItemID, CustomerID, DateOfOrder, OrderStatus FROM ItemOrder WHERE OrderStatus IN ('Pending', 'In Progress')";
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -61,9 +63,9 @@ namespace Foodle_Point_Management_System
                 int orderId = (int)dataGridViewOrders.SelectedRows[0].Cells["OrderID"].Value;
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Orders SET Status = @Status WHERE OrderID = @OrderID";
+                    string query = "UPDATE ItemOrder SET OrderStatus = @OrderStatus WHERE OrderID = @OrderID";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Status", status);
+                    command.Parameters.AddWithValue("@OrderStatus", status);
                     command.Parameters.AddWithValue("@OrderID", orderId);
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -79,7 +81,7 @@ namespace Foodle_Point_Management_System
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var mainForm = new frmChefMain();
+            var mainForm = new frmChefMain(CurrentChef);
             mainForm.Show();
         }
 

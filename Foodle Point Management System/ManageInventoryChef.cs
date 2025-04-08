@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
@@ -18,13 +19,14 @@ namespace Foodle_Point_Management_System
     {
         private string connectionString = @"Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
         private string[] popularIngredients = { "Salt", "Sugar", "Flour", "Eggs", "Milk" };
+        Chef CurrentChef { get; set; }
 
-
-        public ManageInventoryChef()
+        public ManageInventoryChef(Chef chef)
         {
             InitializeComponent();
             LoadInventory();
             DisplayPopularIngredients();
+            CurrentChef = chef;
         }
 
         private void DisplayPopularIngredients()
@@ -40,7 +42,7 @@ namespace Foodle_Point_Management_System
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT IngredientID, IngredientName, Quantity FROM Inventory";
+                string query = "SELECT IngredientNumber, IngredientName, Quantity FROM Ingredients";
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -53,11 +55,12 @@ namespace Foodle_Point_Management_System
         {
             string ingredientName = txtIngredientName.Text;
             int quantity = int.Parse(txtQuantity.Text);
-
+            string ingredientNumber = new IngredientsTable().GetNewIngredientNumber();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Inventory (IngredientName, Quantity) VALUES (@IngredientName, @Quantity)";
+                string query = "INSERT INTO Ingredients (IngredientNumber, IngredientName, Quantity) VALUES (@IngredientNumber, @IngredientName, @Quantity)";
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@IngredientNumber", ingredientNumber);
                 command.Parameters.AddWithValue("@IngredientName", ingredientName);
                 command.Parameters.AddWithValue("@Quantity", quantity);
                 connection.Open();
@@ -76,7 +79,7 @@ namespace Foodle_Point_Management_System
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Inventory SET IngredientName = @IngredientName, Quantity = @Quantity WHERE IngredientID = @IngredientID";
+                    string query = "UPDATE Ingredients SET IngredientName = @IngredientName, Quantity = @Quantity WHERE IngredientID = @IngredientID";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@IngredientName", ingredientName);
                     command.Parameters.AddWithValue("@Quantity", quantity);
@@ -96,13 +99,13 @@ namespace Foodle_Point_Management_System
         {
             if (dataGridViewInventory.SelectedRows.Count > 0)
             {
-                int ingredientId = (int)dataGridViewInventory.SelectedRows[0].Cells["IngredientID"].Value;
+                int ingredientId = (int)dataGridViewInventory.SelectedRows[0].Cells["IngredientNumber"].Value;
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "DELETE FROM Inventory WHERE IngredientID = @IngredientID";
+                    string query = "DELETE FROM Inventory WHERE IngredientNumber = @IngredientNumber";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@IngredientID", ingredientId);
+                    command.Parameters.AddWithValue("@IngredientNumber", ingredientId);
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
@@ -122,7 +125,7 @@ namespace Foodle_Point_Management_System
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT IngredientID, IngredientName, Quantity FROM Inventory WHERE IngredientName LIKE @SearchTerm";
+                string query = "SELECT IngredientNumber, IngredientName, Quantity FROM Inventory WHERE IngredientName LIKE @SearchTerm";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%");
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -135,7 +138,7 @@ namespace Foodle_Point_Management_System
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var mainForm = new frmChefMain();
+            var mainForm = new frmChefMain(CurrentChef);
             mainForm.Show();
         }
 

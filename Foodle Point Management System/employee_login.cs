@@ -95,7 +95,7 @@ namespace Foodle_Point_Management_System
 
                 else if (Position == "Chef")
                 {
-                    frmChefMain chefMainPage = new frmChefMain();
+                    frmChefMain chefMainPage = new frmChefMain(new Chef(EmployeeID));
                     chefMainPage.Show();
                     this.Hide();
                 }

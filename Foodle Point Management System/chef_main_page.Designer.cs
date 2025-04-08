@@ -36,6 +36,7 @@ namespace Foodle_Point_Management_System
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.lblChefPortal = new System.Windows.Forms.Label();
             this.lblComment0 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnViewOrders
@@ -112,12 +113,23 @@ namespace Foodle_Point_Management_System
             this.lblComment0.TabIndex = 6;
             this.lblComment0.Text = "Welcome Chef.<Chef Name> what would you want to check ?";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(41, 412);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 44);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmChefMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1090, 491);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblComment0);
             this.Controls.Add(this.lblChefPortal);
             this.Controls.Add(this.btnUpdateProfile);
@@ -142,5 +154,6 @@ namespace Foodle_Point_Management_System
         private System.Windows.Forms.Label lblChefPortal;
         private System.Windows.Forms.Label lblComment0;
         private EventHandler btnUpdateProfile_Click;
+        private System.Windows.Forms.Button button1;
     }
 }

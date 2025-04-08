@@ -10,23 +10,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
     public partial class frmChefMain : Form
     {
-        public frmChefMain()
+        Chef CurrentChef { get; set; }
+
+        public frmChefMain(Chef chef)
         {
             InitializeComponent();
             btnViewOrders.Click += btnViewOrders_Click;
             btnUpdateOrders.Click += btnUpdateOrders_Click;
             btnManageInventory.Click += btnManageInventory_Click;
             btnUpdateProfile.Click += btnUpdateProfile_Click_1;
+            CurrentChef = chef;
         }
 
         private void btnViewOrders_Click(object sender, EventArgs e)
         {
-            OpenForm(new ViewOrdersChef());
+            OpenForm(new ViewOrdersChef(CurrentChef));
         }
 
         private void OpenForm(Form form)
@@ -37,24 +41,31 @@ namespace Foodle_Point_Management_System
 
         private void btnUpdateOrders_Click(object sender, EventArgs e)
         {
-            OpenForm(new UpdateOrders());
+            OpenForm(new UpdateOrders(CurrentChef));
         }
 
         private void btnManageInventory_Click(object sender, EventArgs e)
         {
-            OpenForm(new ManageInventoryChef());
+            OpenForm(new ManageInventoryChef(CurrentChef));
         }
 
         private void btnUpdateProfile_Click_1(object sender, EventArgs e)
         {
             
-            OpenForm(new UpdateProfileChef());
+            OpenForm(new UpdateProfileChef(CurrentChef));
 
         }
 
         private void frmChefMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmMain mainPage = new frmMain();
+            mainPage.Show();
+            this.Hide();
         }
     }
 }
