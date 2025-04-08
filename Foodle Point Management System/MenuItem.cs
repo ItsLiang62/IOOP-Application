@@ -13,14 +13,14 @@ namespace Foodle_Point_Management_System
     {
         
 
-       public string ItemNumber { get; private set; }
+       public string ItemID { get; private set; }
         public string ItemName { get; private set; }
         public decimal Price { get; private set; }
         public string Category { get; private set; }
 
         public MenuItemCartItem(string itemNumber, string itemName, decimal price, string category = null)
         {
-            ItemNumber = itemNumber;
+            ItemID = itemNumber;
             ItemName = itemName;
             Price = price;
             Category = category;
@@ -29,11 +29,11 @@ namespace Foodle_Point_Management_System
         // Method to add an item to the cart (for CartItem behavior)
         public static void AddToCart(DataGridView dgvCart, MenuItemCartItem cartItem)
         {
-            dgvCart.Rows.Add(cartItem.ItemNumber, cartItem.ItemName, cartItem.Price);
+            dgvCart.Rows.Add(cartItem.ItemID, cartItem.ItemName, cartItem.Price);
         }
         public static void EditCartItem(DataGridView dgvCart, int rowIndex, MenuItemCartItem newItem)
         {
-            dgvCart.Rows[rowIndex].Cells["ItemID"].Value = newItem.ItemNumber;
+            dgvCart.Rows[rowIndex].Cells["ItemID"].Value = newItem.ItemID;
             dgvCart.Rows[rowIndex].Cells["ItemName"].Value = newItem.ItemName;
             dgvCart.Rows[rowIndex].Cells["Price"].Value = newItem.Price;
         }

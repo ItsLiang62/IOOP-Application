@@ -34,7 +34,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lvReservations = new System.Windows.Forms.ListView();
-            this.btnAssignHall = new System.Windows.Forms.Button();
             this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             this.SuspendLayout();
             // 
@@ -101,23 +100,11 @@
             this.lvReservations.UseCompatibleStateImageBehavior = false;
             this.lvReservations.SelectedIndexChanged += new System.EventHandler(this.lvReservations_SelectedIndexChanged);
             // 
-            // btnAssignHall
-            // 
-            this.btnAssignHall.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAssignHall.Location = new System.Drawing.Point(549, 381);
-            this.btnAssignHall.Name = "btnAssignHall";
-            this.btnAssignHall.Size = new System.Drawing.Size(212, 47);
-            this.btnAssignHall.TabIndex = 7;
-            this.btnAssignHall.Text = "Assign Hall";
-            this.btnAssignHall.UseVisualStyleBackColor = true;
-            this.btnAssignHall.Click += new System.EventHandler(this.btnAssignHall_Click);
-            // 
             // ManageReservationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 480);
-            this.Controls.Add(this.btnAssignHall);
             this.Controls.Add(this.lvReservations);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDelete);
@@ -140,7 +127,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ListView lvReservations;
-        private System.Windows.Forms.Button btnAssignHall;
         private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
     }
 }

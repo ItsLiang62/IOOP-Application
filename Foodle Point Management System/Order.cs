@@ -56,8 +56,8 @@ namespace Foodle_Point_Management_System
         public bool SaveOrder()
         {
             // Create the SQL insert statement to save the order with the current date
-            string query = @"INSERT INTO ItemOrder (OrderID, ItemNumber, CustomerID, DateOfOrder, OrderStatus, ChefEmployeeID)
-                     VALUES (@OrderID, @ItemNumber, @CustomerID, @DateOfOrder, @OrderStatus, @ChefEmployeeID)";
+            string query = @"INSERT INTO ItemOrder (OrderID, ItemID, CustomerID, DateOfOrder, OrderStatus, ChefEmployeeID)
+                     VALUES (@OrderID, @ItemID, @CustomerID, @DateOfOrder, @OrderStatus, @ChefEmployeeID)";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -73,7 +73,7 @@ namespace Foodle_Point_Management_System
                         string chefEmployeeID = GetAvailableChef();
                         DateTime dateOfOrder = DateTime.Now;
                         cmd.Parameters.AddWithValue("@OrderID", orderID);
-                        cmd.Parameters.AddWithValue("@ItemNumber", cartItem.ItemNumber);
+                        cmd.Parameters.AddWithValue("@ItemID", cartItem.ItemID);
                         cmd.Parameters.AddWithValue("@CustomerID", this.CustomerID);
                         cmd.Parameters.AddWithValue("@DateOfOrder", this.DateOfOrder);
                         cmd.Parameters.AddWithValue("@OrderStatus", "Confirmed");  // Set the initial status to Confirmed
