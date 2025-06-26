@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +39,7 @@ namespace Shared_Class_Library
         }
         public object GetValue(string feedbackID, string column)
         {
-            List<string> allowedColumns = new List<string> { "FeedbackID, CustomerID, FeedbackSentence, Rating" };
+            List<string> allowedColumns = new List<string> { "FeedbackID", "CustomerID", "FeedbackSentence", "Rating" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -71,7 +73,7 @@ namespace Shared_Class_Library
 
         public List<object> GetColumnValues(string column)
         {
-            List<string> allowedColumns = new List<string> { "FeedbackID, CustomerID, FeedbackSentence, Rating" };
+            List<string> allowedColumns = new List<string> { "FeedbackID", "CustomerID", "FeedbackSentence", "Rating" };
 
             if (!allowedColumns.Contains(column))
             {
@@ -139,7 +141,7 @@ namespace Shared_Class_Library
 
         public void UpdateValue(string feedbackID, string column, object newValue)
         {
-            List<string> allowedColumns = new List<string> { "FeedbackID, CustomerID, FeedbackSentence, Rating" };
+            List<string> allowedColumns = new List<string> { "FeedbackID", "CustomerID", "FeedbackSentence", "Rating" };
 
             if (!allowedColumns.Contains(column))
             {

@@ -1,5 +1,8 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +43,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@ItemNumber", itemID);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@ChefEmployeeID", chefEmployeeID);
-                    cmd.Parameters.AddWithValue("@DateOfOrder", dateOfOrder);
+                    cmd.Parameters.AddWithValue("@DateOfOrder", DateTime.ParseExact(dateOfOrder, "d/M/yyyy", CultureInfo.InvariantCulture));
                     cmd.Parameters.AddWithValue("@OrderStatus", orderStatus);
 
                     cmd.ExecuteNonQuery();
@@ -180,7 +183,16 @@ namespace Shared_Class_Library
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    if (column == "DateOfOrder")
+                    {
+                        DateTime newDate = DateTime.ParseExact(newValue.ToString(), "d/M/yyyy", CultureInfo.InvariantCulture);
+                        cmd.Parameters.AddWithValue("@NewValue", newDate);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    }
+
                     cmd.Parameters.AddWithValue("@OrderID", orderID);
 
                     cmd.ExecuteNonQuery();
@@ -244,48 +256,6 @@ namespace Shared_Class_Library
                 }
 
             }
-        }
-
-        //Get Sales 
-        public List<SalesReportRecord> GetSalesByMonthYear(int month, int year)
-        {
-            var salesList = new List<SalesReportRecord>();
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
-                string query = @"
-            SELECT io.OrderID, i.ItemName, i.Category, i.Price, io.ChefEmployeeID, io.DateOfOrder, io.OrderStatus
-            FROM ItemOrder io
-            INNER JOIN Item i ON io.ItemNumber = i.ItemID
-            WHERE MONTH(CONVERT(date, io.DateOfOrder, 103)) = @Month
-              AND YEAR(CONVERT(date, io.DateOfOrder, 103)) = @Year";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Month", month);
-                    cmd.Parameters.AddWithValue("@Year", year);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            salesList.Add(new SalesReportRecord
-                            {
-                                OrderID = reader["OrderID"].ToString(),
-                                ItemName = reader["ItemName"].ToString(),
-                                Category = reader["Category"].ToString(),
-                                Price = Convert.ToDouble(reader["Price"]),
-                                ChefEmployeeID = reader["ChefEmployeeID"].ToString(),
-                                DateOfOrder = DateTime.Parse(reader["DateOfOrder"].ToString()),
-                                OrderStatus = reader["OrderStatus"].ToString()
-                            });
-                        }
-                    }
-                }
-            }
-
-            return salesList;
         }
     }
 }

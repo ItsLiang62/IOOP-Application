@@ -1,14 +1,17 @@
-﻿using System;
+﻿// Badr
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shared_Class_Library;
+using Microsoft.Data.SqlClient;
 
 namespace Foodle_Point_Management_System
 {
@@ -20,7 +23,7 @@ namespace Foodle_Point_Management_System
         private List<MenuItemCartItem> allMenuItems = new List<MenuItemCartItem>(); // List for MenuItemCartItem 
         private void LoadMenuItems()
         {
-            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
             allMenuItems = MenuItemCartItem.GetAllMenuItems(connectionString); // Load items into the list
             dgvMenuItems.DataSource = new BindingList<MenuItemCartItem>(allMenuItems); // Bind to DataGridView
             LoadCategories(); // Load categories into ComboBoxdView
@@ -41,7 +44,7 @@ namespace Foodle_Point_Management_System
             LoadMenuItems();
             if (dgvCart.Columns.Count == 0)
             {
-                dgvCart.Columns.Add("ItemNumber", "Item Number");
+                dgvCart.Columns.Add("ItemID", "Item ID");
                 dgvCart.Columns.Add("ItemName", "Item Name");
                 dgvCart.Columns.Add("Price", "Price");
                 
@@ -57,7 +60,7 @@ namespace Foodle_Point_Management_System
                 return;
             }
 
-            string itemNumber = dgvMenuItems.SelectedRows[0].Cells["ItemNumber"].Value.ToString();
+            string itemNumber = dgvMenuItems.SelectedRows[0].Cells["ItemID"].Value.ToString();
             string itemName = dgvMenuItems.SelectedRows[0].Cells["ItemName"].Value.ToString();
             decimal price = Convert.ToDecimal(dgvMenuItems.SelectedRows[0].Cells["Price"].Value);
 
@@ -76,7 +79,7 @@ namespace Foodle_Point_Management_System
             }
 
             int selectedCartIndex = dgvCart.SelectedRows[0].Index;
-            string newItemNumber = dgvMenuItems.SelectedRows[0].Cells["ItemNumber"].Value.ToString();
+            string newItemNumber = dgvMenuItems.SelectedRows[0].Cells["ItemID"].Value.ToString();
             string newItemName = dgvMenuItems.SelectedRows[0].Cells["ItemName"].Value.ToString();
             decimal newPrice = Convert.ToDecimal(dgvMenuItems.SelectedRows[0].Cells["Price"].Value);
 
@@ -107,7 +110,7 @@ namespace Foodle_Point_Management_System
             {
                 if (row.IsNewRow) continue;  // Skip the empty row (new row placeholder)
 
-                string itemNumber = row.Cells["ItemNumber"].Value?.ToString() ?? string.Empty;
+                string itemNumber = row.Cells["ItemID"].Value?.ToString() ?? string.Empty;
                 string itemName = row.Cells["ItemName"].Value?.ToString() ?? string.Empty;
                 decimal price = row.Cells["Price"].Value != null ? Convert.ToDecimal(row.Cells["Price"].Value) : 0m;
 
@@ -117,7 +120,7 @@ namespace Foodle_Point_Management_System
             // Get the current date and time
             DateTime currentDate = DateTime.Now;
             // Create the Order object
-            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
             Order order = new Order(connectionString, customerID, cartItems, currentDate);
 
             // Save the order to the database

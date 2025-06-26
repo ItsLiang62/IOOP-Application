@@ -1,4 +1,6 @@
-﻿using Shared_Class_Library;
+﻿// Adrian Liew Ren Qian
+
+using Shared_Class_Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,7 +85,7 @@ namespace Foodle_Point_Management_System
                 string gender = comboBoxGender.SelectedItem.ToString();  // Get gender from ComboBox
                 string email = txtEmail.Text;
                 string phone = txtPhone.Text;
-                string dob = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                string dob = dateTimePicker1.Value.ToString("d/M/yyyy");
                 string password = txtPassword.Text;
 
                 empTable.InsertRow(newEmployeeID, employeeName, position, gender, email, phone, dob, password);

@@ -1,8 +1,10 @@
+// Badr
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -11,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shared_Class_Library;
+using Microsoft.Data.SqlClient;
 
 namespace Foodle_Point_Management_System
 {
@@ -54,7 +57,7 @@ namespace Foodle_Point_Management_System
             }
 
             // Connection string to your database (you can store this in a configuration file later)
-            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=172.18.48.1,1433;Initial Catalog=ioop_db;User ID=anderson_login;Password=123;Trust Server Certificate=True";
 
             // Generate unique FeedbackID using Guid
             string feedbackID = Guid.NewGuid().ToString("N");

@@ -1,5 +1,8 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +32,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@HallNumber", hallNumber);
                     cmd.Parameters.AddWithValue("@CustomerID", customerID);
                     cmd.Parameters.AddWithValue("@EventType", eventType);
-                    cmd.Parameters.AddWithValue("@EventDate", eventDate);
+                    cmd.Parameters.AddWithValue("@EventDate", DateTime.ParseExact(eventDate, "d/M/yyyy", CultureInfo.InvariantCulture));
                     cmd.Parameters.AddWithValue("@ExpectedCount", expectedCount);
                     cmd.Parameters.AddWithValue("@ReservationStatus", reservationStatus);
                     cmd.Parameters.AddWithValue("@RequestResponse", requestResponse);
@@ -189,7 +192,16 @@ namespace Shared_Class_Library
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    if (column == "EventDate")
+                    {
+                        DateTime newDate = DateTime.ParseExact(newValue.ToString(), "d/M/yyyy", CultureInfo.InvariantCulture);
+                        cmd.Parameters.AddWithValue("@NewValue", newDate);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    }
+
                     cmd.Parameters.AddWithValue("@reservationID", reservationID);
 
                     cmd.ExecuteNonQuery();

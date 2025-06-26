@@ -1,10 +1,14 @@
-﻿using System;
+﻿// Badr
+
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace Shared_Class_Library
 {
@@ -57,13 +61,21 @@ namespace Shared_Class_Library
                          VALUES 
                          (@ReservationID, @HallNumber, @CustomerID, @EventType, @EventDate, @ReservationStatus, @Remarks, @RequestResponse, @ExpectedCount)";
 
-            string reservationID = Guid.NewGuid().ToString("N");
-            string hallNumber = "TBD";
+            string reservationID = new HallReservationTable().GetNewReservationID();
+            string hallNumber = "";
+            try
+            {
+                hallNumber = GetAvailableHalls(_expectedPeople)[0];
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No halls available");
+            }
             string reservationStatus = "Pending";
             string requestResponse = "";
 
             // Database connection string
-            string connectionString = "Data Source=LAPTOP-5R9MHA5V\\MSSQLSERVER1;Initial Catalog=customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=172.18.48.1,1433;User ID=anderson_login;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -84,6 +96,7 @@ namespace Shared_Class_Library
                     try
                     {
                         cmd.ExecuteNonQuery();
+                        new HallTable().UpdateValue(hallNumber, "IsAvailable", false);
                         return true; // Successfully saved the reservation
                     }
                     catch (Exception ex)
@@ -92,7 +105,30 @@ namespace Shared_Class_Library
                         return false;
                     }
                 }
+
             }
+        }
+
+        private List<string> GetAvailableHalls(int expectedCount)
+        {
+            HallTable hallTable = new HallTable();
+
+            List<string> suitableHalls = new List<string>();
+
+            List<object> hallNumbers = hallTable.GetColumnValues("HallNumber");
+
+            foreach (object hallNumber in hallNumbers)
+            {
+                bool isAvailable = Convert.ToBoolean(hallTable.GetValue(hallNumber.ToString(), "IsAvailable"));
+                int capacity = Convert.ToInt32(hallTable.GetValue(hallNumber.ToString(), "Capacity"));
+
+                if (isAvailable && capacity >= expectedCount)
+                {
+                    suitableHalls.Add(hallNumber.ToString());
+                }
+            }
+
+            return suitableHalls;
         }
     }
 }

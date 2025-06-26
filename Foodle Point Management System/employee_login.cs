@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -91,7 +93,14 @@ namespace Foodle_Point_Management_System
                     this.Hide();
                 }
 
-                    MessageBox.Show("Login Successful");
+                else if (Position == "Chef")
+                {
+                    frmChefMain chefMainPage = new frmChefMain(new Chef(EmployeeID));
+                    chefMainPage.Show();
+                    this.Hide();
+                }
+
+                MessageBox.Show("Login Successful");
             }
             else
             {

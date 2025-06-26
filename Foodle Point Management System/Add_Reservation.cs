@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Adrian Liew Ren Qian
+
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +18,12 @@ namespace Foodle_Point_Management_System
     {
         private ResvCoordinator ResvCoordinatorUser;
         private HallReservationTable reservationTable = new HallReservationTable();
+        private HallTable hallTable = new HallTable();
+
         public Add_Reservation(ResvCoordinator ResvCoordinatorUser)
         {
             InitializeComponent();
             this.ResvCoordinatorUser = ResvCoordinatorUser;
-
-            cmbReservationStatus.SelectedIndex = 0;
 
             txtReservationID.Text = reservationTable.GetNewReservationID();
             txtReservationID.Enabled = false;
@@ -36,8 +39,7 @@ namespace Foodle_Point_Management_System
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtHallNumber.Text) ||
-                    string.IsNullOrWhiteSpace(txtCustomerID.Text) ||
+                if (string.IsNullOrWhiteSpace(txtCustomerID.Text) ||
                     string.IsNullOrWhiteSpace(txtEventType.Text) ||
                     string.IsNullOrWhiteSpace(txtEventDate.Text))
                 {
@@ -45,27 +47,62 @@ namespace Foodle_Point_Management_System
                     return;
                 }
                 string reservationID = txtReservationID.Text;
-                string hallNumber = txtHallNumber.Text;
                 string customerID = txtCustomerID.Text;
                 string eventType = txtEventType.Text;
                 string eventDate = txtEventDate.Text;
                 int expectedCount = int.Parse(txtExpectedCount.Text);
-                string status = cmbReservationStatus.SelectedItem?.ToString() ?? "Pending";
+                string status = "Pending";
                 string requestResponse = txtRequestResponse.Text;
                 string remarks = txtRemarks.Text;
 
-                reservationTable.InsertRow(
+                try
+                {
+                    string hallNumber = GetAvailableHalls(expectedCount)[0];
+                    reservationTable.InsertRow(
                     reservationID, hallNumber, customerID, eventType,
                     eventDate, expectedCount, status, requestResponse, remarks
-                );
+                    );
+                    MessageBox.Show($"Reservation added successfully! Automatically assigned to {hallNumber}.");
+                    hallTable.UpdateValue(hallNumber, "IsAvailable", false);
+                    this.Hide();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Operation failed. All halls are currently unavailable.");
+                    return;
+                }
 
-                MessageBox.Show("Reservation added successfully!");
-                this.Hide();
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding reservation: {ex.Message}");
             }
+        }
+
+        private List<string> GetAvailableHalls(int expectedCount)
+        {
+            List<string> suitableHalls = new List<string>();
+
+            List<object> hallNumbers = hallTable.GetColumnValues("HallNumber");
+
+            foreach (object hallNumber in hallNumbers)
+            {
+                bool isAvailable = Convert.ToBoolean(hallTable.GetValue(hallNumber.ToString(), "IsAvailable"));
+                int capacity = Convert.ToInt32(hallTable.GetValue(hallNumber.ToString(), "Capacity"));
+
+                if (isAvailable && capacity >= expectedCount)
+                {
+                    suitableHalls.Add(hallNumber.ToString());
+                }
+            }
+
+            return suitableHalls;
+        }
+
+        private void Add_Reservation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

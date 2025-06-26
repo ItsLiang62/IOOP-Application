@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Adrian Liew Ren Qian
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -92,12 +94,17 @@ namespace Foodle_Point_Management_System
                 reservationTable.UpdateValue(reservationID, "RequestResponse", response);
 
                 MessageBox.Show("Reply sent successfully!");
-                this.Close();
+                this.Hide();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error sending reply: {ex.Message}");
             }
+        }
+
+        private void Send_Reply_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

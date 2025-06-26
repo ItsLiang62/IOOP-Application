@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.cmbRecommendedEvent1 = new System.Windows.Forms.ComboBox();
             this.txtCapacity = new System.Windows.Forms.TextBox();
             this.txtHallName = new System.Windows.Forms.TextBox();
@@ -41,17 +41,17 @@
             this.lblRecommendedEvent2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnEdit
+            // btnSave
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(316, 361);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(177, 50);
-            this.btnEdit.TabIndex = 30;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            this.btnEdit.Resize += new System.EventHandler(this.btnEdit_Resize);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(316, 361);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(177, 50);
+            this.btnSave.TabIndex = 30;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Resize += new System.EventHandler(this.btnSave_Resize);
             // 
             // cmbRecommendedEvent1
             // 
@@ -177,7 +177,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cmbRecommendedEvent2);
             this.Controls.Add(this.lblRecommendedEvent2);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cmbRecommendedEvent1);
             this.Controls.Add(this.txtCapacity);
             this.Controls.Add(this.txtHallName);
@@ -196,7 +196,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbRecommendedEvent1;
         private System.Windows.Forms.TextBox txtCapacity;
         private System.Windows.Forms.TextBox txtHallName;

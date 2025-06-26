@@ -1,4 +1,6 @@
-﻿using Shared_Class_Library;
+﻿// Mohammad
+
+using Shared_Class_Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 using static Shared_Class_Library.ItemOrderTable;
+using static Shared_Class_Library.SalesCalculation;
+using DocumentFormat.OpenXml.Drawing.Charts;
+
 
 namespace Foodle_Point_Management_System
 {
@@ -68,13 +74,17 @@ namespace Foodle_Point_Management_System
             int month = cmbMonth.SelectedIndex + 1;
             int year = int.Parse(comboBoxYear.SelectedItem.ToString());
 
-            ItemOrderTable itemOrderTable = new ItemOrderTable();
-            List<SalesReportRecord> salesRecords = itemOrderTable.GetSalesByMonthYear(month, year);
+            SalesCalculation salesCalculation = new SalesCalculation();
+            List<Shared_Class_Library.SalesCalculation.SalesReportRecord> salesRecords = salesCalculation.GetSalesByMonthYear(month, year);
+
 
             if (salesRecords.Any())
                 dgvSales.DataSource = salesRecords;
             else
                 MessageBox.Show("No records found for the selected month and year.");
+            // Total Sales Calculation
+            double total = salesRecords.Sum(item => item.Price);
+            lblTotalSales.Text = $"Total Sales: RM {total:F2}";
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
@@ -82,6 +92,12 @@ namespace Foodle_Point_Management_System
             cmbMonth.SelectedIndex = -1;
             comboBoxYear.SelectedIndex = -1;
             dgvSales.DataSource = null;
+            lblTotalSales.Text = "Total Sales: RM 0.00";
+        }
+
+        private void ViewSales_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

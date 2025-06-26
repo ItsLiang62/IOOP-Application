@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Badr
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,7 +79,7 @@ namespace Foodle_Point_Management_System
                 string currentResponse = lvReservations.SelectedItems[0].SubItems[7].Text;
 
                 Send_Reply replyForm = new Send_Reply(ResvCoordinatorUser, reservationID, currentResponse);
-                replyForm.ShowDialog();
+                replyForm.Show();
                 LoadReservations();
             }
             else

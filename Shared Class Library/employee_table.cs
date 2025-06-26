@@ -1,6 +1,9 @@
-﻿using System;
+﻿// Wang Liang Xuan
+
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +38,7 @@ namespace Shared_Class_Library
                     cmd.Parameters.AddWithValue("@Gender", gender);
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                    cmd.Parameters.AddWithValue("@DOB", dob);
+                    cmd.Parameters.AddWithValue("@DOB", DateTime.ParseExact(dob, "d/M/yyyy", CultureInfo.InvariantCulture));
                     cmd.Parameters.AddWithValue("@AccountPassword", accountPassword);
 
                     cmd.ExecuteNonQuery();
@@ -213,7 +216,7 @@ namespace Shared_Class_Library
                     SELECT TOP 1 EmployeeID
                     FROM Employee 
                     WHERE Position = @Position
-                    ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID)-1) AS INT) DESC";
+                    ORDER BY CAST(SUBSTRING(EmployeeID, 2, LEN(EmployeeID) - 1) AS INT) DESC";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -257,13 +260,19 @@ namespace Shared_Class_Library
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    if (column == "DOB")
+                    {
+                        DateTime newDate = DateTime.ParseExact(newValue.ToString(), "d/M/yyyy", CultureInfo.InvariantCulture);
+                        cmd.Parameters.AddWithValue("@NewValue", newDate);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@NewValue", newValue);
+                    }
+                    
                     cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
 
-                    if (cmd.ExecuteNonQuery() == 0)
-                    {
-                        throw new Exception("Update failed. The entered EmployeeID or column name was not found.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

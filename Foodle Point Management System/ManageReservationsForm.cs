@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Adrian Liew Ren Qian
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,11 +11,12 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.Asn1.Cmp;
 using Shared_Class_Library;
 
 namespace Foodle_Point_Management_System
 {
-    public partial class ManageReservationsForm: Form
+    public partial class ManageReservationsForm : Form
     {
         private ResvCoordinator ResvCoordinatorUser
         { get; set; }
@@ -57,15 +60,15 @@ namespace Foodle_Point_Management_System
             {
                 var rowValues = reservationTable.GetRowValues(id.ToString());
 
-                ListViewItem item = new ListViewItem(rowValues[0].ToString()); 
-                item.SubItems.Add(rowValues[1].ToString()); 
-                item.SubItems.Add(rowValues[2].ToString()); 
-                item.SubItems.Add(rowValues[3].ToString()); 
-                item.SubItems.Add(rowValues[4].ToString()); 
-                item.SubItems.Add(rowValues[5].ToString()); 
-                item.SubItems.Add(rowValues[6].ToString()); 
-                item.SubItems.Add(rowValues[7]?.ToString() ?? ""); 
-                item.SubItems.Add(rowValues[8]?.ToString() ?? ""); 
+                ListViewItem item = new ListViewItem(rowValues[0].ToString());
+                item.SubItems.Add(rowValues[1].ToString());
+                item.SubItems.Add(rowValues[2].ToString());
+                item.SubItems.Add(rowValues[3].ToString());
+                item.SubItems.Add(rowValues[4].ToString());
+                item.SubItems.Add(rowValues[5].ToString());
+                item.SubItems.Add(rowValues[6].ToString());
+                item.SubItems.Add(rowValues[7]?.ToString() ?? "");
+                item.SubItems.Add(rowValues[8]?.ToString() ?? "");
 
                 lvReservations.Items.Add(item);
             }
@@ -191,6 +194,26 @@ namespace Foodle_Point_Management_System
         private void ManageReservationsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void lvReservations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvReservations.SelectedItems.Count == 0)
+            {
+                btnEdit.Visible = false;
+                return;
+            }
+
+            string status = lvReservations.SelectedItems[0].SubItems[6].Text;
+
+            if (status == "Completed" || status == "Rejected")
+            {
+                btnEdit.Visible = false;
+            }
+            else
+            {
+                btnEdit.Visible = true;
+            }
         }
     }
 }

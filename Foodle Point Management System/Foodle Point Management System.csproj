@@ -308,6 +308,12 @@
     <Compile Include="Edit_Reservation.Designer.cs">
       <DependentUpon>Edit_Reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageInventoryChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageInventoryChef.Designer.cs">
+      <DependentUpon>ManageInventoryChef.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="reserve halls.cs">
       <SubType>Form</SubType>
@@ -321,11 +327,23 @@
     <Compile Include="Send_Reply.Designer.cs">
       <DependentUpon>Send_Reply.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateOrdersChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOrdersChef.Designer.cs">
+      <DependentUpon>UpdateOrdersChef.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateProfile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateProfile.Designer.cs">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfileChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProfileChef.Designer.cs">
+      <DependentUpon>UpdateProfileChef.cs</DependentUpon>
     </Compile>
     <Compile Include="update_manager_profile.cs">
       <SubType>Form</SubType>
@@ -344,6 +362,12 @@
     </Compile>
     <Compile Include="ViewCustomerFeedback.Designer.cs">
       <DependentUpon>ViewCustomerFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrdersChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOrdersChef.Designer.cs">
+      <DependentUpon>ViewOrdersChef.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewOrdersForm.cs">
       <SubType>Form</SubType>
@@ -381,14 +405,23 @@
     <EmbeddedResource Include="Add_Reservation.resx">
       <DependentUpon>Add_Reservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageInventoryChef.resx">
+      <DependentUpon>ManageInventoryChef.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reserve halls.resx">
       <DependentUpon>reserve halls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Send_Reply.resx">
       <DependentUpon>Send_Reply.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateOrdersChef.resx">
+      <DependentUpon>UpdateOrdersChef.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateProfile.resx">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProfileChef.resx">
+      <DependentUpon>UpdateProfileChef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="update_manager_profile.resx">
       <DependentUpon>update_manager_profile.cs</DependentUpon>
@@ -455,21 +488,6 @@
     <EmbeddedResource Include="Resv_Main_Page.resx">
       <DependentUpon>Resv_Main_Page.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="OrderFood.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderFood.Designer.cs">
-      <DependentUpon>OrderFood.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="OrderFood.resx">
-      <DependentUpon>OrderFood.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="order food .cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="order food .Designer.cs">
-      <DependentUpon>order food .cs</DependentUpon>
-    </Compile>
     <Compile Include="UpdateProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -524,6 +542,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewOrdersChef.resx">
+      <DependentUpon>ViewOrdersChef.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewOrdersForm.resx">
       <DependentUpon>ViewOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -562,4 +583,3 @@
     <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
   </Target>
 </Project>
-<!-- This is a comment -->
